@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>本機聊天室</title>
+  <style>
+    :root { color-scheme: dark; font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: linear-gradient(135deg, #111827, #312e81); }
+    .chat { width: min(94vw, 720px); height: min(88vh, 760px); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #475569; border-radius: 20px; background: #0f172a; box-shadow: 0 24px 70px #020617aa; }
+    header { padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; background: #1e293b; }
+    h1 { margin: 0; font-size: 1.2rem; } .status { font-size: .82rem; color: #94a3b8; }
+    #messages { flex: 1; overflow-y: auto; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+    .message { max-width: 78%; padding: 11px 14px; border-radius: 16px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+    .speaker { display: block; margin-bottom: 3px; color: #cbd5e1; font-size: .72rem; font-weight: 700; }
+    .mine { align-self: flex-end; border-bottom-right-radius: 4px; background: #4f46e5; }
+    .theirs { align-self: flex-start; border-bottom-left-radius: 4px; background: #334155; }
+    .hint { margin: auto; color: #94a3b8; text-align: center; line-height: 1.65; }
+    .controls { padding: 14px; display: grid; gap: 10px; border-top: 1px solid #334155; background: #1e293b; }
+    .file-row { display: flex; gap: 10px; align-items: center; color: #cbd5e1; font-size: .87rem; }
+    input[type="file"] { max-width: 100%; } .compose { display: flex; gap: 10px; }
+    input[type="text"] { min-width: 0; flex: 1; padding: 12px 14px; border: 1px solid #475569; border-radius: 10px; color: #f8fafc; background: #0f172a; font: inherit; }
+    button { border: 0; border-radius: 10px; padding: 11px 16px; color: white; background: #4f46e5; cursor: pointer; font: inherit; font-weight: 700; }
+    button:hover:not(:disabled) { background: #6366f1; } button:disabled { cursor: not-allowed; opacity: .48; }
+    #next { align-self: flex-start; background: #0e7490; }
+  </style>
+</head>
+<body>
+  <main class="chat">
+    <header><h1 id="chatTitle">本機聊天室</h1><span id="status" class="status">請選取對方的 .txt 檔</span></header>
+    <section id="messages" aria-live="polite">
+      <p id="hint" class="hint">選取 <code>.txt</code> 檔後，檔案中的每一個非空白行<br>都會成為對方的一則訊息。</p>
+    </section>
+    <section class="controls">
+      <div class="file-row"><label for="textFile">對方訊息檔：</label><input id="textFile" type="file" accept=".txt,text/plain" /></div>
+      <button id="next" type="button" disabled>下一則</button>
+      <form id="sendForm" class="compose"><input id="messageInput" type="text" placeholder="輸入訊息…" autocomplete="off" /><button type="submit">傳送</button></form>
+    </section>
+  </main>
+  <script>
+    const messages = document.querySelector('#messages');
+    const hint = document.querySelector('#hint');
+    const chatTitle = document.querySelector('#chatTitle');
+    const fileInput = document.querySelector('#textFile');
+    const nextButton = document.querySelector('#next');
+    const status = document.querySelector('#status');
+    const form = document.querySelector('#sendForm');
+    const input = document.querySelector('#messageInput');
+    let replies = [], nextReply = 0, counterpart = '';
+
+    function addMessage(text, who, messageCounterpart = counterpart || '未指定對象') {
+      if (hint) hint.remove();
+      const bubble = document.createElement('div');
+      bubble.className = `message ${who}`;
+      const speaker = document.createElement('span');
+      speaker.className = 'speaker';
+      speaker.textContent = who === 'mine' ? '我' : messageCounterpart;
+      bubble.append(speaker, document.createTextNode(text));
+      messages.append(bubble);
+      messages.scrollTop = messages.scrollHeight;
+    }
+    function clearMessages() {
+      messages.replaceChildren();
+    }
+    async function saveMessage(text, sender) {
+      const response = await fetch('/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, sender, counterpart })
+      });
+      if (!response.ok) throw new Error('訊息同步失敗');
+    }
+    async function restoreChat(selectedCounterpart = '') {
+      try {
+        const query = selectedCounterpart ? `?counterpart=${encodeURIComponent(selectedCounterpart)}` : '';
+        const response = await fetch(`/api/chat${query}`);
+        if (!response.ok) throw new Error();
+        const chat = await response.json();
+        clearMessages();
+        chat.messages.forEach(message => addMessage(message.text, message.sender, message.counterpart));
+      } catch {
+        status.textContent = '請以 Python 伺服器開啟此頁面，才能使用 API';
+      }
+    }
+    function updateReplyState() {
+      const remaining = replies.length - nextReply;
+      nextButton.disabled = remaining === 0;
+      nextButton.textContent = remaining ? `下一則（剩 ${remaining} 則）` : '沒有更多訊息';
+      status.textContent = replies.length ? `已載入 ${replies.length} 則對方訊息` : '訊息檔沒有可顯示的內容';
+    }
+    fileInput.addEventListener('change', async () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+      const content = await file.text();
+      counterpart = file.name.replace(/\.txt$/i, '') || file.name;
+      chatTitle.textContent = `與 ${counterpart} 聊天`;
+      replies = content.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+      nextReply = 0;
+      await restoreChat(counterpart);
+      updateReplyState();
+    });
+    nextButton.addEventListener('click', async () => {
+      if (nextReply >= replies.length) return;
+      const text = replies[nextReply++];
+      try {
+        await saveMessage(text, 'theirs');
+        addMessage(text, 'theirs', counterpart);
+      } catch {
+        nextReply--;
+        status.textContent = '無法同步訊息，請確認伺服器已啟動';
+      }
+      updateReplyState();
+    });
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      if (!counterpart) {
+        status.textContent = '請先選取對方的 .txt 檔案';
+        return;
+      }
+      try {
+        await saveMessage(text, 'mine');
+        addMessage(text, 'mine', counterpart);
+        input.value = '';
+        input.focus();
+      } catch {
+        status.textContent = '無法同步訊息，請確認伺服器已啟動';
+      }
+    });
+    restoreChat();
+  </script>
+</body>
+</html>

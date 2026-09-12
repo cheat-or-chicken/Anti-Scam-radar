@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "text": "你好，我是陳老師，最近有在分享一些投資資訊，你平常有關注股票嗎？",
+    "sender": "theirs",
+    "counterpart": "colten",
+    "createdAt": "2026-09-12T03:28:56.572642+00:00"
+  },
+  {
+    "id": 2,
+    "text": "123123",
+    "sender": "mine",
+    "counterpart": "colten",
+    "createdAt": "2026-09-12T03:29:05.102991+00:00"
+  },
+  {
+    "id": 3,
+    "text": "其實最近市場波動蠻大的，很多人沒有時間研究，所以我會整理一些比較簡單的市場資訊給大家參考。",
+    "sender": "theirs",
+    "counterpart": "colten",
+    "createdAt": "2026-09-12T03:29:06.848196+00:00"
+  },
+  {
+    "id": 4,
+    "text": "我自己做投資很多年了，最近也帶了一些朋友一起研究。",
+    "sender": "theirs",
+    "counterpart": "colten",
+    "createdAt": "2026-09-12T03:29:07.227100+00:00"
+  },
+  {
+    "id": 5,
+    "text": "如果你有興趣的話，可以先進我們的交流群看看，不需要你馬上投資。",
+    "sender": "theirs",
+    "counterpart": "colten",
+    "createdAt": "2026-09-12T03:29:07.988056+00:00"
+  },
+  {
+    "id": 6,
+    "text": "您好，這裡是 XX 購物平台客服，請問是王先生嗎？",
+    "sender": "theirs",
+    "counterpart": "milk",
+    "createdAt": "2026-09-12T03:29:20.674844+00:00"
+  },
+  {
+    "id": 7,
+    "text": "我們這邊發現您昨天的訂單有一筆異常，系統可能不小心將您的訂單設定成「重複扣款」。",
+    "sender": "theirs",
+    "counterpart": "milk",
+    "createdAt": "2026-09-12T03:29:21.685320+00:00"
+  }
+]
