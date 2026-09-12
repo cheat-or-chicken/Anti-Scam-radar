@@ -61,7 +61,14 @@ class Download(Model):
         return value
 
 
+class JourneyStep(Model):
+    signals: list[str] = Field(default_factory=list, max_length=20)
+    sensitive_field_count: int = Field(default=0, ge=0, le=100)
+    domain_changed: bool = False
+
+
 class PageContext(Model):
+    journey: list[JourneyStep] = Field(default_factory=list, max_length=8)
     dom_collected: bool = False
     url: str = Field(max_length=8192)
     title: str = Field(default="", max_length=1000)
@@ -115,6 +122,7 @@ class Decision(Model):
 
 
 class Analysis(Model):
+    workflow: dict = Field(default_factory=dict)
     schema_version: str = "1.0"
     gate: str
     layers: list[LayerResult]

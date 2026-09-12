@@ -19,6 +19,7 @@
     L15: "\u96B1\u85CF\u6307\u4EE4\u8207\u5EF6\u9072\u6B04\u4F4D",
     L16: "\u672C\u6A5F\u56DE\u5831\u8CC7\u6599",
     BLOCKLIST: "\u901A\u5831\u540D\u55AE",
+    WORKFLOW: "AI \u60C5\u5883\u8207\u8B49\u64DA\u5224\u65B7",
     VISION: "\u622A\u5716 AI \u5206\u6790",
     GOOGLE_URL_REPUTATION: "Google \u7DB2\u5740\u4FE1\u8B7D"
   };
@@ -58,12 +59,13 @@
   function render(state, supported = true, enabled = true) {
     const result = state?.result;
     const score = result?.decision.risk_score || 0;
+    const warned = score > 0 || ["banner", "block"].includes(result?.decision?.display_level);
     document.body.classList.toggle("danger", score >= 80 && enabled);
-    document.body.classList.toggle("amber", score > 0 && score < 80 && enabled);
+    document.body.classList.toggle("amber", warned && score < 80 && enabled);
     document.body.classList.toggle("paused", !enabled);
     $("enabled").checked = enabled;
     $("protection-label").textContent = enabled ? "\u4E3B\u52D5\u5075\u6E2C\u4E2D" : "\u9632\u8B77\u5DF2\u66AB\u505C";
-    $("headline").textContent = !enabled ? "\u9632\u8B77\u5DF2\u66AB\u505C" : !supported ? "\u9019\u500B\u9801\u9762\u7121\u6CD5\u6AA2\u67E5" : !result ? "\u6B63\u5728\u67E5\u770B\u9019\u500B\u9801\u9762" : score >= 80 ? "\u5148\u505C\u4E00\u4E0B\uFF0C\u78BA\u8A8D\u4F86\u6E90" : score > 0 ? "\u591A\u78BA\u8A8D\u4E00\u6B65\uFF0C\u66F4\u5B89\u5FC3" : result.layers?.find((l) => l.layer === "L3")?.status !== "ok" ? "\u5167\u5BB9\u4E0D\u8DB3\uFF0C\u5C1A\u7121\u6CD5\u78BA\u8A8D" : "\u76EE\u524D\u672A\u767C\u73FE\u8B66\u8A0A";
+    $("headline").textContent = !enabled ? "\u9632\u8B77\u5DF2\u66AB\u505C" : !supported ? "\u9019\u500B\u9801\u9762\u7121\u6CD5\u6AA2\u67E5" : !result ? "\u6B63\u5728\u67E5\u770B\u9019\u500B\u9801\u9762" : score >= 80 ? "\u5148\u505C\u4E00\u4E0B\uFF0C\u78BA\u8A8D\u4F86\u6E90" : warned ? "\u591A\u78BA\u8A8D\u4E00\u6B65\uFF0C\u66F4\u5B89\u5FC3" : result.layers?.find((l) => l.layer === "L3")?.status !== "ok" ? "\u5167\u5BB9\u4E0D\u8DB3\uFF0C\u5C1A\u7121\u6CD5\u78BA\u8A8D" : "\u76EE\u524D\u672A\u767C\u73FE\u8B66\u8A0A";
     $("description").textContent = !enabled ? "\u91CD\u65B0\u958B\u555F\u9632\u8B77\uFF0C\u7E7C\u7E8C\u5B88\u8B77\u6BCF\u6B21\u700F\u89BD\u3002" : !supported ? "\u700F\u89BD\u5668\u8A2D\u5B9A\u3001\u65B0\u5206\u9801\u53CA\u5546\u5E97\u9801\u9762\u4E0D\u958B\u653E\u5167\u5BB9\u6AA2\u67E5\u3002" : (result?.decision.category && result.decision.category !== "\u672A\u5206\u985E" ? result.decision.category + "\u3002" : "") + "\u4F9D\u76EE\u524D\u53D6\u5F97\u7684\u8CC7\u6599\u5224\u65B7\uFF0C\u4E0D\u4EE3\u8868\u7DB2\u7AD9\u5DF2\u78BA\u8A8D\u5B89\u5168\u3002";
     try {
       $("hostname").textContent = new URL(state.url).hostname;
@@ -183,6 +185,7 @@
         LLM_DISABLED: "\u8ACB\u5148\u5728\u8A2D\u5B9A\u958B\u555F AI \u8F14\u52A9\u5BE9\u67E5\u3002",
         PROTECTION_DISABLED: "\u8ACB\u5148\u958B\u555F\u9632\u8B77\u529F\u80FD\u3002",
         PAGE_NOT_READY: "\u9801\u9762\u8CC7\u6599\u5C1A\u672A\u6E96\u5099\u597D\uFF0C\u8ACB\u7A0D\u5F8C\u518D\u8A66\u3002",
+        SCREENSHOT_DISABLED: "\u622A\u5716\u529F\u80FD\u5DF2\u95DC\u9589\uFF0C\u53EF\u5230\u8A2D\u5B9A\u91CD\u65B0\u958B\u555F\u3002",
         SCREENSHOT_TOO_LARGE: "\u622A\u5716\u8D85\u904E 5 MB\uFF0C\u7121\u6CD5\u4E0A\u50B3\u3002"
       };
       $("backend-status").textContent = messages[error.message] || "\u622A\u5716\u5206\u6790\u5931\u6557\uFF0C\u8ACB\u78BA\u8A8D\u672C\u6A5F\u5F8C\u7AEF\u6B63\u5728\u57F7\u884C\u3002";

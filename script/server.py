@@ -36,6 +36,12 @@ MAX_REQUEST_BYTES = 7_000_000
 MAX_SCREENSHOT_BASE64_CHARS = ((MAX_SCREENSHOT_BYTES + 2) // 3) * 4
 
 
+class DiagnosisRequest(Model):
+    audit_id: str = Field(min_length=32, max_length=32, pattern="^[a-f0-9]+$")
+    confirmed_label: Literal["scam", "legitimate"]
+    reviewed: bool = False
+
+
 class SiteCheckRequest(Model):
     context: PageContext
 
@@ -115,6 +121,7 @@ def create_app(settings: Settings, token: str) -> FastAPI:
             "/v1/verify-brand",
             "/v1/analyze-semantics",
             "/v1/indicators",
+            "/v1/diagnose",
         }
         route = request.url.path if request.url.path in routes else "unknown_route"
         try:
@@ -265,6 +272,28 @@ def create_app(settings: Settings, token: str) -> FastAPI:
     @app.post("/v1/analyze-semantics")
     async def semantics_endpoint(payload: SiteCheckRequest):
         return await site_check(payload, analyze_semantics)
+
+    @app.post("/v1/diagnose")
+    async def diagnose_endpoint(payload: DiagnosisRequest):
+        if not payload.reviewed:
+            raise HTTPException(422, "human_confirmation_required")
+        if not settings.allow_content_upload or not settings.llm_enabled:
+            raise HTTPException(409, "llm_disabled")
+        from script.storage import Store
+        from script.workflow import diagnose
+
+        async with budget():
+            try:
+                prior = Store(settings.database_path).replay(payload.audit_id)
+            except (KeyError, TypeError):
+                raise HTTPException(404, "audit_not_found") from None
+            llm = LLM(settings)
+            try:
+                return await diagnose(prior, payload.confirmed_label, llm)
+            except Exception:
+                raise HTTPException(502, "diagnosis_unavailable") from None
+            finally:
+                await llm.close()
 
     @app.post("/v1/indicators")
     async def indicator_endpoint(payload: IndicatorRequest):

@@ -1,4 +1,17 @@
 (() => {
+  // src/journey.js
+  function updateJourney(previous, context, analysis, domain, now = Date.now()) {
+    const valid = previous && now - previous.time < 15 * 60 * 1e3;
+    const steps = valid ? [...previous.steps] : [];
+    const step = {
+      signals: [...new Set((analysis.layers || []).flatMap((l) => (l.signals || []).map((s) => s.id)))].slice(0, 20),
+      sensitive_field_count: context.sensitive_fields?.length || 0,
+      domain_changed: !!valid && previous.domain !== domain
+    };
+    if (JSON.stringify(steps.at(-1)) !== JSON.stringify(step)) steps.push(step);
+    return { time: now, domain, steps: steps.slice(-8) };
+  }
+
   // ../script/data/risk_messages.json
   var risk_messages_default = {
     credential_relay_request: "\u9019\u500B\u9801\u9762\u8981\u4F60\u628A\u5BC6\u78BC\u6216\u7C21\u8A0A\u9A57\u8B49\u78BC\u4EA4\u7D66\u5225\u4EBA\u3002\u6B63\u5E38\u767B\u5165\u662F\u7531\u4F60\u5728\u78BA\u8A8D\u904E\u7684\u5B98\u65B9\u9801\u9762\u8F38\u5165\uFF0C\u5BA2\u670D\u4E0D\u9700\u8981\u4EE3\u6536\u9A57\u8B49\u78BC\uFF1B\u5148\u4E0D\u8981\u63D0\u4F9B\u3002",
@@ -1186,14 +1199,50 @@
     for (const layer of remote.layers || []) {
       if (!layers.some((existing) => existing.layer === layer.layer)) layers.push(layer);
     }
+    const decision = adjudicate(url, layers);
+    if (remote.workflow?.status === "ok") {
+      const accepted = remote.workflow.accepted_action;
+      if (["warn", "pause_sensitive_action", "block"].includes(accepted)) {
+        if (decision.display_level === "icon") decision.display_level = "banner";
+        decision.reasons = [.../* @__PURE__ */ new Set([...decision.reasons, ...remote.decision?.reasons || []])];
+      }
+      if (accepted === "pause_sensitive_action" && !decision.trusted_domain)
+        decision.interrupt_triggers = [.../* @__PURE__ */ new Set([...decision.interrupt_triggers, ...TRIGGERS])];
+    }
     return {
       ...local,
+      workflow: remote.workflow,
       layers,
-      decision: adjudicate(url, layers),
+      decision,
       source: "backend",
       backend: "connected",
       checkedAt: Date.now()
     };
+  }
+
+  // ../script/data/privacy_patterns.json
+  var privacy_patterns_default = [
+    { pattern: "(?:sk-(?:proj-)?[A-Za-z0-9_-]{16,}|AIza[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{20,})", replacement: "[API_TOKEN]" },
+    { pattern: "Bearer\\s+[A-Za-z0-9._~+/-]+=*", replacement: "[BEARER_TOKEN]" },
+    { pattern: `["']?(?:password|passwd|api[_-]?key|access[_-]?token|refresh[_-]?token|secret|\u5BC6\u78BC)["']?\\s*[:=\uFF1A]\\s*(?:"[^"]*"|'[^']*'|[^\\s,;<>}]+)`, replacement: "[SECRET]" },
+    { pattern: "[A-Za-z0-9_.+%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}", replacement: "[EMAIL]" },
+    { pattern: "(?<![A-Za-z0-9])[A-Z][12][0-9]{8}(?![A-Za-z0-9])", replacement: "[ID_NUMBER]" },
+    { pattern: "(?<![A-Za-z0-9])(?:\\+?[0-9][0-9 ()-]{4,}[0-9])(?![A-Za-z0-9])", replacement: "[SENSITIVE_NUMBER]" }
+  ];
+
+  // src/privacy.js
+  var rules = privacy_patterns_default.map(({ pattern, replacement }) => [new RegExp(pattern, "gi"), replacement]);
+  function redactText(text) {
+    return rules.reduce((value, [pattern, replacement]) => value.replace(pattern, replacement), text);
+  }
+  function redactPayload(body) {
+    if (!body?.context) return body;
+    const context = { ...body.context };
+    for (const field of ["title", "text", "html", "hidden_text", "claimed_brand"])
+      if (typeof context[field] === "string") context[field] = redactText(context[field]);
+    for (const field of ["scripts", "probe_texts", "qr_payloads"])
+      if (Array.isArray(context[field])) context[field] = context[field].map((item) => typeof item === "string" ? redactText(item) : item);
+    return { ...body, context };
   }
 
   // src/api.js
@@ -1205,7 +1254,7 @@
         ...body ? { "Content-Type": "application/json" } : {},
         ...token ? { Authorization: "Bearer " + token } : {}
       },
-      body: body ? JSON.stringify(body) : void 0,
+      body: body ? JSON.stringify(redactPayload(body)) : void 0,
       credentials: "omit",
       cache: "no-store",
       redirect: "error",
@@ -1242,14 +1291,11 @@
     await ready;
     settingsMigration ||= (async () => {
       const saved = (await chrome.storage.local.get("settings")).settings || {};
-      if (saved.featuresVersion !== 3) {
+      if (saved.featuresVersion !== 5) {
         await chrome.storage.local.set({ settings: {
           ...DEFAULTS,
           ...saved,
-          backendEnabled: true,
-          llmEnabled: true,
-          screenshotEnabled: true,
-          featuresVersion: 3
+          featuresVersion: 5
         } });
       }
     })();
@@ -1298,7 +1344,7 @@
     return !!item && item.url === url && item.expires > Date.now();
   }
   async function badge(tabId, result, enabled = true) {
-    const score = result?.decision.risk_score || 0;
+    const score = result?.decision.risk_score || (["banner", "block"].includes(result?.decision?.display_level) ? 1 : 0);
     await ignored(
       chrome.action.setBadgeText({
         tabId,
@@ -1410,6 +1456,11 @@
       ctx.previous_sensitive_fields = previous.fields;
     const jobId = crypto.randomUUID();
     const local = analyzeLocal(ctx, await ready);
+    const journeyKey = `journey:${id}`;
+    const history = (await chrome.storage.session.get(journeyKey))[journeyKey];
+    const journey = updateJourney(history, ctx, local, new URL(sender.url).hostname);
+    ctx.journey = journey.steps;
+    if (!sender.tab.incognito) await chrome.storage.session.set({ [journeyKey]: journey });
     const state = {
       originalUrl: sender.url,
       url: publicURL(sender.url),
@@ -1543,7 +1594,7 @@
       (async () => {
         const all = await chrome.storage.session.get(null);
         const names = Object.keys(all).filter(
-          (k) => k === key(id) || k === `allow:${id}` || k === `backend:${id}` || k === `redirect:${id}` || k.startsWith("warning:") && all[k].tabId === id
+          (k) => k === key(id) || k === `allow:${id}` || k === `backend:${id}` || k === `redirect:${id}` || k === `journey:${id}` || k.startsWith("warning:") && all[k].tabId === id
         );
         await chrome.storage.session.remove(names);
       })()
@@ -1599,6 +1650,7 @@
     if (!options.enabled) throw Error("PROTECTION_DISABLED");
     if (!options.backendEnabled || !options.pairingToken) throw Error("BACKEND_DISABLED");
     if (!options.llmEnabled) throw Error("LLM_DISABLED");
+    if (!options.screenshotEnabled) throw Error("SCREENSHOT_DISABLED");
     const tab = await active();
     if (!tab?.id || tab.windowId === void 0) throw Error("NO_TAB");
     parseURL(tab.url);
@@ -1766,7 +1818,8 @@
           "BACKEND_DISABLED",
           "LLM_DISABLED",
           "PAGE_NOT_READY",
-          "SCREENSHOT_TOO_LARGE"
+          "SCREENSHOT_TOO_LARGE",
+          "SCREENSHOT_DISABLED"
         ].includes(error.message) ? error.message : "UNAVAILABLE"
       })
     );
