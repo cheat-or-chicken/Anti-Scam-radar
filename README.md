@@ -1,5 +1,19 @@
 # Anti-Scam Radar
 
+## Google URL reputation (optional)
+
+The extension can additionally ask Google about the current URL only. It never sends the page snapshot, screenshot, form values, or the Google key to Chrome. Add this to the ignored `config/config.local.json` (or set `GOOGLE_URL_REPUTATION_API_KEY` in the environment):
+
+```json
+{
+  "network_enabled": true,
+  "google_url_reputation_provider": "web_risk",
+  "google_url_reputation_api_key": "your-Google-API-key"
+}
+```
+
+Choose `safe_browsing` instead of `web_risk` only when its non-commercial terms fit the deployment. The popup reports `Google URL 信譽：ok`, `skipped`, or `error`; an `ok` lookup with a reported threat contributes observed evidence to the risk score.
+
 台灣防詐驗證腳本。提供 L0–L17 的 function 入口、CLI、政府機關冒用偵測、受控行為證據判讀、L7 LLM 靜態程式碼審查、查證工具、SQLite 稽核與合成評估集。這一版是可執行的分析核心，尚未包含 Chrome 擴充功能或公開 HTTP 服務。
 
 ## 執行

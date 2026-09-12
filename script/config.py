@@ -1,6 +1,7 @@
 import json
 import os
 from pathlib import Path
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field, SecretStr
 
@@ -14,6 +15,8 @@ class Settings(BaseModel):
     llm_enabled: bool = False
     allow_content_upload: bool = False
     network_enabled: bool = False
+    google_url_reputation_provider: Literal["none", "safe_browsing", "web_risk"] = "none"
+    google_url_reputation_api_key: SecretStr = SecretStr("")
     timeout_seconds: float = Field(default=12, ge=1, le=60)
     screenshot_timeout_seconds: float = Field(default=15, ge=1, le=60)
     max_llm_calls: int = Field(default=6, ge=0, le=20)
@@ -28,4 +31,6 @@ class Settings(BaseModel):
         data = json.loads(Path(path).read_text(encoding="utf-8")) if Path(path).exists() else {}
         if os.getenv("OPENAI_API_KEY"):
             data["api_key"] = os.environ["OPENAI_API_KEY"]
+        if os.getenv("GOOGLE_URL_REPUTATION_API_KEY"):
+            data["google_url_reputation_api_key"] = os.environ["GOOGLE_URL_REPUTATION_API_KEY"]
         return cls.model_validate(data)

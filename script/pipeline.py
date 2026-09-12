@@ -77,6 +77,10 @@ async def analyze(
             if data.get("status") == "ok":
                 ctx = ctx.model_copy(update={"domain_age_days": data["domain_age_days"]})
                 layers[5] = await run("L5", REGISTRY["L5"])
+        if settings.google_url_reputation_provider != "none":
+            from script.google_reputation import GoogleUrlReputation
+
+            layers.append(await GoogleUrlReputation(settings, tools.fetcher).check(ctx))
         if screenshot is not None:
             from script.vision import analyze_screenshot, unavailable
 

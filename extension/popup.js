@@ -18,6 +18,8 @@ function showResult(analysis) {
   }
   const vision = (analysis.layers || []).find((layer) => layer.layer === "VISION");
   meta.textContent = `LLM 呼叫：${analysis.llm_calls ?? 0}${vision ? `；截圖分析：${vision.status}` : ""}`;
+  const google = (analysis.layers || []).find((layer) => layer.layer === "GOOGLE_URL_REPUTATION");
+  if (google) meta.textContent += `；Google URL 信譽：${google.status}`;
   result.hidden = false;
 }
 
