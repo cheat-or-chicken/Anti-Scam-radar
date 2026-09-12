@@ -13,7 +13,12 @@ from script.tools import VerificationTools
 
 
 async def analyze(
-    ctx: PageContext, settings: Settings | None = None, *, deep: bool = False, detectors: list | None = None
+    ctx: PageContext,
+    settings: Settings | None = None,
+    *,
+    deep: bool = False,
+    detectors: list | None = None,
+    screenshot: bytes | None = None,
 ) -> Analysis:
     settings = settings or Settings()
     store = None
@@ -77,6 +82,17 @@ async def analyze(
             if data.get("status") == "ok":
                 ctx = ctx.model_copy(update={"domain_age_days": data["domain_age_days"]})
                 layers[5] = await run("L5", REGISTRY["L5"])
+        if settings.google_url_reputation_provider != "none":
+            from script.google_reputation import GoogleUrlReputation
+
+            layers.append(await GoogleUrlReputation(settings, tools.fetcher).check(ctx))
+        if screenshot is not None:
+            from script.vision import analyze_screenshot, unavailable
+
+            if settings.llm_enabled and gate_value != "skip":
+                layers.append(await analyze_screenshot(ctx, screenshot, llm))
+            else:
+                layers.append(unavailable("LLM 未啟用或此網站略過 LLM 視覺分析。", status="skipped"))
         if settings.llm_enabled and gate_value != "skip":
             # Reserve budget deterministically; fan out only the selected semantic tasks.
             priorities = ["L7", "L2", "L3", "L1", "L15", "L9"]

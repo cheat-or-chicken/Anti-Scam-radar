@@ -163,6 +163,31 @@
     await send({ type: "CHECK_SITE", source: "current" }).catch(() => null);
     await init();
   };
+  $("screenshot").onclick = async () => {
+    if (!confirm(
+      "\u5C07\u622A\u53D6\u76EE\u524D\u5206\u9801\u7684\u53EF\u898B\u756B\u9762\u4E26\u50B3\u5230\u672C\u6A5F\u5F8C\u7AEF\uFF1B\u5F8C\u7AEF\u6703\u4F9D\u8A2D\u5B9A\u50B3\u7D66 AI \u5206\u6790\u3002\u756B\u9762\u53EF\u80FD\u542B\u6709\u654F\u611F\u8CC7\u6599\u3002\u8981\u7E7C\u7E8C\u55CE\uFF1F"
+    ))
+      return;
+    $("screenshot").disabled = true;
+    $("backend-status").textContent = "\u6B63\u5728\u622A\u53D6\u756B\u9762\u4E26\u8ACB AI \u5206\u6790\u2026";
+    try {
+      const data = await send({ type: "ANALYZE_SCREENSHOT" });
+      if (data.error) throw Error(data.error);
+      $("backend-status").textContent = data.vision === "ok" ? "\u622A\u5716\u5206\u6790\u5B8C\u6210\u3002" : "\u622A\u5716\u5DF2\u9001\u5230\u5F8C\u7AEF\uFF0C\u4F46 AI \u5206\u6790\u672A\u57F7\u884C\uFF1B\u8ACB\u78BA\u8A8D\u5F8C\u7AEF\u7684 LLM \u8207\u5167\u5BB9\u4E0A\u50B3\u8A2D\u5B9A\u3002";
+      await init();
+    } catch (error) {
+      const messages = {
+        BACKEND_DISABLED: "\u8ACB\u5148\u5728\u8A2D\u5B9A\u9023\u63A5\u672C\u6A5F\u5F8C\u7AEF\u4E26\u5B8C\u6210\u914D\u5C0D\u3002",
+        LLM_DISABLED: "\u8ACB\u5148\u5728\u8A2D\u5B9A\u958B\u555F AI \u8F14\u52A9\u5BE9\u67E5\u3002",
+        PROTECTION_DISABLED: "\u8ACB\u5148\u958B\u555F\u9632\u8B77\u529F\u80FD\u3002",
+        PAGE_NOT_READY: "\u9801\u9762\u8CC7\u6599\u5C1A\u672A\u6E96\u5099\u597D\uFF0C\u8ACB\u7A0D\u5F8C\u518D\u8A66\u3002",
+        SCREENSHOT_TOO_LARGE: "\u622A\u5716\u8D85\u904E 5 MB\uFF0C\u7121\u6CD5\u4E0A\u50B3\u3002"
+      };
+      $("backend-status").textContent = messages[error.message] || "\u622A\u5716\u5206\u6790\u5931\u6557\uFF0C\u8ACB\u78BA\u8A8D\u672C\u6A5F\u5F8C\u7AEF\u6B63\u5728\u57F7\u884C\u3002";
+    } finally {
+      $("screenshot").disabled = false;
+    }
+  };
   $("scan-form").onsubmit = async (e) => {
     e.preventDefault();
     $("scan").disabled = true;

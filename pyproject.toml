@@ -20,6 +20,7 @@ dev = [
     "ruff>=0.11,<1",
 ]
 images = ["Pillow>=11,<13", "zxing-cpp>=2.2,<4", "pytesseract>=0.3.13,<1"]
+browser = ["playwright>=1.52,<2"]
 
 [project.scripts]
 scam-radar = "script.cli:main"

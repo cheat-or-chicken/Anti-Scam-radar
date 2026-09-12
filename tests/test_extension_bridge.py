@@ -1,10 +1,12 @@
+import base64
+
 import httpx
 import pytest
 
 from script.blocklist import Blocklist, digit_skeleton, verify_blocklist
 from script.config import Settings
 from script.models import PageContext
-from script.server import create_app
+from script.server import MAX_REQUEST_BYTES, create_app
 
 TOKEN = "test-pairing-token-" + "a" * 32
 
@@ -43,7 +45,9 @@ async def test_backend_pairing_origin_and_validation(app):
         assert (
             await client.post("/v1/analyze", headers=headers, json={"context": {"url": "file:///etc/passwd"}})
         ).status_code == 422
-        assert (await client.post("/v1/analyze", headers=headers, content="x" * 1000001)).status_code == 413
+        assert (
+            await client.post("/v1/analyze", headers=headers, content="x" * (MAX_REQUEST_BYTES + 1))
+        ).status_code == 413
         response = await client.post(
             "/v1/analyze",
             headers=headers,
@@ -59,6 +63,36 @@ async def test_backend_pairing_origin_and_validation(app):
         assert response.status_code == 200
         assert response.json()["decision"]["risk_score"] == 0
         assert len(response.json()["layers"]) == 19
+
+
+async def test_paired_extension_can_submit_a_bounded_jpeg_screenshot(app):
+    async with httpx.AsyncClient(
+        transport=httpx.ASGITransport(app=app), base_url="http://127.0.0.1:8765"
+    ) as client:
+        screenshot = base64.b64encode(b"\xff\xd8\xffjpeg").decode("ascii")
+        response = await client.post(
+            "/v1/analyze",
+            headers={"Authorization": "Bearer " + TOKEN},
+            json={"context": {"url": "https://example.com"}, "screenshot": screenshot},
+        )
+
+    assert response.status_code == 200
+    layers = {layer["layer"]: layer for layer in response.json()["layers"]}
+    assert layers["VISION"]["status"] == "skipped"
+    assert screenshot not in response.text
+
+
+async def test_paired_extension_rejects_invalid_screenshot_encoding(app):
+    async with httpx.AsyncClient(
+        transport=httpx.ASGITransport(app=app), base_url="http://127.0.0.1:8765"
+    ) as client:
+        response = await client.post(
+            "/v1/analyze",
+            headers={"Authorization": "Bearer " + TOKEN},
+            json={"context": {"url": "https://example.com"}, "screenshot": "not-base64"},
+        )
+
+    assert response.status_code == 422
 
 
 async def test_manual_url_network_disabled(app):
