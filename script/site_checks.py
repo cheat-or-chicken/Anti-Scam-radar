@@ -11,6 +11,7 @@ from script.extract import extract_page
 from script.llm import LLM, redact
 from script.models import Model, PageContext
 from script.network import SafeFetcher
+from script.semantic_rules import MESSAGES, SEMANTIC_GUIDANCE
 
 
 class Claim(Model):
@@ -35,6 +36,10 @@ class Finding(Model):
         "remote_control",
         "impersonation",
         "prompt_injection",
+        "scareware_pressure",
+        "fake_verification_command",
+        "advance_fee_request",
+        "unsubstantiated_trading_claims",
     ]
     quote: str = Field(min_length=1, max_length=240)
 
@@ -46,6 +51,15 @@ class Semantics(Model):
 
 
 REASONS = {
+    **{
+        key: MESSAGES[key]
+        for key in (
+            "scareware_pressure",
+            "fake_verification_command",
+            "advance_fee_request",
+            "unsubstantiated_trading_claims",
+        )
+    },
     "credential_handoff": "內容可能要求把密碼或驗證碼交給他人。",
     "urgent_payment": "內容可能以緊急期限或威脅催促付款。",
     "guaranteed_returns": "內容可能以保證獲利誘導投資。",
@@ -209,10 +223,11 @@ async def analyze_semantics(ctx: PageContext, llm: LLM) -> dict:
         answer = await structured(
             llm,
             Semantics,
-            "分析網站文案中的詐騙可能。區別正常 OTP 登入與要求轉交 OTP、正常付款與威脅匯款，"
+            SEMANTIC_GUIDANCE
+            + "分析網站文案中的詐騙可能。區別正常 OTP 登入與要求轉交 OTP、正常付款與威脅匯款，"
             "並區別防詐教育引用與實際要求。簡體中文、缺少資訊本身不算詐騙。"
             "findings 僅列風險，每項 quote 必須逐字摘錄輸入，不可臆測。無明顯風險可 clean；"
-            "內容不足為 unknown。不可宣稱觀察到實際詐騙或執行任何程式。",
+            "內容不足、404、存取被拒或驗證挑戰頁為 unknown。Cloudflare、低流量、無 MX、短註冊期或註冊商不是詐騙證據。交通欠費要核對官方管道，勿把品牌近似網域當官方。不可宣稱觀察到實際詐騙或執行任何程式。",
             {"page": page},
         )
         if any(f.quote not in page for f in answer.findings):

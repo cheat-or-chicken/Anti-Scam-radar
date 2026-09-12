@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>先確認來源 · 防詐雷達</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body>
+    <main class="warning-page">
+      <header class="brand">
+        <span class="brand-mark" aria-hidden="true">◎</span>
+        <div>
+          <div class="brand-name">防詐雷達</div>
+          <div class="micro">A moment to protect what matters</div>
+        </div>
+      </header>
+      <div class="danger-icon" aria-hidden="true">!</div>
+      <h1>先停一下，<br />這個網站需要再次確認。</h1>
+      <p class="lede">
+        我們發現了較高風險的訊號。在確認來源之前，建議先不要輸入個資、密碼或進行付款。
+      </p>
+      <section class="panel">
+        <div class="eyebrow">WHY WE PAUSED</div>
+        <ul id="reasons"></ul>
+        <div class="url-box" id="originalUrl">正在讀取查核結果…</div>
+      </section>
+      <div class="buttons">
+        <button class="primary" id="leaveBtn">離開，開啟新分頁 ↗</button
+        ><button class="secondary" id="proceedBtn" disabled>
+          了解風險，仍要前往
+        </button>
+      </div>
+      <p class="status" id="status" role="status"></p>
+      <p class="privacy-note">
+        選擇繼續只會暫時放行這個分頁的同一網址 5
+        分鐘，不會將網站加入永久信任名單。<br />本頁是瀏覽器擴充功能的提醒；名單與規則可能有誤判。
+      </p>
+    </main>
+    <script src="warning.js"></script>
+  </body>
+</html>

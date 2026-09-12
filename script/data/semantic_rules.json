@@ -1,0 +1,38 @@
+[
+  {
+    "id": "scareware_pressure",
+    "weight": 40,
+    "patterns": [
+      "中毒|感染病毒|病毒入侵|裝置.{0,5}受損|device.{0,15}infected|virus.{0,15}detected",
+      "立即|馬上|倒數|immediately|urgent",
+      "下載|安裝|撥打|致電|聯絡客服|install|download|call"
+    ]
+  },
+  {
+    "id": "fake_verification_command",
+    "weight": 50,
+    "patterns": [
+      "驗證|機器人|verify|captcha",
+      "Win.{0,8}R|Windows.{0,8}R|PowerShell|終端機|執行視窗",
+      "貼上|執行指令|Ctrl.{0,5}V|paste|run command"
+    ]
+  },
+  {
+    "id": "advance_fee_request",
+    "weight": 40,
+    "patterns": [
+      "提領|提現|領獎|解凍|withdraw|prize",
+      "先.{0,15}(繳|付|充值|儲值|匯款)|支付.{0,10}(保證金|稅金|解凍費)|pay.{0,15}(fee|tax|deposit)"
+    ]
+  },
+  {
+    "id": "unsubstantiated_trading_claims",
+    "weight": 20,
+    "scope": "page",
+    "patterns": [
+      "交易平台|交易平臺|投資平台|投资平台|trading platform|Handelsplattform",
+      "(?:[2-9]|[1-9][0-9]+)\\s*(?:倍|x)\\s*.{0,40}(?:成長|增长|增長|growth|Wachstum)|(?:成長|增长|增長|growth|Wachstum).{0,40}(?:[2-9]|[1-9][0-9]+)\\s*(?:倍|x)",
+      "(?:9[0-9]|100)\\s*%.{0,40}(?:可靠|可靠性|成功率|reliability|success|Verlässlichkeit)"
+    ]
+  }
+]

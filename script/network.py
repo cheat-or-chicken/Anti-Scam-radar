@@ -80,6 +80,15 @@ class SafeFetcher:
                     "url": url,
                     "redirects": redirects,
                     "text": body.decode("utf-8", errors="replace"),
+                    "security_headers": {
+                        name: response.getheader(name)
+                        for name in (
+                            "Content-Security-Policy",
+                            "Strict-Transport-Security",
+                            "X-Content-Type-Options",
+                            "Referrer-Policy",
+                        )
+                    },
                     "content_type": response.getheader("Content-Type", ""),
                     "tls_valid": parsed.scheme == "https",
                 }

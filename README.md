@@ -5,13 +5,7 @@
 
 ## Chrome 擴充功能
 
-擴充功能保留在獨立儲存庫。新 clone 主專案後，先在根目錄執行：
-
-```bash
-git clone --branch codex/radar-integration https://github.com/cheat-or-chicken/extension.git extension
-```
-
-已存在 `extension/` 的工作區不需重複 clone。
+擴充功能已整合至本專案的 `extension/`，clone 本專案即可取得後端與擴充功能，不需要另外 clone 或初始化 submodule。
 
 直接在 Chrome 的 `chrome://extensions` 開啟開發人員模式，載入專案的 `extension` 資料夾，再重新整理欲檢查的頁面。基本防護不需後端與 API key。
 
@@ -109,3 +103,11 @@ CLI 全域的 `--config` 必須放在子命令前面。完整逐檔說明、每�
 只做 LLM 程式碼審查時，`network_enabled` 可以保持 false。
 
 新增的品牌官方網址搜尋與網站語意分析 API，請見 [LLM API 使用文件](docs/LLM_APIS.md)。
+
+品牌近似網域、資料不足提示與查證指標 API，請見 [指標補強文件](docs/DOMAIN_INDICATORS.md)。
+
+各層資料取得、重掃保留及等待狀態，請見 [層級覆蓋修正](docs/LAYER_COVERAGE.md)。
+
+五個可互動、經真實擴充功能驗證的本機展示頁：[RADAR LAB 操作與講稿](demo/README.md)。啟動 `uv run python -m script.demo_server` 後在 Chrome 開啟 `http://127.0.0.1:8088/`。
+
+警示漏顯示修正、白話說明與多語言話術分類：[警示與語意補強](docs/WARNINGS_AND_SEMANTICS.md)。

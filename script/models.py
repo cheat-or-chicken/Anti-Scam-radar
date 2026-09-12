@@ -62,6 +62,7 @@ class Download(Model):
 
 
 class PageContext(Model):
+    dom_collected: bool = False
     url: str = Field(max_length=8192)
     title: str = Field(default="", max_length=1000)
     text: str = Field(default="", max_length=50000)

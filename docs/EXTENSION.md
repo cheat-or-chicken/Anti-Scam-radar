@@ -51,7 +51,7 @@
 | `extension/tests/core.test.js` | 本機風險判斷、PSL、OTP／正常內容對照、缺資料、不抹除證據。 |
 | `extension/tests/browser.mjs` | 真正 Chromium 載入 MV3，驗證頁面偵測、DOM 更新、敏感操作、popup／manual、配對、Python 整合、警示頁與放行。 |
 
-原 clone 的 `.git` 與遠端保留，沒有把它刪掉或擅自轉成主專案的 gitlink。本版建置需要與 Python repo 相鄰，已有 bundle 則能單獨安裝。之後如要發布為單一 repo，應明確採用 vendor 或 submodule，不能僅 `git add extension` 就假設全部來源已上傳。
+`extension/` 已作為一般目錄納入主專案，來源、測試與可載入的 bundle 都由主專案一起提交，沒有 submodule 或 gitlink。原獨立儲存庫的 Git metadata 已移至遷移工作區的 `var/git-backups/` 作為本機備份（不推送）；上游遠端儲存庫未變更。本版建置需使用主專案共用資料，已有 bundle 則能單獨安裝。`node_modules/`、測試產物、金鑰與 log 仍排除追蹤。
 
 ## 啟動與配對
 
