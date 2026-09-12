@@ -3,10 +3,10 @@
   "model": "gpt-5.4-mini",
   "code_model": "gpt-5.4-mini",
   "vision_model": "gpt-5.4-mini",
-  "llm_enabled": false,
-  "allow_content_upload": false,
-  "network_enabled": false,
-  "google_url_reputation_provider": "none",
+  "llm_enabled": true,
+  "allow_content_upload": true,
+  "network_enabled": true,
+  "google_url_reputation_provider": "safe_browsing",
   "google_url_reputation_api_key": "",
   "timeout_seconds": 12,
   "screenshot_timeout_seconds": 15,
@@ -16,6 +16,6 @@
   "max_response_bytes": 1048576,
   "database_path": "var/radar.sqlite3",
   "audit_enabled": true,
-  "safe_browsing_enabled": false,
+  "safe_browsing_enabled": true,
   "google_safe_browsing_api_key": ""
 }

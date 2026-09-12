@@ -1183,6 +1183,9 @@
         status: signals.size ? "ok" : r.status
       };
     });
+    for (const layer of remote.layers || []) {
+      if (!layers.some((existing) => existing.layer === layer.layer)) layers.push(layer);
+    }
     return {
       ...local,
       layers,
@@ -1218,8 +1221,9 @@
   // src/background.js
   var DEFAULTS = {
     enabled: true,
-    backendEnabled: false,
-    llmEnabled: false,
+    backendEnabled: true,
+    llmEnabled: true,
+    screenshotEnabled: true,
     pairingToken: ""
   };
   var MAX_SCREENSHOT_BASE64_CHARS = Math.ceil(5e6 / 3) * 4;
@@ -1233,12 +1237,24 @@
       return r.json();
     }).catch(() => null)
   ]).then((values) => values[2]);
+  var settingsMigration;
   async function settings() {
     await ready;
-    return {
-      ...DEFAULTS,
-      ...(await chrome.storage.local.get("settings")).settings
-    };
+    settingsMigration ||= (async () => {
+      const saved = (await chrome.storage.local.get("settings")).settings || {};
+      if (saved.featuresVersion !== 3) {
+        await chrome.storage.local.set({ settings: {
+          ...DEFAULTS,
+          ...saved,
+          backendEnabled: true,
+          llmEnabled: true,
+          screenshotEnabled: true,
+          featuresVersion: 3
+        } });
+      }
+    })();
+    await settingsMigration;
+    return { ...DEFAULTS, ...(await chrome.storage.local.get("settings")).settings };
   }
   async function read(id) {
     return (await chrome.storage.session.get(key(id)))[key(id)];
@@ -1385,7 +1401,7 @@
       ctx.redirects = previous.redirects || [];
     const signature = [...new Uint8Array(await crypto.subtle.digest(
       "SHA-256",
-      new TextEncoder().encode(JSON.stringify([ctx, options.backendEnabled, options.llmEnabled, !!options.pairingToken]))
+      new TextEncoder().encode(JSON.stringify([ctx, options.backendEnabled, options.llmEnabled, options.screenshotEnabled, !!options.pairingToken]))
     ))].map((b) => b.toString(16).padStart(2, "0")).join("");
     if (previous?.documentId === sender.documentId && previous.signature === signature && Date.now() - previous.snapshotAt < 6e4) {
       return { result: previous.result, enabled: true, bypassed: await bypassed(id, sender.url) };
@@ -1427,11 +1443,20 @@
   async function enrich(id, state, ctx, includeLLM, token) {
     let result;
     try {
+      const screenshot = includeLLM && (await settings()).screenshotEnabled ? await captureForPage(id, state.documentId, state.originalUrl).catch(() => null) : null;
       const remote = await backendRequest(
         "/v1/analyze",
-        { context: ctx, include_llm: includeLLM },
+        { context: ctx, include_llm: includeLLM, ...screenshot ? { screenshot } : {} },
         token
       );
+      if (!screenshot && !remote.layers?.some((layer) => layer.layer === "VISION")) {
+        remote.layers = [...remote.layers || [], {
+          layer: "VISION",
+          status: "skipped",
+          signals: [],
+          user_facing_reason: "\u672C\u6B21\u6C92\u6709\u622A\u5716\uFF1A\u9700\u555F\u7528\u622A\u5716\u8207 AI\uFF0C\u4E14\u7DB2\u9801\u70BA\u76EE\u524D\u53EF\u898B\u5206\u9801\uFF1B\u81EA\u52D5\u622A\u5716\u6BCF\u9801\u81F3\u5C11\u9593\u9694 60 \u79D2\u3002"
+        }];
+      }
       result = mergeAnalysis(ctx.url, state.result, remote);
     } catch (error) {
       result = {
@@ -1547,6 +1572,28 @@
       throw Error("WARNING_EXPIRED");
     return data;
   }
+  var captureTimes = /* @__PURE__ */ new Map();
+  async function captureForPage(tabId, documentId, url, force = false) {
+    const tab = await chrome.tabs.get(tabId);
+    if (!tab.active || tab.incognito || tab.url !== url || !(await chrome.windows.get(tab.windowId)).focused) return null;
+    if (!await currentFrame(tabId, documentId, url)) return null;
+    const stamp = captureTimes.get(tabId);
+    if (!force && stamp?.documentId === documentId && Date.now() - stamp.time < 6e4) return null;
+    captureTimes.set(tabId, { documentId, time: Date.now() });
+    await ignored(chrome.tabs.sendMessage(tabId, { type: "RADAR_CAPTURE_VISIBILITY", hidden: true }, { documentId }));
+    let dataUrl;
+    try {
+      dataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, { format: "jpeg", quality: 65 });
+    } finally {
+      await ignored(chrome.tabs.sendMessage(tabId, { type: "RADAR_CAPTURE_VISIBILITY", hidden: false }, { documentId }));
+    }
+    const [activeTab] = await chrome.tabs.query({ active: true, windowId: tab.windowId });
+    if (activeTab?.id !== tabId || !await currentFrame(tabId, documentId, url)) return null;
+    const match = /^data:image\/jpeg;base64,([A-Za-z0-9+/=]+)$/.exec(dataUrl);
+    if (!match || match[1].length > MAX_SCREENSHOT_BASE64_CHARS) throw Error("SCREENSHOT_TOO_LARGE");
+    return match[1];
+  }
+  chrome.tabs.onRemoved.addListener((id) => captureTimes.delete(id));
   async function analyzeScreenshot() {
     const options = await settings();
     if (!options.enabled) throw Error("PROTECTION_DISABLED");
@@ -1563,12 +1610,11 @@
     const prior = await read(tab.id);
     if (prior?.documentId === frame.documentId) ctx.redirects = prior.redirects || [];
     const local = prior?.result || analyzeLocal(ctx, await ready);
-    const dataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, { format: "jpeg", quality: 75 });
-    const match = /^data:image\/jpeg;base64,([A-Za-z0-9+/=]+)$/.exec(dataUrl);
-    if (!match || match[1].length > MAX_SCREENSHOT_BASE64_CHARS) throw Error("SCREENSHOT_TOO_LARGE");
+    const screenshot = await captureForPage(tab.id, frame.documentId, tab.url, true);
+    if (!screenshot) throw Error("STALE_PAGE");
     const remote = await backendRequest(
       "/v1/analyze",
-      { context: ctx, include_llm: true, screenshot: match[1] },
+      { context: ctx, include_llm: true, screenshot },
       options.pairingToken
     );
     const latest = await read(tab.id);
@@ -1622,7 +1668,7 @@
     if (message.type === "SAVE_SETTINGS" && isUI) {
       const old = await settings();
       const next = { ...old };
-      for (const name of ["enabled", "backendEnabled", "llmEnabled"])
+      for (const name of ["enabled", "backendEnabled", "llmEnabled", "screenshotEnabled"])
         if (typeof message.settings?.[name] === "boolean")
           next[name] = message.settings[name];
       if (typeof message.settings?.pairingToken === "string")

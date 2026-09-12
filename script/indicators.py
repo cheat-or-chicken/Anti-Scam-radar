@@ -93,11 +93,11 @@ def inspect_content(ctx):
 async def safe_browsing(ctx, settings, fetcher):
     if not settings.network_enabled or not settings.safe_browsing_enabled:
         return item("google_safe_browsing", "unknown", "尚未啟用 Google 查詢，並非查詢未命中")
-    key = settings.google_safe_browsing_api_key.get_secret_value()
+    key = settings.google_safe_browsing_api_key.get_secret_value() or settings.google_url_reputation_api_key.get_secret_value()
     if not key:
         return item("google_safe_browsing", "unknown", "缺少 Google Safe Browsing key；OpenAI key 不能替代")
     # Separate explicit opt-in: this API transmits the full URL to Google.
-    query = urlencode({"urls": ctx.url, "key": key})
+    query = urlencode({"urls[]": ctx.url, "key": key})
     try:
         response = await asyncio.wait_for(
             asyncio.to_thread(fetcher.get, "https://safebrowsing.googleapis.com/v5/urls:search?" + query),

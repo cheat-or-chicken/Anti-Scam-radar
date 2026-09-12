@@ -74,8 +74,9 @@
             AI 審查不執行
             JavaScript。遮罩不保證移除所有私密資訊，請勿在私密頁面啟用進階分析。
           </p>
+          <div class="setting-row"><div><strong>自動截圖 AI 分析</strong><p>預設開啟。截取目前可見網頁並透過後端傳至 AI，畫面可能包含個人資訊。每頁至少間隔 60 秒；不在無痕視窗自動截圖。</p></div><label class="switch"><input id="screenshotEnabled" type="checkbox" aria-label="自動截圖 AI 分析" /></label></div>
           <p class="hint">
-            在 popup 按下「截取畫面並以 AI 分析」後，才會擷取目前可見畫面並傳給本機後端。該畫面可能含有敏感資料。
+            也可以在 popup 按「截取畫面並以 AI 分析」立即手動檢查。Google 網址查核由後端執行，需要在 config/config.local.json 填入 Google key。
           </p>
           <label class="field-label" for="pairingToken">本機後端配對碼</label
           ><input

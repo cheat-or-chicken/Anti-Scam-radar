@@ -376,6 +376,17 @@
       scan(message.force === true).then(reply);
       return true;
     }
+    if (message.type === "RADAR_CAPTURE_VISIBILITY") {
+      if (overlayHost) {
+        overlayHost.style.setProperty("visibility", message.hidden ? "hidden" : "visible", "important");
+        if (message.hidden) {
+          const host = overlayHost;
+          setTimeout(() => host.style.setProperty("visibility", "visible", "important"), 2e3);
+        }
+      }
+      reply({ ok: true });
+      return false;
+    }
     if (message.type === "RADAR_CONTEXT") {
       reply({ context: collect() });
       return false;

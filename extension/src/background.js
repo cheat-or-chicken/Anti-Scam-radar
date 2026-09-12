@@ -9,8 +9,9 @@ import { backendRequest } from "./api.js";
 
 const DEFAULTS = {
   enabled: true,
-  backendEnabled: false,
-  llmEnabled: false,
+  backendEnabled: true,
+  llmEnabled: true,
+  screenshotEnabled: true,
   pairingToken: "",
 };
 const MAX_SCREENSHOT_BASE64_CHARS = Math.ceil(5_000_000 / 3) * 4;
@@ -26,12 +27,18 @@ const ready = Promise.all([
     })
     .catch(() => null),
 ]).then((values) => values[2]);
+let settingsMigration;
 async function settings() {
   await ready;
-  return {
-    ...DEFAULTS,
-    ...(await chrome.storage.local.get("settings")).settings,
-  };
+  settingsMigration ||= (async () => {
+    const saved = (await chrome.storage.local.get("settings")).settings || {};
+    if (saved.featuresVersion !== 3) {
+      await chrome.storage.local.set({settings:{...DEFAULTS, ...saved,
+        backendEnabled:true, llmEnabled:true, screenshotEnabled:true, featuresVersion:3}});
+    }
+  })();
+  await settingsMigration;
+  return {...DEFAULTS, ...(await chrome.storage.local.get("settings")).settings};
 }
 async function read(id) {
   return (await chrome.storage.session.get(key(id)))[key(id)];
@@ -208,7 +215,7 @@ async function snapshot(message, sender) {
   if (previous?.documentId === sender.documentId)
     ctx.redirects = previous.redirects || [];
   const signature = [...new Uint8Array(await crypto.subtle.digest("SHA-256",
-    new TextEncoder().encode(JSON.stringify([ctx, options.backendEnabled, options.llmEnabled, !!options.pairingToken]))))]
+    new TextEncoder().encode(JSON.stringify([ctx, options.backendEnabled, options.llmEnabled, options.screenshotEnabled, !!options.pairingToken]))))]
     .map(b => b.toString(16).padStart(2, "0")).join("");
   if (previous?.documentId === sender.documentId && previous.signature === signature &&
       Date.now() - previous.snapshotAt < 60000) {
@@ -250,11 +257,17 @@ async function snapshot(message, sender) {
 async function enrich(id, state, ctx, includeLLM, token) {
   let result;
   try {
+    const screenshot = includeLLM && (await settings()).screenshotEnabled
+      ? await captureForPage(id, state.documentId, state.originalUrl).catch(() => null) : null;
     const remote = await backendRequest(
       "/v1/analyze",
-      { context: ctx, include_llm: includeLLM },
+      { context: ctx, include_llm: includeLLM, ...(screenshot ? {screenshot} : {}) },
       token,
     );
+    if (!screenshot && !remote.layers?.some(layer => layer.layer === "VISION")) {
+      remote.layers = [...(remote.layers || []), {layer:"VISION", status:"skipped", signals:[],
+        user_facing_reason:"本次沒有截圖：需啟用截圖與 AI，且網頁為目前可見分頁；自動截圖每頁至少間隔 60 秒。"}];
+    }
     result = mergeAnalysis(ctx.url, state.result, remote);
   } catch (error) {
     result = {
@@ -393,6 +406,25 @@ async function warningFor(sender) {
     throw Error("WARNING_EXPIRED");
   return data;
 }
+const captureTimes = new Map();
+async function captureForPage(tabId, documentId, url, force = false) {
+  const tab = await chrome.tabs.get(tabId);
+  if (!tab.active || tab.incognito || tab.url !== url || !(await chrome.windows.get(tab.windowId)).focused) return null;
+  if (!(await currentFrame(tabId, documentId, url))) return null;
+  const stamp = captureTimes.get(tabId);
+  if (!force && stamp?.documentId === documentId && Date.now() - stamp.time < 60000) return null;
+  captureTimes.set(tabId, {documentId, time:Date.now()});
+  await ignored(chrome.tabs.sendMessage(tabId, {type:"RADAR_CAPTURE_VISIBILITY", hidden:true}, {documentId}));
+  let dataUrl;
+  try { dataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, {format:"jpeg", quality:65}); }
+  finally { await ignored(chrome.tabs.sendMessage(tabId, {type:"RADAR_CAPTURE_VISIBILITY", hidden:false}, {documentId})); }
+  const [activeTab] = await chrome.tabs.query({active:true, windowId:tab.windowId});
+  if (activeTab?.id !== tabId || !(await currentFrame(tabId, documentId, url))) return null;
+  const match = /^data:image\/jpeg;base64,([A-Za-z0-9+/=]+)$/.exec(dataUrl);
+  if (!match || match[1].length > MAX_SCREENSHOT_BASE64_CHARS) throw Error("SCREENSHOT_TOO_LARGE");
+  return match[1];
+}
+chrome.tabs.onRemoved.addListener(id => captureTimes.delete(id));
 async function analyzeScreenshot() {
   const options = await settings();
   if (!options.enabled) throw Error("PROTECTION_DISABLED");
@@ -411,13 +443,12 @@ async function analyzeScreenshot() {
   const prior = await read(tab.id);
   if (prior?.documentId === frame.documentId) ctx.redirects = prior.redirects || [];
   const local = prior?.result || analyzeLocal(ctx, await ready);
-  const dataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, { format: "jpeg", quality: 75 });
-  const match = /^data:image\/jpeg;base64,([A-Za-z0-9+/=]+)$/.exec(dataUrl);
-  if (!match || match[1].length > MAX_SCREENSHOT_BASE64_CHARS) throw Error("SCREENSHOT_TOO_LARGE");
+  const screenshot = await captureForPage(tab.id, frame.documentId, tab.url, true);
+  if (!screenshot) throw Error("STALE_PAGE");
 
   const remote = await backendRequest(
     "/v1/analyze",
-    { context: ctx, include_llm: true, screenshot: match[1] },
+    { context: ctx, include_llm: true, screenshot },
     options.pairingToken,
   );
   const latest = await read(tab.id);
@@ -481,7 +512,7 @@ async function handle(message, sender) {
   if (message.type === "SAVE_SETTINGS" && isUI) {
     const old = await settings();
     const next = { ...old };
-    for (const name of ["enabled", "backendEnabled", "llmEnabled"])
+    for (const name of ["enabled", "backendEnabled", "llmEnabled", "screenshotEnabled"])
       if (typeof message.settings?.[name] === "boolean")
         next[name] = message.settings[name];
     if (typeof message.settings?.pairingToken === "string")

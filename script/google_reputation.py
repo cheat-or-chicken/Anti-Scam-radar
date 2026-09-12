@@ -47,6 +47,8 @@ class GoogleUrlReputation:
                 raise ValueError("unexpected Google response")
             threat_types = self._threat_types(provider, data)
             response_result = self._result(provider, threat_types)
+            if len(self._cache) >= 512:
+                self._cache.pop(next(iter(self._cache)))
             self._cache[cache_key] = (self._expiry(provider, data), response_result)
             return response_result
         except Exception:
@@ -77,7 +79,13 @@ class GoogleUrlReputation:
     def _threat_types(provider: str, data: dict) -> list[str]:
         if provider == "safe_browsing":
             threats = data.get("threats", [])
-            values = [item.get("threatType", "") for item in threats if isinstance(item, dict)]
+            if not isinstance(threats, list) or not isinstance(data.get("cacheDuration"), str):
+                raise ValueError("invalid Safe Browsing response")
+            values = []
+            for item in threats:
+                if not isinstance(item, dict) or not isinstance(item.get("threatTypes"), list) or not item["threatTypes"]:
+                    raise ValueError("invalid threat entry")
+                values.extend(item["threatTypes"])
         else:
             threat = data.get("threat", {})
             values = threat.get("threatTypes", []) if isinstance(threat, dict) else []
