@@ -7,6 +7,7 @@ from script.layers.adjudication import adjudicate, should_interrupt, verify_l17
 from script.layers.rules import gate, sig
 from script.llm import LLM
 from script.models import Analysis, LayerResult, PageContext, result
+from script.progress import event, phase
 from script.storage import Store
 from script.tools import VerificationTools
 
@@ -34,8 +35,12 @@ async def analyze(
 
     async def run(layer, verifier):
         try:
-            return verifier(ctx)
+            with phase(layer + ".rules"):
+                outcome = verifier(ctx)
+            event(layer + ".result", outcome.status)
+            return outcome
         except Exception:
+            event(layer + ".result", "error")
             return LayerResult(layer=layer, status="error", user_facing_reason="本層驗證失敗，其他層仍可執行")
 
     try:
@@ -94,20 +99,30 @@ async def analyze(
             selected = priorities[: max(0, settings.max_llm_calls - llm.calls)]
             from script.layers.code_review import verify_l7 as review_code
 
-            replacements = await asyncio.gather(
-                *(
-                    review_code(ctx, llm) if n == "L7" else llm.supplement(layers[int(n[1:])], ctx)
-                    for n in selected
-                )
-            )
+            async def review(name):
+                with phase(name + ".llm"):
+                    value = (
+                        await review_code(ctx, llm)
+                        if name == "L7"
+                        else await llm.supplement(layers[int(name[1:])], ctx)
+                    )
+                event(name + ".llm.result", value.status)
+                return value
+
+            replacements = await asyncio.gather(*(review(n) for n in selected))
             for name, replacement in zip(selected, replacements):
                 layers[int(name[1:])] = replacement
+        from script.blocklist import verify_blocklist
+
+        with phase("BLOCKLIST"):
+            layers.append(verify_blocklist(ctx))
         if detectors:
             from script.adaptive import detect
 
             hits = [hit for rule in detectors if (hit := detect(rule, ctx))]
             layers.append(result("ADAPTIVE", hits))
-        decision = adjudicate(ctx, layers)
+        with phase("adjudication"):
+            decision = adjudicate(ctx, layers)
         layers.append(verify_l17(ctx, layers))
         analysis = Analysis(
             gate=gate_value,
@@ -125,6 +140,8 @@ async def analyze(
                 audit_failed = True
         if audit_failed:
             analysis.audit_status = "error"
+        event("analysis.audit", analysis.audit_status)
+        event("analysis.decision", analysis.decision.display_level)
         return analysis
     finally:
         await llm.close()

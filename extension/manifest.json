@@ -1,16 +1,44 @@
 {
   "manifest_version": 3,
-  "name": "Anti-Scam Radar",
-  "version": "0.1.0",
-  "description": "Analyze the current website with the local Anti-Scam Radar service.",
-  "permissions": ["activeTab", "scripting"],
-  "host_permissions": ["http://127.0.0.1:8765/*"],
+  "minimum_chrome_version": "120",
+  "name": "防詐雷達 · Anti-Scam Radar",
+  "version": "2.0.0",
+  "description": "主動檢查網址、政府機關冒用與可疑頁面，在敏感操作前提醒。選用本機後端進行 LLM 程式碼審查。",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation",
+    "webRequest",
+    "downloads"
+  ],
+  "host_permissions": ["http://*/*", "https://*/*"],
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "service_worker": "background.js"
   },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
   "action": {
-    "default_title": "Analyze this website",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "防詐雷達",
+    "default_icon": {
+      "16": "icons/radar-16.png",
+      "32": "icons/radar-32.png"
+    }
+  },
+  "options_page": "options.html",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src 'self' http://127.0.0.1:8765"
+  },
+  "icons": {
+    "16": "icons/radar-16.png",
+    "32": "icons/radar-32.png",
+    "48": "icons/radar-48.png",
+    "128": "icons/radar-128.png"
   }
 }

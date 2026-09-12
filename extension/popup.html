@@ -2,23 +2,110 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Anti-Scam Radar</title>
-    <link rel="stylesheet" href="popup.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>防詐雷達</title>
+    <link rel="stylesheet" href="ui.css" />
   </head>
-  <body>
-    <main>
-      <h1>Anti-Scam Radar</h1>
-      <p id="hint">截圖和頁面快照會送到本機分析服務。</p>
-      <button id="analyze" type="button">分析目前網站</button>
-      <p id="status" role="status"></p>
-      <section id="result" hidden>
-        <p><strong id="score"></strong></p>
-        <p id="summary"></p>
-        <ul id="reasons"></ul>
-        <p id="meta"></p>
-      </section>
-    </main>
-    <script type="module" src="popup.js"></script>
+  <body class="popup">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"
+          ><svg viewBox="0 0 24 24">
+            <path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z" />
+            <path d="m8 12 3 3 5-6" /></svg
+        ></span>
+        <div>
+          <div class="brand-name">防詐雷達</div>
+          <div class="micro">Your everyday lookout</div>
+        </div>
+      </div>
+      <button id="settings" class="icon-button" aria-label="開啟設定">⚙</button>
+    </header>
+    <div class="livebar">
+      <span class="live"
+        ><span class="dot"></span
+        ><span id="protection-label">主動偵測中</span></span
+      ><label class="switch"
+        >自動防護<input
+          type="checkbox"
+          id="enabled"
+          checked
+          aria-label="自動防護"
+      /></label>
+    </div>
+    <section class="hero" aria-live="polite">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow">CURRENT WEBSITE</div>
+          <h1 id="headline">正在查看這個頁面</h1>
+        </div>
+        <div class="radar" aria-hidden="true"></div>
+      </div>
+      <p id="description">讓每一次點擊，都多一分安心。</p>
+      <div class="site-line">
+        <span aria-hidden="true">◎</span
+        ><span id="hostname">取得目前分頁中…</span
+        ><small id="checked">本機分析</small>
+      </div>
+    </section>
+    <nav class="tabs" aria-label="查核方式">
+      <button
+        class="tab"
+        id="overview-tab"
+        aria-selected="true"
+        aria-controls="overview"
+      >
+        目前頁面</button
+      ><button
+        class="tab"
+        id="manual-tab"
+        aria-selected="false"
+        aria-controls="manual"
+      >
+        檢查其他網址
+      </button>
+    </nav>
+    <section id="overview">
+      <div class="section-head">
+        <h2>值得留意的訊號</h2>
+        <span class="count" id="signal-count">讀取中</span>
+      </div>
+      <div id="signals"></div>
+      <details>
+        <summary id="coverage">查看檢查範圍</summary>
+        <div id="layers"></div>
+      </details>
+      <button id="rescan" class="secondary full">重新檢查此頁面 ↗</button>
+      <button id="screenshot" class="secondary full">截取畫面並以 AI 分析</button>
+      <p class="hint">
+        僅在你按下此按鈕並確認後，才會截取目前可見畫面並送至本機後端；後端依你的設定傳給 AI。
+      </p>
+      <div id="backend-status" class="status" role="status"></div>
+    </section>
+    <section id="manual" hidden>
+      <label class="field-label" for="url">貼上網址，不必先打開它</label>
+      <form id="scan-form">
+        <input
+          class="field"
+          id="url"
+          type="url"
+          required
+          placeholder="https://example.com"
+          autocomplete="off"
+        /><button class="primary full" id="scan" type="submit">
+          檢查網址 →
+        </button>
+      </form>
+      <p class="hint">
+        先比對本機名單；連接後端後可查 HTTP 轉址與頁面內容。不會開啟隱藏分頁。
+      </p>
+      <div id="manual-status" class="status" role="status"></div>
+      <div id="manual-result" class="manual-result" aria-live="polite"></div>
+    </section>
+    <footer class="footer">
+      <span id="list-info">本機名單載入中</span
+      ><a href="options.html" target="_blank">隱私與設定 ↗</a>
+    </footer>
+    <script src="popup.js"></script>
   </body>
 </html>

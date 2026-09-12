@@ -1,8 +1,20 @@
 # Anti-Scam Radar
 
+## Optional screenshot vision
+
+Screenshot review is available from the CLI and is intentionally separate from the main Chrome extension. Install the browser extra, then capture a URL in an ephemeral browser session:
+
+```bash
+uv sync --locked --extra browser
+uv run playwright install chromium
+uv run scam-radar scan https://example.com --screenshot
+```
+
+The screenshot remains in memory, uses low image detail, and is sent to the LLM only when both `llm_enabled` and `allow_content_upload` are enabled.
+
 ## Google URL reputation (optional)
 
-The extension can additionally ask Google about the current URL only. It never sends the page snapshot, screenshot, form values, or the Google key to Chrome. Add this to the ignored `config/config.local.json` (or set `GOOGLE_URL_REPUTATION_API_KEY` in the environment):
+To look up the current URL with Google from the extension backend or CLI analysis, add this to the ignored `config/config.local.json` (or set `GOOGLE_URL_REPUTATION_API_KEY`):
 
 ```json
 {
@@ -12,9 +24,27 @@ The extension can additionally ask Google about the current URL only. It never s
 }
 ```
 
-Choose `safe_browsing` instead of `web_risk` only when its non-commercial terms fit the deployment. The popup reports `Google URL 信譽：ok`, `skipped`, or `error`; an `ok` lookup with a reported threat contributes observed evidence to the risk score.
+Use `safe_browsing` instead of `web_risk` only when its terms fit the deployment. The check sends only the URL, never page content, screenshots, form values, or the key to Chrome.
 
-台灣防詐驗證腳本。提供 L0–L17 的 function 入口、CLI、政府機關冒用偵測、受控行為證據判讀、L7 LLM 靜態程式碼審查、查證工具、SQLite 稽核與合成評估集。這一版是可執行的分析核心，尚未包含 Chrome 擴充功能或公開 HTTP 服務。
+台灣防詐驗證腳本。提供 L0–L17 的 function 入口、CLI、政府機關冒用偵測、受控行為證據判讀、L7 LLM 靜態程式碼審查、查證工具、SQLite 稽核與合成評估集。目前已整合 Chrome 擴充功能，提供主動頁面偵測、美化風險面板與可選用的本機 HTTP 後端。
+
+
+## Chrome 擴充功能
+
+擴充功能已整合至本專案的 `extension/`，clone 本專案即可取得後端與擴充功能，不需要另外 clone 或初始化 submodule。
+
+直接在 Chrome 的 `chrome://extensions` 開啟開發人員模式，載入專案的 `extension` 資料夾，再重新整理欲檢查的頁面。基本防護不需後端與 API key。
+
+進階分析先執行：
+
+```bash
+uv sync --locked --python 3.12 --extra dev
+uv run python -m script.server
+```
+
+擴充功能設定中貼入 `var/extension-token.txt` 的**配對碼**並測試連線。OpenAI key 仍留在 `config/config.local.json`。詳見 [擴充功能使用說明](extension/README.md) 與 [移植／整合文件](docs/EXTENSION.md)。
+
+可攜安裝包由 `uv run python -m script.package_extension` 產生於 `var/anti-scam-radar-extension.zip`，解壓縮即可載入，不含 key 與原始資料集。
 
 ## 執行
 
@@ -96,34 +126,14 @@ CLI 全域的 `--config` 必須放在子命令前面。完整逐檔說明、每�
 }
 ```
 
-## Website screenshot vision (optional)
-
-The normal `analyze` command does not render a target URL or upload an image. To render a user-supplied URL in an ephemeral headless Chromium instance, capture its current viewport, and send that JPEG to the LLM for a weak visual risk signal, install the optional browser dependency and its browser binary:
-
-```bash
-uv sync --locked --extra browser
-uv run playwright install chromium
-uv run scam-radar scan https://example.com --screenshot
-```
-
-`--screenshot` is required before a capture is uploaded to the LLM. The capture stays in memory, is capped at 5 MB, uses low image detail, and is not written to the audit database. It requires both `llm_enabled` and `allow_content_upload`; configure `vision_model` separately if the normal model is not vision-capable. The visual result is always inferred evidence worth at most 10 points, so it cannot create a hard block by itself.
-
-To analyze a PNG or JPEG you have already captured without opening the URL, use:
-
-```bash
-uv run scam-radar analyze snapshot.json --screenshot page.jpg
-```
-
-Do not use this on pages that contain private data, passwords, or form values: the screenshot may contain them and is sent to OpenAI when the flag is supplied.
-
-## Chrome extension (unpacked)
-
-The extension at `extension/` never contains an API key. It uses Chrome's temporary `activeTab` permission only after you press its button, captures the visible viewport, and sends a bounded page snapshot plus the screenshot to the loopback-only Python service. Start the service first:
-
-```bash
-uv run scam-radar serve
-```
-
-Then open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the repository's `extension` folder. Open an HTTP(S) website, click the Anti-Scam Radar icon, then choose **分析目前網站**. The service binds only to `127.0.0.1:8765`; stop it with `Ctrl+C` when finished.
-
 只做 LLM 程式碼審查時，`network_enabled` 可以保持 false。
+
+新增的品牌官方網址搜尋與網站語意分析 API，請見 [LLM API 使用文件](docs/LLM_APIS.md)。
+
+品牌近似網域、資料不足提示與查證指標 API，請見 [指標補強文件](docs/DOMAIN_INDICATORS.md)。
+
+各層資料取得、重掃保留及等待狀態，請見 [層級覆蓋修正](docs/LAYER_COVERAGE.md)。
+
+五個可互動、經真實擴充功能驗證的本機展示頁：[RADAR LAB 操作與講稿](demo/README.md)。啟動 `uv run python -m script.demo_server` 後在 Chrome 開啟 `http://127.0.0.1:8088/`。
+
+警示漏顯示修正、白話說明與多語言話術分類：[警示與語意補強](docs/WARNINGS_AND_SEMANTICS.md)。

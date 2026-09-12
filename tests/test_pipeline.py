@@ -24,7 +24,7 @@ async def test_demo_fixtures(tmp_path, file, blocked):
     r = await analyze(ctx, settings)
     assert r.interrupted is blocked
     assert r.llm_calls == 0
-    assert len(r.layers) == 18
+    assert len(r.layers) == 19
     assert r.audit_id
     saved = Store(settings.database_path).replay(r.audit_id)
     assert "token=" not in json.dumps(saved)

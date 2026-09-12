@@ -17,7 +17,8 @@ def parse_url(url: str):
     parsed = urlsplit(url)
     if parsed.scheme not in {"http", "https"} or not parsed.hostname or parsed.username or parsed.password:
         raise ValueError("only absolute HTTP(S) URLs without credentials are supported")
-    if parsed.port not in {None, 80, 443}:
+    demo_loopback = parsed.scheme == "http" and parsed.hostname == "127.0.0.1" and parsed.port == 8088
+    if parsed.port not in {None, 80, 443} and not demo_loopback:
         raise ValueError("only ports 80/443 are supported")
     host(url)
     return parsed

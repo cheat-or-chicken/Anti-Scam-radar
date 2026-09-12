@@ -17,6 +17,8 @@ class Settings(BaseModel):
     network_enabled: bool = False
     google_url_reputation_provider: Literal["none", "safe_browsing", "web_risk"] = "none"
     google_url_reputation_api_key: SecretStr = SecretStr("")
+    safe_browsing_enabled: bool = False
+    google_safe_browsing_api_key: SecretStr = SecretStr("")
     timeout_seconds: float = Field(default=12, ge=1, le=60)
     screenshot_timeout_seconds: float = Field(default=15, ge=1, le=60)
     max_llm_calls: int = Field(default=6, ge=0, le=20)

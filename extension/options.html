@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>防詐雷達 · 防護設定</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="brand">
+        <span class="brand-mark" aria-hidden="true">◎</span>
+        <div>
+          <div class="brand-name">防詐雷達</div>
+          <div class="micro">Protection, on your terms</div>
+        </div>
+      </header>
+      <div class="eyebrow" style="margin-top: 40px">PREFERENCES</div>
+      <h1>安心瀏覽，由你掌握。</h1>
+      <p class="lede">
+        基本防護在瀏覽器內完成。需要更深入的查核時，再連接你的本機分析服務。
+      </p>
+      <form id="options-form">
+        <section class="panel">
+          <h2>日常防護</h2>
+          <div class="setting-row">
+            <div>
+              <strong>主動偵測</strong>
+              <p>
+                頁面開啟、網址變更或新增敏感欄位時自動檢查。<br />發現風險時提醒，敏感操作前再次確認。
+              </p>
+            </div>
+            <label class="switch"
+              ><input id="enabled" type="checkbox" aria-label="主動偵測"
+            /></label>
+          </div>
+          <p class="hint">
+            本機名單不是即時資料。未命中不代表安全；純數字網域不作相似性推斷。
+          </p>
+        </section>
+        <section class="panel">
+          <h2>進階分析</h2>
+          <div class="setting-row">
+            <div>
+              <strong>連接本機後端</strong>
+              <p>
+                將頁面標題、文字與欄位種類送往這台電腦的分析服務。<br />不傳送輸入值、密碼、Cookie
+                或網路請求內容。
+              </p>
+            </div>
+            <label class="switch"
+              ><input
+                id="backendEnabled"
+                type="checkbox"
+                aria-label="連接本機後端"
+            /></label>
+          </div>
+          <div class="setting-row">
+            <div>
+              <strong>允許 AI 輔助審查</strong>
+              <p>
+                透過後端將經初步遮罩的文字與程式片段送至 OpenAI，<br />分析可疑話術與程式碼合理性。可能產生
+                API 費用。
+              </p>
+            </div>
+            <label class="switch"
+              ><input
+                id="llmEnabled"
+                type="checkbox"
+                aria-label="允許 AI 輔助審查"
+            /></label>
+          </div>
+          <p class="hint">
+            AI 審查不執行
+            JavaScript。遮罩不保證移除所有私密資訊，請勿在私密頁面啟用進階分析。
+          </p>
+          <p class="hint">
+            在 popup 按下「截取畫面並以 AI 分析」後，才會擷取目前可見畫面並傳給本機後端。該畫面可能含有敏感資料。
+          </p>
+          <label class="field-label" for="pairingToken">本機後端配對碼</label
+          ><input
+            class="field"
+            id="pairingToken"
+            type="password"
+            autocomplete="off"
+            placeholder="貼上 extension-token.txt 的內容"
+          />
+          <p class="hint">
+            這不是 OpenAI API key。你的 API key 只保存在後端
+            config/config.local.json。
+          </p>
+          <div class="buttons">
+            <button class="primary" type="submit">儲存設定</button
+            ><button class="secondary" id="test" type="button">測試連線</button>
+          </div>
+          <div id="status" class="status" role="status"></div>
+        </section>
+      </form>
+      <section class="panel">
+        <h2>第一次連線</h2>
+        <p class="hint">1. 在 Anti-Scam-radar 專案目錄啟動後端：</p>
+        <code class="code">uv run python -m script.server</code>
+        <p class="hint">
+          2. 開啟專案的 var/extension-token.txt，將內容貼到上方配對碼欄位。<br />3.
+          開啟「連接本機後端」，儲存後測試連線。AI 分析還需在後端設定 key
+          與上傳許可。
+        </p>
+        <p class="hint">
+          連線固定為 http://127.0.0.1:8765；不會將配對碼同步到其他裝置。
+        </p>
+      </section>
+      <footer class="footer">
+        <span>ANTI-SCAM RADAR · v2.0</span><span>多確認一步，少一分風險。</span>
+      </footer>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>
