@@ -1,0 +1,73 @@
+{
+  "case_id": "N7_朋友訂位分攤餐廳訂金",
+  "language": "zh-TW",
+  "participants": {
+    "friend": "friend",
+    "user": "user"
+  },
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "friends_chat",
+      "text": "週六聚餐確定四個人嗎？",
+      "timestamp": null
+    },
+    {
+      "turn": 2,
+      "sender": "friend",
+      "channel": "friends_chat",
+      "text": "對，我訂了青禾餐館。店家說四人包廂要先付一千元訂金，當天抵餐費。",
+      "timestamp": null
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "friends_chat",
+      "text": "我分攤兩百五？",
+      "timestamp": null
+    },
+    {
+      "turn": 4,
+      "sender": "friend",
+      "channel": "friends_chat",
+      "text": "對，我先付店家，你晚點轉我就好。",
+      "timestamp": null
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "friends_chat",
+      "text": "我也打餐廳的電話問了，訂位是週六六點、你的名字。",
+      "timestamp": null
+    },
+    {
+      "turn": 6,
+      "sender": "friend",
+      "channel": "friends_chat",
+      "text": "沒錯，剛收到訂位確認，當天如果要改時間再一起決定。",
+      "timestamp": null
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "friends_chat",
+      "text": "兩百五轉到以前分攤房費那個帳號了。",
+      "timestamp": null
+    },
+    {
+      "turn": 8,
+      "sender": "friend",
+      "channel": "friends_chat",
+      "text": "收到了，週六見。",
+      "timestamp": null
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "friends_chat",
+      "text": "今天帳單有扣掉一千元訂金，剩下我們現場付了。",
+      "timestamp": null
+    }
+  ]
+}

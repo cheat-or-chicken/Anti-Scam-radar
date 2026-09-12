@@ -1,0 +1,7287 @@
+[
+  {
+    "case": "B1_免費拍立得詐騙.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/B1_免費拍立得詐騙.results.json",
+    "source_sha256": "f70010ba5c0b23e7841dec01a0892816365ad574a06ff7b23f0c60d7576b5798",
+    "predictions": [
+      {
+        "id": "p15",
+        "created_turn": 15,
+        "expires_turn": 17,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供密碼、OTP，或在驗證流程中操作網銀/畫面",
+        "action": "下一步可能改要求你提供驗證碼或進行敏感操作",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p18",
+        "created_turn": 18,
+        "expires_turn": 20,
+        "actor": "bank",
+        "action_type": "new_condition",
+        "object": "要求先完成驗證後才能繼續處理",
+        "action": "可能接著追加驗證條件或其他步驟",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p22",
+        "created_turn": 22,
+        "expires_turn": 24,
+        "actor": "bank",
+        "action_type": "sensitive_access_request",
+        "object": "進一步的驗證操作",
+        "action": "可能再要求下一步金融驗證或操作畫面",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p26",
+        "created_turn": 26,
+        "expires_turn": 28,
+        "actor": "bank",
+        "action_type": "new_condition",
+        "object": "要求提供下一步驗證或追加付款條件",
+        "action": "可能再提出新的驗證或追加付款條件",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p31",
+        "created_turn": 31,
+        "expires_turn": 33,
+        "actor": "bank",
+        "action_type": "new_condition",
+        "object": "要求進一步完成驗證或提供下一步操作",
+        "action": "提出下一步驗證條件或追加指示",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "threads_dm",
+        "text": "你好，我看到你們送拍立得的貼文，請問還有嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "donor",
+        "channel": "threads_dm",
+        "text": "還有喔，相館準備歇業了，剩下的庫存想送給需要的人。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "donor",
+        "channel": "threads_dm",
+        "text": "方便加 LINE 嗎？寄送資料在那邊跟你確認。我叫「光盒相館・小林」，連結是 https://chat.example.com/lightbox-lin 。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "你好，我是剛剛問拍立得的。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "拍立得不用錢，運費 60 元你自己出就好，可以嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "可以，要在哪裡填寄送資料？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "用這個賣貨便頁面，點進去填收件姓名、手機跟取貨門市就可以了：https://parcel.example.com/order/CAM-0912-01",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "我填完送出，怎麼跳出「交易訂單失敗，需實名認證」？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "那要找客服處理，頁面上有客服的 LINE。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "所以現在沒有填成功嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "你好，我要領拍立得，填完資料顯示交易訂單失敗，要實名認證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "您好，這邊協助您處理訂單異常。您目前停在哪個畫面？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "就是交易失敗那個畫面，接下來不知道要按什麼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "客服叫我找你處理實名認證，我的訂單一直失敗。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "您好，接下來協助您處理帳戶異常及驗證程序。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "請先開啟網路銀行，這一步需要轉帳完成驗證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "我打開了，要轉到哪裡？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "這筆金額是 3,000 元，收款資料是星河測試銀行、帳號 TEST-CAM-001。完成後告訴我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "好了，3,000 元，網銀顯示轉帳成功。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "接著要做無卡提款的驗證，這筆也是 3,000 元，完成後告訴我畫面顯示的結果。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 23,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "這筆 3,000 元的操作也完成了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 24,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "還有這張 2,000 元的付款碼，掃描後依畫面付款。我傳給你，單號 PAY-CAM-003。",
+        "attachment_captions": [
+          "付款通知｜金額 NT$2,000｜單號 PAY-CAM-003"
+        ]
+      },
+      {
+        "turn": 25,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "2,000 元付款完成了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 26,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "我只是填寄件資料，怎麼銀行專員一直叫我做轉帳、提款跟付款？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 27,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "驗證還沒完成，您的帳戶會被鎖，賣家的帳戶也會受到影響，請先配合專員處理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 28,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "客服說還要繼續，那前面轉出去的錢怎麼辦？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 29,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "前面操作的款項都會退回，請先把驗證完成。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 30,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "接下來請用信用卡購買一張 1,000 元數位禮券和一張 1,000 元遊戲點數卡，測試帳戶是否解除限制。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 31,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "買好了，然後呢？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 32,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "請提供序號，這邊要查驗真偽。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 33,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "禮券序號是 DEMO-GIFT-CAM-001，點數卡序號是 DEMO-GAME-CAM-002。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 34,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "驗證已完成，接下來辦理退款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 35,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "專員說完成了，我的退款什麼時候會下來？拍立得可以寄了嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 36,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "退款還要跑流程，請耐心等候。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 37,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "請問退款進度怎麼樣了？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 38,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "有人在嗎？我還沒收到退款，麻煩回覆。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p15",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "created_turn 15 之後，support 沒有再要求提供密碼、OTP，或進行新的網銀/驗證畫面敏感操作；第27與36只是在催促配合、等待流程，未出現新的敏感存取要求。",
+          "evidence": [],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p18",
+          "outcome": "matched",
+          "matched_turn": 20,
+          "reason": "第18則之後，bank 先在第20則要求完成 3,000 元轉帳以繼續驗證，屬於新增的後續條件。",
+          "evidence": [
+            {
+              "turn": 20,
+              "quote": "這筆金額是 3,000 元，收款資料是星河測試銀行、帳號 TEST-CAM-001。完成後告訴我。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p22",
+          "outcome": "matched",
+          "matched_turn": 24,
+          "reason": "第22則之後，bank 在第24則又提出新的付款操作，要求掃描付款碼並依畫面付款，屬於進一步的金融驗證/敏感操作要求。",
+          "evidence": [
+            {
+              "turn": 24,
+              "quote": "還有這張 2,000 元的付款碼，掃描後依畫面付款。我傳給你，單號 PAY-CAM-003。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p26",
+          "outcome": "matched",
+          "matched_turn": 30,
+          "reason": "第26則之後，bank 在第30則明確追加新的條件：要求用信用卡購買數位禮券和遊戲點數卡，這是新增的驗證/付款條件。",
+          "evidence": [
+            {
+              "turn": 30,
+              "quote": "接下來請用信用卡購買一張 1,000 元數位禮券和一張 1,000 元遊戲點數卡，測試帳戶是否解除限制。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p31",
+          "outcome": "matched",
+          "matched_turn": 32,
+          "reason": "第31則之後，bank 在第32則要求提供序號以查驗真偽，屬於進一步完成驗證的下一步指示。",
+          "evidence": [
+            {
+              "turn": 32,
+              "quote": "請提供序號，這邊要查驗真偽。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 4,
+      "missed": 1,
+      "uncertain": 0,
+      "rate": 0.8,
+      "response_id": "resp_01b29fe0d94fe9f7016aa4edcdcc1887d0bbd514069b14c23a",
+      "usage": {
+        "input_tokens": 3144,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 2816
+        },
+        "output_tokens": 333,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 3477
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p15要求support發言，引用第18則的bank不符。請找正確角色之後的事件，沒有就missed。",
+            "p18在第18則產生；引用18不在未來。請找之後的事件，沒有就missed。",
+            "p22在第22則產生；引用22不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B2_假買家騙賣家.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/B2_假買家騙賣家.results.json",
+    "source_sha256": "8dcda3e5226aad9504e47cbab6bb7276f2674317ceca30cabe8e32dadd751190",
+    "predictions": [
+      {
+        "id": "p13",
+        "created_turn": 13,
+        "expires_turn": 15,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供密碼、OTP或進一步控制網銀操作",
+        "action": "接著可能轉為要求敏感驗證或操作",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p17",
+        "created_turn": 17,
+        "expires_turn": 19,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "密碼或OTP",
+        "action": "接著要求輸入登入密碼、驗證碼或其他網銀敏感資訊",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p21",
+        "created_turn": 21,
+        "expires_turn": 23,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供或確認網銀中的其他驗證步驟",
+        "action": "進一步要求使用者在網銀內完成額外驗證",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p27",
+        "created_turn": 27,
+        "expires_turn": 29,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "更多轉帳或提款相關驗證操作",
+        "action": "在接下來的訊息中繼續要求其他金流或驗證步驟",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "你好，社團那篇嬰孩營養品還有嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "還有，保存期限有拍在照片裡，你可以看一下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "有看到，我想買。可以用7-11賣貨便嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "可以，寄到超商比較方便。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "這個是寄件頁面，你填一下資料：https://parcel.example.com/order/BABY-0912-02",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "我點進去了，是填寄件人的資料對嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "對，填完送出。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "填好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "我這邊帳戶被鎖住了，你剛剛操作是不是有弄錯？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "我就是照頁面填資料，怎麼會鎖住？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "要找客服解鎖，剛剛那個網頁裡有客服，麻煩你趕快聯絡一下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "你好，買家說我填寄件資料後，她的帳戶被鎖住了，叫我找你們。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "您好，這邊協助您排除交易異常，我用通話帶您操作。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "好，是要開視訊嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "不用開鏡頭，分享手機畫面就可以。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "我開了畫面分享，現在看得到嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "看得到，接著請開啟網路銀行，處理驗證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "網銀打開了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "輸入好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "好了，畫面顯示開通了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 23,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 24,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "畫面有出現轉帳資料，這也是現在要做的嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 25,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "對，請繼續完成這筆操作。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 26,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "好了，5,000 元，顯示轉帳成功。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 27,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "接著還有一筆 3,000 元轉帳，以及一筆 2,000 元無卡提款操作，完成後告訴我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 28,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "3,000 元那筆和 2,000 元那筆，都照著操作完了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 29,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "這邊先結束通話。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 30,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "我剛看網銀紀錄，怎麼有 5,000、3,000 和 2,000 元這三筆支出？存款少了 10,000 元。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p13",
+          "outcome": "matched",
+          "matched_turn": 17,
+          "reason": "第17則 support 要求『開啟網路銀行，處理驗證』，已從一般協助轉為要求進入網銀並進行敏感驗證/操作，符合預測的敏感驗證或操作。",
+          "evidence": [
+            {
+              "turn": 17,
+              "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p17",
+          "outcome": "matched",
+          "matched_turn": 19,
+          "reason": "第19則 support 明確要求在驗證欄位輸入手機收到的簡訊代碼，屬於要求輸入驗證碼等網銀敏感資訊。",
+          "evidence": [
+            {
+              "turn": 19,
+              "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p21",
+          "outcome": "matched",
+          "matched_turn": 23,
+          "reason": "第23則 support 進一步要求完成轉帳資料確認，屬於在網銀內要求額外驗證/操作；雖然不是同樣措辭，但實質上是後續的額外驗證步驟。",
+          "evidence": [
+            {
+              "turn": 23,
+              "quote": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p27",
+          "outcome": "uncertain",
+          "matched_turn": null,
+          "reason": "核對輸出的時間或角色依據未通過驗證，保留未確認。",
+          "evidence": [],
+          "validation_error": "p27要求support發言，引用第28則的user不符。請找正確角色之後的事件，沒有就missed。"
+        }
+      ],
+      "matched": 3,
+      "missed": 0,
+      "uncertain": 1,
+      "rate": 1.0,
+      "response_id": "resp_0a8fb3e083337b72016aa4edccf4a487d0b16703ef721c25be",
+      "usage": {
+        "input_tokens": 2510,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 2304
+        },
+        "output_tokens": 295,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2805
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p21在第21則產生；引用21不在未來。請找之後的事件，沒有就missed。",
+            "p27在第27則產生；引用27不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B3_假交友見面費.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/B3_假交友見面費.results.json",
+    "source_sha256": "276e7c831f862c21ef0a2c3323df849a720430f0f54e45d4d82fb7ea47443614",
+    "predictions": [
+      {
+        "id": "p13",
+        "created_turn": 13,
+        "expires_turn": 15,
+        "actor": "manager",
+        "action_type": "new_condition",
+        "object": "要求先提供更多能證明身分的資料或改用另一個確認流程",
+        "action": "可能接著追加新的確認條件或改走其他驗證程序",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p19",
+        "created_turn": 19,
+        "expires_turn": 21,
+        "actor": "manager",
+        "action_type": "payment_request",
+        "object": "其他超商代買或更多點數卡",
+        "action": "可能繼續要求以其他方式完成見面保證費或追加相近付款",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "剛剛看到你調酒的影片，那杯藍色的是什麼？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "friend",
+        "channel": "social_dm",
+        "text": "是店裡最近的新飲料。這裡訊息常漏掉，換 LINE 聊好嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "line",
+        "text": "加到了。我剛下班，你今天也晚班？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "friend",
+        "channel": "line",
+        "text": "對，最近幾乎都晚班，客人很多，下班反而沒人能說話。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "line",
+        "text": "我今天也忙到午餐變晚餐。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "friend",
+        "channel": "line",
+        "text": "那你記得吃東西。跟你聊這些比在店裡應酬舒服多了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "line",
+        "text": "週日我放假，你有空嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "friend",
+        "channel": "line",
+        "text": "下午可以，我們三點在青禾咖啡門口碰面？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "line",
+        "text": "好，我到了，穿灰色外套坐門口。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "friend",
+        "channel": "line",
+        "text": "對不起，公司臨時卡住，說不能私下跟陌生網友見面，要先請經理確認身分才能出去。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "user",
+        "channel": "line",
+        "text": "那我需要做什麼？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "friend",
+        "channel": "line",
+        "text": "我把經理阿凱加進來，請他幫忙確認。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "manager",
+        "channel": "line",
+        "text": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "line",
+        "text": "提款的明細也看得出職業？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "manager",
+        "channel": "line",
+        "text": "這是公司的核對方式，確認後才能讓他出去。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "line",
+        "text": "我領了兩千，明細照片傳給你了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "manager",
+        "channel": "line",
+        "text": "第一次見面另要兩千元見面保證費，用遊戲點數卡，買好把序號給我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "line",
+        "text": "不能到咖啡店見面再付嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "manager",
+        "channel": "line",
+        "text": "要先完成。分兩家超商買，別讓店員一直追問耽誤時間。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "line",
+        "text": "我先買了一張一千元的，序號是 DEMO-MEET-001。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "manager",
+        "channel": "line",
+        "text": "另外一張也快點買好傳來，我們這邊還在等。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "user",
+        "channel": "line",
+        "text": "我查了類似的經歷，發現也是用點數才能見面，我不會再買了。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p13",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "第13則已經是提出『去ATM提領現金、拍交易明細』的追加核對方式，本身就是預測內容發生時點；其後沒有再出現新的、額外的身分確認條件或改走其他驗證流程來延續這個要求，因此未命中。",
+          "evidence": [],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p19",
+          "outcome": "matched",
+          "matched_turn": 21,
+          "reason": "第19則之後，管理員在第21則又要求『另外一張也快點買好傳來』，屬於繼續要求追加相近付款／再買點數卡，符合預測中繼續要求其他方式完成見面保證費或追加付款的意思。",
+          "evidence": [
+            {
+              "turn": 21,
+              "quote": "另外一張也快點買好傳來，我們這邊還在等。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 1,
+      "missed": 1,
+      "uncertain": 0,
+      "rate": 0.5,
+      "response_id": "resp_01144451273573ef016aa4edcd684c87d0ba2eb3f6e1ccc8f6",
+      "usage": {
+        "input_tokens": 1975,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1792
+        },
+        "output_tokens": 189,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2164
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p13在第13則產生；引用13不在未來。請找之後的事件，沒有就missed。",
+            "p19在第19則產生；引用19不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B4.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/B4.results.json",
+    "source_sha256": "5baf6406bd0e3a07cb5d0a5ada80f68997b4247ced55d0d8010010b1454b60ab",
+    "predictions": [
+      {
+        "id": "p13",
+        "created_turn": 13,
+        "expires_turn": 15,
+        "actor": "counterparty",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供或操作認證資訊／網銀流程",
+        "action": "進一步要求驗證碼、密碼、網銀畫面或代為操作",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "你好，你在賣的演唱會門票還在嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "user",
+        "channel": "chat",
+        "text": "還在，你要買嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "想買，可以用順豐快遞寄給我嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "chat",
+        "text": "可以，寄送要怎麼弄？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "要先簽託運條款，才能辦寄送。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "chat",
+        "text": "是我這邊要簽嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "對，賣家這邊要先簽，還要完成金融認證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "chat",
+        "text": "寄票也要金融認證？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "這筆交易要先完成認證才能繼續。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "chat",
+        "text": "那現在要怎麼處理？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "這筆交易沒有及時完成，帳戶被列警示了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "user",
+        "channel": "chat",
+        "text": "那要怎麼解除？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "要照指示操作解除，先轉帳到指定帳戶。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "chat",
+        "text": "我看一下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "chat",
+        "text": "45,046 元，已經轉好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "接著再轉 27,979 元。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "chat",
+        "text": "這筆 27,979 元也轉好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "再一筆 27,028 元，轉完告訴我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "chat",
+        "text": "27,028 元轉好了，三筆都轉了。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p13",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "在創建後的對話中，對方持續要求轉帳與解除警示（第15、17、19輪），但沒有再要求驗證碼、密碼、網銀畫面或代為操作等認證資訊／網銀流程。後續也只有使用者自行回報已轉帳，未出現對方進一步索取敏感資訊的行為。",
+          "evidence": [],
+          "validation_error": null
+        }
+      ],
+      "matched": 0,
+      "missed": 1,
+      "uncertain": 0,
+      "rate": 0.0,
+      "response_id": "resp_0bddd42261fa7e6b016aa4edcb216087d09bf81e8fe2c5fcaf",
+      "usage": {
+        "input_tokens": 1621,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 119,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1740
+      },
+      "attempts": [
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B5_假中獎信用卡驗證盜刷.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/B5_假中獎信用卡驗證盜刷.results.json",
+    "source_sha256": "85d6e1128c1c87f6a649a1621f53113b7ed1dbb92ef6176eddf6ca49d006d9db",
+    "predictions": [
+      {
+        "id": "p10",
+        "created_turn": 10,
+        "expires_turn": 11,
+        "actor": "page",
+        "action_type": "sensitive_access_request",
+        "object": "要求輸入下一組銀行簡訊驗證碼或其他驗證資訊",
+        "action": "在你未完成前，續要求提供驗證碼或相近敏感資訊",
+        "within_next_messages": 1,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "notice",
+        "channel": "email",
+        "text": "一卡通發票中獎通知：您的消費發票有待領獎項，請至 https://invoice.example.com/claim 查詢。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "user",
+        "channel": "email",
+        "text": "我最近有搭車消費，先查查看是哪張發票。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "消費發票領獎查詢。請填寫姓名及聯絡手機，以便核對資料。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "我填好姓名林小安跟手機了，按下一步。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "不是查發票嗎，這頁還要信用卡資料？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "持卡人資料用於認證，填妥後會進入簡訊確認步驟。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "卡號、效期跟安全碼都填好送出了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "sms_relay",
+        "text": "手機收到發卡銀行的認證碼簡訊了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "請將銀行簡訊中的認證碼填入欄位，再按送出完成認證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "我輸入 482913 並送出了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "資料已受理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "user",
+        "channel": "bank_app_relay",
+        "text": "幾天後銀行 App 出現一筆境外消費通知，金額三萬二千元，我沒有買這個。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "email",
+        "text": "我回頭比對，先前那個領獎頁面和我自己找到的平台網址不同。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p10",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "在 created_turn 之後，頁面只要求輸入一次銀行簡訊認證碼（turn 10），之後沒有再出現續要求提供下一組驗證碼、再次索取驗證資訊或類似的追加敏感資訊；turn 11 是使用者自行輸入並送出，不是頁面再要求一次。因此未命中。",
+          "evidence": [],
+          "validation_error": null
+        }
+      ],
+      "matched": 0,
+      "missed": 1,
+      "uncertain": 0,
+      "rate": 0.0,
+      "response_id": "resp_0fe15c2b92933602016aa4edcb69fc87d0baf98c2ffc0fc327",
+      "usage": {
+        "input_tokens": 1470,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 112,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1582
+      },
+      "attempts": [
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B6_點數卡驗證與私密影像勒索.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/B6_點數卡驗證與私密影像勒索.results.json",
+    "source_sha256": "f87814d8851295a1682d0f9563b36bb068f7962a436ca55d2a4a924d51da3777",
+    "predictions": [
+      {
+        "id": "p4",
+        "created_turn": 4,
+        "expires_turn": 6,
+        "actor": "contact",
+        "action_type": "new_condition",
+        "object": "再追加其他驗證或付款前置條件",
+        "action": "在點數驗證之外，再提出新的前置條件或續費要求",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p8",
+        "created_turn": 8,
+        "expires_turn": 10,
+        "actor": "contact",
+        "action_type": "sensitive_access_request",
+        "object": "要求開啟私密視訊或其他更進一步的敏感畫面/操作",
+        "action": "繼續索取更私密的視訊或畫面配合",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p15",
+        "created_turn": 15,
+        "expires_turn": 17,
+        "actor": "contact",
+        "action_type": "sensitive_access_request",
+        "object": "要求更多私密影像或進一步視訊",
+        "action": "可能繼續以影像為由要求更多私密內容或操作",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "messenger",
+        "text": "看到你的交友貼文，可以先聊聊嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "contact",
+        "channel": "messenger",
+        "text": "可以，這邊不常看，換 LINE 聊。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "line",
+        "text": "加到了，我們週末能見面嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "contact",
+        "channel": "line",
+        "text": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "line",
+        "text": "要買多少？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "contact",
+        "channel": "line",
+        "text": "先兩張一千元的，把序號拍給我，我才能幫你登記。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "line",
+        "text": "我買好了，兩張序號是 DEMO-DATE-001 和 DEMO-DATE-002。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "contact",
+        "channel": "line",
+        "text": "見面前先做私密視訊，好嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "line",
+        "text": "我只想先見面，現在不想視訊。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "messenger",
+        "text": "LINE 訊息送不出去，是把我封鎖了嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "contact",
+        "channel": "messenger",
+        "text": "剛剛覺得你沒誠意，我解除封鎖了，你回 LINE。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "contact",
+        "channel": "line",
+        "text": "現在能視訊嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "user",
+        "channel": "line",
+        "text": "好，我接起來了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "line",
+        "text": "剛才的私密視訊結束了，你現在可以安排見面嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "contact",
+        "channel": "line",
+        "text": "我留下剛才的畫面了。再買五千元點數給我，不然把影像傳給你的親友。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "line",
+        "text": "你沒有問過就留下畫面，我不想讓人看到。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "contact",
+        "channel": "line",
+        "text": "現在就把點數序號傳來。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "line",
+        "text": "我很害怕，先沒有再回覆。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p4",
+          "outcome": "matched",
+          "matched_turn": 6,
+          "reason": "第4輪先要求買指定遊戲點數作為驗證條件；第6輪又進一步要求『把序號拍給我』才能登記，屬於在原驗證之外追加新的前置條件/索取內容，符合預測。",
+          "evidence": [
+            {
+              "turn": 6,
+              "quote": "先兩張一千元的，把序號拍給我，我才能幫你登記。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p8",
+          "outcome": "matched",
+          "matched_turn": 12,
+          "reason": "第8輪已提出私密視訊要求；之後第12輪又再次問『現在能視訊嗎？』，屬於繼續索取更私密的視訊配合，命中。",
+          "evidence": [
+            {
+              "turn": 12,
+              "quote": "現在能視訊嗎？"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p15",
+          "outcome": "matched",
+          "matched_turn": 17,
+          "reason": "第15輪之後，第17輪再次要求『現在就把點數序號傳來』，屬於持續催促索取同一筆義務，符合『可能繼續以影像為由要求更多私密內容或操作』這類後續索取的意思。",
+          "evidence": [
+            {
+              "turn": 17,
+              "quote": "現在就把點數序號傳來。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 3,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": 1.0,
+      "response_id": "resp_0e6811e9b01841f6016aa4edcf456887d0816c154c18c4fd78",
+      "usage": {
+        "input_tokens": 1775,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1280
+        },
+        "output_tokens": 243,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2018
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p8在第8則產生；引用8不在未來。請找之後的事件，沒有就missed。",
+            "p15在第15則產生；引用15不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "N1_二手拍立得正常交易.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/N1_二手拍立得正常交易.results.json",
+    "source_sha256": "8f1f10e3024ead5cfafc35393fd6d8c481e8379fb1a37b3b16b0758a58b4dffb",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "你好，看到你賣二手拍立得，還在嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "seller",
+        "channel": "social_dm",
+        "text": "還在，最近整理房間很少用了，所以便宜賣。機身有使用痕跡，功能正常。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "800 元是只有相機嗎？有附底片嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "seller",
+        "channel": "social_dm",
+        "text": "只有相機跟背帶，沒有底片。電池蓋旁邊有刮痕，貼文最後一張有拍。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "可以再看一下出片的影片嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "seller",
+        "channel": "social_dm",
+        "text": "可以，我今天下班後拍給你。方便加 LINE 傳嗎？我的名字是「阿哲」，連結是 https://chat.example.com/azhe-camera 。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "你好，我是剛剛問拍立得的。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "這是剛剛拍的，影片裡有開機、按快門，最後拍到相紙出來。右邊電池蓋的刮痕也有拍近一點給你看。",
+        "attachment_captions": [
+          "試機影片・00:18｜開機、按快門、出片與電池蓋刮痕特寫"
+        ]
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "看到了，外觀我可以接受。可以面交嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "可以，我週六下午能在車站面交，你可以現場試機再付款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "我住比較遠，還是寄給我好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "也可以。相機 800，運費算 60，一共 860 元。你想用平台下單還是直接轉帳後寄件？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "我用平台下單好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "好，我把這台上架到「拾物二手」了。你直接開平台 App，搜尋帳號「阿哲的二手櫃」就能找到，不用從聊天連結登入。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "找到了，商品寫二手拍立得，右側跟電池蓋有刮痕，就是這台對吧？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "對，就是這台。你確認照片和描述都沒問題再下單。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "下單了，訂單編號 SHIWU-CAM-0912-01，我選平台的銀行轉帳付款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "好，付款資訊看 App 裡這筆訂單的說明就可以，不用把銀行資料傳給我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "訂單裡顯示 860 元，收款方是拾物二手，星河測試銀行、帳號 TEST-ORDER-860，跟剛剛說的金額一樣。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "我已經照訂單的付款資訊轉帳 860 元，App 也顯示付款完成了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "我這邊也看到訂單已付款，明天幫你寄出，會把相機包好。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "好，謝謝。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 23,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "已經寄出了，物流單號 SHIP-CAM-0913-01，我也更新在訂單裡了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 24,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "有看到出貨紀錄，我再留意包裹。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 25,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "收到相機了，刮痕跟照片一樣。我裝底片試拍，也能正常出片。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 26,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "收到就好，謝謝你。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N2_同住家人Netflix暫時收看驗證碼.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/N2_同住家人Netflix暫時收看驗證碼.results.json",
+    "source_sha256": "7f8b515bd295c74fc9023ce6aedb57433aa306b747d37c5c0284841370975248",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "你出差到了嗎？家裡晚餐剩的咖哩我放冰箱了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "到了，明晚回家。我用平常家裡那台平板開 Netflix，跳出暫時收看的驗證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "是我們一直共用的家庭帳號嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "對，剛在 App 按寄送郵件到你的信箱，幫我看一下四位數代碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我先打你原本的手機確認，你等一下接。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "剛通完了，是我本人在旅館的平板申請，時間就是剛剛。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "信裡是 Netflix 的暫時存取要求，對上你的這次操作，代碼 7316。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "輸入進去了，能看了，明天回家再一起看下一集。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "好，咖哩記得吃。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N3_本人刷卡結帳自行輸入OTP.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/N3_本人刷卡結帳自行輸入OTP.results.json",
+    "source_sha256": "e6e8fb166d25056f92f94747078ad502caefee0f03452b8261192ff5437385d4",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "我要的書架白色還有現貨嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "有，含運一千二，今天下單週五出貨。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "我已經在平常買東西的購物 App 找到你的賣場，準備結帳。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "選白色款就好，庫存還有兩個。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "刷卡結帳跳出銀行驗證頁，手機也收到代碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "你在自己的結帳頁完成就好，我這邊等訂單通知。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "簡訊的商店跟一千二元都對，我自己輸入了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "看到付款訂單了，收件地址沿用訂單上的嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "對，地址沒變。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "已經寄出，物流單號在 App 訂單內。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N4_公司IT分享試算表畫面.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/N4_公司IT分享試算表畫面.results.json",
+    "source_sha256": "52db453a0039c2a8693dbf01d40b635036d1b556b7ca6385faec0e77f0d0a6b3",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "你是今天處理我報修單的同事嗎？試算表列印又跑版了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "對，工單是 IT-2408，我在公司會議室的支援時段，現在可以看。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "我從公司通訊錄撥你的分機，剛剛有接到。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "那用公司的視訊會議分享試算表視窗，我看一下列印範圍。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "我分享這個空白範本就好，其他視窗沒有分享。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "看到了，你的紙張大小選成信封，改 A4，再預覽一次。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "改好了，現在一頁放得下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "可以停止分享了，我把處理方式寫進工單。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "印出來正常，謝謝。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N5_家人生日遊戲點數禮物.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/N5_家人生日遊戲點數禮物.results.json",
+    "source_sha256": "81e9e74e1b29981645860598e28f6e9149594cce46a10487d4fa5debeda40959",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "你今年生日想要什麼？上次說的遊戲還有在玩？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "有，想買裡面的資料片，送我五百元點數就好。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我等一下去超商，買卡還是線上序號？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "點數卡就可以，遊戲帳號是我自己的。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "剛在家裡問你一次，是同款的五百元沒錯吧？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "對啊，就是我剛拿盒子給你看的那款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "買好了，生日快樂，序號 DEMO-GIFT-001。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "儲值好了，等下載完一起玩。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "晚餐後再玩，蛋糕先吃。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N6_商家原路退款等待入帳.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/N6_商家原路退款等待入帳.results.json",
+    "source_sha256": "7be17b4d2ec4034300de090a3411735083cdf29a6cbab43c059366665a395913",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "昨天收到的杯子有裂痕，訂單 240912-17，想辦退貨。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "看到了照片，我替你開退貨單，物流明天下午收件。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "我這次是刷卡，退款也是回卡裡嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "對，退回原付款卡，收件後處理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "物流收走了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "倉庫收到，今天已申請退款六百八十元，入帳要等銀行處理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "今天看 App 還沒有。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "退款紀錄已在原訂單裡，之後再看卡片明細。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "隔幾天查到退刷六百八十元了，謝謝。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N7_朋友訂位分攤餐廳訂金.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/N7_朋友訂位分攤餐廳訂金.results.json",
+    "source_sha256": "5341b6603ad61d3bd522c245645929faf90e8de2d8286a08e4c85558e00b862b",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "週六聚餐確定四個人嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "對，我訂了青禾餐館。店家說四人包廂要先付一千元訂金，當天抵餐費。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "我分攤兩百五？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "對，我先付店家，你晚點轉我就好。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "我也打餐廳的電話問了，訂位是週六六點、你的名字。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "沒錯，剛收到訂位確認，當天如果要改時間再一起決定。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "兩百五轉到以前分攤房費那個帳號了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "收到了，週六見。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "今天帳單有扣掉一千元訂金，剩下我們現場付了。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N8_家人代領包裹取件碼.replay.json",
+    "repeat": 1,
+    "source": "reports/expanded-v1/run1/N8_家人代領包裹取件碼.results.json",
+    "source_sha256": "bc7b689d5c74e102c31a4aa62bae267d07dd3975af629b1ae58cd945693e3c9a",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我晚點才下班，可以幫我拿管理室的包裹嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "可以，我在大樓樓下了，要給管理員取件碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "是我昨天買的濾水壺，尾號 4128。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "管理員說包裹姓名跟你一樣，要你收到的六位數取件碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我剛打家裡電話跟你確認過，通知是這件包裹的取件碼 593204。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "拿到了，是一箱濾水壺，放餐桌上。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "好，晚上回去拆。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "B1_免費拍立得詐騙.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/B1_免費拍立得詐騙.results.json",
+    "source_sha256": "7c3b7800fa782ec759aa427e76af59c0bf361a10acce8c843c5d1787e5f00e63",
+    "predictions": [
+      {
+        "id": "p13",
+        "created_turn": 13,
+        "expires_turn": 15,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供訂單異常頁面、登入畫面或驗證資訊以便處理",
+        "action": "可能進一步要求查看或提供更敏感的處理資訊",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p18",
+        "created_turn": 18,
+        "expires_turn": 20,
+        "actor": "bank",
+        "action_type": "payment_request",
+        "object": "轉帳驗證",
+        "action": "要求使用者先轉帳以完成驗證",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p22",
+        "created_turn": 22,
+        "expires_turn": 24,
+        "actor": "bank",
+        "action_type": "sensitive_access_request",
+        "object": "要求再回報或操作下一個驗證畫面",
+        "action": "持續引導使用者進行下一步敏感驗證並回傳畫面",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p30",
+        "created_turn": 30,
+        "expires_turn": 32,
+        "actor": "bank",
+        "action_type": "new_condition",
+        "object": "要求先完成購買後再說明下一步驗證結果",
+        "action": "繼續追加驗證條件",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "threads_dm",
+        "text": "你好，我看到你們送拍立得的貼文，請問還有嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "donor",
+        "channel": "threads_dm",
+        "text": "還有喔，相館準備歇業了，剩下的庫存想送給需要的人。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "donor",
+        "channel": "threads_dm",
+        "text": "方便加 LINE 嗎？寄送資料在那邊跟你確認。我叫「光盒相館・小林」，連結是 https://chat.example.com/lightbox-lin 。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "你好，我是剛剛問拍立得的。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "拍立得不用錢，運費 60 元你自己出就好，可以嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "可以，要在哪裡填寄送資料？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "用這個賣貨便頁面，點進去填收件姓名、手機跟取貨門市就可以了：https://parcel.example.com/order/CAM-0912-01",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "我填完送出，怎麼跳出「交易訂單失敗，需實名認證」？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "那要找客服處理，頁面上有客服的 LINE。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "所以現在沒有填成功嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "你好，我要領拍立得，填完資料顯示交易訂單失敗，要實名認證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "您好，這邊協助您處理訂單異常。您目前停在哪個畫面？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "就是交易失敗那個畫面，接下來不知道要按什麼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "客服叫我找你處理實名認證，我的訂單一直失敗。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "您好，接下來協助您處理帳戶異常及驗證程序。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "請先開啟網路銀行，這一步需要轉帳完成驗證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "我打開了，要轉到哪裡？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "這筆金額是 3,000 元，收款資料是星河測試銀行、帳號 TEST-CAM-001。完成後告訴我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "好了，3,000 元，網銀顯示轉帳成功。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "接著要做無卡提款的驗證，這筆也是 3,000 元，完成後告訴我畫面顯示的結果。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 23,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "這筆 3,000 元的操作也完成了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 24,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "還有這張 2,000 元的付款碼，掃描後依畫面付款。我傳給你，單號 PAY-CAM-003。",
+        "attachment_captions": [
+          "付款通知｜金額 NT$2,000｜單號 PAY-CAM-003"
+        ]
+      },
+      {
+        "turn": 25,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "2,000 元付款完成了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 26,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "我只是填寄件資料，怎麼銀行專員一直叫我做轉帳、提款跟付款？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 27,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "驗證還沒完成，您的帳戶會被鎖，賣家的帳戶也會受到影響，請先配合專員處理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 28,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "客服說還要繼續，那前面轉出去的錢怎麼辦？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 29,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "前面操作的款項都會退回，請先把驗證完成。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 30,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "接下來請用信用卡購買一張 1,000 元數位禮券和一張 1,000 元遊戲點數卡，測試帳戶是否解除限制。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 31,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "買好了，然後呢？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 32,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "請提供序號，這邊要查驗真偽。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 33,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "禮券序號是 DEMO-GIFT-CAM-001，點數卡序號是 DEMO-GAME-CAM-002。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 34,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "驗證已完成，接下來辦理退款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 35,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "專員說完成了，我的退款什麼時候會下來？拍立得可以寄了嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 36,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "退款還要跑流程，請耐心等候。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 37,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "請問退款進度怎麼樣了？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 38,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "有人在嗎？我還沒收到退款，麻煩回覆。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p13",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "第13則之後，support沒有再要求查看訂單異常頁面、登入畫面或驗證資訊；只是請使用者描述卡在哪個畫面，之後轉介銀行專員與退款流程，未出現更敏感資訊索取。",
+          "evidence": [],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p18",
+          "outcome": "matched",
+          "matched_turn": 20,
+          "reason": "第18則後，bank確實要求使用者先轉帳完成驗證；第20則明確給出3,000元收款資料，要求完成後回報，符合先轉帳以完成驗證。",
+          "evidence": [
+            {
+              "turn": 20,
+              "quote": "這筆金額是 3,000 元，收款資料是星河測試銀行、帳號 TEST-CAM-001。完成後告訴我。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p22",
+          "outcome": "uncertain",
+          "matched_turn": null,
+          "reason": "核對輸出的時間或角色依據未通過驗證，保留未確認。",
+          "evidence": [],
+          "validation_error": "p22在第22則產生；引用22不在未來。請找之後的事件，沒有就missed。"
+        },
+        {
+          "prediction_id": "p30",
+          "outcome": "matched",
+          "matched_turn": 32,
+          "reason": "第30則後，bank先要求用信用卡購買數位禮券與遊戲點數卡，接著第32則再要求提供序號查驗真偽，符合先完成購買後再追加下一步驗證條件。",
+          "evidence": [
+            {
+              "turn": 32,
+              "quote": "請提供序號，這邊要查驗真偽。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 2,
+      "missed": 1,
+      "uncertain": 1,
+      "rate": 0.6666666666666666,
+      "response_id": "resp_0f93f48ddf8f5509016aa4edcff2bc87d0b063e8fa782f5eaf",
+      "usage": {
+        "input_tokens": 3082,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 2816
+        },
+        "output_tokens": 303,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 3385
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p18在第18則產生；引用18不在未來。請找之後的事件，沒有就missed。",
+            "p22在第22則產生；引用22不在未來。請找之後的事件，沒有就missed。",
+            "p30在第30則產生；引用30不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B2_假買家騙賣家.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/B2_假買家騙賣家.results.json",
+    "source_sha256": "ebb3d5412a71c93917c89b11cd80deb3f8147892ec235f371e67fba36e2ac85f",
+    "predictions": [
+      {
+        "id": "p15",
+        "created_turn": 15,
+        "expires_turn": 17,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "密碼或OTP或網銀操作畫面",
+        "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p19",
+        "created_turn": 19,
+        "expires_turn": 21,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求輸入或提供下一組驗證碼／OTP",
+        "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p27",
+        "created_turn": 27,
+        "expires_turn": 29,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "更多網銀驗證或追加金流操作",
+        "action": "可能再要求使用者進一步在網銀內完成額外驗證、轉帳或提款相關操作",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "你好，社團那篇嬰孩營養品還有嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "還有，保存期限有拍在照片裡，你可以看一下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "有看到，我想買。可以用7-11賣貨便嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "可以，寄到超商比較方便。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "這個是寄件頁面，你填一下資料：https://parcel.example.com/order/BABY-0912-02",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "我點進去了，是填寄件人的資料對嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "對，填完送出。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "填好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "我這邊帳戶被鎖住了，你剛剛操作是不是有弄錯？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "我就是照頁面填資料，怎麼會鎖住？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "要找客服解鎖，剛剛那個網頁裡有客服，麻煩你趕快聯絡一下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "你好，買家說我填寄件資料後，她的帳戶被鎖住了，叫我找你們。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "您好，這邊協助您排除交易異常，我用通話帶您操作。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "好，是要開視訊嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "不用開鏡頭，分享手機畫面就可以。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "我開了畫面分享，現在看得到嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "看得到，接著請開啟網路銀行，處理驗證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "網銀打開了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "輸入好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "好了，畫面顯示開通了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 23,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 24,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "畫面有出現轉帳資料，這也是現在要做的嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 25,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "對，請繼續完成這筆操作。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 26,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "好了，5,000 元，顯示轉帳成功。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 27,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "接著還有一筆 3,000 元轉帳，以及一筆 2,000 元無卡提款操作，完成後告訴我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 28,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "3,000 元那筆和 2,000 元那筆，都照著操作完了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 29,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "這邊先結束通話。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 30,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "我剛看網銀紀錄，怎麼有 5,000、3,000 和 2,000 元這三筆支出？存款少了 10,000 元。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p15",
+          "outcome": "matched",
+          "matched_turn": 17,
+          "reason": "第17輪 support 要求先開啟網路銀行並進行驗證，屬於在分享畫面後進一步要求更敏感的登入/驗證操作，符合預測。",
+          "evidence": [
+            {
+              "turn": 17,
+              "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p19",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "第19輪之後沒有再由 support 要求輸入另一組驗證碼或其他新的敏感驗證資訊；後續改為無卡提款開通與轉帳操作，不是再次索取下一組 OTP。",
+          "evidence": [],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p27",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "第27輪之後沒有再由 support 要求額外完成新的網銀驗證、轉帳或提款操作；第27輪本身已是該要求，之後只是 user 回報已完成並結束通話。",
+          "evidence": [],
+          "validation_error": null
+        }
+      ],
+      "matched": 1,
+      "missed": 2,
+      "uncertain": 0,
+      "rate": 0.3333333333333333,
+      "response_id": "resp_0c5ac4e1fe5a17c8016aa4edcf839487d0b7760807f706caf5",
+      "usage": {
+        "input_tokens": 2452,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1792
+        },
+        "output_tokens": 216,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2668
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p19在第19則產生；引用19不在未來。請找之後的事件，沒有就missed。",
+            "p27在第27則產生；引用27不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B3_假交友見面費.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/B3_假交友見面費.results.json",
+    "source_sha256": "c65d0c65eabdd9e1ec1e0e835fd8a9cc94cadfa6c1b42d749867bb400c06ace4",
+    "predictions": [
+      {
+        "id": "p13",
+        "created_turn": 13,
+        "expires_turn": 15,
+        "actor": "manager",
+        "action_type": "sensitive_access_request",
+        "object": "進一步要求提供交易明細或其他帳戶驗證資料",
+        "action": "可能再要求更完整的明細、畫面或其他驗證資料",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p19",
+        "created_turn": 19,
+        "expires_turn": 21,
+        "actor": "manager",
+        "action_type": "payment_request",
+        "object": "點數卡序號",
+        "action": "進一步催促提供序號或完成購買",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "剛剛看到你調酒的影片，那杯藍色的是什麼？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "friend",
+        "channel": "social_dm",
+        "text": "是店裡最近的新飲料。這裡訊息常漏掉，換 LINE 聊好嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "line",
+        "text": "加到了。我剛下班，你今天也晚班？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "friend",
+        "channel": "line",
+        "text": "對，最近幾乎都晚班，客人很多，下班反而沒人能說話。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "line",
+        "text": "我今天也忙到午餐變晚餐。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "friend",
+        "channel": "line",
+        "text": "那你記得吃東西。跟你聊這些比在店裡應酬舒服多了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "line",
+        "text": "週日我放假，你有空嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "friend",
+        "channel": "line",
+        "text": "下午可以，我們三點在青禾咖啡門口碰面？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "line",
+        "text": "好，我到了，穿灰色外套坐門口。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "friend",
+        "channel": "line",
+        "text": "對不起，公司臨時卡住，說不能私下跟陌生網友見面，要先請經理確認身分才能出去。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "user",
+        "channel": "line",
+        "text": "那我需要做什麼？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "friend",
+        "channel": "line",
+        "text": "我把經理阿凱加進來，請他幫忙確認。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "manager",
+        "channel": "line",
+        "text": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "line",
+        "text": "提款的明細也看得出職業？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "manager",
+        "channel": "line",
+        "text": "這是公司的核對方式，確認後才能讓他出去。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "line",
+        "text": "我領了兩千，明細照片傳給你了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "manager",
+        "channel": "line",
+        "text": "第一次見面另要兩千元見面保證費，用遊戲點數卡，買好把序號給我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "line",
+        "text": "不能到咖啡店見面再付嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "manager",
+        "channel": "line",
+        "text": "要先完成。分兩家超商買，別讓店員一直追問耽誤時間。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "line",
+        "text": "我先買了一張一千元的，序號是 DEMO-MEET-001。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "manager",
+        "channel": "line",
+        "text": "另外一張也快點買好傳來，我們這邊還在等。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "user",
+        "channel": "line",
+        "text": "我查了類似的經歷，發現也是用點數才能見面，我不會再買了。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p13",
+          "outcome": "matched",
+          "matched_turn": 21,
+          "reason": "第13則後，對方先要求交易明細；之後第21則經理又要求「另外一張也快點買好傳來」，屬於繼續要求提供額外的敏感資料/驗證內容，符合再要求更完整明細、畫面或其他驗證資料的意思。",
+          "evidence": [
+            {
+              "turn": 21,
+              "quote": "另外一張也快點買好傳來，我們這邊還在等。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p19",
+          "outcome": "matched",
+          "matched_turn": 21,
+          "reason": "第19則後，經理在第21則明確催促「另外一張也快點買好傳來」，這是延續先前的點數卡購買/序號提供要求，屬於再次催促完成購買並提供序號。",
+          "evidence": [
+            {
+              "turn": 21,
+              "quote": "另外一張也快點買好傳來，我們這邊還在等。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 2,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": 1.0,
+      "response_id": "resp_09ec8b61327849bf016aa4edd113b887d0a69a9271258757a7",
+      "usage": {
+        "input_tokens": 1961,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1792
+        },
+        "output_tokens": 181,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2142
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p13在第13則產生；引用13不在未來。請找之後的事件，沒有就missed。",
+            "p19在第19則產生；引用19不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B4.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/B4.results.json",
+    "source_sha256": "3fc5cd6d1b85ab574b610ce8912ccf03057656c1c1e82644babf9755cd16d670",
+    "predictions": [
+      {
+        "id": "p7",
+        "created_turn": 7,
+        "expires_turn": 9,
+        "actor": "counterparty",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供金融認證相關敏感資訊或操作",
+        "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p11",
+        "created_turn": 11,
+        "expires_turn": 13,
+        "actor": "counterparty",
+        "action_type": "new_condition",
+        "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+        "action": "進一步轉介到指定處理管道",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p17",
+        "created_turn": 17,
+        "expires_turn": 19,
+        "actor": "counterparty",
+        "action_type": "payment_request",
+        "object": "要求再追加一筆轉帳到指定帳戶",
+        "action": "追加金流要求",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "你好，你在賣的演唱會門票還在嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "user",
+        "channel": "chat",
+        "text": "還在，你要買嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "想買，可以用順豐快遞寄給我嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "chat",
+        "text": "可以，寄送要怎麼弄？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "要先簽託運條款，才能辦寄送。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "chat",
+        "text": "是我這邊要簽嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "對，賣家這邊要先簽，還要完成金融認證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "chat",
+        "text": "寄票也要金融認證？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "這筆交易要先完成認證才能繼續。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "chat",
+        "text": "那現在要怎麼處理？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "這筆交易沒有及時完成，帳戶被列警示了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "user",
+        "channel": "chat",
+        "text": "那要怎麼解除？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "要照指示操作解除，先轉帳到指定帳戶。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "chat",
+        "text": "我看一下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "chat",
+        "text": "45,046 元，已經轉好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "接著再轉 27,979 元。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "chat",
+        "text": "這筆 27,979 元也轉好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "再一筆 27,028 元，轉完告訴我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "chat",
+        "text": "27,028 元轉好了，三筆都轉了。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p7",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "在 created_turn 7 之後，對方雖然持續要求先完成認證與照指示操作，但沒有再明確索取密碼、OTP、網銀畫面或代操作等金融敏感資訊/操作；後續內容是轉帳與解除警示，非敏感存取要求。",
+          "evidence": [],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p11",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "在 created_turn 11 之後，對方沒有改用其提供的特定客服或特定流程來要求繼續完成認證；之後是直接要求先轉帳到指定帳戶，屬於金流要求而非轉介指定管道。",
+          "evidence": [],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p17",
+          "outcome": "matched",
+          "matched_turn": 19,
+          "reason": "created_turn 17 之後，對方在 turn 19 明確再次要求追加一筆轉帳：『再一筆 27,028 元，轉完告訴我』，符合追加金流要求。",
+          "evidence": [
+            {
+              "turn": 19,
+              "quote": "再一筆 27,028 元，轉完告訴我。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 1,
+      "missed": 2,
+      "uncertain": 0,
+      "rate": 0.3333333333333333,
+      "response_id": "resp_040d7f59a61b9c62016aa4edd0250487d0aa3a3ba22a113ffc",
+      "usage": {
+        "input_tokens": 1740,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 251,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1991
+      },
+      "attempts": [
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B5_假中獎信用卡驗證盜刷.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/B5_假中獎信用卡驗證盜刷.results.json",
+    "source_sha256": "ea08e50edcec4db774f05145a0d5166b583912fe4ddb3e230fea5dcaa50bdec8",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "notice",
+        "channel": "email",
+        "text": "一卡通發票中獎通知：您的消費發票有待領獎項，請至 https://invoice.example.com/claim 查詢。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "user",
+        "channel": "email",
+        "text": "我最近有搭車消費，先查查看是哪張發票。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "消費發票領獎查詢。請填寫姓名及聯絡手機，以便核對資料。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "我填好姓名林小安跟手機了，按下一步。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "不是查發票嗎，這頁還要信用卡資料？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "持卡人資料用於認證，填妥後會進入簡訊確認步驟。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "卡號、效期跟安全碼都填好送出了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "sms_relay",
+        "text": "手機收到發卡銀行的認證碼簡訊了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "請將銀行簡訊中的認證碼填入欄位，再按送出完成認證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "我輸入 482913 並送出了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "資料已受理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "user",
+        "channel": "bank_app_relay",
+        "text": "幾天後銀行 App 出現一筆境外消費通知，金額三萬二千元，我沒有買這個。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "email",
+        "text": "我回頭比對，先前那個領獎頁面和我自己找到的平台網址不同。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "B6_點數卡驗證與私密影像勒索.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/B6_點數卡驗證與私密影像勒索.results.json",
+    "source_sha256": "0d82e3ef43bcaf1866c9c613959346cb9ac367606eaee622b3e30c1b8fe89032",
+    "predictions": [
+      {
+        "id": "p2",
+        "created_turn": 2,
+        "expires_turn": 4,
+        "actor": "contact",
+        "action_type": "new_condition",
+        "object": "聊天條件或進一步聯絡方式",
+        "action": "可能再提出需先加LINE或依其指定方式聯絡的條件",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p6",
+        "created_turn": 6,
+        "expires_turn": 8,
+        "actor": "contact",
+        "action_type": "sensitive_access_request",
+        "object": "要求拍下或傳送遊戲點數序號以便登記",
+        "action": "進一步索取可直接使用的序號資訊",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p15",
+        "created_turn": 15,
+        "expires_turn": 17,
+        "actor": "contact",
+        "action_type": "new_condition",
+        "object": "要求再付更多點數或其他費用以避免散布影像",
+        "action": "可能再追加付款門檻作為解除威脅條件",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "messenger",
+        "text": "看到你的交友貼文，可以先聊聊嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "contact",
+        "channel": "messenger",
+        "text": "可以，這邊不常看，換 LINE 聊。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "line",
+        "text": "加到了，我們週末能見面嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "contact",
+        "channel": "line",
+        "text": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "line",
+        "text": "要買多少？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "contact",
+        "channel": "line",
+        "text": "先兩張一千元的，把序號拍給我，我才能幫你登記。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "line",
+        "text": "我買好了，兩張序號是 DEMO-DATE-001 和 DEMO-DATE-002。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "contact",
+        "channel": "line",
+        "text": "見面前先做私密視訊，好嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "line",
+        "text": "我只想先見面，現在不想視訊。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "messenger",
+        "text": "LINE 訊息送不出去，是把我封鎖了嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "contact",
+        "channel": "messenger",
+        "text": "剛剛覺得你沒誠意，我解除封鎖了，你回 LINE。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "contact",
+        "channel": "line",
+        "text": "現在能視訊嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "user",
+        "channel": "line",
+        "text": "好，我接起來了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "line",
+        "text": "剛才的私密視訊結束了，你現在可以安排見面嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "contact",
+        "channel": "line",
+        "text": "我留下剛才的畫面了。再買五千元點數給我，不然把影像傳給你的親友。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "line",
+        "text": "你沒有問過就留下畫面，我不想讓人看到。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "contact",
+        "channel": "line",
+        "text": "現在就把點數序號傳來。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "line",
+        "text": "我很害怕，先沒有再回覆。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p2",
+          "outcome": "matched",
+          "matched_turn": 11,
+          "reason": "第2則已先提出換 LINE，但之後第11則又明確要求『你回 LINE』，屬於再次要求依指定方式聯絡，符合再提出聯絡條件的意思。",
+          "evidence": [
+            {
+              "turn": 11,
+              "quote": "剛剛覺得你沒誠意，我解除封鎖了，你回 LINE。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p6",
+          "outcome": "matched",
+          "matched_turn": 17,
+          "reason": "第6則已索取序號；之後第17則再次要求『現在就把點數序號傳來』，屬於再次索取可直接使用的序號資訊，符合預測。",
+          "evidence": [
+            {
+              "turn": 17,
+              "quote": "現在就把點數序號傳來。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p15",
+          "outcome": "uncertain",
+          "matched_turn": null,
+          "reason": "核對輸出的時間或角色依據未通過驗證，保留未確認。",
+          "evidence": [],
+          "validation_error": "p15在第15則產生；引用15不在未來。請找之後的事件，沒有就missed。"
+        }
+      ],
+      "matched": 2,
+      "missed": 0,
+      "uncertain": 1,
+      "rate": 1.0,
+      "response_id": "resp_0d89ec7e0a25f9b8016aa4edd218c887d0b3cfdaef7e167d1b",
+      "usage": {
+        "input_tokens": 1796,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1280
+        },
+        "output_tokens": 211,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2007
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p2在第2則產生；引用2不在未來。請找之後的事件，沒有就missed。",
+            "p6在第6則產生；引用6不在未來。請找之後的事件，沒有就missed。",
+            "p15在第15則產生；引用15不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "N1_二手拍立得正常交易.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/N1_二手拍立得正常交易.results.json",
+    "source_sha256": "0e6306b13f86111617e1ec634c4a70aa5cfebaa663bdc2c9b7902b6e1deee617",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "你好，看到你賣二手拍立得，還在嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "seller",
+        "channel": "social_dm",
+        "text": "還在，最近整理房間很少用了，所以便宜賣。機身有使用痕跡，功能正常。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "800 元是只有相機嗎？有附底片嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "seller",
+        "channel": "social_dm",
+        "text": "只有相機跟背帶，沒有底片。電池蓋旁邊有刮痕，貼文最後一張有拍。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "可以再看一下出片的影片嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "seller",
+        "channel": "social_dm",
+        "text": "可以，我今天下班後拍給你。方便加 LINE 傳嗎？我的名字是「阿哲」，連結是 https://chat.example.com/azhe-camera 。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "你好，我是剛剛問拍立得的。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "這是剛剛拍的，影片裡有開機、按快門，最後拍到相紙出來。右邊電池蓋的刮痕也有拍近一點給你看。",
+        "attachment_captions": [
+          "試機影片・00:18｜開機、按快門、出片與電池蓋刮痕特寫"
+        ]
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "看到了，外觀我可以接受。可以面交嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "可以，我週六下午能在車站面交，你可以現場試機再付款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "我住比較遠，還是寄給我好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "也可以。相機 800，運費算 60，一共 860 元。你想用平台下單還是直接轉帳後寄件？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "我用平台下單好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "好，我把這台上架到「拾物二手」了。你直接開平台 App，搜尋帳號「阿哲的二手櫃」就能找到，不用從聊天連結登入。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "找到了，商品寫二手拍立得，右側跟電池蓋有刮痕，就是這台對吧？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "對，就是這台。你確認照片和描述都沒問題再下單。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "下單了，訂單編號 SHIWU-CAM-0912-01，我選平台的銀行轉帳付款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "好，付款資訊看 App 裡這筆訂單的說明就可以，不用把銀行資料傳給我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "訂單裡顯示 860 元，收款方是拾物二手，星河測試銀行、帳號 TEST-ORDER-860，跟剛剛說的金額一樣。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "我已經照訂單的付款資訊轉帳 860 元，App 也顯示付款完成了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "我這邊也看到訂單已付款，明天幫你寄出，會把相機包好。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "好，謝謝。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 23,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "已經寄出了，物流單號 SHIP-CAM-0913-01，我也更新在訂單裡了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 24,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "有看到出貨紀錄，我再留意包裹。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 25,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "收到相機了，刮痕跟照片一樣。我裝底片試拍，也能正常出片。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 26,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "收到就好，謝謝你。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N2_同住家人Netflix暫時收看驗證碼.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/N2_同住家人Netflix暫時收看驗證碼.results.json",
+    "source_sha256": "6d2986f0ed44f28f1cf961465d53cae212b17afbd03955ba59f5fcf8a46f93b0",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "你出差到了嗎？家裡晚餐剩的咖哩我放冰箱了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "到了，明晚回家。我用平常家裡那台平板開 Netflix，跳出暫時收看的驗證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "是我們一直共用的家庭帳號嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "對，剛在 App 按寄送郵件到你的信箱，幫我看一下四位數代碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我先打你原本的手機確認，你等一下接。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "剛通完了，是我本人在旅館的平板申請，時間就是剛剛。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "信裡是 Netflix 的暫時存取要求，對上你的這次操作，代碼 7316。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "輸入進去了，能看了，明天回家再一起看下一集。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "好，咖哩記得吃。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N3_本人刷卡結帳自行輸入OTP.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/N3_本人刷卡結帳自行輸入OTP.results.json",
+    "source_sha256": "755d32c18ae95fbe791d61c5c844a4207abc3556de13d97a0c53bb0df21a898a",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "我要的書架白色還有現貨嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "有，含運一千二，今天下單週五出貨。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "我已經在平常買東西的購物 App 找到你的賣場，準備結帳。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "選白色款就好，庫存還有兩個。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "刷卡結帳跳出銀行驗證頁，手機也收到代碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "你在自己的結帳頁完成就好，我這邊等訂單通知。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "簡訊的商店跟一千二元都對，我自己輸入了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "看到付款訂單了，收件地址沿用訂單上的嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "對，地址沒變。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "已經寄出，物流單號在 App 訂單內。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N4_公司IT分享試算表畫面.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/N4_公司IT分享試算表畫面.results.json",
+    "source_sha256": "4a8738f5d581d1c9ede647b546b7e70d6cfd08ae3f4aba718f811904dcd250a0",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "你是今天處理我報修單的同事嗎？試算表列印又跑版了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "對，工單是 IT-2408，我在公司會議室的支援時段，現在可以看。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "我從公司通訊錄撥你的分機，剛剛有接到。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "那用公司的視訊會議分享試算表視窗，我看一下列印範圍。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "我分享這個空白範本就好，其他視窗沒有分享。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "看到了，你的紙張大小選成信封，改 A4，再預覽一次。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "改好了，現在一頁放得下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "可以停止分享了，我把處理方式寫進工單。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "印出來正常，謝謝。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N5_家人生日遊戲點數禮物.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/N5_家人生日遊戲點數禮物.results.json",
+    "source_sha256": "67d328ec4ed5528661376637d0f8d7ffa9b752c36539ade1908d293858205534",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "你今年生日想要什麼？上次說的遊戲還有在玩？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "有，想買裡面的資料片，送我五百元點數就好。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我等一下去超商，買卡還是線上序號？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "點數卡就可以，遊戲帳號是我自己的。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "剛在家裡問你一次，是同款的五百元沒錯吧？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "對啊，就是我剛拿盒子給你看的那款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "買好了，生日快樂，序號 DEMO-GIFT-001。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "儲值好了，等下載完一起玩。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "晚餐後再玩，蛋糕先吃。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N6_商家原路退款等待入帳.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/N6_商家原路退款等待入帳.results.json",
+    "source_sha256": "0c00b9ee90e9903163c84b0a18f71c3080dd3f5338956fcbde1111340cbd7191",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "昨天收到的杯子有裂痕，訂單 240912-17，想辦退貨。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "看到了照片，我替你開退貨單，物流明天下午收件。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "我這次是刷卡，退款也是回卡裡嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "對，退回原付款卡，收件後處理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "物流收走了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "倉庫收到，今天已申請退款六百八十元，入帳要等銀行處理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "今天看 App 還沒有。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "退款紀錄已在原訂單裡，之後再看卡片明細。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "隔幾天查到退刷六百八十元了，謝謝。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N7_朋友訂位分攤餐廳訂金.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/N7_朋友訂位分攤餐廳訂金.results.json",
+    "source_sha256": "442752e1ca65c2d2c54979d84717c7c3f4354ea517e962342e03055dd8bd0a7f",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "週六聚餐確定四個人嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "對，我訂了青禾餐館。店家說四人包廂要先付一千元訂金，當天抵餐費。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "我分攤兩百五？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "對，我先付店家，你晚點轉我就好。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "我也打餐廳的電話問了，訂位是週六六點、你的名字。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "沒錯，剛收到訂位確認，當天如果要改時間再一起決定。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "兩百五轉到以前分攤房費那個帳號了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "收到了，週六見。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "今天帳單有扣掉一千元訂金，剩下我們現場付了。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N8_家人代領包裹取件碼.replay.json",
+    "repeat": 2,
+    "source": "reports/expanded-v1/run2/N8_家人代領包裹取件碼.results.json",
+    "source_sha256": "a4ab0e462735cdf4b341da57e2ac39c5ad25dc3ddaaa2164ac74090e29c7cef0",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我晚點才下班，可以幫我拿管理室的包裹嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "可以，我在大樓樓下了，要給管理員取件碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "是我昨天買的濾水壺，尾號 4128。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "管理員說包裹姓名跟你一樣，要你收到的六位數取件碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我剛打家裡電話跟你確認過，通知是這件包裹的取件碼 593204。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "拿到了，是一箱濾水壺，放餐桌上。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "好，晚上回去拆。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "B1_免費拍立得詐騙.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/B1_免費拍立得詐騙.results.json",
+    "source_sha256": "4502a2c7ae2b7e03a3d574a09c46081ef757701dcd6d8a66bc7d5796db72082a",
+    "predictions": [
+      {
+        "id": "p5",
+        "created_turn": 5,
+        "expires_turn": 7,
+        "actor": "donor",
+        "action_type": "new_condition",
+        "object": "先確認運費後再提供寄送資料或下一步安排",
+        "action": "可能再補充寄送流程條件",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p12",
+        "created_turn": 12,
+        "expires_turn": 14,
+        "actor": "donor",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供驗證碼、密碼或類似敏感驗證資訊",
+        "action": "可能接著以訂單失敗或實名認證為由索取敏感驗證資訊",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p15",
+        "created_turn": 15,
+        "expires_turn": 17,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供實名認證所需的敏感資料或操作畫面",
+        "action": "接著可能要求提供驗證碼、身分資料或畫面協助完成實名認證",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p18",
+        "created_turn": 18,
+        "expires_turn": 20,
+        "actor": "bank",
+        "action_type": "new_condition",
+        "object": "要求先完成額外驗證或其他前置步驟",
+        "action": "在轉帳驗證之外再提出前置條件",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p22",
+        "created_turn": 22,
+        "expires_turn": 24,
+        "actor": "bank",
+        "action_type": "sensitive_access_request",
+        "object": "提供驗證碼或進一步網銀操作",
+        "action": "接著可能要求更多驗證資料或進一步操作",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p30",
+        "created_turn": 30,
+        "expires_turn": 32,
+        "actor": "bank",
+        "action_type": "new_condition",
+        "object": "要求先完成購買禮券或點數卡後才繼續處理解除限制",
+        "action": "進一步加上完成購買後才能繼續的條件",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "threads_dm",
+        "text": "你好，我看到你們送拍立得的貼文，請問還有嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "donor",
+        "channel": "threads_dm",
+        "text": "還有喔，相館準備歇業了，剩下的庫存想送給需要的人。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "donor",
+        "channel": "threads_dm",
+        "text": "方便加 LINE 嗎？寄送資料在那邊跟你確認。我叫「光盒相館・小林」，連結是 https://chat.example.com/lightbox-lin 。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "你好，我是剛剛問拍立得的。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "拍立得不用錢，運費 60 元你自己出就好，可以嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "可以，要在哪裡填寄送資料？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "用這個賣貨便頁面，點進去填收件姓名、手機跟取貨門市就可以了：https://parcel.example.com/order/CAM-0912-01",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "我填完送出，怎麼跳出「交易訂單失敗，需實名認證」？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "那要找客服處理，頁面上有客服的 LINE。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "donor_line",
+        "text": "所以現在沒有填成功嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "donor",
+        "channel": "donor_line",
+        "text": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "你好，我要領拍立得，填完資料顯示交易訂單失敗，要實名認證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "您好，這邊協助您處理訂單異常。您目前停在哪個畫面？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "就是交易失敗那個畫面，接下來不知道要按什麼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "客服叫我找你處理實名認證，我的訂單一直失敗。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "您好，接下來協助您處理帳戶異常及驗證程序。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "請先開啟網路銀行，這一步需要轉帳完成驗證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "我打開了，要轉到哪裡？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "這筆金額是 3,000 元，收款資料是星河測試銀行、帳號 TEST-CAM-001。完成後告訴我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "好了，3,000 元，網銀顯示轉帳成功。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "接著要做無卡提款的驗證，這筆也是 3,000 元，完成後告訴我畫面顯示的結果。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 23,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "這筆 3,000 元的操作也完成了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 24,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "還有這張 2,000 元的付款碼，掃描後依畫面付款。我傳給你，單號 PAY-CAM-003。",
+        "attachment_captions": [
+          "付款通知｜金額 NT$2,000｜單號 PAY-CAM-003"
+        ]
+      },
+      {
+        "turn": 25,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "2,000 元付款完成了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 26,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "我只是填寄件資料，怎麼銀行專員一直叫我做轉帳、提款跟付款？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 27,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "驗證還沒完成，您的帳戶會被鎖，賣家的帳戶也會受到影響，請先配合專員處理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 28,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "客服說還要繼續，那前面轉出去的錢怎麼辦？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 29,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "前面操作的款項都會退回，請先把驗證完成。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 30,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "接下來請用信用卡購買一張 1,000 元數位禮券和一張 1,000 元遊戲點數卡，測試帳戶是否解除限制。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 31,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "買好了，然後呢？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 32,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "請提供序號，這邊要查驗真偽。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 33,
+        "sender": "user",
+        "channel": "bank_line",
+        "text": "禮券序號是 DEMO-GIFT-CAM-001，點數卡序號是 DEMO-GAME-CAM-002。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 34,
+        "sender": "bank",
+        "channel": "bank_line",
+        "text": "驗證已完成，接下來辦理退款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 35,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "專員說完成了，我的退款什麼時候會下來？拍立得可以寄了嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 36,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "退款還要跑流程，請耐心等候。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 37,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "請問退款進度怎麼樣了？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 38,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "有人在嗎？我還沒收到退款，麻煩回覆。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p5",
+          "outcome": "matched",
+          "matched_turn": 7,
+          "reason": "第5則之後，donor在第7則補充了寄送流程條件：需先用賣貨便頁面填收件姓名、手機與取貨門市，屬於在原先提到運費之外再增加寄送處理條件。",
+          "evidence": [
+            {
+              "turn": 7,
+              "quote": "用這個賣貨便頁面，點進去填收件姓名、手機跟取貨門市就可以了：https://parcel.example.com/order/CAM-0912-01"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p12",
+          "outcome": "uncertain",
+          "matched_turn": null,
+          "reason": "核對輸出的時間或角色依據未通過驗證，保留未確認。",
+          "evidence": [],
+          "validation_error": "p12要求donor發言，引用第15則的support不符。請找正確角色之後的事件，沒有就missed。"
+        },
+        {
+          "prediction_id": "p15",
+          "outcome": "uncertain",
+          "matched_turn": null,
+          "reason": "核對輸出的時間或角色依據未通過驗證，保留未確認。",
+          "evidence": [],
+          "validation_error": "p15要求support發言，引用第18則的bank不符。請找正確角色之後的事件，沒有就missed。"
+        },
+        {
+          "prediction_id": "p18",
+          "outcome": "matched",
+          "matched_turn": 20,
+          "reason": "第18則之後，bank在第20則具體要求轉帳到指定帳號以完成驗證，這是在轉帳驗證之外提出的額外前置條件。",
+          "evidence": [
+            {
+              "turn": 20,
+              "quote": "這筆金額是 3,000 元，收款資料是星河測試銀行、帳號 TEST-CAM-001。完成後告訴我。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p22",
+          "outcome": "matched",
+          "matched_turn": 24,
+          "reason": "第22則之後，bank在第24則又要求掃描付款碼完成2,000元付款，屬於再次要求進一步的驗證/操作。",
+          "evidence": [
+            {
+              "turn": 24,
+              "quote": "還有這張 2,000 元的付款碼，掃描後依畫面付款。我傳給你，單號 PAY-CAM-003。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p30",
+          "outcome": "matched",
+          "matched_turn": 32,
+          "reason": "第30則之後，bank在第32則要求提供禮券與點數卡序號以查驗真偽，符合先購買後再索取序號的延伸要求。",
+          "evidence": [
+            {
+              "turn": 32,
+              "quote": "請提供序號，這邊要查驗真偽。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 4,
+      "missed": 0,
+      "uncertain": 2,
+      "rate": 1.0,
+      "response_id": "resp_03a9cda60ee68324016aa4edd4211887d0aff5d4f3bd9fc174",
+      "usage": {
+        "input_tokens": 3338,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 2816
+        },
+        "output_tokens": 415,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 3753
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p5在第5則產生；引用5不在未來。請找之後的事件，沒有就missed。",
+            "p12要求donor發言，引用第15則的support不符。請找正確角色之後的事件，沒有就missed。",
+            "p15在第15則產生；引用15不在未來。請找之後的事件，沒有就missed。",
+            "p18在第18則產生；引用18不在未來。請找之後的事件，沒有就missed。",
+            "p22在第22則產生；引用22不在未來。請找之後的事件，沒有就missed。",
+            "p30在第30則產生；引用30不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B2_假買家騙賣家.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/B2_假買家騙賣家.results.json",
+    "source_sha256": "ecd98b98ee019e1eccfd05cf094f87cb22965202ab447c8d5e73c00825876f17",
+    "predictions": [
+      {
+        "id": "p15",
+        "created_turn": 15,
+        "expires_turn": 17,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求開啟手機畫面中的登入或驗證操作",
+        "action": "可能進一步請你在分享畫面狀態下操作登入或驗證流程",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p19",
+        "created_turn": 19,
+        "expires_turn": 20,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供或確認驗證碼以完成網銀驗證",
+        "action": "下一步可能會再要求你報出或重送驗證碼",
+        "within_next_messages": 1,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "你好，社團那篇嬰孩營養品還有嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "還有，保存期限有拍在照片裡，你可以看一下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "有看到，我想買。可以用7-11賣貨便嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "可以，寄到超商比較方便。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "這個是寄件頁面，你填一下資料：https://parcel.example.com/order/BABY-0912-02",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "我點進去了，是填寄件人的資料對嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "對，填完送出。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "填好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "我這邊帳戶被鎖住了，你剛剛操作是不是有弄錯？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "facebook_dm",
+        "text": "我就是照頁面填資料，怎麼會鎖住？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "buyer",
+        "channel": "facebook_dm",
+        "text": "要找客服解鎖，剛剛那個網頁裡有客服，麻煩你趕快聯絡一下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "你好，買家說我填寄件資料後，她的帳戶被鎖住了，叫我找你們。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "您好，這邊協助您排除交易異常，我用通話帶您操作。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "好，是要開視訊嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "support",
+        "channel": "support_line",
+        "text": "不用開鏡頭，分享手機畫面就可以。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "我開了畫面分享，現在看得到嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "看得到，接著請開啟網路銀行，處理驗證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "網銀打開了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "輸入好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "好了，畫面顯示開通了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 23,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 24,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "畫面有出現轉帳資料，這也是現在要做的嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 25,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "對，請繼續完成這筆操作。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 26,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "好了，5,000 元，顯示轉帳成功。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 27,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "接著還有一筆 3,000 元轉帳，以及一筆 2,000 元無卡提款操作，完成後告訴我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 28,
+        "sender": "user",
+        "channel": "support_call",
+        "text": "3,000 元那筆和 2,000 元那筆，都照著操作完了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 29,
+        "sender": "support",
+        "channel": "support_call",
+        "text": "這邊先結束通話。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 30,
+        "sender": "user",
+        "channel": "support_line",
+        "text": "我剛看網銀紀錄，怎麼有 5,000、3,000 和 2,000 元這三筆支出？存款少了 10,000 元。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p15",
+          "outcome": "matched",
+          "matched_turn": 17,
+          "reason": "第17則 support 要求「開啟網路銀行，處理驗證」，是在已分享手機畫面後進一步引導進入登入/驗證流程，符合預測中「在分享畫面狀態下操作登入或驗證流程」的實質意思。",
+          "evidence": [
+            {
+              "turn": 17,
+              "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p19",
+          "outcome": "matched",
+          "matched_turn": 21,
+          "reason": "第19則之後，第21則 support 又要求進行「無卡提款功能的開通確認，這也是驗證的一部分」，屬於再次要求完成驗證相關操作；雖然不是再索取一次簡訊碼，但仍是後續的驗證/確認步驟，符合預測的延伸要求。",
+          "evidence": [
+            {
+              "turn": 21,
+              "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 2,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": 1.0,
+      "response_id": "resp_0f5e03a3060f14ce016aa4edd36b4487d08a6d1d2cc0cb9ea7",
+      "usage": {
+        "input_tokens": 2355,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1792
+        },
+        "output_tokens": 188,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2543
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p19在第19則產生；引用19不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B3_假交友見面費.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/B3_假交友見面費.results.json",
+    "source_sha256": "4e4cc5046b028c57e8a34bea4491be2af02a69ca70921f6c5f3660dcf6da1f0b",
+    "predictions": [
+      {
+        "id": "p10",
+        "created_turn": 10,
+        "expires_turn": 12,
+        "actor": "friend",
+        "action_type": "sensitive_access_request",
+        "object": "要求先交付身分驗證資訊或配合確認流程",
+        "action": "接著要求提供可核對的身分資料或進一步驗證",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p13",
+        "created_turn": 13,
+        "expires_turn": 15,
+        "actor": "manager",
+        "action_type": "new_condition",
+        "object": "要求先提供更多身分驗證材料或進一步配合",
+        "action": "可能再追加驗證條件後才允許見面",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p17",
+        "created_turn": 17,
+        "expires_turn": 19,
+        "actor": "manager",
+        "action_type": "new_condition",
+        "object": "可能再加碼要求其他付款或驗證步驟",
+        "action": "在點數卡之外再提出新的費用或額外驗證條件",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "剛剛看到你調酒的影片，那杯藍色的是什麼？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "friend",
+        "channel": "social_dm",
+        "text": "是店裡最近的新飲料。這裡訊息常漏掉，換 LINE 聊好嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "line",
+        "text": "加到了。我剛下班，你今天也晚班？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "friend",
+        "channel": "line",
+        "text": "對，最近幾乎都晚班，客人很多，下班反而沒人能說話。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "line",
+        "text": "我今天也忙到午餐變晚餐。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "friend",
+        "channel": "line",
+        "text": "那你記得吃東西。跟你聊這些比在店裡應酬舒服多了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "line",
+        "text": "週日我放假，你有空嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "friend",
+        "channel": "line",
+        "text": "下午可以，我們三點在青禾咖啡門口碰面？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "line",
+        "text": "好，我到了，穿灰色外套坐門口。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "friend",
+        "channel": "line",
+        "text": "對不起，公司臨時卡住，說不能私下跟陌生網友見面，要先請經理確認身分才能出去。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "user",
+        "channel": "line",
+        "text": "那我需要做什麼？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "friend",
+        "channel": "line",
+        "text": "我把經理阿凱加進來，請他幫忙確認。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "manager",
+        "channel": "line",
+        "text": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "line",
+        "text": "提款的明細也看得出職業？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "manager",
+        "channel": "line",
+        "text": "這是公司的核對方式，確認後才能讓他出去。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "line",
+        "text": "我領了兩千，明細照片傳給你了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "manager",
+        "channel": "line",
+        "text": "第一次見面另要兩千元見面保證費，用遊戲點數卡，買好把序號給我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "line",
+        "text": "不能到咖啡店見面再付嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "manager",
+        "channel": "line",
+        "text": "要先完成。分兩家超商買，別讓店員一直追問耽誤時間。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "line",
+        "text": "我先買了一張一千元的，序號是 DEMO-MEET-001。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "manager",
+        "channel": "line",
+        "text": "另外一張也快點買好傳來，我們這邊還在等。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "user",
+        "channel": "line",
+        "text": "我查了類似的經歷，發現也是用點數才能見面，我不會再買了。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p10",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "預測要求的是 friend 在之後再要求提供可核對的身分資料或進一步驗證；後續第13則是 manager 要求提款明細與職業代碼，第12則只是把 manager 加進來，之後沒有 friend 再提出這類身分驗證要求。",
+          "evidence": [],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p13",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "第13則已是 manager 當下提出新的驗證條件，不能用當輪行為命中；之後沒有再出現 manager 追加另一個身分驗證條件才允許見面的事件。",
+          "evidence": [],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p17",
+          "outcome": "matched",
+          "matched_turn": 21,
+          "reason": "第17則已是第一次點數卡要求，不能用當輪命中；之後第21則 manager 又要求「另外一張也快點買好傳來」，屬於在點數卡之外再追加新的費用/同類付款要求，符合預測的新增條件。",
+          "evidence": [
+            {
+              "turn": 21,
+              "quote": "另外一張也快點買好傳來，我們這邊還在等。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 1,
+      "missed": 2,
+      "uncertain": 0,
+      "rate": 0.3333333333333333,
+      "response_id": "resp_0fa64d00092354e2016aa4edd4603087d0a2d617ebf007cd96",
+      "usage": {
+        "input_tokens": 2073,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1792
+        },
+        "output_tokens": 252,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2325
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p10要求friend發言，引用第13則的manager不符。請找正確角色之後的事件，沒有就missed。",
+            "p13在第13則產生；引用13不在未來。請找之後的事件，沒有就missed。",
+            "p17在第17則產生；引用17不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B4.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/B4.results.json",
+    "source_sha256": "6845c7823ecdebc9acc9d5fe8ff64f72bb26d60d409ec24d711ed08a8a0aeb49",
+    "predictions": [
+      {
+        "id": "p7",
+        "created_turn": 7,
+        "expires_turn": 9,
+        "actor": "counterparty",
+        "action_type": "sensitive_access_request",
+        "object": "密碼、OTP或網銀畫面/操作認證",
+        "action": "進一步要求提供金融認證所需的敏感資訊或操作",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p11",
+        "created_turn": 11,
+        "expires_turn": 13,
+        "actor": "counterparty",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供金融認證相關的敏感資訊或操作",
+        "action": "接著可能要求進一步的驗證資料或畫面操作",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p15",
+        "created_turn": 15,
+        "expires_turn": 17,
+        "actor": "counterparty",
+        "action_type": "sensitive_access_request",
+        "object": "要求你提供或操作驗證/認證資訊",
+        "action": "接著可能要求進一步驗證或操作以完成所謂解除流程",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p19",
+        "created_turn": 19,
+        "expires_turn": 21,
+        "actor": "counterparty",
+        "action_type": "payment_request",
+        "object": "要求下一筆轉帳或更多款項",
+        "action": "再追加新的金額或指示繼續付款",
+        "within_next_messages": 2,
+        "status": "pending"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "你好，你在賣的演唱會門票還在嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "user",
+        "channel": "chat",
+        "text": "還在，你要買嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "想買，可以用順豐快遞寄給我嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "chat",
+        "text": "可以，寄送要怎麼弄？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "要先簽託運條款，才能辦寄送。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "chat",
+        "text": "是我這邊要簽嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "對，賣家這邊要先簽，還要完成金融認證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "chat",
+        "text": "寄票也要金融認證？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "這筆交易要先完成認證才能繼續。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "chat",
+        "text": "那現在要怎麼處理？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "這筆交易沒有及時完成，帳戶被列警示了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "user",
+        "channel": "chat",
+        "text": "那要怎麼解除？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "要照指示操作解除，先轉帳到指定帳戶。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "chat",
+        "text": "我看一下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "chat",
+        "text": "45,046 元，已經轉好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "接著再轉 27,979 元。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "chat",
+        "text": "這筆 27,979 元也轉好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "counterparty",
+        "channel": "chat",
+        "text": "再一筆 27,028 元，轉完告訴我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "chat",
+        "text": "27,028 元轉好了，三筆都轉了。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p7",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "第7則只是說要完成金融認證，沒有在之後再要求提供密碼、OTP、網銀畫面或其他敏感操作；後續第9則也只是重申要先完成認證才能繼續，未見更進一步的敏感資訊索取。",
+          "evidence": [],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p11",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "第11則內容是帳戶被列警示，之後第13則改為要求先轉帳到指定帳戶，屬於付款要求，不是繼續索取驗證資料或畫面操作。",
+          "evidence": [],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p15",
+          "outcome": "matched",
+          "matched_turn": 17,
+          "reason": "第15則提出先轉45,046元以解除流程；其後第17則又要求再轉27,979元，屬於繼續催促/追加同一筆付款義務，符合後續再索取更多款項。",
+          "evidence": [
+            {
+              "turn": 17,
+              "quote": "接著再轉 27,979 元。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p19",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "第19則本身已是再次要求再一筆27,028元，但依規則不能用當輪或之前的內容當作命中；在第19則之後沒有再出現新的追加付款要求。",
+          "evidence": [],
+          "validation_error": null
+        }
+      ],
+      "matched": 1,
+      "missed": 3,
+      "uncertain": 0,
+      "rate": 0.25,
+      "response_id": "resp_0c9cf69c7b86a9b5016aa4edd4ba0887d0973a86547d7f439d",
+      "usage": {
+        "input_tokens": 1905,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1280
+        },
+        "output_tokens": 307,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2212
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p7在第7則產生；引用7不在未來。請找之後的事件，沒有就missed。",
+            "p15在第15則產生；引用13不在未來。請找之後的事件，沒有就missed。",
+            "p19在第19則產生；引用17不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B5_假中獎信用卡驗證盜刷.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/B5_假中獎信用卡驗證盜刷.results.json",
+    "source_sha256": "3c13c4eae48817f3c613053a76f25ff117a4afafa6f159527235375264c4351a",
+    "predictions": [
+      {
+        "id": "p5",
+        "created_turn": 5,
+        "expires_turn": 6,
+        "actor": "page",
+        "action_type": "new_condition",
+        "object": "要求先完成信用卡驗證才能繼續領獎",
+        "action": "進一步追加驗證門檻",
+        "within_next_messages": 1,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "notice",
+        "channel": "email",
+        "text": "一卡通發票中獎通知：您的消費發票有待領獎項，請至 https://invoice.example.com/claim 查詢。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "user",
+        "channel": "email",
+        "text": "我最近有搭車消費，先查查看是哪張發票。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "消費發票領獎查詢。請填寫姓名及聯絡手機，以便核對資料。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "我填好姓名林小安跟手機了，按下一步。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "不是查發票嗎，這頁還要信用卡資料？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "持卡人資料用於認證，填妥後會進入簡訊確認步驟。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "卡號、效期跟安全碼都填好送出了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "sms_relay",
+        "text": "手機收到發卡銀行的認證碼簡訊了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "請將銀行簡訊中的認證碼填入欄位，再按送出完成認證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "user",
+        "channel": "web_form",
+        "text": "我輸入 482913 並送出了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "page",
+        "channel": "web_form",
+        "text": "資料已受理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "user",
+        "channel": "bank_app_relay",
+        "text": "幾天後銀行 App 出現一筆境外消費通知，金額三萬二千元，我沒有買這個。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "email",
+        "text": "我回頭比對，先前那個領獎頁面和我自己找到的平台網址不同。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p5",
+          "outcome": "matched",
+          "matched_turn": 7,
+          "reason": "預測是頁面會進一步追加驗證門檻，要求先完成信用卡驗證才能繼續領獎。第5輪已出現此條件，但依規則不能算命中；之後第7輪頁面再次說明持卡人資料用於認證，填妥後會進入簡訊確認步驟，表示領獎前確實又增加了後續驗證門檻，符合『進一步追加驗證門檻』的實質意思。",
+          "evidence": [
+            {
+              "turn": 7,
+              "quote": "持卡人資料用於認證，填妥後會進入簡訊確認步驟。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 1,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": 1.0,
+      "response_id": "resp_0694e2ae50b290af016aa4edd5f86487d080cd83e4cb2b66f1",
+      "usage": {
+        "input_tokens": 1485,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1280
+        },
+        "output_tokens": 147,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1632
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p5在第5則產生；引用5不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "B6_點數卡驗證與私密影像勒索.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/B6_點數卡驗證與私密影像勒索.results.json",
+    "source_sha256": "0ef4f82ec34cb4688ebf8d105bfe04b185e1efb629cbaa93a3a7b4011db1a97b",
+    "predictions": [
+      {
+        "id": "p4",
+        "created_turn": 4,
+        "expires_turn": 6,
+        "actor": "contact",
+        "action_type": "payment_request",
+        "object": "遊戲點數",
+        "action": "進一步要求購買或提供點數序號",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p15",
+        "created_turn": 15,
+        "expires_turn": 17,
+        "actor": "contact",
+        "action_type": "payment_request",
+        "object": "更多點數或其他付款",
+        "action": "追加索取下一筆付款",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "messenger",
+        "text": "看到你的交友貼文，可以先聊聊嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "contact",
+        "channel": "messenger",
+        "text": "可以，這邊不常看，換 LINE 聊。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "line",
+        "text": "加到了，我們週末能見面嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "contact",
+        "channel": "line",
+        "text": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "line",
+        "text": "要買多少？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "contact",
+        "channel": "line",
+        "text": "先兩張一千元的，把序號拍給我，我才能幫你登記。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "line",
+        "text": "我買好了，兩張序號是 DEMO-DATE-001 和 DEMO-DATE-002。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "contact",
+        "channel": "line",
+        "text": "見面前先做私密視訊，好嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "line",
+        "text": "我只想先見面，現在不想視訊。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "user",
+        "channel": "messenger",
+        "text": "LINE 訊息送不出去，是把我封鎖了嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "contact",
+        "channel": "messenger",
+        "text": "剛剛覺得你沒誠意，我解除封鎖了，你回 LINE。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "contact",
+        "channel": "line",
+        "text": "現在能視訊嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "user",
+        "channel": "line",
+        "text": "好，我接起來了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "user",
+        "channel": "line",
+        "text": "剛才的私密視訊結束了，你現在可以安排見面嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "contact",
+        "channel": "line",
+        "text": "我留下剛才的畫面了。再買五千元點數給我，不然把影像傳給你的親友。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "user",
+        "channel": "line",
+        "text": "你沒有問過就留下畫面，我不想讓人看到。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "contact",
+        "channel": "line",
+        "text": "現在就把點數序號傳來。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "user",
+        "channel": "line",
+        "text": "我很害怕，先沒有再回覆。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p4",
+          "outcome": "matched",
+          "matched_turn": 6,
+          "reason": "第4輪後，contact在第6輪進一步要求購買指定遊戲點數，並明確要把序號拍給他，符合「進一步要求購買或提供點數序號」的意思。",
+          "evidence": [
+            {
+              "turn": 6,
+              "quote": "先兩張一千元的，把序號拍給我，我才能幫你登記。"
+            }
+          ],
+          "validation_error": null
+        },
+        {
+          "prediction_id": "p15",
+          "outcome": "matched",
+          "matched_turn": 17,
+          "reason": "第15輪後，contact在第17輪再次要求把點數序號傳來，屬於追加索取下一筆付款/再一次要求提供點數序號的後續催促；雖然未明說新金額，但已是第15輪之後的再次索取，同義上命中。",
+          "evidence": [
+            {
+              "turn": 17,
+              "quote": "現在就把點數序號傳來。"
+            }
+          ],
+          "validation_error": null
+        }
+      ],
+      "matched": 2,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": 1.0,
+      "response_id": "resp_0373e35276fd97f0016aa4edd62c9087d097350f121049db17",
+      "usage": {
+        "input_tokens": 1639,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1280
+        },
+        "output_tokens": 171,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1810
+      },
+      "attempts": [
+        {
+          "status": "validation_retry",
+          "issues": [
+            "p15在第15則產生；引用15不在未來。請找之後的事件，沒有就missed。"
+          ]
+        },
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "N1_二手拍立得正常交易.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/N1_二手拍立得正常交易.results.json",
+    "source_sha256": "d59f650fb2a26fa3caa61a46f67b5901ceee731b892e4388e609546cb5ec7d40",
+    "predictions": [
+      {
+        "id": "p12",
+        "created_turn": 12,
+        "expires_turn": 14,
+        "actor": "seller",
+        "action_type": "payment_request",
+        "object": "要求先付款完成 860 元寄件",
+        "action": "進一步要求買家先付款以便寄出相機",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "你好，看到你賣二手拍立得，還在嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "seller",
+        "channel": "social_dm",
+        "text": "還在，最近整理房間很少用了，所以便宜賣。機身有使用痕跡，功能正常。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "800 元是只有相機嗎？有附底片嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "seller",
+        "channel": "social_dm",
+        "text": "只有相機跟背帶，沒有底片。電池蓋旁邊有刮痕，貼文最後一張有拍。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "social_dm",
+        "text": "可以再看一下出片的影片嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "seller",
+        "channel": "social_dm",
+        "text": "可以，我今天下班後拍給你。方便加 LINE 傳嗎？我的名字是「阿哲」，連結是 https://chat.example.com/azhe-camera 。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "你好，我是剛剛問拍立得的。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "這是剛剛拍的，影片裡有開機、按快門，最後拍到相紙出來。右邊電池蓋的刮痕也有拍近一點給你看。",
+        "attachment_captions": [
+          "試機影片・00:18｜開機、按快門、出片與電池蓋刮痕特寫"
+        ]
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "看到了，外觀我可以接受。可以面交嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "可以，我週六下午能在車站面交，你可以現場試機再付款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 11,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "我住比較遠，還是寄給我好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 12,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "也可以。相機 800，運費算 60，一共 860 元。你想用平台下單還是直接轉帳後寄件？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 13,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "我用平台下單好了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 14,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "好，我把這台上架到「拾物二手」了。你直接開平台 App，搜尋帳號「阿哲的二手櫃」就能找到，不用從聊天連結登入。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 15,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "找到了，商品寫二手拍立得，右側跟電池蓋有刮痕，就是這台對吧？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 16,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "對，就是這台。你確認照片和描述都沒問題再下單。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 17,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "下單了，訂單編號 SHIWU-CAM-0912-01，我選平台的銀行轉帳付款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 18,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "好，付款資訊看 App 裡這筆訂單的說明就可以，不用把銀行資料傳給我。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 19,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "訂單裡顯示 860 元，收款方是拾物二手，星河測試銀行、帳號 TEST-ORDER-860，跟剛剛說的金額一樣。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 20,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "我已經照訂單的付款資訊轉帳 860 元，App 也顯示付款完成了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 21,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "我這邊也看到訂單已付款，明天幫你寄出，會把相機包好。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 22,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "好，謝謝。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 23,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "已經寄出了，物流單號 SHIP-CAM-0913-01，我也更新在訂單裡了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 24,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "有看到出貨紀錄，我再留意包裹。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 25,
+        "sender": "user",
+        "channel": "seller_line",
+        "text": "收到相機了，刮痕跟照片一樣。我裝底片試拍，也能正常出片。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 26,
+        "sender": "seller",
+        "channel": "seller_line",
+        "text": "收到就好，謝謝你。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p12",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "在created_turn之後，賣家雖然於第12輪提出總價860元並詢問付款方式，但沒有再進一步要求買家先付款才能寄出相機。後續第18輪只是說明付款資訊在訂單裡，第21輪則是確認已付款並表示明天寄出，未出現預測所述的再次付款要求。",
+          "evidence": [],
+          "validation_error": null
+        }
+      ],
+      "matched": 0,
+      "missed": 1,
+      "uncertain": 0,
+      "rate": 0.0,
+      "response_id": "resp_07f419b1bb2d3690016aa4edd53ac887d0a04708745a08f034",
+      "usage": {
+        "input_tokens": 2205,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 117,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2322
+      },
+      "attempts": [
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "N2_同住家人Netflix暫時收看驗證碼.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/N2_同住家人Netflix暫時收看驗證碼.results.json",
+    "source_sha256": "b9c0b48b45a6ca0c1d296d15a7b65e488f74d48df978c86c109a8813fa24903a",
+    "predictions": [
+      {
+        "id": "p4",
+        "created_turn": 4,
+        "expires_turn": 6,
+        "actor": "family",
+        "action_type": "sensitive_access_request",
+        "object": "更多驗證碼或登入驗證資訊",
+        "action": "接著再要求其他驗證資訊",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "你出差到了嗎？家裡晚餐剩的咖哩我放冰箱了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "到了，明晚回家。我用平常家裡那台平板開 Netflix，跳出暫時收看的驗證。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "是我們一直共用的家庭帳號嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "對，剛在 App 按寄送郵件到你的信箱，幫我看一下四位數代碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我先打你原本的手機確認，你等一下接。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "剛通完了，是我本人在旅館的平板申請，時間就是剛剛。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "信裡是 Netflix 的暫時存取要求，對上你的這次操作，代碼 7316。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "輸入進去了，能看了，明天回家再一起看下一集。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "好，咖哩記得吃。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [
+        {
+          "prediction_id": "p4",
+          "outcome": "missed",
+          "matched_turn": null,
+          "reason": "created_turn 之後，family 只要求過一次四位數代碼（turn 4），後續沒有再接著要求其他或更多驗證資訊；turn 6 只是說明已通完電話、申請屬本人，turn 7 是 user 主動提供代碼。沒有出現新的追加索取或再次要求更多驗證碼。",
+          "evidence": [],
+          "validation_error": null
+        }
+      ],
+      "matched": 0,
+      "missed": 1,
+      "uncertain": 0,
+      "rate": 0.0,
+      "response_id": "resp_0e8e2fd024e6c0bc016aa4edd67ba487d08eeb8923c1e385ba",
+      "usage": {
+        "input_tokens": 1204,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 113,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1317
+      },
+      "attempts": [
+        {
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  {
+    "case": "N3_本人刷卡結帳自行輸入OTP.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/N3_本人刷卡結帳自行輸入OTP.results.json",
+    "source_sha256": "a8f36dc14cc4eafc0e975c54615e4fefa21bb63ee4d746940e3571088a0de2f2",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "我要的書架白色還有現貨嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "有，含運一千二，今天下單週五出貨。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "我已經在平常買東西的購物 App 找到你的賣場，準備結帳。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "選白色款就好，庫存還有兩個。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "刷卡結帳跳出銀行驗證頁，手機也收到代碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "你在自己的結帳頁完成就好，我這邊等訂單通知。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "簡訊的商店跟一千二元都對，我自己輸入了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "看到付款訂單了，收件地址沿用訂單上的嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "對，地址沒變。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 10,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "已經寄出，物流單號在 App 訂單內。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N4_公司IT分享試算表畫面.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/N4_公司IT分享試算表畫面.results.json",
+    "source_sha256": "345c0ad6d53556e6a7131497e29e2dc0e8309618742e2a6413ffc8600d2db6c7",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "你是今天處理我報修單的同事嗎？試算表列印又跑版了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "對，工單是 IT-2408，我在公司會議室的支援時段，現在可以看。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "我從公司通訊錄撥你的分機，剛剛有接到。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "那用公司的視訊會議分享試算表視窗，我看一下列印範圍。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "我分享這個空白範本就好，其他視窗沒有分享。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "看到了，你的紙張大小選成信封，改 A4，再預覽一次。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "改好了，現在一頁放得下。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "it",
+        "channel": "work_chat",
+        "text": "可以停止分享了，我把處理方式寫進工單。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "work_chat",
+        "text": "印出來正常，謝謝。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N5_家人生日遊戲點數禮物.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/N5_家人生日遊戲點數禮物.results.json",
+    "source_sha256": "d83bbe4a570a4f42cd5e255563e52ff8a0a357e7bc1a1805cd5527864f6748aa",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "你今年生日想要什麼？上次說的遊戲還有在玩？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "有，想買裡面的資料片，送我五百元點數就好。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我等一下去超商，買卡還是線上序號？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "點數卡就可以，遊戲帳號是我自己的。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "剛在家裡問你一次，是同款的五百元沒錯吧？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "對啊，就是我剛拿盒子給你看的那款。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "買好了，生日快樂，序號 DEMO-GIFT-001。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "儲值好了，等下載完一起玩。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "晚餐後再玩，蛋糕先吃。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N6_商家原路退款等待入帳.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/N6_商家原路退款等待入帳.results.json",
+    "source_sha256": "3c077b34ad63d331a4584712772b2d486bc5a1c6fcf6934e4a7b5422c7ed126d",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "昨天收到的杯子有裂痕，訂單 240912-17，想辦退貨。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "看到了照片，我替你開退貨單，物流明天下午收件。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "我這次是刷卡，退款也是回卡裡嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "對，退回原付款卡，收件後處理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "物流收走了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "倉庫收到，今天已申請退款六百八十元，入帳要等銀行處理。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "今天看 App 還沒有。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "seller",
+        "channel": "shop_chat",
+        "text": "退款紀錄已在原訂單裡，之後再看卡片明細。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "shop_chat",
+        "text": "隔幾天查到退刷六百八十元了，謝謝。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N7_朋友訂位分攤餐廳訂金.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/N7_朋友訂位分攤餐廳訂金.results.json",
+    "source_sha256": "d41bafda86f51a457669c920eeeae1a7cd2d71942b78c05fb1eb749a4448718b",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "週六聚餐確定四個人嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "對，我訂了青禾餐館。店家說四人包廂要先付一千元訂金，當天抵餐費。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "我分攤兩百五？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "對，我先付店家，你晚點轉我就好。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "我也打餐廳的電話問了，訂位是週六六點、你的名字。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "沒錯，剛收到訂位確認，當天如果要改時間再一起決定。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "兩百五轉到以前分攤房費那個帳號了。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 8,
+        "sender": "friend",
+        "channel": "friends_chat",
+        "text": "收到了，週六見。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 9,
+        "sender": "user",
+        "channel": "friends_chat",
+        "text": "今天帳單有扣掉一千元訂金，剩下我們現場付了。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  },
+  {
+    "case": "N8_家人代領包裹取件碼.replay.json",
+    "repeat": 3,
+    "source": "reports/expanded-v1/run3/N8_家人代領包裹取件碼.results.json",
+    "source_sha256": "943da814c3611180a5ff2e20e8a6d74b924cb719494d9e2960f1cfb586ac9208",
+    "predictions": [],
+    "messages": [
+      {
+        "turn": 1,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我晚點才下班，可以幫我拿管理室的包裹嗎？",
+        "attachment_captions": []
+      },
+      {
+        "turn": 2,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "可以，我在大樓樓下了，要給管理員取件碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 3,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "是我昨天買的濾水壺，尾號 4128。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 4,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "管理員說包裹姓名跟你一樣，要你收到的六位數取件碼。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 5,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "我剛打家裡電話跟你確認過，通知是這件包裹的取件碼 593204。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 6,
+        "sender": "family",
+        "channel": "family_chat",
+        "text": "拿到了，是一箱濾水壺，放餐桌上。",
+        "attachment_captions": []
+      },
+      {
+        "turn": 7,
+        "sender": "user",
+        "channel": "family_chat",
+        "text": "好，晚上回去拆。",
+        "attachment_captions": []
+      }
+    ],
+    "review": {
+      "version": "whole-conversation-v2",
+      "model": "gpt-5.4-mini",
+      "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+      "status": "ok",
+      "items": [],
+      "matched": 0,
+      "missed": 0,
+      "uncertain": 0,
+      "rate": null
+    }
+  }
+]

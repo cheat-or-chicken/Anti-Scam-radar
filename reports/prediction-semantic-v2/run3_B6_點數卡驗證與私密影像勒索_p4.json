@@ -1,0 +1,91 @@
+{
+  "source": "reports/expanded-v1/run3/B6_點數卡驗證與私密影像勒索.results.json",
+  "source_sha256": "0ef4f82ec34cb4688ebf8d105bfe04b185e1efb629cbaa93a3a7b4011db1a97b",
+  "case": "B6_點數卡驗證與私密影像勒索.replay.json",
+  "repeat": 3,
+  "prediction": {
+    "id": "p4",
+    "created_turn": 4,
+    "expires_turn": 6,
+    "actor": "contact",
+    "action_type": "payment_request",
+    "object": "遊戲點數",
+    "action": "進一步要求購買或提供點數序號",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": true,
+    "new_after_prediction": true,
+    "reason": "原預測在 turn 4 之後、turn 6 之前要『進一步要求購買或提供點數序號』；但 turn 4 已經先要求『買指定的遊戲點數驗證身分』，turn 6 只是補充金額與要拍序號，屬於既有要求的細節，不算新的追加要求。",
+    "audit": null,
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_0f6e947677171dd4016aa4e848a64887d0b5cb04ad438e011c",
+    "usage": {
+      "input_tokens": 939,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 121,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1060
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "messenger",
+      "text": "看到你的交友貼文，可以先聊聊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "contact",
+      "channel": "messenger",
+      "text": "可以，這邊不常看，換 LINE 聊。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "line",
+      "text": "加到了，我們週末能見面嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "contact",
+      "channel": "line",
+      "text": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "line",
+      "text": "要買多少？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "contact",
+      "channel": "line",
+      "text": "先兩張一千元的，把序號拍給我，我才能幫你登記。",
+      "attachment_captions": []
+    }
+  ]
+}

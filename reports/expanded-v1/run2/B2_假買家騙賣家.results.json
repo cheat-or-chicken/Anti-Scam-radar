@@ -1,0 +1,2982 @@
+{
+  "summary": {
+    "file": "B2_假買家騙賣家.replay.json",
+    "repeat": 2,
+    "case_type": "scam",
+    "completed": true,
+    "turns_analyzed": 30,
+    "total_turns": 30,
+    "first_alert_turn": 17,
+    "payment_turn": 26,
+    "harm_turn": 18,
+    "before_payment": true,
+    "before_harm": true,
+    "detected_by_end": true,
+    "false_alarm": null,
+    "harm_lead": 1,
+    "payment_lead": 9,
+    "warning_downgrade_turns": [],
+    "mean_seconds": 2.402,
+    "recovered_or_failed_turns": [],
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "detector_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207"
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只有一般商品詢問，沒有付款、敏感操作、隔離查證或追加條件。"
+        },
+        "observation": {
+          "actor": "buyer",
+          "action_type": "other",
+          "object": "詢問嬰孩營養品是否還有",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "僅為普通買賣詢問，未見詐騙必要條件。",
+        "normal_explanation": "社團商品詢問屬常見交易開場。",
+        "recommended_action": "持續觀察後續是否出現付款、轉管道或敏感操作要求。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "你好，社團那篇嬰孩營養品還有嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_015079a29a2abf4f016aa4e0bc1dd087d0a85f7635f755ab7a",
+      "usage": {
+        "input_tokens": 4759,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 183,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4942
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.154,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪仍是一般商品回覆，未出現付款、敏感操作、隔離查證或追加條件。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回覆商品尚有並提示查看保存期限照片",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅為正常交易對話，未見風險條件。",
+        "normal_explanation": "提供商品狀態與照片資訊屬常見買賣溝通。",
+        "recommended_action": "持續觀察是否出現非交易必要的付款、轉管道或敏感權限要求。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "還有，保存期限有拍在照片裡，你可以看一下。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_07a6240344611930016aa4e0bdcdd487d0af548c63f38ef274",
+      "usage": {
+        "input_tokens": 5029,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 192,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5221
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.348,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            3
+          ],
+          "explanation": "本輪只有買家詢問是否可用賣貨便，屬一般交易管道選擇，未見付款、敏感權限、隔離查證或追加條件。"
+        },
+        "observation": {
+          "actor": "buyer",
+          "action_type": "other",
+          "object": "詢問是否可用7-11賣貨便",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是正常買賣協商，沒有命中任何需警報規則的必要條件。",
+        "normal_explanation": "買家提出可接受的取貨／付款管道，屬常見交易討論。",
+        "recommended_action": "繼續觀察是否出現非必要付款、轉LINE、要求驗證碼或其他敏感操作。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 3,
+            "quote": "有看到，我想買。可以用7-11賣貨便嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_03a2da74d8e45455016aa4e0bf58e487d09564a34d70a4f6c9",
+      "usage": {
+        "input_tokens": 5087,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 222,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5309
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.874,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            4
+          ],
+          "explanation": "本輪僅是回覆可用賣貨便，屬一般交易協商，未見付款、敏感權限、隔離查證或新增異常條件。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "同意使用7-11賣貨便取貨",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍為正常買賣流程，沒有符合警報規則的具體必要條件。",
+        "normal_explanation": "超商取貨是常見交易方式，本輪回覆未增加風險訊號。",
+        "recommended_action": "持續觀察後續是否出現非必要付款、要求轉移到其他管道，或敏感操作要求。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "可以，寄到超商比較方便。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_04adca38a6038c29016aa4e0c11bf887d09e46f45e6682133e",
+      "usage": {
+        "input_tokens": 5160,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 220,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5380
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.62,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5
+          ],
+          "explanation": "本輪只是提供寄件頁面與填資料連結，屬一般出貨流程，未見付款、密碼/OTP、網銀控制、限制查證或新增不合理條件。"
+        },
+        "observation": {
+          "actor": "buyer",
+          "action_type": "other",
+          "object": "提供寄件頁面連結並要求填寫出貨資料",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "目前仍屬正常賣貨便寄件流程，未達任何警報規則的必要條件。",
+        "normal_explanation": "寄件頁面與填單是常見物流步驟，單看此輪不構成風險。",
+        "recommended_action": "持續觀察是否出現額外付款、改到非官方管道，或敏感帳號/驗證碼要求。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "這個是寄件頁面，你填一下資料：https://parcel.example.com/order/BABY-0912-02"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0be6515459ab0fbe016aa4e0c2cea487d0b2c679034d982494",
+      "usage": {
+        "input_tokens": 5207,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 238,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5445
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.984,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            6
+          ],
+          "explanation": "本輪只是確認是否填寄件人資料，仍屬一般出貨流程，未見付款、密碼/OTP、網銀控制、限制查證或新增不合理條件。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "確認寄件資料填寫方式",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是正常賣貨便寄件互動，未達任何警報規則必要條件。",
+        "normal_explanation": "詢問寄件欄位屬常見交易操作，單看此輪不構成風險。",
+        "recommended_action": "持續觀察是否出現額外付款、改到非官方管道，或敏感帳號/驗證碼要求。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "我點進去了，是填寄件人的資料對嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f00b3546b8b1d43016aa4e0c4ad7087d09a4df71a12236d6f",
+      "usage": {
+        "input_tokens": 5287,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 233,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5520
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.357,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            7
+          ],
+          "explanation": "本輪只是確認寄件資料並要求送出，仍屬一般出貨流程，未見付款、密碼/OTP、網銀控制、限制查證或新增不合理條件。"
+        },
+        "observation": {
+          "actor": "buyer",
+          "action_type": "other",
+          "object": "確認填寫寄件資料後要求送出",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是正常賣貨便寄件互動，未達任何警報規則必要條件。",
+        "normal_explanation": "填寫寄件資料並送出屬常見交易操作，單看此輪不構成風險。",
+        "recommended_action": "持續觀察是否出現額外付款、改到非官方管道，或敏感帳號/驗證碼要求。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "對，填完送出。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0810394a086c57a3016aa4e0c702dc87d0a2052d3a67d77bd6",
+      "usage": {
+        "input_tokens": 5303,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 232,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5535
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.92,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "本輪只有使用者回報已填好寄件資料，沒有新增要求或敏感操作。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已填寫寄件資料",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是一般賣貨便寄件流程，未出現付款、密碼/OTP、網銀控制、限制查證等警報必要條件。",
+        "normal_explanation": "填完寄件資料後回報完成，屬常見交易互動，不足以構成風險。",
+        "recommended_action": "持續留意後續是否出現額外付款、轉往私下管道或要求提供驗證碼等新條件。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "填好了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_011c5107baaef2da016aa4e0c8ec5087d087f05a16adcf8d92",
+      "usage": {
+        "input_tokens": 5337,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 222,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5559
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.626,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "本輪僅是對方抱怨帳戶被鎖並反問是否操作有誤，未見密碼、OTP、網銀控制、阻止查證或新增付款要求。"
+        },
+        "observation": {
+          "actor": "buyer",
+          "action_type": "other",
+          "object": "表示帳戶被鎖並質疑操作錯誤",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍停留在一般寄件互動與抱怨，沒有符合任何警報規則的具體敏感要求。",
+        "normal_explanation": "對方提到帳戶被鎖、詢問是否操作錯誤，仍可屬一般交易糾紛或系統異常描述，不能直接視為詐騙警報。",
+        "recommended_action": "先觀察後續是否出現要求轉帳、提供驗證碼、改到私下管道或禁止獨立查證。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "我這邊帳戶被鎖住了，你剛剛操作是不是有弄錯？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_054662599684ab59016aa4e0ca9a3087d083b734fd358e9504",
+      "usage": {
+        "input_tokens": 5377,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 263,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5640
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.169,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9,
+            10
+          ],
+          "explanation": "本輪仍是對方提到帳戶被鎖並追問操作，未出現密碼、OTP、網銀控制、禁止查證或新增付款要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回應對方帳戶被鎖的質疑",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前只有買賣流程與對方抱怨異常，未達任何可判定警報規則的必要條件。",
+        "normal_explanation": "帳戶被鎖、詢問是否填錯資料，仍可能是一般系統異常或交易溝通，不能直接視為詐騙。",
+        "recommended_action": "持續觀察是否出現要求轉帳、索取驗證碼、改用私下管道或阻止獨立查證。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "我這邊帳戶被鎖住了，你剛剛操作是不是有弄錯？"
+          },
+          {
+            "turn": 10,
+            "quote": "我就是照頁面填資料，怎麼會鎖住？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0e63a3333cfc0b4f016aa4e0ccbf7c87d0bcb6b25a6c3c34f9",
+      "usage": {
+        "input_tokens": 5484,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 258,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5742
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 10,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.647,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            11
+          ],
+          "explanation": "本輪只是要求聯絡網頁內客服解鎖，未出現密碼、OTP、網銀控制、禁止查證或新增付款要求。"
+        },
+        "observation": {
+          "actor": "buyer",
+          "action_type": "other",
+          "object": "要求聯絡客服解鎖",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "目前仍只有一般客服轉介，未達R_SENSITIVE_ACCESS、R_COERCIVE_ISOLATION或付款類規則的必要條件。",
+        "normal_explanation": "轉介客服處理帳戶問題本身可見於一般交易流程，沒有明確要求交付敏感資訊或限制查證。",
+        "recommended_action": "先不要提供任何驗證碼、密碼或遠端控制；若要繼續，應自行開啟官方/已知管道查證。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 11,
+            "quote": "要找客服解鎖，剛剛那個網頁裡有客服，麻煩你趕快聯絡一下。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_039b21ffaa66e3b5016aa4e0cf78b087d0b9f780a2833c12b8",
+      "usage": {
+        "input_tokens": 5561,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 239,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5800
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 11,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.86,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            12
+          ],
+          "explanation": "本輪只是使用者轉述買家說法並要聯絡支援，未見密碼、OTP、網銀控制、阻止查證或新增付款要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "轉述買家帳戶被鎖並聯絡客服",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前沒有新出現的高風險要求；仍不足以套用R_SENSITIVE_ACCESS、R_COERCIVE_ISOLATION或付款類規則。",
+        "normal_explanation": "使用者向客服說明狀況屬一般求助/轉介，不等同要求交付敏感權限或限制獨立查證。",
+        "recommended_action": "先不要提供任何密碼、OTP或遠端操作；若要處理，請用官方既知管道自行查證。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 12,
+            "quote": "你好，買家說我填寄件資料後，她的帳戶被鎖住了，叫我找你們。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0855bd77c250ad61016aa4e0d1486487d0ae577ac7bb7c6dff",
+      "usage": {
+        "input_tokens": 5591,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 250,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5841
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 12,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.24,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13
+          ],
+          "explanation": "本輪僅見客服表示將用通話帶操作，尚未明確要求密碼、OTP、網銀畫面或控制權，也未見禁止查證或新增付款。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "通話帶您操作交易異常",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "目前只有一般通話引導，未達R_SENSITIVE_ACCESS的明確敏感操作門檻；也未見R_COERCIVE_ISOLATION或付款要求所需條件。",
+        "normal_explanation": "客服通話協助排除異常本身可能是正常支援流程，單說帶操作不足以判定風險。",
+        "recommended_action": "先確認對方是否真的要你提供密碼、OTP、遠端控制或登入網銀畫面；未確認前不要交付任何敏感資訊。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0d475ae1863cf979016aa4e0d38b6887d0a9a9c65765b2a79a",
+      "usage": {
+        "input_tokens": 5651,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 256,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5907
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 13,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.914,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            14
+          ],
+          "explanation": "本輪只是在詢問是否要開視訊，尚未明確要求密碼、OTP、網銀畫面或控制權，也未見禁止查證或新增付款。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問是否要開視訊",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍只有使用者追問，未出現符合R_SENSITIVE_ACCESS的明確敏感操作要求。",
+        "normal_explanation": "詢問是否開視訊本身不等於交付敏感權限，不能單獨判定風險。",
+        "recommended_action": "先不要提供任何密碼、OTP、網銀畫面或遠端控制；等對方明確說出要你做什麼再判斷。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 14,
+            "quote": "好，是要開視訊嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_08fbaabca536a066016aa4e0d5686487d0b5aead90023784a0",
+      "usage": {
+        "input_tokens": 5690,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 230,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5920
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 14,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.372,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13,
+            15
+          ],
+          "explanation": "本輪已出現通話帶操作與分享手機畫面的引導，但尚未明確要求密碼、OTP、網銀畫面或控制權，也未見禁止查證。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "分享手機畫面以進行操作引導",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "support已開始引導畫面操作，但尚未明示密碼、OTP、網銀畫面或控制權要求。",
+        "normal_explanation": "客服用通話或分享畫面協助本身可見於一般處理流程。",
+        "recommended_action": "先只停在觀察，不要提供密碼、OTP、網銀畫面或任何遠端控制；等對方明確說明要你做什麼再判斷。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+          },
+          {
+            "turn": 15,
+            "quote": "不用開鏡頭，分享手機畫面就可以。"
+          }
+        ],
+        "prediction": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_0b4eef1f2ad49b1b016aa4e0d7d3d887d0b9a9ccf72b62ac85",
+      "usage": {
+        "input_tokens": 5696,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 660,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6356
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 15,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.757,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            16
+          ],
+          "explanation": "本輪只是使用者回報已開畫面分享，未見 support 新增密碼、OTP、網銀畫面或控制權要求，也未見阻止查證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已開啟畫面分享",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前只有分享畫面本身，尚未出現R_SENSITIVE_ACCESS所需的具體敏感要求。",
+        "normal_explanation": "一般客服遠端協助流程中，分享畫面本身可能只是操作介面，不必然代表風險升高。",
+        "recommended_action": "先不要提供密碼、OTP、卡號或讓對方遠端控制；等 support 明確提出下一步再判斷。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 16,
+            "quote": "我開了畫面分享，現在看得到嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0ebfe54ed6d0c512016aa4e0db9aa487d085cdefbb52e8ce94",
+      "usage": {
+        "input_tokens": 5933,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 228,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6161
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 16,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.916,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "support 已明確要求使用者開啟網路銀行。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "同一則訊息明確提到要處理驗證，屬於敏感操作引導。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服帶操作或分享畫面，不能解釋直接要求開啟網路銀行與進行驗證。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            17
+          ],
+          "explanation": "本輪已出現明確要求開啟網路銀行並處理驗證，未見反證解除。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "開啟網路銀行並處理驗證",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "support 已明確要求開啟網路銀行並處理驗證，符合敏感操作要求。",
+        "normal_explanation": "一般客服可提供通話或畫面協助，但不應直接要求對方開啟網銀處理驗證。",
+        "recommended_action": "先停止後續操作，不要輸入密碼、OTP 或讓對方接觸網銀內容；改由獨立管道向官方客服查證。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_08c332e5529b9dc7016aa4e0dd82b887d0a27ed92e21577543",
+      "usage": {
+        "input_tokens": 5879,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 5376
+        },
+        "output_tokens": 423,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6302
+      },
+      "rejected_prediction_matches": [
+        {
+          "prediction_id": "p15",
+          "evidence": [
+            {
+              "turn": 17,
+              "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+            }
+          ]
+        }
+      ],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 17,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.689,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "support 已明確要求開啟網路銀行。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "同時要求處理驗證，屬敏感操作引導。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服協助或分享畫面，不能合理解釋直接要求開啟網銀並處理驗證。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            18
+          ],
+          "explanation": "目前只是使用者回報已打開網銀，未出現反證或解除原本要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已開啟網路銀行",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "先前已出現要求開啟網路銀行並處理驗證，風險未解除。",
+        "normal_explanation": "使用者回報操作進度不代表要求安全或已解除。",
+        "recommended_action": "不要輸入密碼、OTP，先停止並改用官方獨立管道查證。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 18,
+            "quote": "網銀打開了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0266b56506e6852f016aa4e0e1409087d0902e034fd1dc15f4",
+      "usage": {
+        "input_tokens": 6408,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 316,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6724
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 18,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.179,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  19
+                ],
+                "explanation": "support 明確要求填入簡訊代碼。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17,
+                  19
+                ],
+                "explanation": "前文已要求開啟網銀，現又要求在驗證欄位輸入簡訊代碼，屬敏感操作與驗證碼交付。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服協助或驗證流程，不能合理解釋直接要求在網銀驗證欄位輸入簡訊代碼。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            19
+          ],
+          "explanation": "本輪是新增更明確的驗證碼要求，未見解除風險的反證。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求在驗證欄位填入簡訊代碼",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "support 已明確要求輸入手機收到的認證簡訊代碼，且前文已在網銀操作脈絡中。",
+        "normal_explanation": "一般驗證不會要求把簡訊代碼交給對方或在不明引導下操作網銀驗證欄位。",
+        "recommended_action": "不要輸入代碼或繼續授權，停止操作並改用官方獨立管道查證。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          }
+        ],
+        "prediction": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_00fbcc9cef904ab5016aa4e0e38ac887d0b9c28b7f74edc655",
+      "usage": {
+        "input_tokens": 6412,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 432,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6844
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 19,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 4.771,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  19
+                ],
+                "explanation": "support 明確要求輸入認證簡訊代碼。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17,
+                  19
+                ],
+                "explanation": "前文已引導開啟網路銀行，並要求在驗證欄位填入簡訊代碼，屬敏感操作。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服驗證流程，無法合理解釋直接要求在網銀驗證欄位輸入簡訊代碼。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            19
+          ],
+          "explanation": "本輪只是使用者回報已輸入，沒有解除先前敏感要求的反證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已輸入驗證代碼",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "先前已出現要求輸入手機認證簡訊代碼的敏感操作，風險尚未解除。",
+        "normal_explanation": "一般驗證不會要求在不明引導下提供網銀驗證碼。",
+        "recommended_action": "持續停止後續授權，改用官方獨立管道查證。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 20,
+            "quote": "輸入好了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_084662c64e5c0059016aa4e0e8305887d0bd23aca3b8d07dc0",
+      "usage": {
+        "input_tokens": 6823,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 406,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7229
+      },
+      "rejected_prediction_matches": [
+        {
+          "prediction_id": "p19",
+          "evidence": []
+        }
+      ],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 20,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.581,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  21
+                ],
+                "explanation": "support 明確接續驗證流程，要求處理無卡提款功能開通確認。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17,
+                  19,
+                  21
+                ],
+                "explanation": "先前已引導開啟網銀並要求填入簡訊代碼，這輪又把無卡提款開通包裝成驗證的一部分，屬敏感操作延續。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服驗證無法合理解釋在網銀驗證脈絡下，持續要求進行提款功能開通確認。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            21
+          ],
+          "explanation": "本輪沒有出現能解除先前敏感操作風險的反證。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求進行無卡提款功能開通確認",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "support 續行網銀驗證脈絡，要求處理無卡提款開通，屬敏感權限操作。",
+        "normal_explanation": "一般驗證不會在不明引導下要求開通提款功能或繼續網銀敏感確認。",
+        "recommended_action": "立刻停止操作，勿再輸入任何驗證碼或開通項目，改用官方獨立管道查證。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 21,
+            "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0816c9e6d6222437016aa4e0eab1f887d09496b8dc946ec157",
+      "usage": {
+        "input_tokens": 6731,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 451,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7182
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 21,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.663,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  21
+                ],
+                "explanation": "support 明確要求進行無卡提款功能開通確認。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17,
+                  19,
+                  21
+                ],
+                "explanation": "先前已要求開啟網銀並填入簡訊代碼，之後又把開通提款功能包裝為驗證延續。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服驗證無法合理解釋在網銀驗證脈絡下，持續要求開通提款功能。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            21
+          ],
+          "explanation": "本輪沒有解除先前敏感操作風險的新反證。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求進行無卡提款功能開通確認",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "support 持續要求網銀敏感操作，已涉及提款功能開通。",
+        "normal_explanation": "一般驗證不會要求開通提款功能或持續進行網銀敏感確認。",
+        "recommended_action": "停止操作，勿再輸入驗證碼或開通項目，改用官方獨立管道查證。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 21,
+            "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0fdf1ff667dcbd5f016aa4e0ed5bf887d0ae5adfe6751ef038",
+      "usage": {
+        "input_tokens": 6837,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 344,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7181
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 22,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.252,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  23
+                ],
+                "explanation": "support 明確要求確認轉帳資料，屬於持續引導網銀敏感操作脈絡。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17,
+                  19,
+                  21,
+                  23
+                ],
+                "explanation": "前文已要求開啟網銀、填入簡訊代碼、開通無卡提款；本輪再要求完成 5,000 元轉帳資料確認，屬敏感操作延續。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服驗證無法合理解釋在已進入網銀驗證脈絡後，繼續要求確認轉帳與提款相關資料。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            23
+          ],
+          "explanation": "本輪沒有新的反證解除既有敏感操作風險。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "請確認畫面的轉帳資料",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "support 在網銀驗證脈絡下，持續要求確認轉帳資料，屬敏感操作延伸。",
+        "normal_explanation": "一般驗證不會在通話中持續要求網銀轉帳或提款相關確認。",
+        "recommended_action": "停止操作，勿再輸入任何驗證或轉帳資料，改用官方獨立管道查證。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 21,
+            "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+          },
+          {
+            "turn": 23,
+            "quote": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f3a1e4b18eb9970016aa4e0efbe1087d0922e903498562ae1",
+      "usage": {
+        "input_tokens": 6830,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 390,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7220
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 23,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.239,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  23
+                ],
+                "explanation": "support 明確要求確認轉帳資料，屬敏感網銀操作引導。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17,
+                  19,
+                  21,
+                  23
+                ],
+                "explanation": "前文已要求開啟網銀、填入驗證代碼、開通無卡提款，並延續到轉帳確認。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服驗證不足以合理解釋在網銀操作中持續要求確認轉帳與提款相關資料。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            23
+          ],
+          "explanation": "本輪沒有新反證解除既有敏感操作風險。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "請確認畫面的轉帳資料",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "support 持續引導網銀敏感操作，且已延伸到轉帳確認。",
+        "normal_explanation": "一般驗證不會要求在通話中確認轉帳資料與提款相關操作。",
+        "recommended_action": "停止操作，勿再輸入任何驗證或轉帳資料，改用官方獨立管道查證。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 21,
+            "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+          },
+          {
+            "turn": 23,
+            "quote": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_07148a01e8e0bf7b016aa4e0f1f18087d0b7f8196d07ddb388",
+      "usage": {
+        "input_tokens": 7069,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 352,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7421
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 24,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.998,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  25
+                ],
+                "explanation": "support 明確要求繼續完成前述網銀相關操作，延續敏感操作引導。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17,
+                  19,
+                  21,
+                  23,
+                  25
+                ],
+                "explanation": "前文已要求開啟網路銀行、輸入驗證代碼、開通無卡提款，並在本輪再次催促完成轉帳操作。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服驗證無法合理解釋持續要求在網銀中完成驗證、提款與轉帳操作。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            25
+          ],
+          "explanation": "本輪沒有新反證，既有敏感操作風險持續。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "請繼續完成這筆操作",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "support 續促完成既有的網銀敏感操作要求。",
+        "normal_explanation": "一般驗證流程不會持續要求完成網銀、驗證碼、提款與轉帳操作。",
+        "recommended_action": "停止操作，不要再輸入驗證碼或轉帳資料，改用官方獨立管道查證。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 25,
+            "quote": "對，請繼續完成這筆操作。"
+          },
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 21,
+            "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+          },
+          {
+            "turn": 23,
+            "quote": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_01e2d5ad768f5054016aa4e0f3e4f087d0833b0cca15d0e607",
+      "usage": {
+        "input_tokens": 7036,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 353,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7389
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 25,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.717,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17,
+                  19,
+                  21,
+                  23,
+                  25
+                ],
+                "explanation": "support 已明確要求開啟網銀、輸入驗證碼、開通無卡提款與完成轉帳，屬敏感操作引導。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "support 以協助排除交易異常為由，並接續帶操作。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服協助無法合理解釋要求使用者在通話與畫面分享下進入網銀、輸入認證碼並完成轉帳。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            26
+          ],
+          "explanation": "本輪沒有新的反證，使用者僅回報已完成，既有風險未解除。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報轉帳成功",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "support 持續引導網銀敏感操作並要求轉帳。",
+        "normal_explanation": "一般交易處理不會要求在畫面分享下輸入驗證碼、開通無卡提款後再做轉帳。",
+        "recommended_action": "停止繼續操作，勿再提供驗證碼或帳戶控制權，改用官方獨立管道聯絡銀行或平台查證。",
+        "stages": [
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+          },
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 21,
+            "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+          },
+          {
+            "turn": 23,
+            "quote": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。"
+          },
+          {
+            "turn": 25,
+            "quote": "對，請繼續完成這筆操作。"
+          },
+          {
+            "turn": 26,
+            "quote": "好了，5,000 元，顯示轉帳成功。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_01988f08f984a9ed016aa4e0f78dc087d0aeb0070bec923ff9",
+      "usage": {
+        "input_tokens": 7154,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 5888
+        },
+        "output_tokens": 387,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7541
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 26,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.705,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  27
+                ],
+                "explanation": "support 直接要求再做轉帳與無卡提款操作，屬敏感操作引導。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17,
+                  19,
+                  21,
+                  23,
+                  25,
+                  27
+                ],
+                "explanation": "前文以協助排除交易異常為由，持續帶著操作，且與後續敏感要求連結一致。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服處理不會在已完成一筆轉帳後，仍要求再做轉帳與提款相關敏感操作。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            27
+          ],
+          "explanation": "本輪沒有解除風險的新反證，反而再次出現新要求。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "再要求 3,000 元轉帳與 2,000 元無卡提款操作",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "support 持續要求敏感網銀與金流操作，且前述風險未解除。",
+        "normal_explanation": "一般交易協助不會連續要求多筆轉帳與無卡提款。",
+        "recommended_action": "停止操作，勿再輸入驗證碼或執行提款/轉帳，改用官方獨立管道查證。",
+        "stages": [
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 27,
+            "quote": "接著還有一筆 3,000 元轉帳，以及一筆 2,000 元無卡提款操作，完成後告訴我。"
+          },
+          {
+            "turn": 13,
+            "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+          },
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 21,
+            "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+          },
+          {
+            "turn": 23,
+            "quote": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。"
+          },
+          {
+            "turn": 25,
+            "quote": "對，請繼續完成這筆操作。"
+          }
+        ],
+        "prediction": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "更多網銀驗證或追加金流操作",
+          "action": "可能再要求使用者進一步在網銀內完成額外驗證、轉帳或提款相關操作",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_081e12c0e3cc4bc1016aa4e0fa44e887d0a6a8c916dad23a1c",
+      "usage": {
+        "input_tokens": 7379,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 434,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7813
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 27,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p27",
+          "created_turn": 27,
+          "expires_turn": 29,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "更多網銀驗證或追加金流操作",
+          "action": "可能再要求使用者進一步在網銀內完成額外驗證、轉帳或提款相關操作",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.543,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  27
+                ],
+                "explanation": "support 明確再要求 3,000 元轉帳與 2,000 元無卡提款。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17,
+                  19,
+                  21,
+                  23,
+                  25,
+                  27
+                ],
+                "explanation": "同一未核實的 support 以協助排除交易異常為由，連續引導網銀驗證、轉帳與提款操作。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服協助不會持續要求多筆轉帳與無卡提款等敏感網銀操作。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            28
+          ],
+          "explanation": "本輪只是使用者回報已照做，沒有新反證或解除風險的內容。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已完成 3,000 元轉帳與 2,000 元無卡提款操作",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "既有的敏感操作要求尚未被反證解除，且本輪沒有新的安全化證據。",
+        "normal_explanation": "一般交易流程不會要求在通話中反覆完成網銀驗證、轉帳與無卡提款。",
+        "recommended_action": "停止再配合任何進一步操作，改用官方獨立管道向銀行或平台查證。",
+        "stages": [
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 27,
+            "quote": "接著還有一筆 3,000 元轉帳，以及一筆 2,000 元無卡提款操作，完成後告訴我。"
+          },
+          {
+            "turn": 28,
+            "quote": "3,000 元那筆和 2,000 元那筆，都照著操作完了。"
+          },
+          {
+            "turn": 13,
+            "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+          },
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 21,
+            "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+          },
+          {
+            "turn": 23,
+            "quote": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。"
+          },
+          {
+            "turn": 25,
+            "quote": "對，請繼續完成這筆操作。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_09bab866051fe0fc016aa4e0fccef087d0856e20cef2f06be7",
+      "usage": {
+        "input_tokens": 7694,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 437,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 8131
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 28,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p27",
+          "created_turn": 27,
+          "expires_turn": 29,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "更多網銀驗證或追加金流操作",
+          "action": "可能再要求使用者進一步在網銀內完成額外驗證、轉帳或提款相關操作",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.453,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  27
+                ],
+                "explanation": "support 明確再要求 3,000 元轉帳與 2,000 元無卡提款。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17,
+                  19,
+                  21,
+                  23,
+                  25,
+                  27
+                ],
+                "explanation": "同一未核實的 support 以協助排除交易異常為由，連續引導網銀驗證、轉帳與提款操作。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服協助不會持續要求多筆轉帳與無卡提款等敏感網銀操作。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            29
+          ],
+          "explanation": "本輪只是通話結束，沒有新反證或解除風險的內容。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "other",
+          "object": "結束通話",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "既有的敏感操作要求仍未被反證解除，且本輪沒有新增安全化證據。",
+        "normal_explanation": "一般交易流程不會要求在通話中反覆完成網銀驗證、轉帳與無卡提款。",
+        "recommended_action": "停止再配合任何進一步操作，改用官方獨立管道向銀行或平台查證。",
+        "stages": [
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+          },
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 21,
+            "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+          },
+          {
+            "turn": 23,
+            "quote": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。"
+          },
+          {
+            "turn": 25,
+            "quote": "對，請繼續完成這筆操作。"
+          },
+          {
+            "turn": 27,
+            "quote": "接著還有一筆 3,000 元轉帳，以及一筆 2,000 元無卡提款操作，完成後告訴我。"
+          },
+          {
+            "turn": 29,
+            "quote": "這邊先結束通話。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_018a367e1da3f74c016aa4e0ff4b9487d083e022d17bebb4c0",
+      "usage": {
+        "input_tokens": 7679,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 372,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 8051
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 29,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p27",
+          "created_turn": 27,
+          "expires_turn": 29,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "更多網銀驗證或追加金流操作",
+          "action": "可能再要求使用者進一步在網銀內完成額外驗證、轉帳或提款相關操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.065,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  19,
+                  21,
+                  23,
+                  27
+                ],
+                "explanation": "support 明確要求輸入認證簡訊代碼、開通無卡提款、確認轉帳資料與後續提款操作。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17,
+                  19,
+                  21,
+                  23,
+                  25,
+                  27
+                ],
+                "explanation": "同一未核實的 support 以協助排除交易異常為由，連續引導網銀驗證、轉帳與提款操作。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服協助不會持續要求輸入驗證碼、開通提款功能並完成多筆轉帳。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            30
+          ],
+          "explanation": "本輪只是使用者回報已發生的扣款結果，沒有解除既有危險要求的新反證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報網銀出現三筆支出與存款減少",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "既有的敏感操作要求仍有效，且本輪回報顯示相關金流已實際發生，未見解除風險。",
+        "normal_explanation": "一般交易不會在通話中要求驗證碼、無卡提款與多筆轉帳。",
+        "recommended_action": "停止再配合任何操作，改由銀行官方獨立管道確認並申請止付或風險處理。",
+        "stages": [
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+          },
+          {
+            "turn": 17,
+            "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+          },
+          {
+            "turn": 19,
+            "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+          },
+          {
+            "turn": 21,
+            "quote": "接下來是無卡提款功能的開通確認，這也是驗證的一部分。完成後告訴我畫面是否顯示已開通。"
+          },
+          {
+            "turn": 23,
+            "quote": "接下來這筆操作也要完成。金額 5,000 元，收款銀行是星河測試銀行，帳號 TEST-BABY-001，請確認畫面的轉帳資料。"
+          },
+          {
+            "turn": 25,
+            "quote": "對，請繼續完成這筆操作。"
+          },
+          {
+            "turn": 27,
+            "quote": "接著還有一筆 3,000 元轉帳，以及一筆 2,000 元無卡提款操作，完成後告訴我。"
+          },
+          {
+            "turn": 30,
+            "quote": "我剛看網銀紀錄，怎麼有 5,000、3,000 和 2,000 元這三筆支出？存款少了 10,000 元。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0024fabc6f788bcc016aa4e101638887d0b705c24758bc01f1",
+      "usage": {
+        "input_tokens": 7595,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 5888
+        },
+        "output_tokens": 423,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 8018
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 30,
+      "first_alert_turn": 17,
+      "predictions": [
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "密碼或OTP或網銀操作畫面",
+          "action": "接著要求提供更敏感的登入或驗證資訊／畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p19",
+          "created_turn": 19,
+          "expires_turn": 21,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入或提供下一組驗證碼／OTP",
+          "action": "可能進一步要求再次提供驗證碼或其他敏感驗證資訊",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p27",
+          "created_turn": 27,
+          "expires_turn": 29,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "更多網銀驗證或追加金流操作",
+          "action": "可能再要求使用者進一步在網銀內完成額外驗證、轉帳或提款相關操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.437,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

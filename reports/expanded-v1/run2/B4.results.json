@@ -1,0 +1,2297 @@
+{
+  "summary": {
+    "file": "B4.replay.json",
+    "repeat": 2,
+    "case_type": "scam",
+    "completed": true,
+    "turns_analyzed": 20,
+    "total_turns": 20,
+    "first_alert_turn": 13,
+    "payment_turn": 16,
+    "harm_turn": 16,
+    "before_payment": true,
+    "before_harm": true,
+    "detected_by_end": true,
+    "false_alarm": null,
+    "harm_lead": 3,
+    "payment_lead": 3,
+    "warning_downgrade_turns": [],
+    "mean_seconds": 2.669,
+    "recovered_or_failed_turns": [],
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "detector_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207"
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只是詢問門票是否還在，屬一般買賣接觸，未見付款、敏感權限、隔離查證或新增條件。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "other",
+          "object": "詢問演唱會門票是否仍可購買",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅有普通交易詢問，缺乏可成立警報的必要條件。",
+        "normal_explanation": "對方只是問門票還在不在，屬常見交易開場白。",
+        "recommended_action": "可正常回覆是否仍有票，並保留在平台內溝通與查證。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "你好，你在賣的演唱會門票還在嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_08d4dd2469612d8d016aa4e0bd72f887d0b166c7408a993377",
+      "usage": {
+        "input_tokens": 4758,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 209,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4967
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.093,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前仍是一般門票買賣詢問與回覆，未見付款、敏感權限、隔離查證或新增條件。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回覆門票仍在並詢問是否要購買",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅有正常交易對話，沒有可成立警報的具體要求。",
+        "normal_explanation": "買家詢問、賣家回應是否要買，屬常見交易互動。",
+        "recommended_action": "繼續在原平台內溝通，待對方若提出付款、改管道或敏感操作再判斷。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "還在，你要買嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_02eae759fd183f32016aa4e0bf35d087d0b26315882e62a75c",
+      "usage": {
+        "input_tokens": 5043,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 212,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5255
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.073,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前仍是一般門票買賣與寄送討論，未見付款、敏感權限、隔離查證或新增風險條件。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "other",
+          "object": "詢問是否可用順豐快遞寄送門票",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "這只是寄送方式詢問，未涉及警報所需的具體高風險要求。",
+        "normal_explanation": "買家詢問配送方式屬常見交易互動。",
+        "recommended_action": "可先依一般交易流程回覆；若後續出現付款、改管道、驗證碼、密碼或限制查證，再重新判斷。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 3,
+            "quote": "想買，可以用順豐快遞寄給我嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0fee63f71475c33d016aa4e0c13f4c87d09e6225cb957b5dc7",
+      "usage": {
+        "input_tokens": 5085,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 221,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5306
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.829,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "仍是一般門票交易與寄送討論，未見付款、密碼/OTP、限制查證或其他高風險要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問寄送門票的操作方式",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "本輪只是回覆並詢問寄送流程，沒有新的可疑要求。",
+        "normal_explanation": "買賣雙方討論寄送細節屬常見交易互動。",
+        "recommended_action": "可繼續以一般交易流程處理；若之後出現轉帳、驗證、改用其他管道或限制查證，再重新評估。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "可以，寄送要怎麼弄？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0427bbab7333ff7b016aa4e0c3043887d093a5e65a339d94f2",
+      "usage": {
+        "input_tokens": 5142,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 210,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5352
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.643,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5
+          ],
+          "explanation": "僅見寄送流程說明，未出現付款、密碼/OTP、限制查證或敏感操作要求。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求先簽託運條款才能辦寄送",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "目前是一般寄送附帶條件，尚不足以構成警報。",
+        "normal_explanation": "寄送前先確認託運條款，屬常見物流流程。",
+        "recommended_action": "可先確認條款內容是否為正常運送規範；若後續出現轉帳、驗證碼、代操作或禁止查證，再重新評估。",
+        "stages": [
+          "S0",
+          "S1"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "要先簽託運條款，才能辦寄送。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0c3354b940636b0f016aa4e0c4adac87d09cb3bf67c5c128a8",
+      "usage": {
+        "input_tokens": 5172,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 217,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5389
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.976,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            6
+          ],
+          "explanation": "本輪只是詢問是否由自己簽託運條款，未出現付款、密碼/OTP、限制查證或敏感操作要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問是否需要自己簽託運條款",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是寄送流程詢問，沒有新增可示警條件。",
+        "normal_explanation": "確認由誰簽條款屬一般物流溝通。",
+        "recommended_action": "先確認條款內容與寄送流程是否正常；若後續出現轉帳、驗證碼、代操作或禁止查證，再評估。",
+        "stages": [
+          "S0",
+          "S1"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "是我這邊要簽嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_01149d4b5f46deb3016aa4e0c6af3487d0b5660c064e7f8244",
+      "usage": {
+        "input_tokens": 5228,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 213,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5441
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.541,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            7
+          ],
+          "explanation": "本輪新增的是『要完成金融認證』，但未具體到密碼、OTP、網銀畫面或代操作，因此不滿足敏感存取規則的必要條件。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "other",
+          "object": "要求賣家先簽託運條款並完成金融認證",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "出現金融認證字樣，但未具體要求敏感資訊或控制權，先列監看。",
+        "normal_explanation": "物流或身分驗證流程有時會提到認證，但本輪未見明確敏感操作。",
+        "recommended_action": "先不要提供任何密碼、OTP或遠端控制；確認認證的具體內容與官方流程。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "對，賣家這邊要先簽，還要完成金融認證。"
+          }
+        ],
+        "prediction": {
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_0a797763b50efdae016aa4e0c82ad887d084cd87c5ffc8d980",
+      "usage": {
+        "input_tokens": 5271,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 413,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5684
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.611,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "本輪只是追問『寄票也要金融認證？』，沒有出現新的要求或敏感操作。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "追問寄票是否需要金融認證",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍只有模糊的金融認證說法，未具體到密碼、OTP、網銀畫面或代操作。",
+        "normal_explanation": "一般寄送或託運流程可能提到認證，但本輪沒有新增具體敏感要求。",
+        "recommended_action": "繼續確認所謂金融認證的官方流程與要求，避免提供密碼、OTP或遠端控制。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "寄票也要金融認證？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0a5a33eb129f52bc016aa4e0caed0c87d097da5fcf36850d78",
+      "usage": {
+        "input_tokens": 5490,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 212,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5702
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.964,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "本輪對方只是重申「要先完成認證才能繼續」，仍未具體要求密碼、OTP、網銀畫面或代操作。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "other",
+          "object": "重申需先完成認證才能繼續",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "仍只有抽象的認證催促，未達敏感操作門檻。",
+        "normal_explanation": "一般交易流程可能出現認證說法，但目前沒有具體到可判定的敏感權限要求。",
+        "recommended_action": "要求對方提供可獨立查證的正式流程說明，先不要交付任何密碼、OTP或網銀控制權。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "這筆交易要先完成認證才能繼續。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0eab27dec52e6537016aa4e0cd12ac87d0ac7a3ded01cf4c7d",
+      "usage": {
+        "input_tokens": 5440,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 220,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5660
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.196,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            10
+          ],
+          "explanation": "本輪只是使用者詢問下一步，對方未新增具體要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問現在要怎麼處理",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍停留在抽象的認證說法，沒有出現密碼、OTP、網銀畫面或控制等敏感要求。",
+        "normal_explanation": "一般交易或客服流程可能會有人詢問後續處理，但現階段尚不足以判定為高風險。",
+        "recommended_action": "先要求對方提供可獨立查證的正式流程與收款/寄送資訊，避免交付任何敏感權限。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 10,
+            "quote": "那現在要怎麼處理？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_06e88a78f422d178016aa4e0cef39087d0af4cd08ff0848c4d",
+      "usage": {
+        "input_tokens": 5403,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 214,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5617
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 10,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.613,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5,
+            7,
+            9,
+            11
+          ],
+          "explanation": "對方已出現把寄送與金融認證、帳戶警示串接的異常程序，但尚未具體要求付款或交出敏感權限。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "聲稱交易需先完成金融認證且帳戶被列警示",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "已有程序矛盾與警示說法，但尚未出現密碼、OTP、網銀畫面或控制等敏感要求。",
+        "normal_explanation": "正常寄送或客服流程可能有驗證步驟，但不常見把託運、金融認證與帳戶警示連在一起。",
+        "recommended_action": "先停止進一步配合，要求對方提供可獨立查證的正式流程；不要交付任何密碼、OTP或網銀操作權限。",
+        "stages": [
+          "S2",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "要先簽託運條款，才能辦寄送。"
+          },
+          {
+            "turn": 7,
+            "quote": "對，賣家這邊要先簽，還要完成金融認證。"
+          },
+          {
+            "turn": 9,
+            "quote": "這筆交易要先完成認證才能繼續。"
+          },
+          {
+            "turn": 11,
+            "quote": "這筆交易沒有及時完成，帳戶被列警示了。"
+          }
+        ],
+        "prediction": {
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_04b553182653f1f5016aa4e0d0970c87d0872ba0c22dfbdca7",
+      "usage": {
+        "input_tokens": 5440,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 577,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6017
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 11,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.219,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5,
+            7,
+            9,
+            11
+          ],
+          "explanation": "沒有新的反證或修正原意；目前仍只是異常程序與警示說法，尚未升級為明確付款或敏感權限要求。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "聲稱交易需先完成金融認證且帳戶被列警示",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "仍只有程序矛盾與警示說法，尚未出現密碼、OTP、網銀畫面或控制等敏感要求。",
+        "normal_explanation": "正常寄送或客服流程可能有驗證步驟，但不常見把託運、金融認證與帳戶警示連在一起。",
+        "recommended_action": "先不要繼續配合，要求可獨立查證的正式流程；不要交付密碼、OTP或網銀操作權限。",
+        "stages": [
+          "S2",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "要先簽託運條款，才能辦寄送。"
+          },
+          {
+            "turn": 7,
+            "quote": "對，賣家這邊要先簽，還要完成金融認證。"
+          },
+          {
+            "turn": 9,
+            "quote": "這筆交易要先完成認證才能繼續。"
+          },
+          {
+            "turn": 11,
+            "quote": "這筆交易沒有及時完成，帳戶被列警示了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_012c550ff1654b53016aa4e0d3e49487d0bf15cd25841ffb4a",
+      "usage": {
+        "input_tokens": 5765,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 543,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6308
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 12,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.027,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "已明確提出先轉帳到指定帳戶。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "用途是照指示操作解除前述交易問題。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  11,
+                  13
+                ],
+                "explanation": "前文以帳戶警示與交易無法繼續作為理由，與先轉帳的要求直接相連。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般寄送、託運或驗證流程不會要求先把款項轉到指定帳戶來解除交易警示。"
+          },
+          {
+            "rule_id": "R_COMPOUND_INCONSISTENCY",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  7,
+                  9,
+                  11,
+                  13
+                ],
+                "explanation": "託運、金融認證、帳戶警示與轉帳解除被串成同一流程。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "已出現具體金融動作要求：先轉帳到指定帳戶。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常客服或物流流程可有驗證，但無法解釋把寄票、金融認證、警示與先轉帳串在一起的程序矛盾。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13
+          ],
+          "explanation": "沒有新反證；對方已從程序說法升級到明確轉帳要求。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "先轉帳到指定帳戶以解除操作",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "已出現明確轉帳要求，且與前述託運／金融認證／帳戶警示流程相連。",
+        "normal_explanation": "一般寄送或驗證流程可能有步驟，但不會要求先轉帳到指定帳戶來解除交易警示。",
+        "recommended_action": "先停止操作，改用可獨立查證的正式管道確認；不要再轉帳。",
+        "stages": [
+          "S2",
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_PAYMENT_PURPOSE",
+          "R_COMPOUND_INCONSISTENCY"
+        ],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "對，賣家這邊要先簽，還要完成金融認證。"
+          },
+          {
+            "turn": 9,
+            "quote": "這筆交易要先完成認證才能繼續。"
+          },
+          {
+            "turn": 11,
+            "quote": "這筆交易沒有及時完成，帳戶被列警示了。"
+          },
+          {
+            "turn": 13,
+            "quote": "要照指示操作解除，先轉帳到指定帳戶。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0df4cf22c8f62583016aa4e0d6ce2c87d089f3d4738d40f941",
+      "usage": {
+        "input_tokens": 5750,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 605,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6355
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 13,
+      "first_alert_turn": 13,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.491,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "已明確要求先轉帳到指定帳戶。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "說明目的是照指示操作解除前述問題。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  11,
+                  13
+                ],
+                "explanation": "以帳戶警示與交易無法繼續作為轉帳理由，兩者直接相連。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般寄送或驗證流程不會要求先轉帳到指定帳戶來解除警示。"
+          },
+          {
+            "rule_id": "R_COMPOUND_INCONSISTENCY",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  7,
+                  9,
+                  11,
+                  13
+                ],
+                "explanation": "託運、金融認證、帳戶警示與轉帳解除被串成同一流程。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "已出現具體金融動作要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常客服或物流流程無法合理解釋把寄票、金融認證、警示與先轉帳串在一起。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13
+          ],
+          "explanation": "沒有新反證；對方已提出明確轉帳要求。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "先轉帳到指定帳戶以解除操作",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "已出現明確轉帳要求，且與前述託運／金融認證／帳戶警示流程相連。",
+        "normal_explanation": "一般寄送或驗證流程可能有步驟，但不會要求先轉帳到指定帳戶來解除交易警示。",
+        "recommended_action": "先停止操作，改用可獨立查證的正式管道確認；不要再轉帳。",
+        "stages": [
+          "S2",
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_PAYMENT_PURPOSE",
+          "R_COMPOUND_INCONSISTENCY"
+        ],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "對，賣家這邊要先簽，還要完成金融認證。"
+          },
+          {
+            "turn": 9,
+            "quote": "這筆交易要先完成認證才能繼續。"
+          },
+          {
+            "turn": 11,
+            "quote": "這筆交易沒有及時完成，帳戶被列警示了。"
+          },
+          {
+            "turn": 13,
+            "quote": "要照指示操作解除，先轉帳到指定帳戶。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0e09abca025c7b73016aa4e0da5fc087d0a2a084f6603491b9",
+      "usage": {
+        "input_tokens": 6755,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 519,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7274
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 14,
+      "first_alert_turn": 13,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.517,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  15
+                ],
+                "explanation": "已再次明確要求先轉帳到指定帳戶。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  15
+                ],
+                "explanation": "仍以解除先前認證／警示流程為目的。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  11,
+                  13,
+                  15
+                ],
+                "explanation": "帳戶警示、解除指示與轉帳要求持續連結。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般寄送或驗證流程不會持續要求先轉帳到指定帳戶來解除警示。"
+          },
+          {
+            "rule_id": "R_COMPOUND_INCONSISTENCY",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  7,
+                  9,
+                  11,
+                  13,
+                  15
+                ],
+                "explanation": "託運、金融認證、帳戶警示與轉帳解除持續串成同一流程。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  15
+                ],
+                "explanation": "已出現且重申具體金融動作要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常客服或物流流程無法合理解釋把寄票、金融認證、警示與先轉帳串在一起。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            15
+          ],
+          "explanation": "沒有新反證，對方只是重申轉帳要求。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "先轉45,046元到指定帳戶",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "對方重申先轉帳45,046元，且仍與前述認證／警示流程相連。",
+        "normal_explanation": "一般寄送或驗證流程不會要求先轉帳到指定帳戶來解除交易警示。",
+        "recommended_action": "先停止操作，改用可獨立查證的正式管道確認；不要轉帳。",
+        "stages": [
+          "S2",
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_PAYMENT_PURPOSE",
+          "R_COMPOUND_INCONSISTENCY"
+        ],
+        "evidence": [
+          {
+            "turn": 15,
+            "quote": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。"
+          },
+          {
+            "turn": 13,
+            "quote": "要照指示操作解除，先轉帳到指定帳戶。"
+          },
+          {
+            "turn": 11,
+            "quote": "這筆交易沒有及時完成，帳戶被列警示了。"
+          },
+          {
+            "turn": 7,
+            "quote": "對，賣家這邊要先簽，還要完成金融認證。"
+          },
+          {
+            "turn": 9,
+            "quote": "這筆交易要先完成認證才能繼續。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0e0a516071580941016aa4e0dcefe487d09c76dabc1ca3b905",
+      "usage": {
+        "input_tokens": 6745,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 517,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7262
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 15,
+      "first_alert_turn": 13,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 4.802,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  15
+                ],
+                "explanation": "再次明確要求先轉帳到指定帳戶。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  15
+                ],
+                "explanation": "要求的目的仍是解除交易警示／認證流程。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  11,
+                  13,
+                  15
+                ],
+                "explanation": "警示、解除指示與轉帳要求持續相連。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般寄送或驗證流程不會要求先轉帳到指定帳戶來解除警示。"
+          },
+          {
+            "rule_id": "R_COMPOUND_INCONSISTENCY",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  7,
+                  9,
+                  11,
+                  13,
+                  15
+                ],
+                "explanation": "託運、金融認證、帳戶警示與轉帳解除串成同一流程。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  15
+                ],
+                "explanation": "已出現且重申具體金融動作要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常客服或物流流程無法合理解釋把寄票、金融認證、警示與先轉帳串在一起。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            15
+          ],
+          "explanation": "沒有新反證，對方只是重申轉帳要求。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "先轉45,046元到指定帳戶",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "對方重申先轉帳45,046元，且仍與前述認證／警示流程相連。",
+        "normal_explanation": "一般寄送或驗證流程不會要求先轉帳到指定帳戶來解除交易警示。",
+        "recommended_action": "先停止操作，改用可獨立查證的正式管道確認；不要轉帳。",
+        "stages": [
+          "S2",
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_PAYMENT_PURPOSE",
+          "R_COMPOUND_INCONSISTENCY"
+        ],
+        "evidence": [
+          {
+            "turn": 15,
+            "quote": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。"
+          },
+          {
+            "turn": 13,
+            "quote": "要照指示操作解除，先轉帳到指定帳戶。"
+          },
+          {
+            "turn": 11,
+            "quote": "這筆交易沒有及時完成，帳戶被列警示了。"
+          },
+          {
+            "turn": 7,
+            "quote": "對，賣家這邊要先簽，還要完成金融認證。"
+          },
+          {
+            "turn": 9,
+            "quote": "這筆交易要先完成認證才能繼續。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0155467614159ddc016aa4e0e1ad6887d0a669bd1cfeab7d85",
+      "usage": {
+        "input_tokens": 6860,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 512,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7372
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 16,
+      "first_alert_turn": 13,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.281,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "對方再次要求轉出新金額到指定方向。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17
+                ],
+                "explanation": "延續前述以解除警示／完成認證為由的金流要求脈絡。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  11,
+                  13,
+                  15,
+                  17
+                ],
+                "explanation": "警示、解除指示與連續轉帳要求仍串在同一事件中。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般寄送、驗證或客服處理不會在已轉一筆後，仍以解除警示為由再要求追加轉帳到指定帳戶。"
+          },
+          {
+            "rule_id": "R_COMPOUND_INCONSISTENCY",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  7,
+                  9,
+                  11,
+                  13,
+                  15,
+                  17
+                ],
+                "explanation": "託運、金融認證、帳戶警示與連續轉帳解除持續串連。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  15,
+                  17
+                ],
+                "explanation": "已具體出現反覆的金融動作要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常物流或客服流程無法合理解釋把寄票、金融認證、警示與連續追加轉帳綁在一起。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            17
+          ],
+          "explanation": "沒有新反證，只是追加轉帳要求。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "再轉27,979元到指定帳戶",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "對方在前一筆已轉後，再要求追加27,979元，且仍與解除警示／認證流程相連。",
+        "normal_explanation": "一般寄送或驗證流程不會要求連續追加轉帳才能繼續。",
+        "recommended_action": "先停止操作，改走可獨立查證的正式管道確認，不要再轉帳。",
+        "stages": [
+          "S2",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "rule_ids": [
+          "R_PAYMENT_PURPOSE",
+          "R_COMPOUND_INCONSISTENCY"
+        ],
+        "evidence": [
+          {
+            "turn": 11,
+            "quote": "這筆交易沒有及時完成，帳戶被列警示了。"
+          },
+          {
+            "turn": 13,
+            "quote": "要照指示操作解除，先轉帳到指定帳戶。"
+          },
+          {
+            "turn": 15,
+            "quote": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。"
+          },
+          {
+            "turn": 17,
+            "quote": "接著再轉 27,979 元。"
+          },
+          {
+            "turn": 7,
+            "quote": "對，賣家這邊要先簽，還要完成金融認證。"
+          },
+          {
+            "turn": 9,
+            "quote": "這筆交易要先完成認證才能繼續。"
+          }
+        ],
+        "prediction": {
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "要求再追加一筆轉帳到指定帳戶",
+          "action": "追加金流要求",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_06a1f25ff5735e10016aa4e0e4222087d09a41f67326b30fe0",
+      "usage": {
+        "input_tokens": 6888,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 592,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7480
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 17,
+      "first_alert_turn": 13,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p17",
+          "created_turn": 17,
+          "expires_turn": 19,
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "要求再追加一筆轉帳到指定帳戶",
+          "action": "追加金流要求",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.277,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "對方明確要求再轉一筆新金額到指定帳戶。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17
+                ],
+                "explanation": "要求被包裝成解除警示／照指示操作的流程。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  11,
+                  13,
+                  15,
+                  17
+                ],
+                "explanation": "帳戶警示、解除指示與連續轉帳要求連成同一事件脈絡。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般寄送、驗證或客服處理不會在已轉一筆後，仍以解除警示為由再要求追加轉帳到指定帳戶。"
+          },
+          {
+            "rule_id": "R_COMPOUND_INCONSISTENCY",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  7,
+                  9,
+                  11,
+                  13,
+                  15,
+                  17
+                ],
+                "explanation": "託運、金融認證、帳戶警示與連續轉帳解除持續串連。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  15,
+                  17
+                ],
+                "explanation": "已具體出現反覆的金融動作要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常物流或客服流程無法合理解釋把寄票、金融認證、警示與連續追加轉帳綁在一起。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            18
+          ],
+          "explanation": "本輪只是使用者回報已轉帳，沒有新反證或新要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已轉27,979元",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "前述已成立的追加轉帳風險仍未被反證解除；本輪僅是回報完成。",
+        "normal_explanation": "一般對話中的完成回報不會消除先前已出現的追加轉帳要求。",
+        "recommended_action": "先停止再轉帳，改用可獨立查證的正式管道確認交易真偽。",
+        "stages": [
+          "S2",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "rule_ids": [
+          "R_PAYMENT_PURPOSE",
+          "R_COMPOUND_INCONSISTENCY"
+        ],
+        "evidence": [
+          {
+            "turn": 11,
+            "quote": "這筆交易沒有及時完成，帳戶被列警示了。"
+          },
+          {
+            "turn": 13,
+            "quote": "要照指示操作解除，先轉帳到指定帳戶。"
+          },
+          {
+            "turn": 15,
+            "quote": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。"
+          },
+          {
+            "turn": 17,
+            "quote": "接著再轉 27,979 元。"
+          },
+          {
+            "turn": 18,
+            "quote": "這筆 27,979 元也轉好了。"
+          },
+          {
+            "turn": 7,
+            "quote": "對，賣家這邊要先簽，還要完成金融認證。"
+          },
+          {
+            "turn": 9,
+            "quote": "這筆交易要先完成認證才能繼續。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0d688558978e18a1016aa4e0e9fbc087d08bffe2dd52cddadd",
+      "usage": {
+        "input_tokens": 7284,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 557,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7841
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 18,
+      "first_alert_turn": 13,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p17",
+          "created_turn": 17,
+          "expires_turn": 19,
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "要求再追加一筆轉帳到指定帳戶",
+          "action": "追加金流要求",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 5.627,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "invalid_model_output",
+          "code": "unsupported_warning"
+        },
+        {
+          "attempt": 2,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  19
+                ],
+                "explanation": "對方再次要求再轉一筆新金額。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  19
+                ],
+                "explanation": "要求仍被包裝成照指示操作解除流程。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  11,
+                  13,
+                  15,
+                  17,
+                  19
+                ],
+                "explanation": "帳戶警示、解除指示與連續追加轉帳仍連成同一脈絡。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般交易不會在已連續轉帳後，仍以解除警示為由再追加指定帳戶轉帳。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            19
+          ],
+          "explanation": "本輪是新的追加轉帳要求，不是反證。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "再一筆27,028元轉帳到指定帳戶",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "對方再次要求追加轉帳，延續既有金流風險。",
+        "normal_explanation": "正常寄送或客服流程不需持續要求追加轉帳。",
+        "recommended_action": "停止轉帳，改以可獨立查證的正式管道確認交易。",
+        "stages": [
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "rule_ids": [
+          "R_PAYMENT_PURPOSE"
+        ],
+        "evidence": [
+          {
+            "turn": 19,
+            "quote": "再一筆 27,028 元，轉完告訴我。"
+          },
+          {
+            "turn": 13,
+            "quote": "要照指示操作解除，先轉帳到指定帳戶。"
+          },
+          {
+            "turn": 11,
+            "quote": "這筆交易沒有及時完成，帳戶被列警示了。"
+          },
+          {
+            "turn": 15,
+            "quote": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。"
+          },
+          {
+            "turn": 17,
+            "quote": "接著再轉 27,979 元。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0fcdaf93788c7c08016aa4e0ecd2b087d089fcb160448d0ac7",
+      "usage": {
+        "input_tokens": 7237,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 405,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7642
+      },
+      "rejected_prediction_matches": [
+        {
+          "prediction_id": "p17",
+          "evidence": [
+            {
+              "turn": 19,
+              "quote": "再一筆 27,028 元，轉完告訴我。"
+            }
+          ]
+        }
+      ],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 19,
+      "first_alert_turn": 13,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p17",
+          "created_turn": 17,
+          "expires_turn": 19,
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "要求再追加一筆轉帳到指定帳戶",
+          "action": "追加金流要求",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.623,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  19
+                ],
+                "explanation": "對方提出再追加一筆轉帳要求。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  19
+                ],
+                "explanation": "仍包裝成依指示解除流程。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  11,
+                  13,
+                  15,
+                  17,
+                  19
+                ],
+                "explanation": "帳戶警示、解除指示與連續追加轉帳維持同一脈絡。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般寄送或客服處理不會在已多次轉帳後，仍要求再轉指定金額到同一類指定帳戶。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            19
+          ],
+          "explanation": "本輪只是新的追加轉帳要求，沒有反證解除風險。"
+        },
+        "observation": {
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "再一筆27,028元轉帳到指定帳戶",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "對方再次要求追加轉帳，延續既有金流風險。",
+        "normal_explanation": "正常寄送或客服流程不需持續要求追加轉帳。",
+        "recommended_action": "停止轉帳，改用可獨立查證的正式管道確認交易。",
+        "stages": [
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "rule_ids": [
+          "R_PAYMENT_PURPOSE"
+        ],
+        "evidence": [
+          {
+            "turn": 19,
+            "quote": "再一筆 27,028 元，轉完告訴我。"
+          },
+          {
+            "turn": 13,
+            "quote": "要照指示操作解除，先轉帳到指定帳戶。"
+          },
+          {
+            "turn": 11,
+            "quote": "這筆交易沒有及時完成，帳戶被列警示了。"
+          },
+          {
+            "turn": 15,
+            "quote": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。"
+          },
+          {
+            "turn": 17,
+            "quote": "接著再轉 27,979 元。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0251d3e93490af96016aa4e0ef826c87d0abef4412e5e6c18e",
+      "usage": {
+        "input_tokens": 6662,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 367,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7029
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 20,
+      "first_alert_turn": 13,
+      "predictions": [
+        {
+          "id": "p7",
+          "created_turn": 7,
+          "expires_turn": 9,
+          "actor": "counterparty",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供金融認證相關敏感資訊或操作",
+          "action": "可能接著要求密碼、OTP、網銀畫面或代操作",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "counterparty",
+          "action_type": "new_condition",
+          "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+          "action": "進一步轉介到指定處理管道",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p17",
+          "created_turn": 17,
+          "expires_turn": 19,
+          "actor": "counterparty",
+          "action_type": "payment_request",
+          "object": "要求再追加一筆轉帳到指定帳戶",
+          "action": "追加金流要求",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.986,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

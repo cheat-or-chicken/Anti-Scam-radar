@@ -11,3 +11,11 @@ build/
 dist/
 
 .DS_Store
+
+# Dialogue demo local files
+.env.local
+.env.*
+!.env.example
+ChatRoom/chat_history.json
+deliverables/
+scam_agent_handoff_*.zip

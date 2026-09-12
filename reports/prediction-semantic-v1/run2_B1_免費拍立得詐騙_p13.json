@@ -1,0 +1,153 @@
+{
+  "source": "reports/expanded-v1/run2/B1_免費拍立得詐騙.results.json",
+  "source_sha256": "7c3b7800fa782ec759aa427e76af59c0bf361a10acce8c843c5d1787e5f00e63",
+  "case": "B1_免費拍立得詐騙.replay.json",
+  "repeat": 2,
+  "prediction": {
+    "id": "p13",
+    "created_turn": 13,
+    "expires_turn": 15,
+    "actor": "support",
+    "action_type": "sensitive_access_request",
+    "object": "要求提供訂單異常頁面、登入畫面或驗證資訊以便處理",
+    "action": "可能進一步要求查看或提供更敏感的處理資訊",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v1",
+    "prompt_hash": "91a9599add5812fbe1f40fd8211de5f393ea1c3cfd6fd061b5858923f2b5dd83",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": false,
+    "new_after_prediction": true,
+    "reason": "原預測是 support 可能進一步要求提供更敏感的處理資訊，但在視窗內 support 只詢問「您目前停在哪個畫面？」並於第15輪改為請加入銀行專員，未直接要求提供訂單異常頁面、登入畫面或驗證資訊。",
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_038df33000bc5e18016aa4e7dfdee887d0a23aaf605b1c4c3f",
+    "usage": {
+      "input_tokens": 1522,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 107,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1629
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "threads_dm",
+      "text": "你好，我看到你們送拍立得的貼文，請問還有嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "donor",
+      "channel": "threads_dm",
+      "text": "還有喔，相館準備歇業了，剩下的庫存想送給需要的人。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "donor",
+      "channel": "threads_dm",
+      "text": "方便加 LINE 嗎？寄送資料在那邊跟你確認。我叫「光盒相館・小林」，連結是 https://chat.example.com/lightbox-lin 。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "你好，我是剛剛問拍立得的。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "拍立得不用錢，運費 60 元你自己出就好，可以嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "可以，要在哪裡填寄送資料？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "用這個賣貨便頁面，點進去填收件姓名、手機跟取貨門市就可以了：https://parcel.example.com/order/CAM-0912-01",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "我填完送出，怎麼跳出「交易訂單失敗，需實名認證」？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "那要找客服處理，頁面上有客服的 LINE。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "所以現在沒有填成功嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "你好，我要領拍立得，填完資料顯示交易訂單失敗，要實名認證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "您好，這邊協助您處理訂單異常。您目前停在哪個畫面？",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "就是交易失敗那個畫面，接下來不知道要按什麼。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen",
+      "attachment_captions": []
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "source": "reports/expanded-v1/run1/B4.results.json",
+  "source_sha256": "5baf6406bd0e3a07cb5d0a5ada80f68997b4247ced55d0d8010010b1454b60ab",
+  "case": "B4.replay.json",
+  "repeat": 1,
+  "prediction": {
+    "id": "p13",
+    "created_turn": 13,
+    "expires_turn": 15,
+    "actor": "counterparty",
+    "action_type": "sensitive_access_request",
+    "object": "要求提供或操作認證資訊／網銀流程",
+    "action": "進一步要求驗證碼、密碼、網銀畫面或代為操作",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": false,
+    "new_after_prediction": true,
+    "reason": "視窗內只看到要求先轉帳到指定帳戶，並在第15輪補充金額與帳戶資料；未出現要求驗證碼、密碼、網銀畫面或代為操作等認證資訊要求。",
+    "audit": null,
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_04020280f9a8004b016aa4e83fadc887d0b4c97c8d99da0414",
+    "usage": {
+      "input_tokens": 1341,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 91,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1432
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "你好，你在賣的演唱會門票還在嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "user",
+      "channel": "chat",
+      "text": "還在，你要買嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "想買，可以用順豐快遞寄給我嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "chat",
+      "text": "可以，寄送要怎麼弄？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "要先簽託運條款，才能辦寄送。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "chat",
+      "text": "是我這邊要簽嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "對，賣家這邊要先簽，還要完成金融認證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "chat",
+      "text": "寄票也要金融認證？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "這筆交易要先完成認證才能繼續。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "chat",
+      "text": "那現在要怎麼處理？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "這筆交易沒有及時完成，帳戶被列警示了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "user",
+      "channel": "chat",
+      "text": "那要怎麼解除？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "要照指示操作解除，先轉帳到指定帳戶。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "chat",
+      "text": "我看一下。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。",
+      "attachment_captions": []
+    }
+  ]
+}

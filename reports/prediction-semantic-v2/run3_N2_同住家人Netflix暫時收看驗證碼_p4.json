@@ -1,0 +1,91 @@
+{
+  "source": "reports/expanded-v1/run3/N2_同住家人Netflix暫時收看驗證碼.results.json",
+  "source_sha256": "b9c0b48b45a6ca0c1d296d15a7b65e488f74d48df978c86c109a8813fa24903a",
+  "case": "N2_同住家人Netflix暫時收看驗證碼.replay.json",
+  "repeat": 3,
+  "prediction": {
+    "id": "p4",
+    "created_turn": 4,
+    "expires_turn": 6,
+    "actor": "family",
+    "action_type": "sensitive_access_request",
+    "object": "更多驗證碼或登入驗證資訊",
+    "action": "接著再要求其他驗證資訊",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": false,
+    "new_after_prediction": false,
+    "reason": "視窗內只有 turn 4 要求「四位數代碼」；之後 turn 6 只是補充說明是本人申請，沒有再要求其他驗證資訊。",
+    "audit": null,
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_01cd83ae760a87c6016aa4e849cddc87d0b42d79a8a543b078",
+    "usage": {
+      "input_tokens": 991,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 79,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1070
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "你出差到了嗎？家裡晚餐剩的咖哩我放冰箱了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "到了，明晚回家。我用平常家裡那台平板開 Netflix，跳出暫時收看的驗證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "是我們一直共用的家庭帳號嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "對，剛在 App 按寄送郵件到你的信箱，幫我看一下四位數代碼。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "我先打你原本的手機確認，你等一下接。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "剛通完了，是我本人在旅館的平板申請，時間就是剛剛。",
+      "attachment_captions": []
+    }
+  ]
+}

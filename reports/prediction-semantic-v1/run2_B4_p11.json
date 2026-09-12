@@ -1,0 +1,139 @@
+{
+  "source": "reports/expanded-v1/run2/B4.results.json",
+  "source_sha256": "3fc5cd6d1b85ab574b610ce8912ccf03057656c1c1e82644babf9755cd16d670",
+  "case": "B4.replay.json",
+  "repeat": 2,
+  "prediction": {
+    "id": "p11",
+    "created_turn": 11,
+    "expires_turn": 13,
+    "actor": "counterparty",
+    "action_type": "new_condition",
+    "object": "要求改用對方提供的特定客服或流程繼續完成認證",
+    "action": "進一步轉介到指定處理管道",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v1",
+    "prompt_hash": "91a9599add5812fbe1f40fd8211de5f393ea1c3cfd6fd061b5858923f2b5dd83",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": false,
+    "new_after_prediction": true,
+    "reason": "視窗內未見對方要求改用特定客服或流程繼續完成認證；僅有「要照指示操作解除，先轉帳到指定帳戶」與先前的金融認證/警示說明，語意不符。",
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_05a7f48ba27411d8016aa4e7e2888487d082b04d199555d32f",
+    "usage": {
+      "input_tokens": 1247,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 97,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1344
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "你好，你在賣的演唱會門票還在嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "user",
+      "channel": "chat",
+      "text": "還在，你要買嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "想買，可以用順豐快遞寄給我嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "chat",
+      "text": "可以，寄送要怎麼弄？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "要先簽託運條款，才能辦寄送。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "chat",
+      "text": "是我這邊要簽嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "對，賣家這邊要先簽，還要完成金融認證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "chat",
+      "text": "寄票也要金融認證？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "這筆交易要先完成認證才能繼續。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "chat",
+      "text": "那現在要怎麼處理？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "這筆交易沒有及時完成，帳戶被列警示了。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 12,
+      "sender": "user",
+      "channel": "chat",
+      "text": "那要怎麼解除？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "要照指示操作解除，先轉帳到指定帳戶。",
+      "attachment_captions": []
+    }
+  ]
+}

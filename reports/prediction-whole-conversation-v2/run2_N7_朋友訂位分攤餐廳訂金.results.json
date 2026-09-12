@@ -1,0 +1,83 @@
+{
+  "case": "N7_朋友訂位分攤餐廳訂金.replay.json",
+  "repeat": 2,
+  "source": "reports/expanded-v1/run2/N7_朋友訂位分攤餐廳訂金.results.json",
+  "source_sha256": "442752e1ca65c2d2c54979d84717c7c3f4354ea517e962342e03055dd8bd0a7f",
+  "predictions": [],
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "friends_chat",
+      "text": "週六聚餐確定四個人嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "friend",
+      "channel": "friends_chat",
+      "text": "對，我訂了青禾餐館。店家說四人包廂要先付一千元訂金，當天抵餐費。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "friends_chat",
+      "text": "我分攤兩百五？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "friend",
+      "channel": "friends_chat",
+      "text": "對，我先付店家，你晚點轉我就好。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "friends_chat",
+      "text": "我也打餐廳的電話問了，訂位是週六六點、你的名字。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "friend",
+      "channel": "friends_chat",
+      "text": "沒錯，剛收到訂位確認，當天如果要改時間再一起決定。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "friends_chat",
+      "text": "兩百五轉到以前分攤房費那個帳號了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "friend",
+      "channel": "friends_chat",
+      "text": "收到了，週六見。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "friends_chat",
+      "text": "今天帳單有扣掉一千元訂金，剩下我們現場付了。",
+      "attachment_captions": []
+    }
+  ],
+  "review": {
+    "version": "whole-conversation-v2",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+    "status": "ok",
+    "items": [],
+    "matched": 0,
+    "missed": 0,
+    "uncertain": 0,
+    "rate": null
+  }
+}

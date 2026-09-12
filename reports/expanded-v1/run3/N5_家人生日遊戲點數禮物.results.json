@@ -1,0 +1,648 @@
+{
+  "summary": {
+    "file": "N5_家人生日遊戲點數禮物.replay.json",
+    "repeat": 3,
+    "case_type": "benign",
+    "completed": true,
+    "turns_analyzed": 9,
+    "total_turns": 9,
+    "first_alert_turn": null,
+    "payment_turn": 7,
+    "harm_turn": 7,
+    "before_payment": null,
+    "before_harm": null,
+    "detected_by_end": null,
+    "false_alarm": false,
+    "harm_lead": null,
+    "payment_lead": null,
+    "warning_downgrade_turns": [],
+    "mean_seconds": 1.913,
+    "recovered_or_failed_turns": [],
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "detector_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207"
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            1
+          ],
+          "explanation": "目前只是一般家人聊天與關心生日、遊戲近況，沒有付款、敏感權限、隔離查證或新條件要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "家人閒聊與詢問生日想要什麼、遊戲近況",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅為正常家庭對話，未見詐騙或風險要求。",
+        "normal_explanation": "一般家人關心生日禮物與興趣延續，屬常見日常互動。",
+        "recommended_action": "可正常回覆；目前不需警戒。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "你今年生日想要什麼？上次說的遊戲還有在玩？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_027cc3c92d028acc016aa4e12a5b5087d08305554354914585",
+      "usage": {
+        "input_tokens": 4762,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 204,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4966
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.411,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2
+          ],
+          "explanation": "目前是家人提出想要遊戲資料片並請求五百元點數，屬一般禮物／代購型需求，未見恐嚇、隔離查證、敏感權限或不相符的詐騙程序。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "other",
+          "object": "提出想買遊戲資料片並請求五百元點數作為生日禮物",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "屬親友間的普通金錢請求，沒有達到警報規則所需的具體風險條件。",
+        "normal_explanation": "生日禮物改以點數形式表達很常見，單純提到點數或金額不足以構成警報。",
+        "recommended_action": "可依正常家人互動回覆；目前不需示警。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "有，想買裡面的資料片，送我五百元點數就好。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_09fb5b5738943144016aa4e12c8d1c87d0b8f1e2b4042f691c",
+      "usage": {
+        "input_tokens": 5061,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 254,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5315
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.943,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2,
+            3
+          ],
+          "explanation": "目前仍是家人間請求五百元點數的禮物/代購型對話，沒有出現密碼、OTP、網銀操作、阻止查證或追加不相符金融要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問要買卡或線上序號",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "屬一般家人互動與付款方式詢問，未達警報條件。",
+        "normal_explanation": "生日禮物改用點數或序號很常見，單純詢問購買方式不足以示警。",
+        "recommended_action": "可依一般家人對話回覆；目前不需示警。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "有，想買裡面的資料片，送我五百元點數就好。"
+          },
+          {
+            "turn": 3,
+            "quote": "我等一下去超商，買卡還是線上序號？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f59a27cb89dc651016aa4e12e75c087d0a24c2d665e3a3f8c",
+      "usage": {
+        "input_tokens": 5160,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 222,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5382
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.151,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2,
+            4
+          ],
+          "explanation": "仍是家人間的點數禮物對話，對方也說帳號是自己的；未見密碼、OTP、網銀操作、阻止查證或不相符的付款要求。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "other",
+          "object": "確認可用點數卡並表示帳號為自己所有",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "屬一般家人互動與點數購買確認，未達警報條件。",
+        "normal_explanation": "生日禮物以點數卡或序號交付很常見，且本輪沒有敏感操作或限制查證。",
+        "recommended_action": "可依一般家人對話回覆；目前不需示警。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "有，想買裡面的資料片，送我五百元點數就好。"
+          },
+          {
+            "turn": 4,
+            "quote": "點數卡就可以，遊戲帳號是我自己的。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_07dda0af8d97d79a016aa4e1309eb087d09c0b08b785c97a7c",
+      "usage": {
+        "input_tokens": 5200,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 226,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5426
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.773,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2,
+            4,
+            5
+          ],
+          "explanation": "仍是家人間的點數禮物確認，未見密碼、OTP、網銀操作、阻止查證或不相符付款要求；本輪只是重述金額。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "重述同款五百元點數確認",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "屬一般家人互動與點數購買確認，未達警報條件。",
+        "normal_explanation": "生日禮物以點數卡或序號交付很常見，這裡沒有敏感操作或限制查證。",
+        "recommended_action": "可直接依家人對話回覆，暫不需示警。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "有，想買裡面的資料片，送我五百元點數就好。"
+          },
+          {
+            "turn": 4,
+            "quote": "點數卡就可以，遊戲帳號是我自己的。"
+          },
+          {
+            "turn": 5,
+            "quote": "剛在家裡問你一次，是同款的五百元沒錯吧？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0827db63d1168422016aa4e13267bc87d0a9e354d8bfe7365d",
+      "usage": {
+        "input_tokens": 5254,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 225,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5479
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.79,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2,
+            4,
+            6
+          ],
+          "explanation": "仍是家人間的五百元點數確認與重述，未見密碼、OTP、網銀或限制查證等警報必要條件。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "other",
+          "object": "重述同款五百元點數確認",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "屬一般家人互動與點數購買確認，未達警報條件。",
+        "normal_explanation": "生日禮物以點數卡或序號交付很常見，這裡沒有敏感操作或限制查證。",
+        "recommended_action": "可直接依家人對話回覆，暫不需示警。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "有，想買裡面的資料片，送我五百元點數就好。"
+          },
+          {
+            "turn": 4,
+            "quote": "點數卡就可以，遊戲帳號是我自己的。"
+          },
+          {
+            "turn": 6,
+            "quote": "對啊，就是我剛拿盒子給你看的那款。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_02583ae0b854297f016aa4e1342cec87d0b85c8ed03331d544",
+      "usage": {
+        "input_tokens": 5330,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 218,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5548
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.637,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2,
+            4,
+            6,
+            7
+          ],
+          "explanation": "仍是家人間的點數禮物確認與完成交付，未見密碼、OTP、網銀或限制查證等警報必要條件。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "完成點數序號交付",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "屬一般家人間生日點數禮物，不構成詐騙警報。",
+        "normal_explanation": "點數序號作為生日禮物很常見，沒有敏感操作或禁止查證。",
+        "recommended_action": "維持一般互動即可，暫不需示警。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "有，想買裡面的資料片，送我五百元點數就好。"
+          },
+          {
+            "turn": 4,
+            "quote": "點數卡就可以，遊戲帳號是我自己的。"
+          },
+          {
+            "turn": 6,
+            "quote": "對啊，就是我剛拿盒子給你看的那款。"
+          },
+          {
+            "turn": 7,
+            "quote": "買好了，生日快樂，序號 DEMO-GIFT-001。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_07212504c1237736016aa4e135ec8087d090cd5df3e88d6a80",
+      "usage": {
+        "input_tokens": 5366,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 212,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5578
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.893,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "第8輪只是回報已儲值完成並表示一起玩，未出現密碼、OTP、網銀操作、禁止查證或新增付款要求。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "other",
+          "object": "回報點數已儲值完成",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是家人間點數禮物流程，沒有新的警報條件。",
+        "normal_explanation": "一般儲值後回報進度屬正常互動，不能單憑此視為風險。",
+        "recommended_action": "維持一般互動即可。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "儲值好了，等下載完一起玩。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0b92c56cdea8d22f016aa4e137bda887d0b90f5f1843d18003",
+      "usage": {
+        "input_tokens": 5429,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 194,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5623
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.628,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "第9輪只是家人對話與晚餐安排，沒有新要求或敏感操作。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "提議晚餐後再玩",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是正常家庭互動，未見詐騙或高風險要求。",
+        "normal_explanation": "一般聊天、約定吃蛋糕或之後一起玩，都屬正常情境。",
+        "recommended_action": "維持一般互動即可。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "晚餐後再玩，蛋糕先吃。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_035e8b8976d1e7b7016aa4e1395ab087d09098c98463f64119",
+      "usage": {
+        "input_tokens": 5370,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 172,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5542
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.995,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

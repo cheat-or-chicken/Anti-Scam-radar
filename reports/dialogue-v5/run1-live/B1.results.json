@@ -1,0 +1,172 @@
+{
+  "summary": {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "6c4a569d4838458dae5459f4fd030246",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "6aed992e728c3e152fe2fea877f13fba1efac452fa8357724c9d1e4d18b3072d",
+    "completed": false,
+    "turns_analyzed": 3,
+    "total_turns": 38,
+    "first_alert_turn": null,
+    "payment_turn": 21,
+    "lead_turns": null,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "first_warning": null
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            1
+          ],
+          "explanation": "目前只是詢問商品是否還有，屬一般買賣接觸，未見付款、敏感權限或隔離查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問拍立得是否還有",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "只有一般商品詢問，沒有可引用的高風險要求。",
+        "normal_explanation": "買家詢問庫存屬正常交易行為。",
+        "recommended_action": "可正常回覆商品資訊並持續觀察後續是否出現異常要求。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "你好，我看到你們送拍立得的貼文，請問還有嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0c57fdc3acd4a7c4016aa4dc6bd0a487d0922273aa830e2eb7",
+      "usage": {
+        "input_tokens": 4669,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 188,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4857
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "6aed992e728c3e152fe2fea877f13fba1efac452fa8357724c9d1e4d18b3072d",
+      "elapsed_seconds": 3.625,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2
+          ],
+          "explanation": "對方僅說明庫存與停業原因，仍屬一般商品回應，未見付款、敏感權限或限制查證要求。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "other",
+          "object": "回覆拍立得庫存與歇業原因",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是一般交易對話，沒有符合高風險規則的具體要求。",
+        "normal_explanation": "庫存回覆與停業說明可見於正常贈送或買賣情境。",
+        "recommended_action": "可先正常確認領取方式，持續留意是否出現付款、驗證碼、遠端操作或限制查證等要求。",
+        "stages": [
+          "S0",
+          "S1"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "還有喔，相館準備歇業了，剩下的庫存想送給需要的人。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_030ac4fb51fc9e1a016aa4dc6e3d0487d0a0d988124d9db552",
+      "usage": {
+        "input_tokens": 4957,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 223,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5180
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "6aed992e728c3e152fe2fea877f13fba1efac452fa8357724c9d1e4d18b3072d",
+      "elapsed_seconds": 1.88,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "analysis_error",
+      "decision": null,
+      "usage": null,
+      "error": "模型回覆未通過格式或引用驗證，請按重試本輪分析。",
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "6aed992e728c3e152fe2fea877f13fba1efac452fa8357724c9d1e4d18b3072d",
+      "elapsed_seconds": 6.288,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "invalid_model_output",
+          "code": "unsupported_warning"
+        },
+        {
+          "attempt": 2,
+          "status": "invalid_model_output",
+          "code": "unsupported_warning"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "case": "B1_免費拍立得詐騙.replay.json",
+  "repeat": 2,
+  "source": "reports/expanded-v1/run2/B1_免費拍立得詐騙.results.json",
+  "source_sha256": "7c3b7800fa782ec759aa427e76af59c0bf361a10acce8c843c5d1787e5f00e63",
+  "predictions": [
+    {
+      "id": "p13",
+      "created_turn": 13,
+      "expires_turn": 15,
+      "actor": "support",
+      "action_type": "sensitive_access_request",
+      "object": "要求提供訂單異常頁面、登入畫面或驗證資訊以便處理",
+      "action": "可能進一步要求查看或提供更敏感的處理資訊",
+      "within_next_messages": 2,
+      "status": "missed"
+    },
+    {
+      "id": "p18",
+      "created_turn": 18,
+      "expires_turn": 20,
+      "actor": "bank",
+      "action_type": "payment_request",
+      "object": "轉帳驗證",
+      "action": "要求使用者先轉帳以完成驗證",
+      "within_next_messages": 2,
+      "status": "missed"
+    },
+    {
+      "id": "p22",
+      "created_turn": 22,
+      "expires_turn": 24,
+      "actor": "bank",
+      "action_type": "sensitive_access_request",
+      "object": "要求再回報或操作下一個驗證畫面",
+      "action": "持續引導使用者進行下一步敏感驗證並回傳畫面",
+      "within_next_messages": 2,
+      "status": "missed"
+    },
+    {
+      "id": "p30",
+      "created_turn": 30,
+      "expires_turn": 32,
+      "actor": "bank",
+      "action_type": "new_condition",
+      "object": "要求先完成購買後再說明下一步驗證結果",
+      "action": "繼續追加驗證條件",
+      "within_next_messages": 2,
+      "status": "missed"
+    }
+  ],
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "threads_dm",
+      "text": "你好，我看到你們送拍立得的貼文，請問還有嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "donor",
+      "channel": "threads_dm",
+      "text": "還有喔，相館準備歇業了，剩下的庫存想送給需要的人。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "donor",
+      "channel": "threads_dm",
+      "text": "方便加 LINE 嗎？寄送資料在那邊跟你確認。我叫「光盒相館・小林」，連結是 https://chat.example.com/lightbox-lin 。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "你好，我是剛剛問拍立得的。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "拍立得不用錢，運費 60 元你自己出就好，可以嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "可以，要在哪裡填寄送資料？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "用這個賣貨便頁面，點進去填收件姓名、手機跟取貨門市就可以了：https://parcel.example.com/order/CAM-0912-01",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "我填完送出，怎麼跳出「交易訂單失敗，需實名認證」？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "那要找客服處理，頁面上有客服的 LINE。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "所以現在沒有填成功嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "你好，我要領拍立得，填完資料顯示交易訂單失敗，要實名認證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "您好，這邊協助您處理訂單異常。您目前停在哪個畫面？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "就是交易失敗那個畫面，接下來不知道要按什麼。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen",
+      "attachment_captions": []
+    },
+    {
+      "turn": 16,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "客服叫我找你處理實名認證，我的訂單一直失敗。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 17,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "您好，接下來協助您處理帳戶異常及驗證程序。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 18,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "請先開啟網路銀行，這一步需要轉帳完成驗證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 19,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "我打開了，要轉到哪裡？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 20,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "這筆金額是 3,000 元，收款資料是星河測試銀行、帳號 TEST-CAM-001。完成後告訴我。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 21,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "好了，3,000 元，網銀顯示轉帳成功。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 22,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "接著要做無卡提款的驗證，這筆也是 3,000 元，完成後告訴我畫面顯示的結果。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 23,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "這筆 3,000 元的操作也完成了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 24,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "還有這張 2,000 元的付款碼，掃描後依畫面付款。我傳給你，單號 PAY-CAM-003。",
+      "attachment_captions": [
+        "付款通知｜金額 NT$2,000｜單號 PAY-CAM-003"
+      ]
+    },
+    {
+      "turn": 25,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "2,000 元付款完成了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 26,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "我只是填寄件資料，怎麼銀行專員一直叫我做轉帳、提款跟付款？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 27,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "驗證還沒完成，您的帳戶會被鎖，賣家的帳戶也會受到影響，請先配合專員處理。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 28,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "客服說還要繼續，那前面轉出去的錢怎麼辦？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 29,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "前面操作的款項都會退回，請先把驗證完成。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 30,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "接下來請用信用卡購買一張 1,000 元數位禮券和一張 1,000 元遊戲點數卡，測試帳戶是否解除限制。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 31,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "買好了，然後呢？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 32,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "請提供序號，這邊要查驗真偽。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 33,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "禮券序號是 DEMO-GIFT-CAM-001，點數卡序號是 DEMO-GAME-CAM-002。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 34,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "驗證已完成，接下來辦理退款。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 35,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "專員說完成了，我的退款什麼時候會下來？拍立得可以寄了嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 36,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "退款還要跑流程，請耐心等候。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 37,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "請問退款進度怎麼樣了？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 38,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "有人在嗎？我還沒收到退款，麻煩回覆。",
+      "attachment_captions": []
+    }
+  ],
+  "review": {
+    "version": "whole-conversation-v2",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+    "status": "ok",
+    "items": [
+      {
+        "prediction_id": "p13",
+        "outcome": "missed",
+        "matched_turn": null,
+        "reason": "第13則之後，support沒有再要求查看訂單異常頁面、登入畫面或驗證資訊；只是請使用者描述卡在哪個畫面，之後轉介銀行專員與退款流程，未出現更敏感資訊索取。",
+        "evidence": [],
+        "validation_error": null
+      },
+      {
+        "prediction_id": "p18",
+        "outcome": "matched",
+        "matched_turn": 20,
+        "reason": "第18則後，bank確實要求使用者先轉帳完成驗證；第20則明確給出3,000元收款資料，要求完成後回報，符合先轉帳以完成驗證。",
+        "evidence": [
+          {
+            "turn": 20,
+            "quote": "這筆金額是 3,000 元，收款資料是星河測試銀行、帳號 TEST-CAM-001。完成後告訴我。"
+          }
+        ],
+        "validation_error": null
+      },
+      {
+        "prediction_id": "p22",
+        "outcome": "uncertain",
+        "matched_turn": null,
+        "reason": "核對輸出的時間或角色依據未通過驗證，保留未確認。",
+        "evidence": [],
+        "validation_error": "p22在第22則產生；引用22不在未來。請找之後的事件，沒有就missed。"
+      },
+      {
+        "prediction_id": "p30",
+        "outcome": "matched",
+        "matched_turn": 32,
+        "reason": "第30則後，bank先要求用信用卡購買數位禮券與遊戲點數卡，接著第32則再要求提供序號查驗真偽，符合先完成購買後再追加下一步驗證條件。",
+        "evidence": [
+          {
+            "turn": 32,
+            "quote": "請提供序號，這邊要查驗真偽。"
+          }
+        ],
+        "validation_error": null
+      }
+    ],
+    "matched": 2,
+    "missed": 1,
+    "uncertain": 1,
+    "rate": 0.6666666666666666,
+    "response_id": "resp_0f93f48ddf8f5509016aa4edcff2bc87d0b063e8fa782f5eaf",
+    "usage": {
+      "input_tokens": 3082,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 2816
+      },
+      "output_tokens": 303,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 3385
+    },
+    "attempts": [
+      {
+        "status": "validation_retry",
+        "issues": [
+          "p18在第18則產生；引用18不在未來。請找之後的事件，沒有就missed。",
+          "p22在第22則產生；引用22不在未來。請找之後的事件，沒有就missed。",
+          "p30在第30則產生；引用30不在未來。請找之後的事件，沒有就missed。"
+        ]
+      },
+      {
+        "status": "ok"
+      }
+    ]
+  }
+}

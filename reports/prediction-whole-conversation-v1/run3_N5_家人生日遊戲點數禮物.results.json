@@ -1,0 +1,83 @@
+{
+  "case": "N5_家人生日遊戲點數禮物.replay.json",
+  "repeat": 3,
+  "source": "reports/expanded-v1/run3/N5_家人生日遊戲點數禮物.results.json",
+  "source_sha256": "d83bbe4a570a4f42cd5e255563e52ff8a0a357e7bc1a1805cd5527864f6748aa",
+  "predictions": [],
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "你今年生日想要什麼？上次說的遊戲還有在玩？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "有，想買裡面的資料片，送我五百元點數就好。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "我等一下去超商，買卡還是線上序號？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "點數卡就可以，遊戲帳號是我自己的。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "剛在家裡問你一次，是同款的五百元沒錯吧？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "對啊，就是我剛拿盒子給你看的那款。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "買好了，生日快樂，序號 DEMO-GIFT-001。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "儲值好了，等下載完一起玩。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "晚餐後再玩，蛋糕先吃。",
+      "attachment_captions": []
+    }
+  ],
+  "review": {
+    "version": "whole-conversation-v1",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+    "status": "ok",
+    "items": [],
+    "matched": 0,
+    "missed": 0,
+    "uncertain": 0,
+    "rate": null
+  }
+}

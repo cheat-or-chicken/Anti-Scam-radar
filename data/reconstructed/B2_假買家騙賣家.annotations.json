@@ -1,0 +1,276 @@
+{
+  "case_id": "B2_reconstructed_v2",
+  "version": 2,
+  "source_file": "/Users/yeqinrong/Desktop/黑客松/corpus/B_測試與詐騙agent共用/B2_假買家騙賣家.md",
+  "source_verification": "沿用使用者提供的165案例整理，未獨立核對。",
+  "nature": "所有聊天及通話文字均為補寫；非真實逐字稿。",
+  "source_anchors": {
+    "contact": "賣家在臉書母嬰社團刊登未過期營養品，買家私訊。",
+    "shipping": "買家希望使用7-11賣貨便交易。",
+    "link": "買家提供仿冒寄件連結要求填資料。",
+    "link_opened": "來源記載賣家點進並依指示操作。",
+    "filled": "來源記載已依網站指示填資料。",
+    "blame": "買家指稱賣家操作失誤導致買家帳戶被鎖。",
+    "referral": "買家要求趕快聯絡該頁客服解鎖。",
+    "support": "透過頁面加入LINE客服。",
+    "call": "客服以視訊／電話指導操作。",
+    "screen_request": "要求不開鏡頭，只分享手機畫面。",
+    "screen_started": "來源描述賣家接受分享畫面指導；啟動時點是重建設定。",
+    "bank_open": "客服要求開啟網銀相關功能驗證。",
+    "bank_visible": "來源記載在分享畫面下操作網銀、暴露資訊。",
+    "verification": "要求輸入認證資訊。",
+    "verification_done": "來源記載依指示輸入認證碼。",
+    "cardless": "要求開通無卡提款。",
+    "cardless_done": "來源記載開通無卡提款等操作。",
+    "transfer": "客服指示完成轉帳，確切措辭與操作未知。",
+    "transfer_done": "來源記載完成多筆轉帳；此則將首次轉帳完成具體化。",
+    "later_transactions": "來源記載多筆轉帳與無卡提款，筆數與順序不詳，此處合併呈現。",
+    "call_end": "來源記載客服通話結束。",
+    "discovery": "通話後查看網銀，發現多筆款項轉出、存款減少。"
+  },
+  "message_annotations": [
+    {
+      "turn": 1,
+      "source_anchor": "contact",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 2,
+      "source_anchor": "contact",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 3,
+      "source_anchor": "shipping",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 4,
+      "source_anchor": "shipping",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 5,
+      "source_anchor": "link",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 6,
+      "source_anchor": "link_opened",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 7,
+      "source_anchor": "link",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 8,
+      "source_anchor": "filled",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 9,
+      "source_anchor": "blame",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 10,
+      "source_anchor": "blame",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 11,
+      "source_anchor": "referral",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 12,
+      "source_anchor": "support",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 13,
+      "source_anchor": "call",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 14,
+      "source_anchor": "call",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 15,
+      "source_anchor": "screen_request",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat"
+    },
+    {
+      "turn": 16,
+      "source_anchor": "screen_started",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript"
+    },
+    {
+      "turn": 17,
+      "source_anchor": "bank_open",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript"
+    },
+    {
+      "turn": 18,
+      "source_anchor": "bank_visible",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript"
+    },
+    {
+      "turn": 19,
+      "source_anchor": "verification",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 20,
+      "source_anchor": "verification_done",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript"
+    },
+    {
+      "turn": 21,
+      "source_anchor": "cardless",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 22,
+      "source_anchor": "cardless_done",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript"
+    },
+    {
+      "turn": 23,
+      "source_anchor": "transfer",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 24,
+      "source_anchor": "transfer",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript"
+    },
+    {
+      "turn": 25,
+      "source_anchor": "transfer",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript"
+    },
+    {
+      "turn": 26,
+      "source_anchor": "transfer_done",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 27,
+      "source_anchor": "later_transactions",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 28,
+      "source_anchor": "later_transactions",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 29,
+      "source_anchor": "call_end",
+      "wording": "synthetic",
+      "delivery": "simulated_call_transcript"
+    },
+    {
+      "turn": 30,
+      "source_anchor": "discovery",
+      "wording": "synthetic",
+      "delivery": "reconstructed_chat",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    }
+  ],
+  "labels": {
+    "case_type": "scam",
+    "first_L1_turn": 6,
+    "first_screen_share_turn": 16,
+    "first_sensitive_banking_exposure_turn": 18,
+    "first_L2_turn": 18,
+    "first_explicit_transfer_request_turn": 23,
+    "first_payment_completed_turn": 26,
+    "first_L3_turn": 26,
+    "first_loss_chat_turn": 26,
+    "total_loss_twd": null,
+    "label_rationale": "第16則開始分享畫面；第18則在共享狀態開網銀，作為本案例敏感操作暴露邊界。第26則為重建的首次轉帳完成。無卡提款開通不是已提款。",
+    "synthetic_scenario_loss_twd": 10000
+  },
+  "metric_definition": {
+    "turn_unit": "每則訊息含模擬通話發言計一輪，跨角色及管道連續計數；分隔線與防詐輸出不計。",
+    "payment_lead_formula": "26 - first_alert_turn",
+    "control_exposure_lead_formula": "18 - first_alert_turn",
+    "before_payment": "first_alert_turn < 26",
+    "no_alert": "輪次及提前量記null，記錄未示警。",
+    "example": {
+      "first_alert_turn": 15,
+      "payment_lead_turns": 11,
+      "control_exposure_lead_turns": 3
+    }
+  },
+  "limitations": [
+    "把原案通話改為聊天室可逐則呈現的模擬通話文字；需由偵測器收到这些文字才可使用本評測。",
+    "付款完成回覆與第30則的發訊都是補寫；來源只記載行為與事後發現，未交代是否回報客服。",
+    "第23–25則具體轉帳問答為補寫，可能比原案明確；不能視為原案已有相同警訊。",
+    "本版將首次轉帳安排在無卡提款開通之後；來源未證明真實第一筆損失的精確順序。",
+    "不補退款承諾、客服失聯或報警結局，因為本則未記載。",
+    "同一作者已看過防詐規劃並進行標註，非獨立盲重建。",
+    "本版本30則的提前量不代表真實案件提前輪數。",
+    "原始來源金額、帳戶、網址與精確筆數未知；v2新增的是合成數值，不構成真實證據。原案未給的时间仍為null。"
+  ],
+  "evaluation_usage": "偵測器僅取得截至當輪的messages，不提供本標註或未來結局。",
+  "synthetic_details": {
+    "scope": "本次補充全部為Demo合成細節，不是來源查得的資料。",
+    "updated_turns": [
+      5,
+      19,
+      21,
+      23,
+      26,
+      27,
+      28,
+      30
+    ],
+    "urls": "example.com下的示例URL不是真實LINE、物流或已驗證網站；不可據此宣稱查證出詐騙。",
+    "financial_data": "星河測試銀行為虛構；TEST開頭帳號與DEMO序號不可用於真實交易。",
+    "attachments": "simulated_video與simulated_qr僅為附件卡片資料，沒有產生實際影片或付款碼圖片。前端需顯示caption；不可假稱可播放或可付款。",
+    "metadata_visibility": "simulation_only只供渲染與測試端；模型可見文字和附件caption，但不得以模擬標籤當詐騙訊號。兩類案例採相同模擬格式。",
+    "amounts": "B1：3,000轉帳＋3,000無卡提款＋2,000掃碼＋兩張1,000禮券／點數；B2：5,000轉帳＋3,000轉帳＋2,000無卡提款。金額均為補寫。"
+  }
+}

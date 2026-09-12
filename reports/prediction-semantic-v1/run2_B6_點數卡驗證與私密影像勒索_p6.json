@@ -1,0 +1,90 @@
+{
+  "source": "reports/expanded-v1/run2/B6_點數卡驗證與私密影像勒索.results.json",
+  "source_sha256": "0d82e3ef43bcaf1866c9c613959346cb9ac367606eaee622b3e30c1b8fe89032",
+  "case": "B6_點數卡驗證與私密影像勒索.replay.json",
+  "repeat": 2,
+  "prediction": {
+    "id": "p6",
+    "created_turn": 6,
+    "expires_turn": 8,
+    "actor": "contact",
+    "action_type": "sensitive_access_request",
+    "object": "要求拍下或傳送遊戲點數序號以便登記",
+    "action": "進一步索取可直接使用的序號資訊",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "unverified",
+  "verdict": {
+    "version": "semantic-match-v1",
+    "prompt_hash": "91a9599add5812fbe1f40fd8211de5f393ea1c3cfd6fd061b5858923f2b5dd83",
+    "model": "gpt-5.4-mini",
+    "outcome": "error",
+    "matched_turn": null,
+    "reason": "語意核對未完成，不能記為未命中。",
+    "evidence": [],
+    "api_called": true,
+    "error_type": "ValueError"
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "messenger",
+      "text": "看到你的交友貼文，可以先聊聊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "contact",
+      "channel": "messenger",
+      "text": "可以，這邊不常看，換 LINE 聊。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "line",
+      "text": "加到了，我們週末能見面嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "contact",
+      "channel": "line",
+      "text": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "line",
+      "text": "要買多少？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "contact",
+      "channel": "line",
+      "text": "先兩張一千元的，把序號拍給我，我才能幫你登記。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "line",
+      "text": "我買好了，兩張序號是 DEMO-DATE-001 和 DEMO-DATE-002。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "contact",
+      "channel": "line",
+      "text": "見面前先做私密視訊，好嗎？",
+      "attachment_captions": []
+    }
+  ]
+}

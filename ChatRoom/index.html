@@ -1,135 +1,29 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>本機聊天室</title>
-  <style>
-    :root { color-scheme: dark; font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: linear-gradient(135deg, #111827, #312e81); }
-    .chat { width: min(94vw, 720px); height: min(88vh, 760px); display: flex; flex-direction: column; overflow: hidden; border: 1px solid #475569; border-radius: 20px; background: #0f172a; box-shadow: 0 24px 70px #020617aa; }
-    header { padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; background: #1e293b; }
-    h1 { margin: 0; font-size: 1.2rem; } .status { font-size: .82rem; color: #94a3b8; }
-    #messages { flex: 1; overflow-y: auto; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
-    .message { max-width: 78%; padding: 11px 14px; border-radius: 16px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
-    .speaker { display: block; margin-bottom: 3px; color: #cbd5e1; font-size: .72rem; font-weight: 700; }
-    .mine { align-self: flex-end; border-bottom-right-radius: 4px; background: #4f46e5; }
-    .theirs { align-self: flex-start; border-bottom-left-radius: 4px; background: #334155; }
-    .hint { margin: auto; color: #94a3b8; text-align: center; line-height: 1.65; }
-    .controls { padding: 14px; display: grid; gap: 10px; border-top: 1px solid #334155; background: #1e293b; }
-    .file-row { display: flex; gap: 10px; align-items: center; color: #cbd5e1; font-size: .87rem; }
-    input[type="file"] { max-width: 100%; } .compose { display: flex; gap: 10px; }
-    input[type="text"] { min-width: 0; flex: 1; padding: 12px 14px; border: 1px solid #475569; border-radius: 10px; color: #f8fafc; background: #0f172a; font: inherit; }
-    button { border: 0; border-radius: 10px; padding: 11px 16px; color: white; background: #4f46e5; cursor: pointer; font: inherit; font-weight: 700; }
-    button:hover:not(:disabled) { background: #6366f1; } button:disabled { cursor: not-allowed; opacity: .48; }
-    #next { align-self: flex-start; background: #0e7490; }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>詐騙劇本雷達 · 對話重播</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Microsoft JhengHei",sans-serif;background:#101626;color:#e9eef7}*{box-sizing:border-box}body{margin:0;padding:24px}header{max-width:1300px;margin:auto auto 20px;display:flex;justify-content:space-between;gap:20px}h1{font-size:24px;margin:0 0 8px}h2{font-size:18px;margin:0 0 12px}.muted{color:#a7b5cb;font-size:13px}main{max-width:1300px;margin:auto;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(320px,1fr);gap:20px}.card{background:#192237;border:1px solid #334057;border-radius:16px;padding:20px}.chat{height:78vh;display:flex;flex-direction:column}#messages{flex:1;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:15px 0;min-height:200px}.bubble{max-width:86%;padding:12px 16px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#2b3852;line-height:1.6}.mine{align-self:flex-end;background:#373e83}.speaker{display:block;font-size:12px;color:#c6d5e8;margin-bottom:5px}.divider{text-align:center;color:#9ab9cc;font-size:12px;margin:10px}.attachment{font-size:12px;border-top:1px solid #718096;padding-top:8px;margin-top:8px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}select,input,button{font:inherit;font-size:14px;padding:10px;border-radius:8px;border:1px solid #53617a;background:#101a2d;color:#eef}button{cursor:pointer;background:#365cf2}button:disabled{opacity:.5;cursor:default}input[type=file]{max-width:100%}#messageInput{flex:1;min-width:80px}.panel{display:flex;flex-direction:column;gap:16px}.warning{border-color:#f59e66;background:#3b2726}#verdict{font-size:22px;font-weight:700;margin-bottom:12px}#reason{line-height:1.65}blockquote{margin:8px 0;padding-left:10px;border-left:2px solid #8296b8;color:#cdd9e8;font-size:14px}.prediction{padding:10px 0;border-bottom:1px solid #3c475c}#trace{max-height:220px;overflow:auto;font-size:13px}.trace-row{padding:8px 0;border-bottom:1px solid #334057}.badge{display:inline-block;background:#293a55;padding:4px 8px;border-radius:6px;margin:4px}.error{color:#ffbba7}@media(max-width:850px){body{padding:12px}main{grid-template-columns:1fr}.chat{height:72vh}header{flex-direction:column}}
+</style>
 </head>
 <body>
-  <main class="chat">
-    <header><h1 id="chatTitle">本機聊天室</h1><span id="status" class="status">請選取對方的 .txt 檔</span></header>
-    <section id="messages" aria-live="polite">
-      <p id="hint" class="hint">選取 <code>.txt</code> 檔後，檔案中的每一個非空白行<br>都會成為對方的一則訊息。</p>
-    </section>
-    <section class="controls">
-      <div class="file-row"><label for="textFile">對方訊息檔：</label><input id="textFile" type="file" accept=".txt,text/plain" /></div>
-      <button id="next" type="button" disabled>下一則</button>
-      <form id="sendForm" class="compose"><input id="messageInput" type="text" placeholder="輸入訊息…" autocomplete="off" /><button type="submit">傳送</button></form>
-    </section>
-  </main>
-  <script>
-    const messages = document.querySelector('#messages');
-    const hint = document.querySelector('#hint');
-    const chatTitle = document.querySelector('#chatTitle');
-    const fileInput = document.querySelector('#textFile');
-    const nextButton = document.querySelector('#next');
-    const status = document.querySelector('#status');
-    const form = document.querySelector('#sendForm');
-    const input = document.querySelector('#messageInput');
-    let replies = [], nextReply = 0, counterpart = '';
-
-    function addMessage(text, who, messageCounterpart = counterpart || '未指定對象') {
-      if (hint) hint.remove();
-      const bubble = document.createElement('div');
-      bubble.className = `message ${who}`;
-      const speaker = document.createElement('span');
-      speaker.className = 'speaker';
-      speaker.textContent = who === 'mine' ? '我' : messageCounterpart;
-      bubble.append(speaker, document.createTextNode(text));
-      messages.append(bubble);
-      messages.scrollTop = messages.scrollHeight;
-    }
-    function clearMessages() {
-      messages.replaceChildren();
-    }
-    async function saveMessage(text, sender) {
-      const response = await fetch('/api/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text, sender, counterpart })
-      });
-      if (!response.ok) throw new Error('訊息同步失敗');
-    }
-    async function restoreChat(selectedCounterpart = '') {
-      try {
-        const query = selectedCounterpart ? `?counterpart=${encodeURIComponent(selectedCounterpart)}` : '';
-        const response = await fetch(`/api/chat${query}`);
-        if (!response.ok) throw new Error();
-        const chat = await response.json();
-        clearMessages();
-        chat.messages.forEach(message => addMessage(message.text, message.sender, message.counterpart));
-      } catch {
-        status.textContent = '請以 Python 伺服器開啟此頁面，才能使用 API';
-      }
-    }
-    function updateReplyState() {
-      const remaining = replies.length - nextReply;
-      nextButton.disabled = remaining === 0;
-      nextButton.textContent = remaining ? `下一則（剩 ${remaining} 則）` : '沒有更多訊息';
-      status.textContent = replies.length ? `已載入 ${replies.length} 則對方訊息` : '訊息檔沒有可顯示的內容';
-    }
-    fileInput.addEventListener('change', async () => {
-      const file = fileInput.files[0];
-      if (!file) return;
-      const content = await file.text();
-      counterpart = file.name.replace(/\.txt$/i, '') || file.name;
-      chatTitle.textContent = `與 ${counterpart} 聊天`;
-      replies = content.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
-      nextReply = 0;
-      await restoreChat(counterpart);
-      updateReplyState();
-    });
-    nextButton.addEventListener('click', async () => {
-      if (nextReply >= replies.length) return;
-      const text = replies[nextReply++];
-      try {
-        await saveMessage(text, 'theirs');
-        addMessage(text, 'theirs', counterpart);
-      } catch {
-        nextReply--;
-        status.textContent = '無法同步訊息，請確認伺服器已啟動';
-      }
-      updateReplyState();
-    });
-    form.addEventListener('submit', async event => {
-      event.preventDefault();
-      const text = input.value.trim();
-      if (!text) return;
-      if (!counterpart) {
-        status.textContent = '請先選取對方的 .txt 檔案';
-        return;
-      }
-      try {
-        await saveMessage(text, 'mine');
-        addMessage(text, 'mine', counterpart);
-        input.value = '';
-        input.focus();
-      } catch {
-        status.textContent = '無法同步訊息，請確認伺服器已啟動';
-      }
-    });
-    restoreChat();
-  </script>
-</body>
-</html>
+<header><div><h1>詐騙劇本雷達</h1><div class="muted">逐則理解對話 · 保留判斷依據 · 預測後續要求</div></div><div id="connection" class="muted">確認分析服務…</div></header>
+<main>
+<section class="card chat">
+<h2 id="chatTitle">對話重播</h2>
+<div class="controls"><select id="sample"><option value="">選取內建案例</option></select><button id="loadSample">載入</button></div>
+<div class="controls"><input id="textFile" type="file" accept=".json,.txt"><span class="muted">匯入 JSON 完整對話或 TXT 對方訊息</span></div>
+<div id="messages" aria-live="polite"><p class="muted">選取案例後按「下一則」。角色切換不會重置輪次。</p></div>
+<div id="status" class="muted" role="status">尚未載入</div>
+<div class="controls" style="margin-top:12px"><button id="next" disabled>下一則</button><button id="retry" disabled>重試本輪分析</button><button id="auto" disabled>自動重播</button><button id="reset" disabled>重新開始</button><button id="export" disabled>匯出分析紀錄</button></div>
+<form id="sendForm" class="controls"><input id="messageInput" type="text" placeholder="TXT 模式：輸入你的回覆" disabled><button id="send" disabled>傳送</button></form>
+</section>
+<aside class="panel">
+<section id="decisionCard" class="card"><h2>防詐判斷</h2><div id="verdict">等待對話</div><div id="reason">分析只使用已播放的訊息。</div><div id="advice"></div><div id="evidence"></div><div id="stages"></div><p id="firstAlert" class="muted">尚無示警</p></section>
+<section class="card"><h2>下一步預測</h2><div id="predictions" class="muted">有足夠依據時才預測；一般交易不強行預測詐騙。</div></section>
+<section class="card"><h2>逐輪紀錄</h2><div id="trace"></div><p class="muted">未示警不代表已驗證安全。網頁與影片尚未外部查證。</p></section>
+</aside>
+</main>
+<script src="/app.js"></script>
+</body></html>

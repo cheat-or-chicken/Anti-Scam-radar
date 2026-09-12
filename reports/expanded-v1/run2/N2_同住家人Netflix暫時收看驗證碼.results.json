@@ -1,0 +1,602 @@
+{
+  "summary": {
+    "file": "N2_同住家人Netflix暫時收看驗證碼.replay.json",
+    "repeat": 2,
+    "case_type": "benign",
+    "completed": true,
+    "turns_analyzed": 9,
+    "total_turns": 9,
+    "first_alert_turn": null,
+    "payment_turn": null,
+    "harm_turn": null,
+    "before_payment": null,
+    "before_harm": null,
+    "detected_by_end": null,
+    "false_alarm": false,
+    "harm_lead": null,
+    "payment_lead": null,
+    "warning_downgrade_turns": [],
+    "mean_seconds": 2.043,
+    "recovered_or_failed_turns": [],
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "detector_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207"
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只是家人日常對話，沒有金錢、權限、隔離查證或敏感操作要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "家庭日常問候與晚餐提醒",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅有一般家務與行程詢問，未見詐騙或高風險要求。",
+        "normal_explanation": "這是家庭聊天的普通內容。",
+        "recommended_action": "維持觀察即可，暫無需警示。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "你出差到了嗎？家裡晚餐剩的咖哩我放冰箱了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0cb6056a951113a3016aa4e0d293f887d0930ab1f53b144bd6",
+      "usage": {
+        "input_tokens": 4765,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 178,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4943
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.837,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只是家人提到 Netflix 驗證，未見要求交付密碼、OTP、網銀畫面或其他敏感操作。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "other",
+          "object": "提及平板開 Netflix 出現暫時收看驗證",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅描述一般影音驗證情況，未出現可成立的高風險要求。",
+        "normal_explanation": "家中裝置或串流服務偶爾出現登入／收看驗證屬常見狀況。",
+        "recommended_action": "先確認是否為合法的串流帳號驗證；目前不需警示。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "到了，明晚回家。我用平常家裡那台平板開 Netflix，跳出暫時收看的驗證。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0a3ae82e1e687c09016aa4e0d441ec87d08e42e2c150ed941d",
+      "usage": {
+        "input_tokens": 5050,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 210,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5260
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.846,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2,
+            3
+          ],
+          "explanation": "目前仍只是家人討論家庭帳號驗證，未出現密碼、OTP、網銀操作或限制查證等高風險要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問是否為共用家庭帳號",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "只有一般確認帳號歸屬的追問，沒有可成立的高風險行為。",
+        "normal_explanation": "串流服務的家庭帳號確認屬常見對話，不等於敏感操作或詐騙。",
+        "recommended_action": "可先正常確認帳號資訊；目前不需警示。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "到了，明晚回家。我用平常家裡那台平板開 Netflix，跳出暫時收看的驗證。"
+          },
+          {
+            "turn": 3,
+            "quote": "是我們一直共用的家庭帳號嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_083894d156cff148016aa4e0d618f487d08f69367fb04d323a",
+      "usage": {
+        "input_tokens": 5133,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 209,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5342
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.917,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            4
+          ],
+          "explanation": "本輪只是請使用者查看郵件中的四位數代碼，未明確要求交付密碼、OTP 或網銀敏感操作，也沒有保密或隔離查證的內容。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "sensitive_access_request",
+          "object": "查看信箱中的四位數代碼",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "出現查看四位數代碼的請求，但未明確達到敏感權限交付門檻，先觀察即可。",
+        "normal_explanation": "家庭帳號或串流驗證時請對方幫忙看驗證碼，常見於正常對話。",
+        "recommended_action": "先確認這是否只是串流服務驗證；不要提供更多個資或任何帳號密碼。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "對，剛在 App 按寄送郵件到你的信箱，幫我看一下四位數代碼。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f1a28df5af70a8a016aa4e0d8129887d0a6a5916bb42b7d61",
+      "usage": {
+        "input_tokens": 5214,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 632,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5846
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.573,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5
+          ],
+          "explanation": "本輪只是表示先打電話確認，沒有新增要求或敏感操作。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "先打原本手機確認",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍僅是家庭情境下的驗證碼確認，沒有新增密碼、OTP 交付或禁止查證等具體高風險要求。",
+        "normal_explanation": "先打電話確認對方身分，在一般家庭/串流帳號情境屬常見做法。",
+        "recommended_action": "可先用既有聯絡方式確認對方，再決定是否提供驗證碼。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "我先打你原本的手機確認，你等一下接。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_06c24ec640439e06016aa4e0db995087d0a0651b25e0da8c5e",
+      "usage": {
+        "input_tokens": 5262,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 201,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5463
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.97,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            6
+          ],
+          "explanation": "本輪只是對先前驗證情境作身分補充，沒有出現新的密碼、OTP 交付或禁止查證要求。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "other",
+          "object": "補充本人與申請時間",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍是家庭串流帳號的驗證補充，未見明確要求交付敏感資訊或限制查證。",
+        "normal_explanation": "家人回覆自己剛申請、補充時間，屬一般確認說明。",
+        "recommended_action": "可持續用原本聯絡方式核對身分；若之後出現代碼、密碼或轉接要求再另行判斷。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "剛通完了，是我本人在旅館的平板申請，時間就是剛剛。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0684f2eaa905d6b4016aa4e0ddadf487d0ad29843ca48716c2",
+      "usage": {
+        "input_tokens": 5271,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 221,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5492
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.956,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            7
+          ],
+          "explanation": "本輪只是使用者回報已完成串流暫時存取驗證，未見新要求或限制查證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報 Netflix 暫時存取代碼",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "仍屬家庭帳號驗證情境，沒有新增敏感操作、付款或隔離查證要求。",
+        "normal_explanation": "使用者提供代碼完成一般串流驗證，屬常見帳號存取流程。",
+        "recommended_action": "先確認此代碼確係對應家庭帳號的合法驗證流程；若後續出現密碼、OTP、網銀或轉帳要求再提高警覺。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "信裡是 Netflix 的暫時存取要求，對上你的這次操作，代碼 7316。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_06adfee623d48b40016aa4e0df831487d0af628843e2b956a8",
+      "usage": {
+        "input_tokens": 5359,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 221,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5580
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.915,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "本輪僅是家人回報已輸入串流驗證並可觀看，沒有新增要求或風險指示。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "other",
+          "object": "回報 Netflix 驗證已完成",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "延續一般家庭帳號驗證情境，未見付款、敏感權限或隔離查證要求。",
+        "normal_explanation": "完成串流平台的暫時存取驗證屬常見正常流程。",
+        "recommended_action": "維持一般確認即可；若後續出現密碼、OTP、網銀操作、轉帳或要求保密不查證，再重新評估。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "輸入進去了，能看了，明天回家再一起看下一集。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_07cf1e54880bf6a0016aa4e0e1662487d092a1f4a4ada12042",
+      "usage": {
+        "input_tokens": 5412,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 213,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5625
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.61,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只是家人閒聊，沒有新增要求或風險訊號。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回覆家常",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "延續一般家庭對話，未見付款、敏感權限或隔離查證要求。",
+        "normal_explanation": "家常回覆與串流驗證已完成的前文無關，屬正常互動。",
+        "recommended_action": "目前維持觀察即可；若後續出現密碼、OTP、網銀操作、轉帳或要求保密不查證，再重新評估。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "好，咖哩記得吃。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f2d5405accbc945016aa4e0e30ef087d09938164a2746f932",
+      "usage": {
+        "input_tokens": 5438,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 198,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5636
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.765,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

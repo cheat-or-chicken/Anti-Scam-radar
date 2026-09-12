@@ -1,0 +1,112 @@
+{
+  "source": "reports/expanded-v1/run3/B4.results.json",
+  "source_sha256": "6845c7823ecdebc9acc9d5fe8ff64f72bb26d60d409ec24d711ed08a8a0aeb49",
+  "case": "B4.replay.json",
+  "repeat": 3,
+  "prediction": {
+    "id": "p7",
+    "created_turn": 7,
+    "expires_turn": 9,
+    "actor": "counterparty",
+    "action_type": "sensitive_access_request",
+    "object": "密碼、OTP或網銀畫面/操作認證",
+    "action": "進一步要求提供金融認證所需的敏感資訊或操作",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": false,
+    "new_after_prediction": true,
+    "reason": "視窗內只有要求「完成金融認證／先完成認證才能繼續」，未具體進一步索取密碼、OTP或網銀畫面/操作認證等敏感資訊或操作。",
+    "audit": null,
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_05acf26a839b5979016aa4e84777dc87d0ad1a006738d98b9e",
+    "usage": {
+      "input_tokens": 1078,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 85,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1163
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "你好，你在賣的演唱會門票還在嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "user",
+      "channel": "chat",
+      "text": "還在，你要買嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "想買，可以用順豐快遞寄給我嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "chat",
+      "text": "可以，寄送要怎麼弄？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "要先簽託運條款，才能辦寄送。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "chat",
+      "text": "是我這邊要簽嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "對，賣家這邊要先簽，還要完成金融認證。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "chat",
+      "text": "寄票也要金融認證？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "這筆交易要先完成認證才能繼續。",
+      "attachment_captions": []
+    }
+  ]
+}

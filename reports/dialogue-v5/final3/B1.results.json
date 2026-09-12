@@ -1,0 +1,1464 @@
+{
+  "summary": {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "c62c0a577d1c4329bdcf430c6c3cc42f",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+    "completed": false,
+    "turns_analyzed": 18,
+    "total_turns": 38,
+    "first_alert_turn": 15,
+    "payment_turn": 21,
+    "lead_turns": 6,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 0,
+    "mean_seconds": 2.496,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_COERCIVE_ISOLATION",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "evidence_turns": [
+                15
+              ],
+              "explanation": "第15輪要求改加入指定「交易驗證・陳專員」的外部管道處理。"
+            },
+            {
+              "requirement_index": 2,
+              "evidence_turns": [
+                11,
+                15
+              ],
+              "explanation": "第11輪以帳號會被凍結施壓，第15輪延續到由專員處理實名認證，脈絡仍圍繞訂單異常／帳戶風險。"
+            },
+            {
+              "requirement_index": 3,
+              "evidence_turns": [
+                15
+              ],
+              "explanation": "此轉介把處理引到對方提供的單一路徑，足以限制使用者先向原客服或其他管道獨立查證。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服轉接可合理存在，但此處已結合凍結施壓與指定單一路徑，不只是單純轉介。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          15
+        ],
+        "explanation": "第15輪新增要求改加指定專員處理實名認證，並延續前述凍結壓力；未見任何反證解除風險。"
+      },
+      "observation": {
+        "actor": "support",
+        "action_type": "new_condition",
+        "object": "要求加入指定專員以處理實名認證",
+        "is_new_request": true
+      },
+      "status": "warn",
+      "reason": "已出現以帳戶風險施壓並轉往指定外部管道處理的限制查證要求。",
+      "normal_explanation": "一般客服轉接本身可正常，但此處伴隨凍結壓力與指定專員路徑。",
+      "recommended_action": "先不要依此連結繼續處理，改由原平台或官方公開管道自行查證。",
+      "stages": [
+        "S2",
+        "S4"
+      ],
+      "rule_ids": [
+        "R_COERCIVE_ISOLATION"
+      ],
+      "evidence": [
+        {
+          "turn": 11,
+          "quote": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。"
+        },
+        {
+          "turn": 15,
+          "quote": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen"
+        }
+      ],
+      "prediction": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供或操作實名認證相關敏感資料／畫面",
+        "action": "可能接著要求填寫驗證資訊或查看認證畫面",
+        "within_next_messages": 2
+      },
+      "prediction_matches": []
+    }
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只有一般詢問是否還有商品，未見付款、敏感操作或限制查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問拍立得是否還有",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅為一般買賣詢問，未達警報條件。",
+        "normal_explanation": "這是常見商品詢問，尚無可疑要求。",
+        "recommended_action": "持續觀察後續是否出現付款、轉管道或敏感資訊要求。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "你好，我看到你們送拍立得的貼文，請問還有嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_002cd995397fc4fa016aa4dd29adf487d0b7d20c65868142f5",
+      "usage": {
+        "input_tokens": 4700,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 178,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4878
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 2.233,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2
+          ],
+          "explanation": "目前僅是對方回覆還有庫存並說明相館歇業，未見付款、敏感操作或限制查證要求。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "other",
+          "object": "回覆拍立得仍有並提及相館歇業與庫存送出",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍屬一般商品對話，未出現可引用的高風險要求。",
+        "normal_explanation": "對方是在回應是否還有商品，屬正常交易/贈送說明。",
+        "recommended_action": "持續觀察是否出現付款、轉管道、密碼/OTP或阻止查證的要求。",
+        "stages": [
+          "S0",
+          "S1"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "還有喔，相館準備歇業了，剩下的庫存想送給需要的人。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_07dc5d2f9b2b6550016aa4dd2bf1fc87d0a1d021b83455532e",
+      "usage": {
+        "input_tokens": 4977,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 221,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5198
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 2.813,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            3
+          ],
+          "explanation": "僅出現加 LINE 作為聯絡管道與寄送資料確認，未見限制查證、付款或敏感操作要求。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "isolation_request",
+          "object": "加 LINE 以確認寄送資料",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "目前是換聯絡管道，尚未具備禁止查證或高風險權限要求的必要條件。",
+        "normal_explanation": "加 LINE 方便聯絡與寄送資料確認，單獨看可屬一般聯繫安排。",
+        "recommended_action": "先觀察後續是否出現付款、密碼/OTP、遠端操作或要求不要自行查證。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 3,
+            "quote": "方便加 LINE 嗎？寄送資料在那邊跟你確認。我叫「光盒相館・小林」，連結是 https://chat.example.com/lightbox-lin 。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_01a893e6b995e724016aa4dd2e2b7c87d09774396e4a7730fa",
+      "usage": {
+        "input_tokens": 5101,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 219,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5320
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 1.763,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            4
+          ],
+          "explanation": "本輪只有使用者回覆自我介紹，未見新要求或高風險行為。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "向對方打招呼並表明自己是前一位詢問者",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "沒有新增付款、敏感操作或限制查證要求。",
+        "normal_explanation": "一般回覆對話可屬正常聯繫。",
+        "recommended_action": "持續觀察對方後續是否提出付款、OTP、密碼、遠端操作或禁止查證。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "你好，我是剛剛問拍立得的。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_00ffd0fdd2098002016aa4dd2ff3d087d0b1ab38525a1800dc",
+      "usage": {
+        "input_tokens": 5162,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 187,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5349
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 2.03,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5
+          ],
+          "explanation": "本輪只是提出運費由使用者負擔，未見付款目的不符、敏感權限或禁止查證。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "other",
+          "object": "提出拍立得免錢但運費60元由使用者負擔",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "目前僅有一般運費要求，尚不足以構成警報。",
+        "normal_explanation": "免費贈送搭配運費自付在一般交易中可見。",
+        "recommended_action": "持續觀察後續是否出現轉帳到指定用途不符的要求、OTP/密碼、或阻止親友查證。",
+        "stages": [
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "拍立得不用錢，運費 60 元你自己出就好，可以嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_02d105805db2ca6f016aa4dd31f9cc87d0b2e78062a68e6ee3",
+      "usage": {
+        "input_tokens": 5155,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 210,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5365
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 1.951,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只是詢問寄送資料，未出現新付款、敏感權限或阻止查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問寄送資料填寫位置",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "延續一般寄送流程，尚無新風險條件。",
+        "normal_explanation": "詢問收件資料是正常配送流程。",
+        "recommended_action": "持續觀察是否改為要求轉帳到非交易目的帳戶、索取OTP/密碼，或限制外部查證。",
+        "stages": [
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "可以，要在哪裡填寄送資料？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_01e12a7705a89622016aa4dd33e68487d0947a8f2194d06d89",
+      "usage": {
+        "input_tokens": 5228,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 186,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5414
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 1.709,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪僅提供填寫收件資料的頁面，未見付款、敏感權限或禁止查證要求。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "other",
+          "object": "提供賣貨便填寫寄送資料頁面",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "仍屬一般寄送流程，未達警報門檻。",
+        "normal_explanation": "提供收件姓名、手機與門市填寫頁面屬正常配送安排。",
+        "recommended_action": "持續觀察是否改為索取轉帳、OTP/密碼，或要求切換到不相符的付款流程。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "用這個賣貨便頁面，點進去填收件姓名、手機跟取貨門市就可以了：https://parcel.example.com/order/CAM-0912-01"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0dcde9f9855b62da016aa4dd359dfc87d087cdd17ad6aa3f23",
+      "usage": {
+        "input_tokens": 5267,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 203,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5470
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 1.85,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "本輪只有使用者回報實名認證失敗，尚未見對方提出新的付款、密碼/OTP、或禁止查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報賣貨便訂單失敗需實名認證",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍是寄送流程中的回報，未出現新的高風險要求。",
+        "normal_explanation": "寄送或平台實名認證提示本身不必然異常。",
+        "recommended_action": "持續觀察對方是否因此改要求轉帳、提供驗證碼、或轉到不相符流程。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "我填完送出，怎麼跳出「交易訂單失敗，需實名認證」？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_00926eedf7acdfa1016aa4dd37892887d0a7f66b02363afbab",
+      "usage": {
+        "input_tokens": 5372,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 211,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5583
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 1.707,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "對方僅表示轉客服處理，未見新的付款、密碼/OTP、或禁止查證要求。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "other",
+          "object": "建議透過頁面上的客服LINE處理實名認證問題",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍是導向客服處理，尚未出現具體高風險要求。",
+        "normal_explanation": "平台客服轉介本身可屬正常流程。",
+        "recommended_action": "繼續留意是否接著要求轉帳、提供驗證碼、密碼或限制獨立查證。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "那要找客服處理，頁面上有客服的 LINE。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0b1ab1aab8311432016aa4dd392ca087d08d6e94fc2caa18f6",
+      "usage": {
+        "input_tokens": 5414,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 199,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5613
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 1.475,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8,
+            9
+          ],
+          "explanation": "目前只看到實名認證錯誤與轉客服處理，未見密碼、OTP、網銀控制、禁止查證或新增付款要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "追問是否填寫成功",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍是一般客服處理脈絡，尚未出現符合警報門檻的具體高風險要求。",
+        "normal_explanation": "實名認證失敗後轉客服，可能是正常平台流程。",
+        "recommended_action": "先確認客服是否僅協助填寫流程；若後續出現要轉帳、提供驗證碼、密碼或限制查證，再提高警覺。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "我填完送出，怎麼跳出「交易訂單失敗，需實名認證」？"
+          },
+          {
+            "turn": 9,
+            "quote": "那要找客服處理，頁面上有客服的 LINE。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_078f93d9deb2af19016aa4dd3aab6087d08b3154a3c763a515",
+      "usage": {
+        "input_tokens": 5432,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 225,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5657
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 10,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 2.238,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            11
+          ],
+          "explanation": "目前僅見帳號可能被凍結的催促，未見密碼、OTP、網銀操作、禁止查證或新增付款要求。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "other",
+          "object": "催促聯絡並提及帳號凍結",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "第11輪只有催促與風險提示，尚未達到可警報的具體敏感操作或明確阻止查證條件。",
+        "normal_explanation": "客服催促處理、提醒帳號風險，可能出現在一般平台異常流程。",
+        "recommended_action": "先觀察客服接下來是否要求提供驗證碼、密碼、遠端操作，或要求轉帳/付款；目前先不要提供敏感資訊。",
+        "stages": [
+          "S2",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 11,
+            "quote": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。"
+          }
+        ],
+        "prediction": {
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "驗證碼或密碼",
+          "action": "可能接著要求提供驗證碼、密碼或類似敏感資訊來處理訂單",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_0bf0defc1c799aeb016aa4dd3cee3c87d084e72e9d6e02781e",
+      "usage": {
+        "input_tokens": 5547,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 290,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5837
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 11,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "驗證碼或密碼",
+          "action": "可能接著要求提供驗證碼、密碼或類似敏感資訊來處理訂單",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 2.392,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            12
+          ],
+          "explanation": "本輪只是使用者轉述訂單失敗與實名認證，未見對方新增付款、密碼/OTP、網銀操作或禁止查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "向客服轉述訂單失敗與實名認證",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "第12輪沒有出現新風險要求；目前仍停留在一般異常回報。",
+        "normal_explanation": "客訴或補充訂單問題可出現在正常客服流程。",
+        "recommended_action": "繼續觀察客服是否改為要求驗證碼、密碼、遠端操作，或新增付款/轉帳；目前先不要提供敏感資訊。",
+        "stages": [
+          "S2",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 12,
+            "quote": "你好，我要領拍立得，填完資料顯示交易訂單失敗，要實名認證。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_09726c96033969d4016aa4dd3f533887d0a3e90d6ce6e12f74",
+      "usage": {
+        "input_tokens": 5742,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 282,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6024
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 12,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "驗證碼或密碼",
+          "action": "可能接著要求提供驗證碼、密碼或類似敏感資訊來處理訂單",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 2.523,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13
+          ],
+          "explanation": "本輪僅見客服詢問目前畫面，未出現密碼、OTP、網銀操控或禁止查證要求。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "other",
+          "object": "詢問使用者停在哪個畫面以協助訂單異常",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "第13輪仍只是客服詢問卡點，未達敏感存取或限制查證的明確門檻。",
+        "normal_explanation": "客服協助釐清異常畫面本身可屬正常流程。",
+        "recommended_action": "先觀察是否進一步要求OTP、密碼、遠端控制、轉帳，或要改到不明管道處理。",
+        "stages": [
+          "S2",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "您好，這邊協助您處理訂單異常。您目前停在哪個畫面？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_05cd594b72ca0b4c016aa4dd41ed3887d08dfda1df75fd84dc",
+      "usage": {
+        "input_tokens": 5726,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 346,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6072
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 13,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "驗證碼或密碼",
+          "action": "可能接著要求提供驗證碼、密碼或類似敏感資訊來處理訂單",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 2.848,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13
+          ],
+          "explanation": "第13輪僅是客服詢問停在哪個畫面，未出現密碼、OTP、網銀操控、付款或禁止查證要求。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "other",
+          "object": "詢問使用者目前停留畫面以便處理訂單異常",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍只有一般客服釐清卡點，未達敏感存取或明確阻止查證的門檻。",
+        "normal_explanation": "客服詢問畫面屬常見協助流程。",
+        "recommended_action": "先觀察是否出現OTP、密碼、遠端控制、轉帳，或改到不明管道處理。",
+        "stages": [
+          "S2",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "您好，這邊協助您處理訂單異常。您目前停在哪個畫面？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_01b581d98412fd62016aa4dd44af5087d0a3d16be32d4d44ed",
+      "usage": {
+        "input_tokens": 5680,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 221,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5901
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 14,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "驗證碼或密碼",
+          "action": "可能接著要求提供驗證碼、密碼或類似敏感資訊來處理訂單",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 1.653,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_COERCIVE_ISOLATION",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "evidence_turns": [
+                  15
+                ],
+                "explanation": "第15輪要求改加入指定「交易驗證・陳專員」的外部管道處理。"
+              },
+              {
+                "requirement_index": 2,
+                "evidence_turns": [
+                  11,
+                  15
+                ],
+                "explanation": "第11輪以帳號會被凍結施壓，第15輪延續到由專員處理實名認證，脈絡仍圍繞訂單異常／帳戶風險。"
+              },
+              {
+                "requirement_index": 3,
+                "evidence_turns": [
+                  15
+                ],
+                "explanation": "此轉介把處理引到對方提供的單一路徑，足以限制使用者先向原客服或其他管道獨立查證。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服轉接可合理存在，但此處已結合凍結施壓與指定單一路徑，不只是單純轉介。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            15
+          ],
+          "explanation": "第15輪新增要求改加指定專員處理實名認證，並延續前述凍結壓力；未見任何反證解除風險。"
+        },
+        "observation": {
+          "actor": "support",
+          "action_type": "new_condition",
+          "object": "要求加入指定專員以處理實名認證",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "已出現以帳戶風險施壓並轉往指定外部管道處理的限制查證要求。",
+        "normal_explanation": "一般客服轉接本身可正常，但此處伴隨凍結壓力與指定專員路徑。",
+        "recommended_action": "先不要依此連結繼續處理，改由原平台或官方公開管道自行查證。",
+        "stages": [
+          "S2",
+          "S4"
+        ],
+        "rule_ids": [
+          "R_COERCIVE_ISOLATION"
+        ],
+        "evidence": [
+          {
+            "turn": 11,
+            "quote": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。"
+          },
+          {
+            "turn": 15,
+            "quote": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen"
+          }
+        ],
+        "prediction": {
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供或操作實名認證相關敏感資料／畫面",
+          "action": "可能接著要求填寫驗證資訊或查看認證畫面",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_0825226e8f2625c7016aa4dd46692887d0b0f53af2e6693438",
+      "usage": {
+        "input_tokens": 5753,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 512,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6265
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 15,
+      "first_alert_turn": 15,
+      "predictions": [
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "驗證碼或密碼",
+          "action": "可能接著要求提供驗證碼、密碼或類似敏感資訊來處理訂單",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供或操作實名認證相關敏感資料／畫面",
+          "action": "可能接著要求填寫驗證資訊或查看認證畫面",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 3.411,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_COERCIVE_ISOLATION",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "evidence_turns": [
+                  15
+                ],
+                "explanation": "第15輪再次要求改由指定「交易驗證・陳專員」的外部管道處理。"
+              },
+              {
+                "requirement_index": 2,
+                "evidence_turns": [
+                  11,
+                  15
+                ],
+                "explanation": "第11輪以帳號凍結施壓，第15輪延續到實名認證處理，仍圍繞訂單異常／帳戶風險。"
+              },
+              {
+                "requirement_index": 3,
+                "evidence_turns": [
+                  15
+                ],
+                "explanation": "把後續處理導向對方提供的單一路徑，限制先向原客服或其他管道獨立查證。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服轉接可正常存在，但此處同時有凍結壓力與指定單一路徑。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            15
+          ],
+          "explanation": "第15輪的限制查證與轉介要求仍在，沒有新反證解除風險。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報客服要求處理實名認證與訂單失敗",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "既有的指定專員處理與限制查證風險仍未解除。",
+        "normal_explanation": "只是回報目前卡在實名認證流程，未構成新風險。",
+        "recommended_action": "先不要依指定連結繼續操作，改走原平台或官方公開管道自行查證。",
+        "stages": [
+          "S2",
+          "S4"
+        ],
+        "rule_ids": [
+          "R_COERCIVE_ISOLATION"
+        ],
+        "evidence": [
+          {
+            "turn": 11,
+            "quote": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。"
+          },
+          {
+            "turn": 15,
+            "quote": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0e1b159c0585e597016aa4dd49c2d087d0b64dd96a45c9ebc5",
+      "usage": {
+        "input_tokens": 6906,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 416,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7322
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 16,
+      "first_alert_turn": 15,
+      "predictions": [
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "驗證碼或密碼",
+          "action": "可能接著要求提供驗證碼、密碼或類似敏感資訊來處理訂單",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供或操作實名認證相關敏感資料／畫面",
+          "action": "可能接著要求填寫驗證資訊或查看認證畫面",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 2.528,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_COERCIVE_ISOLATION",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "evidence_turns": [
+                  15
+                ],
+                "explanation": "第15輪要求改由指定的「交易驗證・陳專員」管道處理。"
+              },
+              {
+                "requirement_index": 2,
+                "evidence_turns": [
+                  11,
+                  15
+                ],
+                "explanation": "第11輪以帳號凍結施壓，第15輪延續到實名認證／驗證程序，與帳戶風險連結。"
+              },
+              {
+                "requirement_index": 3,
+                "evidence_turns": [
+                  15
+                ],
+                "explanation": "第15輪把處理導向對方指定連結，限制先向原客服或其他管道獨立查證。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般客服轉接可正常存在，但此處同時有凍結壓力與單一路徑處理。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            15
+          ],
+          "explanation": "第15輪的轉介與限制查證仍在，沒有新反證解除風險。"
+        },
+        "observation": {
+          "actor": "bank",
+          "action_type": "other",
+          "object": "延續帳戶異常及驗證程序的處理說明",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "既有的指定專員處理與限制查證風險仍未解除。",
+        "normal_explanation": "只是接續說明要處理帳戶異常，沒有新要求。",
+        "recommended_action": "先不要依指定連結繼續操作，改走原平台或官方公開管道自行查證。",
+        "stages": [
+          "S2",
+          "S4"
+        ],
+        "rule_ids": [
+          "R_COERCIVE_ISOLATION"
+        ],
+        "evidence": [
+          {
+            "turn": 11,
+            "quote": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。"
+          },
+          {
+            "turn": 15,
+            "quote": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_09a50e18c5320c03016aa4dd4e737487d0bfd176ea67360315",
+      "usage": {
+        "input_tokens": 6790,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 6400
+        },
+        "output_tokens": 450,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7240
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 17,
+      "first_alert_turn": 15,
+      "predictions": [
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "驗證碼或密碼",
+          "action": "可能接著要求提供驗證碼、密碼或類似敏感資訊來處理訂單",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供或操作實名認證相關敏感資料／畫面",
+          "action": "可能接著要求填寫驗證資訊或查看認證畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 4.505,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "invalid_model_output",
+          "code": "unsupported_warning"
+        },
+        {
+          "attempt": 2,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "analysis_error",
+      "decision": null,
+      "usage": null,
+      "error": "模型回覆未通過格式或引用驗證，請按重試本輪分析。",
+      "turn": 18,
+      "first_alert_turn": 15,
+      "predictions": [
+        {
+          "id": "p11",
+          "created_turn": 11,
+          "expires_turn": 13,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "驗證碼或密碼",
+          "action": "可能接著要求提供驗證碼、密碼或類似敏感資訊來處理訂單",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p15",
+          "created_turn": 15,
+          "expires_turn": 17,
+          "actor": "support",
+          "action_type": "sensitive_access_request",
+          "object": "要求提供或操作實名認證相關敏感資料／畫面",
+          "action": "可能接著要求填寫驗證資訊或查看認證畫面",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+      "elapsed_seconds": 5.305,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "invalid_model_output",
+          "code": "unsupported_warning"
+        },
+        {
+          "attempt": 2,
+          "status": "invalid_model_output",
+          "code": "unsupported_warning"
+        }
+      ]
+    }
+  ]
+}

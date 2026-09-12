@@ -1,0 +1,607 @@
+{
+  "summary": {
+    "file": "N4_公司IT分享試算表畫面.replay.json",
+    "repeat": 2,
+    "case_type": "benign",
+    "completed": true,
+    "turns_analyzed": 9,
+    "total_turns": 9,
+    "first_alert_turn": null,
+    "payment_turn": null,
+    "harm_turn": null,
+    "before_payment": null,
+    "before_harm": null,
+    "detected_by_end": null,
+    "false_alarm": false,
+    "harm_lead": null,
+    "payment_lead": null,
+    "warning_downgrade_turns": [],
+    "mean_seconds": 1.99,
+    "recovered_or_failed_turns": [],
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "detector_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207"
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只有一般報修詢問，未見金流、敏感權限、隔離查證或追加要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問報修單與列印跑版問題",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "這是一般工作對話，未出現可套用的高風險要求。",
+        "normal_explanation": "詢問是否為處理報修的同事並反映試算表列印跑版，屬一般客服／內部支援情境。",
+        "recommended_action": "可正常回覆並協助排查列印設定。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "你是今天處理我報修單的同事嗎？試算表列印又跑版了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_08aebd7897244bec016aa4e0e4f31c87d0aaa44486926e2136",
+      "usage": {
+        "input_tokens": 4767,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 200,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4967
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.681,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2
+          ],
+          "explanation": "目前仍是一般內部支援回應，未見金流、密碼/OTP、網銀控制、阻止查證或追加條件。"
+        },
+        "observation": {
+          "actor": "it",
+          "action_type": "other",
+          "object": "確認工單並表示可在會議室支援時段查看",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "只有確認工單與可支援資訊，未達任何警報規則必要條件。",
+        "normal_explanation": "這是正常的工作聊天與報修處理回覆。",
+        "recommended_action": "可依一般報修流程繼續協助排查。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "對，工單是 IT-2408，我在公司會議室的支援時段，現在可以看。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_08664e466673ae9f016aa4e0e787d487d0a6e4a01d33f02cf9",
+      "usage": {
+        "input_tokens": 5071,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 195,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5266
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.284,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            3
+          ],
+          "explanation": "本輪只是回報已用公司通訊錄撥打分機，沒有新的金流、密碼/OTP、網銀控制或阻止查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已從公司通訊錄撥打分機並接通",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是一般內部報修往來，未見任何警報規則的必要條件。",
+        "normal_explanation": "這是對通話結果的回報，屬正常工作聯繫。",
+        "recommended_action": "可依既有報修流程繼續處理。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 3,
+            "quote": "我從公司通訊錄撥你的分機，剛剛有接到。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0fcab85788b50cc3016aa4e0e9c2a087d0879ab829efa6a611",
+      "usage": {
+        "input_tokens": 5120,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 210,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5330
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.275,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            4
+          ],
+          "explanation": "本輪是要求用公司視訊會議分享試算表視窗，屬一般工作支援，未見密碼、OTP、網銀控制、付款或阻止查證要求。"
+        },
+        "observation": {
+          "actor": "it",
+          "action_type": "other",
+          "object": "要求用公司視訊會議分享試算表視窗以檢視列印範圍",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "仍是內部報修處理，未達任何警報規則門檻。",
+        "normal_explanation": "以視訊分享試算表視窗協助排查列印問題，屬常見工作操作。",
+        "recommended_action": "可依公司既有支援流程繼續。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "那用公司的視訊會議分享試算表視窗，我看一下列印範圍。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_094be2f63a638121016aa4e0ec0dcc87d08d3a594455e87ff9",
+      "usage": {
+        "input_tokens": 5179,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 222,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5401
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.019,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5
+          ],
+          "explanation": "本輪只是說只分享空白範本，沒有新增密碼、OTP、網銀控制、付款或阻止查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "表示只分享空白範本，未提出新要求",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是一般工作支援情境，未觸發任何警報規則。",
+        "normal_explanation": "限制分享範圍本身可見於正常遠端協作或報修排查。",
+        "recommended_action": "依既有工作流程繼續即可。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "我分享這個空白範本就好，其他視窗沒有分享。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_048ab8e14141a77f016aa4e0ee2b6487d08f361d8eea915de1",
+      "usage": {
+        "input_tokens": 5251,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 196,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5447
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.798,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            6
+          ],
+          "explanation": "本輪只是回覆列印設定與預覽步驟，沒有新增付款、密碼/OTP、網銀控制或阻止查證要求。"
+        },
+        "observation": {
+          "actor": "it",
+          "action_type": "other",
+          "object": "提供一般列印設定排查與預覽指示",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是一般工作支援，不符合任何警報規則必要條件。",
+        "normal_explanation": "協助調整紙張大小與預覽屬於常見遠端排查。",
+        "recommended_action": "依工作流程繼續操作即可。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "看到了，你的紙張大小選成信封，改 A4，再預覽一次。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_075cd48071482cfb016aa4e0efed1087d08f4ca2de5e563bc9",
+      "usage": {
+        "input_tokens": 5272,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 192,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5464
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.718,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            7
+          ],
+          "explanation": "本輪只是回報已完成列印調整，沒有新增付款、密碼/OTP、網銀控制或阻止查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報列印已修正",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是一般工作支援，未觸及任何警報規則必要條件。",
+        "normal_explanation": "回報排版修正屬常見作業結果。",
+        "recommended_action": "依正常工作流程結案即可。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "改好了，現在一頁放得下。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_09053f932bd6a75b016aa4e0f1aea887d08550636d086005b5",
+      "usage": {
+        "input_tokens": 5312,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 180,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5492
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.744,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "本輪只是要求停止分享並表示會寫入工單，未出現付款、密碼/OTP、網銀控制或阻止獨立查證。"
+        },
+        "observation": {
+          "actor": "it",
+          "action_type": "other",
+          "object": "請停止分享並記錄工單",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍屬正常 IT 支援收尾，未觸及任何警報規則必要條件。",
+        "normal_explanation": "處理完成後停止分享並記錄工單，符合一般遠端支援流程。",
+        "recommended_action": "依正常工作流程結案。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "可以停止分享了，我把處理方式寫進工單。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0e31ca56f965883d016aa4e0f35a8887d0b785296b0eb55483",
+      "usage": {
+        "input_tokens": 5336,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 194,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5530
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.924,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "本輪只是回報列印已正常並致謝，沒有新增要求或風險行為。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報列印正常並致謝",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是正常 IT 支援結案，未出現付款、敏感權限、隔離查證或其他警報必要條件。",
+        "normal_explanation": "使用者回報問題已解決，屬一般工作對話。",
+        "recommended_action": "可正常結案，不需警報。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "印出來正常，謝謝。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0150eac723f84dd1016aa4e0f5431887d0b90f7a2899bb0d4d",
+      "usage": {
+        "input_tokens": 5394,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 187,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5581
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.469,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

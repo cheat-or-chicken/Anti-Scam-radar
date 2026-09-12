@@ -1,0 +1,660 @@
+{
+  "summary": {
+    "file": "N3_本人刷卡結帳自行輸入OTP.replay.json",
+    "repeat": 1,
+    "case_type": "benign",
+    "completed": true,
+    "turns_analyzed": 10,
+    "total_turns": 10,
+    "first_alert_turn": null,
+    "payment_turn": 7,
+    "harm_turn": 7,
+    "before_payment": null,
+    "before_harm": null,
+    "detected_by_end": null,
+    "false_alarm": false,
+    "harm_lead": null,
+    "payment_lead": null,
+    "warning_downgrade_turns": [],
+    "mean_seconds": 2.337,
+    "recovered_or_failed_turns": [],
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "detector_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207"
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只有一般商品詢問，未見付款、敏感操作、隔離查證或追加條件。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問書架白色現貨",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "僅是正常買賣詢問，沒有可疑要求。",
+        "normal_explanation": "詢問庫存屬一般交易對話。",
+        "recommended_action": "可正常回覆商品庫存與規格。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "我要的書架白色還有現貨嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_08019364d8c9ff2a016aa4e089f4e887d0a2d41fca145b5d18",
+      "usage": {
+        "input_tokens": 4755,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 165,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4920
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.821,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪仍是一般商品交易回覆，未見付款、敏感操作、隔離查證或追加條件。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "回覆書架現貨與出貨資訊",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "屬正常買賣對話，沒有可疑要求。",
+        "normal_explanation": "報價與出貨時間是一般商店回覆。",
+        "recommended_action": "可依正常交易流程繼續溝通。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "有，含運一千二，今天下單週五出貨。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_07c8e5ba2485630a016aa4e08cd6e487d08661d8ee3fad87c5",
+      "usage": {
+        "input_tokens": 5003,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 172,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5175
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.66,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪仍是一般購物回覆，未見付款、敏感操作或限制查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "表示已在一般購物App找到賣場並準備結帳",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前屬正常買賣流程，沒有可疑要求。",
+        "normal_explanation": "使用者表達準備結帳，屬常見交易進展。",
+        "recommended_action": "可依正常交易流程繼續溝通。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 3,
+            "quote": "我已經在平常買東西的購物 App 找到你的賣場，準備結帳。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0e629bb70b204b08016aa4e08e887487d0a04b5e64aa12897b",
+      "usage": {
+        "input_tokens": 5071,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 178,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5249
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.556,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪仍是一般商品確認與庫存回覆，未見付款、敏感操作或限制查證要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "確認白色款庫存與選項",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "屬正常買賣對話，沒有可疑要求。",
+        "normal_explanation": "賣家僅回覆商品款式與庫存，屬常見交易內容。",
+        "recommended_action": "可依正常交易流程繼續。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "選白色款就好，庫存還有兩個。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_00dfb782d3c46d30016aa4e09112ec87d0b30731fefede8bdb",
+      "usage": {
+        "input_tokens": 5132,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 175,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5307
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.69,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只是使用者回報刷卡時出現銀行驗證頁與代碼，未見賣家新增要求或限制查證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報刷卡跳出銀行驗證頁與收到代碼",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍屬正常結帳流程資訊，未出現可判定的詐騙要求。",
+        "normal_explanation": "刷卡時出現銀行驗證頁、手機收到代碼，本身可屬常見付款驗證。",
+        "recommended_action": "先確認是否為你原本要進行的官方付款流程；若沒有賣家要求交付密碼、OTP或改走其他管道，先不必判定風險。",
+        "stages": [
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "刷卡結帳跳出銀行驗證頁，手機也收到代碼。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0dcb735e17971f8b016aa4e092cf1087d0b0c610c29d7190eb",
+      "usage": {
+        "input_tokens": 5167,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 232,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5399
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.586,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪賣家僅表示在自己的結帳頁完成即可，未見新增敏感操作、隔離查證或付款要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "表示在自己的結帳頁完成並等待訂單通知",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是正常結帳回應，未出現符合警報規則的具體要求。",
+        "normal_explanation": "賣家回覆在自己的結帳頁完成、等待訂單通知，屬常見交易流程。",
+        "recommended_action": "依原本的官方付款頁完成即可；若未被要求提供密碼、OTP、遠端控制或改用陌生管道，暫不需升高風險判定。",
+        "stages": [
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "你在自己的結帳頁完成就好，我這邊等訂單通知。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_003259fbc3ba2c92016aa4e095474c87d083e35e139bf07fb5",
+      "usage": {
+        "input_tokens": 5277,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 227,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5504
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.12,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5,
+            7
+          ],
+          "explanation": "本輪僅是使用者回報已在自己結帳頁輸入驗證資料並完成付款流程，沒有新要求或反證既有警示。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已在自己的結帳頁完成輸入驗證代碼與結帳",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "沒有出現新的付款、敏感存取或隔離查證要求。",
+        "normal_explanation": "使用者說自己已完成一般結帳與驗證，屬正常交易回報。",
+        "recommended_action": "維持原本交易流程即可；目前不需升高風險判定。",
+        "stages": [
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "刷卡結帳跳出銀行驗證頁，手機也收到代碼。"
+          },
+          {
+            "turn": 7,
+            "quote": "簡訊的商店跟一千二元都對，我自己輸入了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_025304ce5fb441d1016aa4e097648087d094671a40be66fc84",
+      "usage": {
+        "input_tokens": 5323,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 211,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5534
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.611,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "本輪只是賣家確認收件地址，沒有新增付款、敏感存取或隔離查證要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "確認收件地址是否沿用訂單",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅為訂單配送確認，未見新風險要求。",
+        "normal_explanation": "確認收件資訊屬正常出貨流程，無法構成警報。",
+        "recommended_action": "依正常訂單流程回覆地址即可；目前不需升高判定。",
+        "stages": [
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "看到付款訂單了，收件地址沿用訂單上的嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0b60c1bb0da5d980016aa4e09921dc87d0a7121141d9c278d5",
+      "usage": {
+        "input_tokens": 5383,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 184,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5567
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.707,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "本輪只是使用者確認地址未變，沒有新增付款、敏感存取或隔離查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回覆收件地址未變",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是一般出貨資訊回覆，未見風險要求。",
+        "normal_explanation": "回覆配送地址屬正常交易流程，不能單獨視為警報。",
+        "recommended_action": "可依正常訂單流程繼續處理；目前不需升高判定。",
+        "stages": [
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "對，地址沒變。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f23e78eab012736016aa4e09ac8ec87d0bf81cf5467ab402d",
+      "usage": {
+        "input_tokens": 5365,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 184,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5549
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.679,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            10
+          ],
+          "explanation": "本輪只是賣家通知已寄出與單號位置，沒有新增付款、敏感存取或隔離查證要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "通知已寄出並告知單號位置",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅為正常出貨通知，未見可成立的警報條件。",
+        "normal_explanation": "已寄出與物流單號放在訂單內屬一般交易流程。",
+        "recommended_action": "依正常訂單流程等待物流更新即可。",
+        "stages": [
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 10,
+            "quote": "已經寄出，物流單號在 App 訂單內。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0c806c4d37c4d29f016aa4e09c732c87d0963f8c9085e87100",
+      "usage": {
+        "input_tokens": 5402,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 183,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5585
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 10,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.945,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1716 @@
+{
+  "summary": {
+    "file": "N1_二手拍立得正常交易.replay.json",
+    "session_id": "7c85b9b0834e4bc09a7a626bbe3965d2",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "completed": true,
+    "turns_analyzed": 26,
+    "total_turns": 26,
+    "first_alert_turn": null,
+    "payment_turn": 20,
+    "lead_turns": null,
+    "false_alarm": false,
+    "evaluation_status": "completed",
+    "passed": true,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 1,
+    "mean_seconds": 1.953,
+    "first_warning": null
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只有一般二手商品詢問，未見付款、敏感操作、隔離查證或新增風險要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問二手拍立得是否還在",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅為正常買賣接觸，沒有詐騙必要條件。",
+        "normal_explanation": "二手商品詢問與在售確認屬常見交易開場。",
+        "recommended_action": "先正常回覆商品狀況即可，持續觀察後續是否出現異常要求。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "你好，看到你賣二手拍立得，還在嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0b17bf97727b9e6f016aa4dd876ca087d0835b9e79eb519dbb",
+      "usage": {
+        "input_tokens": 4759,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 194,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4953
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.65,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2
+          ],
+          "explanation": "本輪僅賣家回覆商品狀況與價格原因，未見付款、敏感操作、隔離查證或其他新增風險要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "回覆二手拍立得仍在並說明使用狀況",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍屬正常二手交易回覆，沒有符合任何警報規則的必要條件。",
+        "normal_explanation": "說明商品狀況與便宜出售原因屬一般買賣對話。",
+        "recommended_action": "持續正常交易溝通，留意後續是否出現轉帳、驗證碼、遠端操作或限制查證等要求。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "還在，最近整理房間很少用了，所以便宜賣。機身有使用痕跡，功能正常。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0866005b40f58d39016aa4dd894a7487d083f3ca45719a77c3",
+      "usage": {
+        "input_tokens": 5052,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 224,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5276
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.704,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            3
+          ],
+          "explanation": "本輪只有買家詢問商品內容，未見賣家提出付款、敏感操作、隔離查證或新增風險要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問800元是否僅含相機及是否附底片",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是正常商品問答，沒有觸發任何警報規則的必要條件。",
+        "normal_explanation": "買家確認配件內容屬常見二手交易溝通。",
+        "recommended_action": "繼續正常核對商品與交付方式，留意後續是否出現轉帳、驗證碼、遠端操作或要求轉移溝通管道。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 3,
+            "quote": "800 元是只有相機嗎？有附底片嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_02c93bedb11c9ceb016aa4dd8b021087d0a5fe4bf4c86fe338",
+      "usage": {
+        "input_tokens": 5141,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 223,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5364
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.876,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            4
+          ],
+          "explanation": "本輪仍是賣家補充商品內容與瑕疵說明，未見付款、敏感操作、隔離查證或其他風險要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "補充商品包含相機與背帶、沒有底片，並說明刮痕位置",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍屬正常二手商品問答，未觸發任何警報規則必要條件。",
+        "normal_explanation": "賣家說明配件與外觀瑕疵屬一般交易資訊。",
+        "recommended_action": "繼續確認商品狀況、面交或付款方式即可；目前無需升級警報。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "只有相機跟背帶，沒有底片。電池蓋旁邊有刮痕，貼文最後一張有拍。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_045f1833fc7318cd016aa4dd8ce13087d0baddf176d53b8470",
+      "usage": {
+        "input_tokens": 5190,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 225,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5415
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.761,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5
+          ],
+          "explanation": "本輪只是買家要求再看出片影片，屬一般商品確認，未見付款、密碼、OTP、限制查證或其他高風險要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "要求查看出片影片以確認商品狀況",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "仍是正常二手交易確認，不符合任何警報規則的必要條件。",
+        "normal_explanation": "請求影片屬常見驗貨方式，不等於敏感操作或詐騙要求。",
+        "recommended_action": "可直接提供影片或請對方補充拍攝細節；目前無需警報。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "可以再看一下出片的影片嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_073ee4a766546048016aa4dd8ebfc087d0a3da724b840125c0",
+      "usage": {
+        "input_tokens": 5252,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 209,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5461
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.289,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            6
+          ],
+          "explanation": "本輪賣家只是提出加 LINE 傳影片，屬換管道與提供商品確認資訊，未見要求密碼、OTP、網銀控制、保密阻止查證或付款。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "提議改用LINE傳送出片影片與聯絡資訊",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "目前仍是二手交易中的一般溝通與驗貨安排，未達任何警報規則必要條件。",
+        "normal_explanation": "加 LINE 或傳影片本身可見於一般交易，不能單獨視為高風險。",
+        "recommended_action": "可先驗證商品內容，再決定是否繼續溝通；暫無需警報。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "可以，我今天下班後拍給你。方便加 LINE 傳嗎？我的名字是「阿哲」，連結是 https://chat.example.com/azhe-camera 。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f2affa5eb715b17016aa4dd91f77487d0a0c419c08d2e4d9c",
+      "usage": {
+        "input_tokens": 5283,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 234,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5517
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.995,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            7
+          ],
+          "explanation": "本輪只是使用者在新管道打招呼，未見賣家新增付款、敏感操作、保密隔離或其他新要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "在LINE新對話中自我介紹",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前沒有新的可疑要求；維持一般二手交易溝通。",
+        "normal_explanation": "僅自我介紹屬正常聯絡，不構成警報。",
+        "recommended_action": "可繼續確認商品細節與交付方式，留意後續是否出現付款或敏感操作要求。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "你好，我是剛剛問拍立得的。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0de5ee141d72f370016aa4dd94016c87d0b71699aed8291f84",
+      "usage": {
+        "input_tokens": 5381,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 206,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5587
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.08,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "本輪仍是賣家提供試機影片與外觀細節，未出現付款、密碼/OTP、限制查證或新要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "補充試機影片與機身刮痕細節",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "只有一般商品展示，尚無可疑要求。",
+        "normal_explanation": "二手交易中補充影片與瑕疵說明屬正常。",
+        "recommended_action": "可繼續確認交易細節；若後續出現轉帳、驗證或要求改用特殊流程，再重新評估。",
+        "stages": [
+          "S0",
+          "S3"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "這是剛剛拍的，影片裡有開機、按快門，最後拍到相紙出來。右邊電池蓋的刮痕也有拍近一點給你看。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0fd9664487f6b282016aa4dd9607f087d0ab2014b84244e8f2",
+      "usage": {
+        "input_tokens": 5433,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 207,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5640
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.688,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "本輪僅為使用者詢問是否可面交，未出現付款、敏感操作、限制查證或新增要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問是否可以面交",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是一般二手交易確認。",
+        "normal_explanation": "詢問面交屬常見交易溝通，不能單獨視為詐騙徵兆。",
+        "recommended_action": "可繼續確認面交時間地點與商品狀況；若後續出現轉帳、驗證碼、遠端操作或阻止查證，再評估。",
+        "stages": [
+          "S0",
+          "S3"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "看到了，外觀我可以接受。可以面交嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_04761f088236a948016aa4dd97ade887d0b7ed15f27b8fe2ad",
+      "usage": {
+        "input_tokens": 5524,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 212,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5736
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.797,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            10
+          ],
+          "explanation": "本輪僅為賣方同意面交並允許現場試機後付款，未出現付款、密碼/OTP、限制查證或新增異常要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "同意週六下午車站面交並允許現場試機後付款",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍屬一般二手交易安排，未達警報門檻。",
+        "normal_explanation": "面交、試機後付款是常見交易流程，單獨出現不足以判定風險。",
+        "recommended_action": "可繼續確認面交地點、時間與測試方式；若之後出現轉帳、驗證碼、代操作或要求改用不透明流程，再評估。",
+        "stages": [
+          "S0",
+          "S3"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 10,
+            "quote": "可以，我週六下午能在車站面交，你可以現場試機再付款。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_080e33cb17939359016aa4dd99a44487d0b1bbc5260146c802",
+      "usage": {
+        "input_tokens": 5545,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 243,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5788
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 10,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.093,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            11
+          ],
+          "explanation": "本輪只是買方表示想改寄送，沒有出現付款、驗證碼、密碼、限制查證或新增異常要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "表示住得遠，想改為寄送",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是一般二手交易方式討論，未達警報門檻。",
+        "normal_explanation": "面交改寄送屬常見交易協調，本身不足以判定風險。",
+        "recommended_action": "若後續出現指定轉帳、要求提供驗證碼、代操作網銀，或要求改走不透明流程，再重新評估。",
+        "stages": [
+          "S0",
+          "S3"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 11,
+            "quote": "我住比較遠，還是寄給我好了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0ea904115fe99ba9016aa4dd9b963c87d089cd00bfcc56443c",
+      "usage": {
+        "input_tokens": 5626,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 220,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5846
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 11,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.36,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            12
+          ],
+          "explanation": "本輪只是賣家報價並提供下單/轉帳兩種付款方式，未要求密碼、驗證碼、代操作網銀，也未限制查證。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "payment_request",
+          "object": "提出相機與運費共860元，詢問下單或直接轉帳後寄件",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "目前仍是二手買賣報價與付款方式詢問，沒有具體高風險條件。",
+        "normal_explanation": "商品價格、運費與付款方式討論在一般交易中常見。",
+        "recommended_action": "先確認交易平台或匯款資訊是否為你原本預期的賣家帳戶；若後續出現驗證碼、密碼、網銀操作或要求避開正常流程，再提高警覺。",
+        "stages": [
+          "S0",
+          "S3",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 12,
+            "quote": "也可以。相機 800，運費算 60，一共 860 元。你想用平台下單還是直接轉帳後寄件？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_05375d83e022b16e016aa4dd9df70c87d0a943170203efa9b0",
+      "usage": {
+        "input_tokens": 5655,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 314,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5969
+      },
+      "rejected_prediction_matches": [
+        {
+          "prediction_id": "pred-1",
+          "evidence": [
+            {
+              "turn": 12,
+              "quote": "也可以。相機 800，運費算 60，一共 860 元。你想用平台下單還是直接轉帳後寄件？"
+            }
+          ]
+        }
+      ],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 12,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.43,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            12
+          ],
+          "explanation": "本輪仍是二手交易延續，賣家只是在確認平台下單方式，未出現密碼、OTP、代操作或阻止查證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "表示要用平台下單",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "沒有新增可疑要求，仍屬正常下單回應。",
+        "normal_explanation": "買家選擇平台下單是一般交易流程。",
+        "recommended_action": "持續留意後續是否出現偏離平台流程、要求私下付款或任何敏感操作。",
+        "stages": [
+          "S0",
+          "S3",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "我用平台下單好了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_083667e4ed6876b6016aa4dda0641487d0a20d820f197dbe19",
+      "usage": {
+        "input_tokens": 5760,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 198,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5958
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 13,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.753,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            14
+          ],
+          "explanation": "本輪仍是正常平台下單導向，賣家僅說明搜尋方式，未出現密碼、OTP、代操作、阻止查證或額外付款要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "說明平台搜尋與上架方式",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "尚未出現具體可疑要求或風險連結。",
+        "normal_explanation": "賣家引導買家在平台內搜尋商品，屬一般二手交易流程。",
+        "recommended_action": "持續觀察是否改為私下付款、要求敏感資訊，或要求離開平台進行交易。",
+        "stages": [
+          "S0",
+          "S3",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 14,
+            "quote": "好，我把這台上架到「拾物二手」了。你直接開平台 App，搜尋帳號「阿哲的二手櫃」就能找到，不用從聊天連結登入。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0ba0365db1a8ff12016aa4dda2220487d0a6d754aea4ed5426",
+      "usage": {
+        "input_tokens": 5752,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 215,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5967
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 14,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.6,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            15
+          ],
+          "explanation": "本輪只有使用者確認商品資訊，沒有新的可疑要求或風險動作。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "確認商品為同一台拍立得",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是正常平台二手交易確認，未出現密碼、OTP、代操作、阻止查證或額外付款要求。",
+        "normal_explanation": "買家核對商品外觀與刊登內容，屬常見交易確認。",
+        "recommended_action": "繼續在平台內完成交易；若對方改要求私下付款、提供敏感資訊或離開平台，再重新評估。",
+        "stages": [
+          "S0",
+          "S3",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 15,
+            "quote": "找到了，商品寫二手拍立得，右側跟電池蓋有刮痕，就是這台對吧？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_053a1d2a69dca068016aa4dda3bd7087d08dc1f08344fe7ed2",
+      "usage": {
+        "input_tokens": 5869,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 5376
+        },
+        "output_tokens": 214,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6083
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 15,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.88,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            16
+          ],
+          "explanation": "本輪只是賣家確認商品並請對方檢查後再下單，沒有新增高風險要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "確認商品並請買家檢查後再下單",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是正常二手交易確認，未見密碼、OTP、代操作、阻止查證或額外付款要求。",
+        "normal_explanation": "賣家提醒先核對照片與描述，再決定是否下單，屬一般交易流程。",
+        "recommended_action": "可繼續在平台內完成交易；若後續改要求私下付款、提供敏感資訊或離開平台，再評估。",
+        "stages": [
+          "S0",
+          "S3",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 16,
+            "quote": "對，就是這台。你確認照片和描述都沒問題再下單。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0d779eb55a57e240016aa4dda5a5bc87d0b1f5c4cefb20e629",
+      "usage": {
+        "input_tokens": 5900,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 226,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6126
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 16,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.003,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            17
+          ],
+          "explanation": "本輪只是使用者表示已在平台下單並選擇銀行轉帳付款，未見賣家新增高風險要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已下單並選擇平台銀行轉帳付款",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍屬正常二手交易流程，未出現密碼、OTP、代操作、阻止查證或額外不相符付款要求。",
+        "normal_explanation": "平台內下單與選擇銀行轉帳，本身可見於一般買賣。",
+        "recommended_action": "持續留在平台流程內，確認收款資訊與訂單內容一致；若後續出現要求私下轉帳、提供驗證碼或離開平台再評估。",
+        "stages": [
+          "S0",
+          "S3",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 17,
+            "quote": "下單了，訂單編號 SHIWU-CAM-0912-01，我選平台的銀行轉帳付款。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0c9c9d9ae82fc4b2016aa4dda7a82887d081d3173f942a9a11",
+      "usage": {
+        "input_tokens": 5959,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 5376
+        },
+        "output_tokens": 245,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6204
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 17,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.724,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            18
+          ],
+          "explanation": "本輪賣家只是說付款資訊在 App 訂單說明內，不用傳銀行資料，未見新增高風險要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "提醒依平台訂單說明查看付款資訊，並表示不用傳銀行資料",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是平台內付款指引，沒有密碼、OTP、代操作、阻止查證或額外異常要求。",
+        "normal_explanation": "在平台訂單內查看付款說明，本身可屬一般交易流程。",
+        "recommended_action": "維持平台內操作，不要把銀行資料私下傳出；若後續出現要求提供驗證碼、改私下轉帳或離開平台再評估。",
+        "stages": [
+          "S0",
+          "S3",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 18,
+            "quote": "好，付款資訊看 App 裡這筆訂單的說明就可以，不用把銀行資料傳給我。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0431ea7be209ada9016aa4ddaa564887d09c367428591f021e",
+      "usage": {
+        "input_tokens": 6046,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 237,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6283
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 18,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.766,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            19
+          ],
+          "explanation": "本輪只是使用者回報訂單內金額與收款方一致，未見賣家新增要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報平台訂單資訊與先前金額一致",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "沒有新危險要求或阻止查證行為。",
+        "normal_explanation": "核對訂單金額與收款方屬一般交易確認。",
+        "recommended_action": "維持平台內付款與核對流程，暫不需要警報。",
+        "stages": [
+          "S0",
+          "S3",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 19,
+            "quote": "訂單裡顯示 860 元，收款方是拾物二手，星河測試銀行、帳號 TEST-ORDER-860，跟剛剛說的金額一樣。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_017a8dc2f6c95733016aa4ddac1f5087d0b3e2a8049bb8e03d",
+      "usage": {
+        "input_tokens": 6115,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 188,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6303
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 19,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.481,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            20
+          ],
+          "explanation": "本輪只有使用者回報已依訂單完成轉帳，未見賣家新增要求或阻止查證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已完成平台訂單轉帳",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "沒有新的可疑要求或風險行為。",
+        "normal_explanation": "使用者回報付款完成，屬一般交易進度。",
+        "recommended_action": "持續在平台內確認出貨與收件資訊。",
+        "stages": [
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 20,
+            "quote": "我已經照訂單的付款資訊轉帳 860 元，App 也顯示付款完成了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0af4aac5fff8c723016aa4ddada4c087d091eab870ba99a3b5",
+      "usage": {
+        "input_tokens": 6143,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 173,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6316
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 20,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.631,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            21
+          ],
+          "explanation": "本輪賣家僅確認已付款並表示明天寄出，未見新增要求、敏感操作、隔離查證或付款條件。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "確認已付款並承諾明天寄出",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "沒有新的可疑要求或風險行為。",
+        "normal_explanation": "這是一般二手交易中的付款後回應。",
+        "recommended_action": "等待出貨，持續保留平台內訂單與對話紀錄。",
+        "stages": [
+          "S6"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 21,
+            "quote": "我這邊也看到訂單已付款，明天幫你寄出，會把相機包好。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_066f7e43c93b94bd016aa4ddaf3aec87d098dff089a0debb58",
+      "usage": {
+        "input_tokens": 6163,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 185,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6348
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 21,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.749,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            22
+          ],
+          "explanation": "本輪只有使用者道謝，沒有新增要求或風險行為。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "道謝",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前僅是一般交易收尾，無可疑新訊號。",
+        "normal_explanation": "買賣對話結束時的致謝屬正常互動。",
+        "recommended_action": "繼續等待寄出，保留訂單與聊天紀錄。",
+        "stages": [
+          "S6"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 22,
+            "quote": "好，謝謝。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0e7814338b77ebdb016aa4ddb10abc87d095a5509e6ddece6a",
+      "usage": {
+        "input_tokens": 6213,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 5888
+        },
+        "output_tokens": 166,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6379
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 22,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.64,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            23
+          ],
+          "explanation": "本輪僅是賣家回報已寄出與更新單號，未見新增付款、敏感操作或限制查證要求。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "回報已寄出與更新物流單號",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍屬一般二手交易履約回報，沒有可用規則成立的警報條件。",
+        "normal_explanation": "寄出通知與物流單號更新是正常出貨流程。",
+        "recommended_action": "確認物流單號並持續追蹤配送狀態。",
+        "stages": [
+          "S6"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 23,
+            "quote": "已經寄出了，物流單號 SHIP-CAM-0913-01，我也更新在訂單裡了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0b1e06ace6f9b77d016aa4ddb2be1087d08a38df0c95a94cec",
+      "usage": {
+        "input_tokens": 6232,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 193,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6425
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 23,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.535,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            24
+          ],
+          "explanation": "本輪只是使用者確認看到出貨紀錄，沒有新增要求或風險行為。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已看到出貨紀錄並表示留意包裹",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是正常二手交易追蹤，沒有可成立警報的具體新要求。",
+        "normal_explanation": "確認物流進度屬一般交易行為。",
+        "recommended_action": "持續留意物流狀態與收件通知。",
+        "stages": [
+          "S6"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 24,
+            "quote": "有看到出貨紀錄，我再留意包裹。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0d3c30fd82d24eb8016aa4ddb4534887d0b6385e7d0cf23818",
+      "usage": {
+        "input_tokens": 6327,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 5888
+        },
+        "output_tokens": 180,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6507
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 24,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.634,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            25
+          ],
+          "explanation": "本輪只是使用者回報已收貨並完成試拍，沒有新增要求或風險行為。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報收到相機並試拍成功",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是正常二手交易完成回報，沒有可成立警報的具體新要求。",
+        "normal_explanation": "收貨後確認商品狀況屬一般交易行為。",
+        "recommended_action": "可繼續保留交易紀錄，若有售後問題再依平台處理。",
+        "stages": [
+          "S6"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 25,
+            "quote": "收到相機了，刮痕跟照片一樣。我裝底片試拍，也能正常出片。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0c71f0ac41600ad7016aa4ddb5ca1487d089cc76e92cae2b1b",
+      "usage": {
+        "input_tokens": 6358,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 5888
+        },
+        "output_tokens": 188,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6546
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 25,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.735,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            26
+          ],
+          "explanation": "本輪只有賣家簡短回覆，沒有新增要求或風險行為。"
+        },
+        "observation": {
+          "actor": "seller",
+          "action_type": "other",
+          "object": "回覆收到訊息並致謝",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是正常二手交易收尾，沒有可成立警報的具體新要求。",
+        "normal_explanation": "收貨後互相致謝屬一般交易回應。",
+        "recommended_action": "持續保留交易紀錄即可；若後續有售後爭議再依平台流程處理。",
+        "stages": [
+          "S6"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 26,
+            "quote": "收到就好，謝謝你。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_07727c91cdd724e5016aa4ddb790a487d0b64b4a378fdfcf42",
+      "usage": {
+        "input_tokens": 6417,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 186,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6603
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 26,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.914,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

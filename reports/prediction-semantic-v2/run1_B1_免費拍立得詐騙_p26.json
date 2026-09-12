@@ -1,0 +1,231 @@
+{
+  "source": "reports/expanded-v1/run1/B1_免費拍立得詐騙.results.json",
+  "source_sha256": "f70010ba5c0b23e7841dec01a0892816365ad574a06ff7b23f0c60d7576b5798",
+  "case": "B1_免費拍立得詐騙.replay.json",
+  "repeat": 1,
+  "prediction": {
+    "id": "p26",
+    "created_turn": 26,
+    "expires_turn": 28,
+    "actor": "bank",
+    "action_type": "new_condition",
+    "object": "要求提供下一步驗證或追加付款條件",
+    "action": "可能再提出新的驗證或追加付款條件",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "reason": "原視窗內尚無指定角色的新發言。",
+    "evidence": [],
+    "api_called": false
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "threads_dm",
+      "text": "你好，我看到你們送拍立得的貼文，請問還有嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "donor",
+      "channel": "threads_dm",
+      "text": "還有喔，相館準備歇業了，剩下的庫存想送給需要的人。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "donor",
+      "channel": "threads_dm",
+      "text": "方便加 LINE 嗎？寄送資料在那邊跟你確認。我叫「光盒相館・小林」，連結是 https://chat.example.com/lightbox-lin 。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "你好，我是剛剛問拍立得的。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "拍立得不用錢，運費 60 元你自己出就好，可以嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "可以，要在哪裡填寄送資料？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "用這個賣貨便頁面，點進去填收件姓名、手機跟取貨門市就可以了：https://parcel.example.com/order/CAM-0912-01",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "我填完送出，怎麼跳出「交易訂單失敗，需實名認證」？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "那要找客服處理，頁面上有客服的 LINE。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "donor_line",
+      "text": "所以現在沒有填成功嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "donor",
+      "channel": "donor_line",
+      "text": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "你好，我要領拍立得，填完資料顯示交易訂單失敗，要實名認證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "您好，這邊協助您處理訂單異常。您目前停在哪個畫面？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "就是交易失敗那個畫面，接下來不知道要按什麼。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen",
+      "attachment_captions": []
+    },
+    {
+      "turn": 16,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "客服叫我找你處理實名認證，我的訂單一直失敗。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 17,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "您好，接下來協助您處理帳戶異常及驗證程序。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 18,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "請先開啟網路銀行，這一步需要轉帳完成驗證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 19,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "我打開了，要轉到哪裡？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 20,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "這筆金額是 3,000 元，收款資料是星河測試銀行、帳號 TEST-CAM-001。完成後告訴我。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 21,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "好了，3,000 元，網銀顯示轉帳成功。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 22,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "接著要做無卡提款的驗證，這筆也是 3,000 元，完成後告訴我畫面顯示的結果。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 23,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "這筆 3,000 元的操作也完成了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 24,
+      "sender": "bank",
+      "channel": "bank_line",
+      "text": "還有這張 2,000 元的付款碼，掃描後依畫面付款。我傳給你，單號 PAY-CAM-003。",
+      "attachment_captions": [
+        "付款通知｜金額 NT$2,000｜單號 PAY-CAM-003"
+      ]
+    },
+    {
+      "turn": 25,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "2,000 元付款完成了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 26,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "我只是填寄件資料，怎麼銀行專員一直叫我做轉帳、提款跟付款？",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 27,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "驗證還沒完成，您的帳戶會被鎖，賣家的帳戶也會受到影響，請先配合專員處理。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 28,
+      "sender": "user",
+      "channel": "bank_line",
+      "text": "客服說還要繼續，那前面轉出去的錢怎麼辦？",
+      "attachment_captions": []
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "case_id": "N8_家人代領包裹取件碼",
+  "language": "zh-TW",
+  "participants": {
+    "family": "family",
+    "user": "user"
+  },
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "我晚點才下班，可以幫我拿管理室的包裹嗎？",
+      "timestamp": null
+    },
+    {
+      "turn": 2,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "可以，我在大樓樓下了，要給管理員取件碼。",
+      "timestamp": null
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "是我昨天買的濾水壺，尾號 4128。",
+      "timestamp": null
+    },
+    {
+      "turn": 4,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "管理員說包裹姓名跟你一樣，要你收到的六位數取件碼。",
+      "timestamp": null
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "我剛打家裡電話跟你確認過，通知是這件包裹的取件碼 593204。",
+      "timestamp": null
+    },
+    {
+      "turn": 6,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "拿到了，是一箱濾水壺，放餐桌上。",
+      "timestamp": null
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "好，晚上回去拆。",
+      "timestamp": null
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+[
+  {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "10ef82db730c411e84c60a52f7302f81",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "54f5252ee78cac097e9cf43bedba80958df41be34ac996f45f60c6450452deb8",
+    "completed": true,
+    "turns_analyzed": 38,
+    "total_turns": 38,
+    "first_alert_turn": 8,
+    "payment_turn": 21,
+    "lead_turns": 13,
+    "false_alarm": null,
+    "evaluation_status": "completed",
+    "passed": true,
+    "first_warning": {
+      "status": "warn",
+      "reason": "出現要求實名認證的失敗提示，與前述僅填寄送資料的流程不一致；若要繼續，需留意是否轉向敏感驗證或額外付款。",
+      "normal_explanation": "一般寄送流程不會卡在需實名認證；目前已出現程序異常，建議先停下來確認官方流程。",
+      "recommended_action": "先不要提供任何驗證碼、密碼或額外付款；改用獨立管道確認該頁面與認證需求是否為官方流程。",
+      "stages": [
+        "S4",
+        "S5"
+      ],
+      "rule_ids": [
+        "R_COMPOUND_INCONSISTENCY"
+      ],
+      "evidence": [
+        {
+          "turn": 7,
+          "quote": "用這個賣貨便頁面，點進去填收件姓名、手機跟取貨門市就可以了：https://parcel.example.com/order/CAM-0912-01"
+        },
+        {
+          "turn": 8,
+          "quote": "我填完送出，怎麼跳出「交易訂單失敗，需實名認證」？"
+        }
+      ],
+      "prediction": {
+        "action": "對方接著要求你完成實名認證或補做其他驗證步驟",
+        "within_next_messages": 2
+      },
+      "prediction_matches": []
+    },
+    "dataset_sha256": "751489d6bda41c59af0cad8c0616351d838c3f201c175ccfce098c0c92855db8"
+  },
+  {
+    "file": "B2_假買家騙賣家.replay.json",
+    "session_id": "cda4561cdcff4b69a110e8298037b201",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "54f5252ee78cac097e9cf43bedba80958df41be34ac996f45f60c6450452deb8",
+    "completed": true,
+    "turns_analyzed": 30,
+    "total_turns": 30,
+    "first_alert_turn": 15,
+    "payment_turn": 26,
+    "lead_turns": 11,
+    "false_alarm": null,
+    "evaluation_status": "completed",
+    "passed": true,
+    "first_warning": {
+      "status": "warn",
+      "reason": "第15輪明確改為「分享手機畫面」；在買家轉介客服、以通話協助排除異常的脈絡下，已出現敏感畫面共享要求。",
+      "normal_explanation": "一般客服協助不必然有風險，但此處已要求共享手機畫面，應先確認官方身分再操作。",
+      "recommended_action": "先停止畫面分享，改用自行查到的官方客服管道核對身分與需求。",
+      "stages": [
+        "S4"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS"
+      ],
+      "evidence": [
+        {
+          "turn": 13,
+          "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+        },
+        {
+          "turn": 15,
+          "quote": "不用開鏡頭，分享手機畫面就可以。"
+        }
+      ],
+      "prediction": null,
+      "prediction_matches": [
+        {
+          "prediction_id": "p14",
+          "evidence": [
+            {
+              "turn": 15,
+              "quote": "不用開鏡頭，分享手機畫面就可以。"
+            }
+          ]
+        }
+      ]
+    },
+    "dataset_sha256": "42da913520b9a81792843864bc4e5ae5815d84ae19c6a0b7a289625809801664"
+  },
+  {
+    "file": "N1_二手拍立得正常交易.replay.json",
+    "session_id": "ab6badb0f765456488d08a6f2c1bd9ed",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "54f5252ee78cac097e9cf43bedba80958df41be34ac996f45f60c6450452deb8",
+    "completed": true,
+    "turns_analyzed": 26,
+    "total_turns": 26,
+    "first_alert_turn": null,
+    "payment_turn": 20,
+    "lead_turns": null,
+    "false_alarm": false,
+    "evaluation_status": "completed",
+    "passed": true,
+    "first_warning": null,
+    "dataset_sha256": "5421f928d25c9d7d1e33ef74f4c2fcc1c201bd9e446b95c5823f98f1b1771d67"
+  }
+]

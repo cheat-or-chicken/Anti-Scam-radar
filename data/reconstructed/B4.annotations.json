@@ -1,0 +1,214 @@
+{
+  "case_id": "B4_reconstructed_v2",
+  "version": 2,
+  "source_file": "/Users/yeqinrong/Desktop/黑客松/corpus/B_測試與詐騙agent共用/B4_判決書_Dcard演唱會門票.md",
+  "source_verification": "僅依使用者提供的案例摘要；未獨立核對判決原文。",
+  "nature": "依案情摘要重建，非真實聊天逐字稿。全部聊天文字為補寫。",
+  "generation_method": "本輪重建依據來源案情，未套用七幕順序；作者已看過既有防詐規劃，因此不是獨立盲重建。",
+  "source_anchors": {
+    "contact": "來源記載 2025/06/06 11:01 透過 Dcard 接觸並表示欲購買門票。",
+    "shipping": "來源記載要求透過順豐快遞寄送。",
+    "shipping_terms": "來源記載須先簽署託運條款。",
+    "financial_verification": "來源記載要求完成金融認證，未交代認證內容。",
+    "account_warning": "來源記載以未及時完成交易、帳戶遭列警示為由。",
+    "transfer_request": "來源記載要求依指示解除，之後被害人依指示匯款；未提供逐字操作指令。",
+    "payment_1": "來源記載 2025-06-06T17:41:00+08:00 匯款 45,046 元；未記載當時聊天文字。",
+    "payment_2": "來源記載 2025-06-06T17:42:00+08:00 匯款 27,979 元；未記載當時聊天文字。",
+    "payment_3": "來源記載 2025-06-06T17:46:00+08:00 匯款 27,028 元；未記載當時聊天文字。"
+  },
+  "message_annotations": [
+    {
+      "turn": 1,
+      "wording": "synthetic",
+      "event_basis": "source_supported",
+      "source_anchor": "contact"
+    },
+    {
+      "turn": 2,
+      "wording": "synthetic",
+      "event_basis": "synthetic_bridge",
+      "source_anchor": null
+    },
+    {
+      "turn": 3,
+      "wording": "synthetic",
+      "event_basis": "source_supported",
+      "source_anchor": "shipping"
+    },
+    {
+      "turn": 4,
+      "wording": "synthetic",
+      "event_basis": "synthetic_bridge",
+      "source_anchor": null
+    },
+    {
+      "turn": 5,
+      "wording": "synthetic",
+      "event_basis": "source_supported",
+      "source_anchor": "shipping_terms"
+    },
+    {
+      "turn": 6,
+      "wording": "synthetic",
+      "event_basis": "synthetic_bridge",
+      "source_anchor": null
+    },
+    {
+      "turn": 7,
+      "wording": "synthetic",
+      "event_basis": "source_supported",
+      "source_anchor": "financial_verification"
+    },
+    {
+      "turn": 8,
+      "wording": "synthetic",
+      "event_basis": "synthetic_bridge",
+      "source_anchor": null
+    },
+    {
+      "turn": 9,
+      "wording": "synthetic",
+      "event_basis": "source_supported",
+      "source_anchor": "financial_verification"
+    },
+    {
+      "turn": 10,
+      "wording": "synthetic",
+      "event_basis": "synthetic_bridge",
+      "source_anchor": null
+    },
+    {
+      "turn": 11,
+      "wording": "synthetic",
+      "event_basis": "source_supported",
+      "source_anchor": "account_warning"
+    },
+    {
+      "turn": 12,
+      "wording": "synthetic",
+      "event_basis": "synthetic_bridge",
+      "source_anchor": null
+    },
+    {
+      "turn": 13,
+      "wording": "synthetic",
+      "event_basis": "source_supported",
+      "source_anchor": "transfer_request"
+    },
+    {
+      "turn": 14,
+      "wording": "synthetic",
+      "event_basis": "synthetic_bridge",
+      "source_anchor": null
+    },
+    {
+      "turn": 15,
+      "wording": "synthetic",
+      "event_basis": "synthetic_bridge",
+      "source_anchor": "payment_1",
+      "note": "金額與匯款時間來自案例摘要；要求分筆轉帳及完成回覆的措辭、訊息位置均為補寫。回覆時間以事件時間作重播錨點，非已知真實發訊時間。"
+    },
+    {
+      "turn": 16,
+      "wording": "synthetic",
+      "event_basis": "source_outcome_rendered_as_chat",
+      "source_anchor": "payment_1",
+      "note": "金額與匯款時間來自案例摘要；要求分筆轉帳及完成回覆的措辭、訊息位置均為補寫。回覆時間以事件時間作重播錨點，非已知真實發訊時間。"
+    },
+    {
+      "turn": 17,
+      "wording": "synthetic",
+      "event_basis": "synthetic_bridge",
+      "source_anchor": "payment_2",
+      "note": "金額與匯款時間來自案例摘要；要求分筆轉帳及完成回覆的措辭、訊息位置均為補寫。回覆時間以事件時間作重播錨點，非已知真實發訊時間。"
+    },
+    {
+      "turn": 18,
+      "wording": "synthetic",
+      "event_basis": "source_outcome_rendered_as_chat",
+      "source_anchor": "payment_2",
+      "note": "金額與匯款時間來自案例摘要；要求分筆轉帳及完成回覆的措辭、訊息位置均為補寫。回覆時間以事件時間作重播錨點，非已知真實發訊時間。"
+    },
+    {
+      "turn": 19,
+      "wording": "synthetic",
+      "event_basis": "synthetic_bridge",
+      "source_anchor": "payment_3",
+      "note": "金額與匯款時間來自案例摘要；要求分筆轉帳及完成回覆的措辭、訊息位置均為補寫。回覆時間以事件時間作重播錨點，非已知真實發訊時間。"
+    },
+    {
+      "turn": 20,
+      "wording": "synthetic",
+      "event_basis": "source_outcome_rendered_as_chat",
+      "source_anchor": "payment_3",
+      "note": "金額與匯款時間來自案例摘要；要求分筆轉帳及完成回覆的措辭、訊息位置均為補寫。回覆時間以事件時間作重播錨點，非已知真實發訊時間。"
+    }
+  ],
+  "observed_outcomes": [
+    {
+      "event_id": "payment_1",
+      "timestamp": "2025-06-06T17:41:00+08:00",
+      "type": "bank_transfer",
+      "amount_twd": 45046,
+      "basis": "provided_source",
+      "is_chat_message": false,
+      "reconstructed_completion_turn": 16
+    },
+    {
+      "event_id": "payment_2",
+      "timestamp": "2025-06-06T17:42:00+08:00",
+      "type": "bank_transfer",
+      "amount_twd": 27979,
+      "basis": "provided_source",
+      "is_chat_message": false,
+      "reconstructed_completion_turn": 18
+    },
+    {
+      "event_id": "payment_3",
+      "timestamp": "2025-06-06T17:46:00+08:00",
+      "type": "bank_transfer",
+      "amount_twd": 27028,
+      "basis": "provided_source",
+      "is_chat_message": false,
+      "reconstructed_completion_turn": 20
+    }
+  ],
+  "labels": {
+    "case_type": "scam",
+    "first_explicit_transfer_request_turn": 13,
+    "first_control_handover_turn": 16,
+    "first_loss_chat_turn": 16,
+    "first_loss_event_id": "payment_1",
+    "total_loss_twd": 100053,
+    "first_L2_turn": null,
+    "first_L3_turn": 16,
+    "payment_completion_turns": [
+      16,
+      18,
+      20
+    ],
+    "turn_labels_scope": "僅適用於本重建版本；第16則為模擬首次付款完成邊界。L2較早是否發生未知。"
+  },
+  "limitations": [
+    "20 則訊息是編排選擇，不代表實際訊息數；不可把提前輪數當成真實案件提前量。",
+    "只有首次接觸與三次匯款有來源時間；其餘訊息時間未知，沒有補造中間時間戳或六小時閒聊。",
+    "無法確認是否點擊網址、是否簽署條款、是否完成認證或提供帳密；未將要求視為已執行。",
+    "未添加網址、LINE 轉介、客服角色、OTP 或退款保證，因為本則來源沒有記載。",
+    "同一作者重建與標註，標註仍需獨立覆核。",
+    "三次匯款已轉成補寫的要求與完成回覆。真實回覆時間未知，重播以來源匯款時間錨定；第16則視為付款已完成，不能算在付款前。"
+  ],
+  "evaluation_usage": "messages 可逐則交給偵測器；此標註檔與付款結果僅供評測端使用，不可預先放入偵測 prompt。",
+  "metric_definition": {
+    "turn_unit": "一則訊息為一輪，雙方訊息皆計入。",
+    "alert_timing": "first_alert_turn 是偵測器讀完該則訊息後首次達到預先固定示警門檻的輪次。",
+    "lead_turns_formula": "first_L3_turn - first_alert_turn",
+    "alert_before_payment": "first_alert_turn < 16",
+    "example": {
+      "first_alert_turn": 11,
+      "lead_turns": 5
+    },
+    "no_alert": "first_alert_turn 與 lead_turns 設為 null，記為未示警。",
+    "at_or_after_payment": "第16則或之後才示警不算匯款前成功；lead_turns 可為0或負值。",
+    "scope": "只度量此重建版本的訊息距離，不代表真實案件的提前輪數或提前分鐘。"
+  }
+}

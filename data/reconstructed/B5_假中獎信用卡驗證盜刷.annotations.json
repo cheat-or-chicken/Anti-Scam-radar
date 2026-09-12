@@ -1,0 +1,97 @@
+{
+  "case_id": "B5_假中獎信用卡驗證盜刷",
+  "nature": "全部逐字對話為重建／合成，非真實聊天紀錄。",
+  "source_file": "/Users/yeqinrong/Desktop/黑客松/corpus/B_測試與詐騙agent共用/B5_電郵中獎盜刷.md",
+  "source_sha256": "35d0f95cc1577ea10e28d98b8795cf306108aad8405a4df2d44900c8b19d516d",
+  "source_verification": "依使用者提供摘要，未核對原案原文。",
+  "labels": {
+    "case_type": "scam",
+    "first_payment_completed_turn": null,
+    "first_harm_completed_turn": 8,
+    "first_explicit_risk_turn": 5
+  },
+  "limitations": [
+    "原案不是客服聊天：email、web_form、sms_relay、bank_app_relay是郵件／網頁提示／使用者回報的文字化重播；不假裝有真人客服。金額32000、验证码482913與受理畫面為合成。第8則交付卡片資料、第11則交付OTP；13是事後扣款通知，不是已知實際付款時間。",
+    "日期、姓名、金額、驗證碼與帳號等未在摘要記載的細節均為合成；不得用格式辨識真假。",
+    "作者看過既有知識與模型缺點，非獨立盲測；測試前凍結資料、標註與偵測器，不以測試結果修改標籤。"
+  ],
+  "paired_scenarios": [
+    "N2",
+    "N3",
+    "N8"
+  ],
+  "message_annotations": [
+    {
+      "turn": 1,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 2,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 3,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 4,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 5,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 6,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 7,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 8,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 9,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 10,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 11,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 12,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 13,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    },
+    {
+      "turn": 14,
+      "wording": "synthetic",
+      "event_basis": "source_adaptation_or_bridge"
+    }
+  ],
+  "evaluation_usage": "只把截至當輪訊息傳入偵測器；本檔、檔名、案例分類與未來內容不傳入。",
+  "metric_definition": "跨管道每則訊息計一輪；lead=危險完成輪次－首次示警輪次；必須嚴格早於完成輪次才算預防成功。"
+}

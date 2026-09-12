@@ -1,0 +1,263 @@
+[
+  {
+    "status": "ok",
+    "decision": {
+      "rule_checks": [
+        {
+          "rule_id": "R_SENSITIVE_ACCESS",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "support": "explicit",
+              "evidence_turns": [
+                32
+              ],
+              "explanation": "對方要求提供序號進行查驗。"
+            },
+            {
+              "requirement_index": 2,
+              "support": "explicit",
+              "evidence_turns": [
+                32
+              ],
+              "explanation": "屬於要求交付可辨識驗證資訊。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般查驗不會在已完成付款後仍要求提供序號。"
+        },
+        {
+          "rule_id": "R_COERCIVE_ISOLATION",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "support": "explicit",
+              "evidence_turns": [
+                27
+              ],
+              "explanation": "以帳戶會被鎖、賣家帳戶會受影響施壓。"
+            },
+            {
+              "requirement_index": 2,
+              "support": "explicit",
+              "evidence_turns": [
+                18,
+                20,
+                22,
+                30
+              ],
+              "explanation": "同一脈絡已出現轉帳、無卡提款、付款與購買點數卡等資金操作。"
+            },
+            {
+              "requirement_index": 3,
+              "support": "explicit",
+              "evidence_turns": [
+                9,
+                15,
+                27
+              ],
+              "explanation": "持續引導改由對方提供的客服／銀行專員處理，壓過獨立查證。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服轉介或帳務提醒，不會同時伴隨多次資金操作與持續施壓。"
+        },
+        {
+          "rule_id": "R_PAYMENT_PURPOSE",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "support": "explicit",
+              "evidence_turns": [
+                30
+              ],
+              "explanation": "要求購買數位禮券與遊戲點數卡。"
+            },
+            {
+              "requirement_index": 2,
+              "support": "explicit",
+              "evidence_turns": [
+                30
+              ],
+              "explanation": "要求以信用卡完成購買，屬指定金流行為。"
+            },
+            {
+              "requirement_index": 3,
+              "support": "explicit",
+              "evidence_turns": [
+                30
+              ],
+              "explanation": "被包裝成測試帳戶是否解除限制，與原本領拍立得目的不相符。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般寄送或驗證流程不會要求先購買禮券與點數卡。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          34,
+          36
+        ],
+        "explanation": "本輪只是詢問退款進度，沒有推翻先前已出現的高風險要求。"
+      },
+      "observation": {
+        "actor": "user",
+        "action_type": "other",
+        "object": "詢問退款進度",
+        "is_new_request": false
+      },
+      "status": "warn",
+      "reason": "前面已存在以驗證為名的轉帳、提款、付款與序號索取，本輪沒有解除風險。",
+      "normal_explanation": "單純詢問退款進度，不足以消除先前的敏感要求與資金操作。",
+      "recommended_action": "不要再提供任何序號、OTP、密碼或付款資料，改走官方公開管道自行查證。",
+      "stages": [
+        "S5",
+        "S6"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS",
+        "R_COERCIVE_ISOLATION",
+        "R_PAYMENT_PURPOSE"
+      ],
+      "evidence": [
+        {
+          "turn": 18,
+          "quote": "請先開啟網路銀行，這一步需要轉帳完成驗證。"
+        },
+        {
+          "turn": 20,
+          "quote": "這筆金額是 3,000 元，收款資料是星河測試銀行、帳號 TEST-CAM-001。完成後告訴我。"
+        },
+        {
+          "turn": 22,
+          "quote": "接著要做無卡提款的驗證，這筆也是 3,000 元，完成後告訴我畫面顯示的結果。"
+        },
+        {
+          "turn": 27,
+          "quote": "驗證還沒完成，您的帳戶會被鎖，賣家的帳戶也會受到影響，請先配合專員處理。"
+        },
+        {
+          "turn": 30,
+          "quote": "接下來請用信用卡購買一張 1,000 元數位禮券和一張 1,000 元遊戲點數卡，測試帳戶是否解除限制。"
+        },
+        {
+          "turn": 32,
+          "quote": "請提供序號，這邊要查驗真偽。"
+        },
+        {
+          "turn": 34,
+          "quote": "驗證已完成，接下來辦理退款。"
+        },
+        {
+          "turn": 36,
+          "quote": "退款還要跑流程，請耐心等候。"
+        },
+        {
+          "turn": 9,
+          "quote": "那要找客服處理，頁面上有客服的 LINE。"
+        },
+        {
+          "turn": 15,
+          "quote": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen"
+        }
+      ],
+      "prediction": null,
+      "prediction_matches": []
+    },
+    "response_id": "resp_0d45e5ea5eb427cc016aa4de4767bc87d0b96ccfed502ec984",
+    "usage": {
+      "input_tokens": 9186,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 8960
+      },
+      "output_tokens": 700,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 9886
+    },
+    "rejected_prediction_matches": [],
+    "risk_retained": false,
+    "rejected_rules": [],
+    "turn": 38,
+    "first_alert_turn": 18,
+    "predictions": [
+      {
+        "id": "p15",
+        "created_turn": 15,
+        "expires_turn": 17,
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供密碼、OTP或網銀敏感操作以完成實名認證",
+        "action": "下一步可能改為索取驗證碼或引導操作網銀/帳戶完成認證",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p18",
+        "created_turn": 18,
+        "expires_turn": 20,
+        "actor": "bank",
+        "action_type": "payment_request",
+        "object": "轉帳驗證",
+        "action": "要求使用者進行轉帳以完成驗證",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p22",
+        "created_turn": 22,
+        "expires_turn": 24,
+        "actor": "bank",
+        "action_type": "sensitive_access_request",
+        "object": "其他網銀驗證操作",
+        "action": "要求使用者再做一項網銀驗證或提供畫面結果",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p26",
+        "created_turn": 26,
+        "expires_turn": 28,
+        "actor": "bank",
+        "action_type": "payment_request",
+        "object": "其他金額的付款碼或追加驗證金流",
+        "action": "可能再要求新的付款碼、轉帳或類似金流驗證",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p30",
+        "created_turn": 30,
+        "expires_turn": 32,
+        "actor": "bank",
+        "action_type": "payment_request",
+        "object": "下一筆額外金流或購買類要求",
+        "action": "可能再要求另一筆付款、購卡或類似驗證金流",
+        "within_next_messages": 2,
+        "status": "missed"
+      },
+      {
+        "id": "p36",
+        "created_turn": 36,
+        "expires_turn": 38,
+        "actor": "support",
+        "action_type": "new_condition",
+        "object": "要求等待退款流程",
+        "action": "接著可能再要求等待或補充流程條件",
+        "within_next_messages": 2,
+        "status": "missed"
+      }
+    ],
+    "model": "gpt-5.4-mini",
+    "prompt_version": "dialogue-v5",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "elapsed_seconds": 4.109,
+    "attempts": [
+      {
+        "attempt": 1,
+        "status": "ok"
+      }
+    ]
+  }
+]
