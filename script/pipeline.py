@@ -98,7 +98,7 @@ async def analyze(
         if settings.llm_enabled and gate_value != "skip":
             # Reserve budget deterministically; fan out only the selected semantic tasks.
             priorities = ["L7", "L2", "L3", "L1", "L15", "L9"]
-            selected = priorities[: max(0, settings.max_llm_calls - llm.calls)]
+            selected = priorities[: max(0, settings.max_llm_calls - llm.calls - int(settings.workflow_enabled and settings.max_llm_calls - llm.calls > 1))]
             from script.layers.code_review import verify_l7 as review_code
 
             async def review(name):
@@ -125,8 +125,19 @@ async def analyze(
             layers.append(result("ADAPTIVE", hits))
         with phase("adjudication"):
             decision = adjudicate(ctx, layers)
-        layers.append(verify_l17(ctx, layers))
+        from script.workflow import apply_assessment, assess, workflow_layer
+
+        workflow = {}
+        if settings.llm_enabled and settings.workflow_enabled:
+            with phase("WORKFLOW"):
+                workflow = await assess(ctx, layers, llm)
+            decision = apply_assessment(decision, workflow)
+            layers.append(workflow_layer(workflow))
+        final_layer = verify_l17(ctx, layers)
+        final_layer.user_facing_reason = "；".join(decision.reasons) or final_layer.user_facing_reason
+        layers.append(final_layer)
         analysis = Analysis(
+            workflow=workflow,
             gate=gate_value,
             layers=layers,
             decision=decision,
@@ -137,7 +148,12 @@ async def analyze(
         if store:
             try:
                 analysis.audit_status = "saved"
-                analysis.audit_id = store.record(ctx.url, analysis.model_dump())
+                saved = analysis.model_dump()
+                # Raw page excerpts are only transient; audit keeps IDs and source metadata.
+                for entry in saved.get("workflow", {}).get("evidence", {}).values():
+                    if entry.get("source") == "page_claim":
+                        entry["detail"] = "[page excerpt omitted]"
+                analysis.audit_id = store.record(ctx.url, saved)
             except Exception:
                 audit_failed = True
         if audit_failed:

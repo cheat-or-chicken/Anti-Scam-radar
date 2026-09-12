@@ -12,6 +12,7 @@ class Settings(BaseModel):
     model: str = "gpt-5.4-mini"
     code_model: str = "gpt-5.4-mini"
     vision_model: str = "gpt-5.4-mini"
+    workflow_enabled: bool = True
     llm_enabled: bool = False
     allow_content_upload: bool = False
     network_enabled: bool = False

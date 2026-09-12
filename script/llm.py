@@ -11,6 +11,7 @@ from pydantic import Field
 from script.config import Settings
 from script.layers.rules import sig
 from script.models import LayerResult, Model, PageContext
+from script.privacy import mask_input, mask_text
 from script.progress import event, phase
 from script.semantic_rules import MESSAGES, SEMANTIC_GUIDANCE
 
@@ -72,6 +73,7 @@ REASONS = {
 
 
 def redact(text: str) -> str:
+    text = mask_text(text)
     text = re.sub(r"https?://[^\s<>\"']+", "[URL]", text)
     text = re.sub(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", "[EMAIL]", text)
     text = re.sub(r"\b[A-Z][12]\d{8}\b|\b\d[\d -]{5,}\d\b", "[SENSITIVE_NUMBER]", text)
@@ -88,6 +90,8 @@ class LLM:
     async def request(self, **kwargs):
         if not self.settings.llm_enabled or not self.settings.api_key.get_secret_value():
             raise RuntimeError("llm_disabled_or_missing_key")
+        if "input" in kwargs:
+            kwargs["input"] = mask_input(kwargs["input"])
         async with self._lock:
             if self.calls >= self.settings.max_llm_calls:
                 raise RuntimeError("llm_budget_exhausted")

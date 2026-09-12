@@ -7,8 +7,9 @@ let activeTabId;
 function render(state, supported = true, enabled = true) {
   const result = state?.result;
   const score = result?.decision.risk_score || 0;
+  const warned = score > 0 || ["banner", "block"].includes(result?.decision?.display_level);
   document.body.classList.toggle("danger", score >= 80 && enabled);
-  document.body.classList.toggle("amber", score > 0 && score < 80 && enabled);
+  document.body.classList.toggle("amber", warned && score < 80 && enabled);
   document.body.classList.toggle("paused", !enabled);
   $("enabled").checked = enabled;
   $("protection-label").textContent = enabled ? "主動偵測中" : "防護已暫停";
@@ -20,7 +21,7 @@ function render(state, supported = true, enabled = true) {
         ? "正在查看這個頁面"
         : score >= 80
           ? "先停一下，確認來源"
-          : score > 0
+          : warned
             ? "多確認一步，更安心"
             : result.layers?.find(l => l.layer === "L3")?.status !== "ok"
               ? "內容不足，尚無法確認"
@@ -171,6 +172,7 @@ $("screenshot").onclick = async () => {
       LLM_DISABLED: "請先在設定開啟 AI 輔助審查。",
       PROTECTION_DISABLED: "請先開啟防護功能。",
       PAGE_NOT_READY: "頁面資料尚未準備好，請稍後再試。",
+      SCREENSHOT_DISABLED: "截圖功能已關閉，可到設定重新開啟。",
       SCREENSHOT_TOO_LARGE: "截圖超過 5 MB，無法上傳。",
     };
     $("backend-status").textContent = messages[error.message] || "截圖分析失敗，請確認本機後端正在執行。";

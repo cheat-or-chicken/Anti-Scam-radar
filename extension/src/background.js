@@ -1,3 +1,4 @@
+import { updateJourney } from "./journey.js";
 import {
   analyzeLocal,
   mergeAnalysis,
@@ -32,9 +33,9 @@ async function settings() {
   await ready;
   settingsMigration ||= (async () => {
     const saved = (await chrome.storage.local.get("settings")).settings || {};
-    if (saved.featuresVersion !== 3) {
+    if (saved.featuresVersion !== 5) {
       await chrome.storage.local.set({settings:{...DEFAULTS, ...saved,
-        backendEnabled:true, llmEnabled:true, screenshotEnabled:true, featuresVersion:3}});
+        featuresVersion:5}});
     }
   })();
   await settingsMigration;
@@ -86,7 +87,7 @@ async function bypassed(tabId, url) {
   return !!item && item.url === url && item.expires > Date.now();
 }
 async function badge(tabId, result, enabled = true) {
-  const score = result?.decision.risk_score || 0;
+  const score = result?.decision.risk_score || (["banner", "block"].includes(result?.decision?.display_level) ? 1 : 0);
   await ignored(
     chrome.action.setBadgeText({
       tabId,
@@ -225,6 +226,11 @@ async function snapshot(message, sender) {
     ctx.previous_sensitive_fields = previous.fields;
   const jobId = crypto.randomUUID();
   const local = analyzeLocal(ctx, await ready);
+  const journeyKey = `journey:${id}`;
+  const history = (await chrome.storage.session.get(journeyKey))[journeyKey];
+  const journey = updateJourney(history, ctx, local, new URL(sender.url).hostname);
+  ctx.journey = journey.steps;
+  if (!sender.tab.incognito) await chrome.storage.session.set({[journeyKey]:journey});
   const state = {
     originalUrl: sender.url,
     url: publicURL(sender.url),
@@ -370,6 +376,7 @@ chrome.tabs.onRemoved.addListener((id) =>
           k === `allow:${id}` ||
           k === `backend:${id}` ||
           k === `redirect:${id}` ||
+          k === `journey:${id}` ||
           (k.startsWith("warning:") && all[k].tabId === id),
       );
       await chrome.storage.session.remove(names);
@@ -430,6 +437,7 @@ async function analyzeScreenshot() {
   if (!options.enabled) throw Error("PROTECTION_DISABLED");
   if (!options.backendEnabled || !options.pairingToken) throw Error("BACKEND_DISABLED");
   if (!options.llmEnabled) throw Error("LLM_DISABLED");
+  if (!options.screenshotEnabled) throw Error("SCREENSHOT_DISABLED");
 
   const tab = await active();
   if (!tab?.id || tab.windowId === undefined) throw Error("NO_TAB");
@@ -614,6 +622,7 @@ chrome.runtime.onMessage.addListener((message, sender, reply) => {
         "LLM_DISABLED",
         "PAGE_NOT_READY",
         "SCREENSHOT_TOO_LARGE",
+        "SCREENSHOT_DISABLED",
       ].includes(error.message)
         ? error.message
         : "UNAVAILABLE",

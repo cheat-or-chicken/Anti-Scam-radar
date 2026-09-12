@@ -1,0 +1,8 @@
+[
+  {"pattern":"(?:sk-(?:proj-)?[A-Za-z0-9_-]{16,}|AIza[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{20,})","replacement":"[API_TOKEN]"},
+  {"pattern":"Bearer\\s+[A-Za-z0-9._~+/-]+=*","replacement":"[BEARER_TOKEN]"},
+  {"pattern":"[\"']?(?:password|passwd|api[_-]?key|access[_-]?token|refresh[_-]?token|secret|密碼)[\"']?\\s*[:=：]\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s,;<>}]+)","replacement":"[SECRET]"},
+  {"pattern":"[A-Za-z0-9_.+%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}","replacement":"[EMAIL]"},
+  {"pattern":"(?<![A-Za-z0-9])[A-Z][12][0-9]{8}(?![A-Za-z0-9])","replacement":"[ID_NUMBER]"},
+  {"pattern":"(?<![A-Za-z0-9])(?:\\+?[0-9][0-9 ()-]{4,}[0-9])(?![A-Za-z0-9])","replacement":"[SENSITIVE_NUMBER]"}
+]

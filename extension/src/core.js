@@ -348,10 +348,21 @@ export function mergeAnalysis(url, local, remote) {
   for (const layer of remote.layers || []) {
     if (!layers.some(existing => existing.layer === layer.layer)) layers.push(layer);
   }
+  const decision = adjudicate(url, layers);
+  if (remote.workflow?.status === "ok") {
+    const accepted = remote.workflow.accepted_action;
+    if (['warn','pause_sensitive_action','block'].includes(accepted)) {
+      if (decision.display_level === 'icon') decision.display_level = 'banner';
+      decision.reasons = [...new Set([...decision.reasons, ...(remote.decision?.reasons || [])])];
+    }
+    if (accepted === 'pause_sensitive_action' && !decision.trusted_domain)
+      decision.interrupt_triggers = [...new Set([...decision.interrupt_triggers, ...TRIGGERS])];
+  }
   return {
     ...local,
+    workflow: remote.workflow,
     layers,
-    decision: adjudicate(url, layers),
+    decision,
     source: "backend",
     backend: "connected",
     checkedAt: Date.now(),

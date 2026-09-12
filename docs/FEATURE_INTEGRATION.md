@@ -24,3 +24,5 @@
 規格依據：[Google V5 urls.search](https://developers.google.com/safe-browsing/reference/rest/v5/urls/search)、[Chrome captureVisibleTab](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-captureVisibleTab)。自動截圖需 all_urls 權限；實際處理仍限定可分析的 HTTP(S) 網頁。
 
 測試命令：`uv run python -m pytest -q`、`npm --prefix extension test`、`npm --prefix extension run test:features`、`npm --prefix extension run test:demo`。
+
+截圖由設定頁的「截圖 AI 分析」開關控制，新安裝預設開啟，更新保留已儲存的使用者選擇。關閉後停止自動與手動截圖，不影響文字／網址分析。

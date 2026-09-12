@@ -4,7 +4,7 @@ export const names = {
   L4: "表單與程式線索", L5: "網域註冊資料", L6: "不同裝置內容比較", L7: "AI 靜態程式審查",
   L8: "本分頁欄位變化", L9: "語言用詞", L10: "人工複核文字指紋", L11: "經營資訊連結",
   L12: "下載檔案", L13: "QR code", L14: "敏感操作提醒", L15: "隱藏指令與延遲欄位",
-  L16: "本機回報資料", BLOCKLIST: "通報名單", VISION: "截圖 AI 分析", GOOGLE_URL_REPUTATION: "Google 網址信譽"
+  L16: "本機回報資料", BLOCKLIST: "通報名單", WORKFLOW: "AI 情境與證據判斷", VISION: "截圖 AI 分析", GOOGLE_URL_REPUTATION: "Google 網址信譽"
 };
 export function coverageState(layer, options = {}) {
   if (layer.status === "ok") return { label: "已檢查", detail: layer.layer === "L4" ? "涵蓋靜態表單／程式線索，不代表已監測實際資料外傳。" : "" };
