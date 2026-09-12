@@ -1,0 +1,10 @@
+{
+  "url": "https://demo-phishing.example/",
+  "title": "測試用登入頁",
+  "trace_collected": true,
+  "network_trace": [
+    {"url":"https://collector.example/collect","trigger":"keyup","sensitive_data":true,"observed":true},
+    {"url":"https://collector.example/collect","trigger":"keyup","sensitive_data":true,"observed":true},
+    {"url":"https://collector.example/collect","trigger":"keyup","sensitive_data":true,"observed":true}
+  ]
+}

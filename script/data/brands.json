@@ -1,0 +1,4 @@
+[
+  {"id":"mvdis","name":"監理服務網","aliases":["監理服務網","監理站","監理所"],"domains":["mvdis.gov.tw","thb.gov.tw"],"source":"https://www.mvdis.gov.tw/m3-emv-cht/public/newsDetail?id=22954"},
+  {"id":"thb","name":"交通部公路局","aliases":["交通部公路局","公路總局"],"domains":["thb.gov.tw","mvdis.gov.tw"],"source":"https://www.thb.gov.tw/"}
+]
