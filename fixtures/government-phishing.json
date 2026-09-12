@@ -1,0 +1,9 @@
+{
+  "url": "https://mvdis.gov.tw.fine-pay.example/notice?token=DEMO_ONLY",
+  "title": "監理服務網 線上罰鍰繳納",
+  "text": "您的罰單尚未繳納，請立即繳納。請提供驗證碼給客服完成核對。",
+  "sensitive_fields": ["credit_card", "otp"],
+  "domain_age_days": 3,
+  "form_actions": ["https://collector.example/submit"],
+  "behavior": "sensitive_field_focus"
+}

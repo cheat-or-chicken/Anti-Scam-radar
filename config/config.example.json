@@ -1,0 +1,15 @@
+{
+  "api_key": "",
+  "model": "gpt-5.4-mini",
+  "code_model": "gpt-5.4-mini",
+  "llm_enabled": false,
+  "allow_content_upload": false,
+  "network_enabled": false,
+  "timeout_seconds": 12,
+  "max_llm_calls": 6,
+  "max_tool_calls": 8,
+  "max_output_tokens": 1600,
+  "max_response_bytes": 1048576,
+  "database_path": "var/radar.sqlite3",
+  "audit_enabled": true
+}

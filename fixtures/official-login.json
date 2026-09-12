@@ -1,0 +1,8 @@
+{
+  "url": "https://www.mvdis.gov.tw/m3-emv-cht/",
+  "title": "監理服務網",
+  "text": "請輸入一次性驗證碼登入。請勿將驗證碼提供給客服。",
+  "sensitive_fields": ["otp"],
+  "domain_age_days": 5000,
+  "behavior": "password_field_focus"
+}
