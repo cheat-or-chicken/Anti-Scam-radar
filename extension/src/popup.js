@@ -148,6 +148,36 @@ $("rescan").onclick = async () => {
   await send({ type: "CHECK_SITE", source: "current" }).catch(() => null);
   await init();
 };
+$("screenshot").onclick = async () => {
+  if (
+    !confirm(
+      "將截取目前分頁的可見畫面並傳到本機後端；後端會依設定傳給 AI 分析。畫面可能含有敏感資料。要繼續嗎？",
+    )
+  )
+    return;
+  $("screenshot").disabled = true;
+  $("backend-status").textContent = "正在截取畫面並請 AI 分析…";
+  try {
+    const data = await send({ type: "ANALYZE_SCREENSHOT" });
+    if (data.error) throw Error(data.error);
+    $("backend-status").textContent =
+      data.vision === "ok"
+        ? "截圖分析完成。"
+        : "截圖已送到後端，但 AI 分析未執行；請確認後端的 LLM 與內容上傳設定。";
+    await init();
+  } catch (error) {
+    const messages = {
+      BACKEND_DISABLED: "請先在設定連接本機後端並完成配對。",
+      LLM_DISABLED: "請先在設定開啟 AI 輔助審查。",
+      PROTECTION_DISABLED: "請先開啟防護功能。",
+      PAGE_NOT_READY: "頁面資料尚未準備好，請稍後再試。",
+      SCREENSHOT_TOO_LARGE: "截圖超過 5 MB，無法上傳。",
+    };
+    $("backend-status").textContent = messages[error.message] || "截圖分析失敗，請確認本機後端正在執行。";
+  } finally {
+    $("screenshot").disabled = false;
+  }
+};
 $("scan-form").onsubmit = async (e) => {
   e.preventDefault();
   $("scan").disabled = true;

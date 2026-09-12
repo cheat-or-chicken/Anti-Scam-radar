@@ -1,0 +1,226 @@
+[
+  {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "c62c0a577d1c4329bdcf430c6c3cc42f",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+    "completed": false,
+    "turns_analyzed": 18,
+    "total_turns": 38,
+    "first_alert_turn": 15,
+    "payment_turn": 21,
+    "lead_turns": 6,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 0,
+    "mean_seconds": 2.496,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_COERCIVE_ISOLATION",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "evidence_turns": [
+                15
+              ],
+              "explanation": "第15輪要求改加入指定「交易驗證・陳專員」的外部管道處理。"
+            },
+            {
+              "requirement_index": 2,
+              "evidence_turns": [
+                11,
+                15
+              ],
+              "explanation": "第11輪以帳號會被凍結施壓，第15輪延續到由專員處理實名認證，脈絡仍圍繞訂單異常／帳戶風險。"
+            },
+            {
+              "requirement_index": 3,
+              "evidence_turns": [
+                15
+              ],
+              "explanation": "此轉介把處理引到對方提供的單一路徑，足以限制使用者先向原客服或其他管道獨立查證。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服轉接可合理存在，但此處已結合凍結施壓與指定單一路徑，不只是單純轉介。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          15
+        ],
+        "explanation": "第15輪新增要求改加指定專員處理實名認證，並延續前述凍結壓力；未見任何反證解除風險。"
+      },
+      "observation": {
+        "actor": "support",
+        "action_type": "new_condition",
+        "object": "要求加入指定專員以處理實名認證",
+        "is_new_request": true
+      },
+      "status": "warn",
+      "reason": "已出現以帳戶風險施壓並轉往指定外部管道處理的限制查證要求。",
+      "normal_explanation": "一般客服轉接本身可正常，但此處伴隨凍結壓力與指定專員路徑。",
+      "recommended_action": "先不要依此連結繼續處理，改由原平台或官方公開管道自行查證。",
+      "stages": [
+        "S2",
+        "S4"
+      ],
+      "rule_ids": [
+        "R_COERCIVE_ISOLATION"
+      ],
+      "evidence": [
+        {
+          "turn": 11,
+          "quote": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。"
+        },
+        {
+          "turn": 15,
+          "quote": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen"
+        }
+      ],
+      "prediction": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供或操作實名認證相關敏感資料／畫面",
+        "action": "可能接著要求填寫驗證資訊或查看認證畫面",
+        "within_next_messages": 2
+      },
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "B2_假買家騙賣家.replay.json",
+    "session_id": "246b3e542fca4ef3a48406eff0ba78e6",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+    "completed": false,
+    "turns_analyzed": 28,
+    "total_turns": 30,
+    "first_alert_turn": 17,
+    "payment_turn": 26,
+    "lead_turns": 9,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 2,
+    "mean_seconds": 3.201,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_SENSITIVE_ACCESS",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "evidence_turns": [
+                17
+              ],
+              "explanation": "support 明確表明要開啟網路銀行。"
+            },
+            {
+              "requirement_index": 2,
+              "evidence_turns": [
+                17
+              ],
+              "explanation": "support 進一步要求處理驗證，屬於敏感操作引導。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服帶操作或單純畫面分享，不能解釋直接要求開啟網路銀行並處理驗證。"
+        },
+        {
+          "rule_id": "R_COERCIVE_ISOLATION",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "evidence_turns": [
+                11
+              ],
+              "explanation": "buyer 要求聯絡其提供的客服處理。"
+            },
+            {
+              "requirement_index": 2,
+              "evidence_turns": [
+                17
+              ],
+              "explanation": "support 引導開啟網銀並處理驗證，與資金／權限操作連結。"
+            },
+            {
+              "requirement_index": 3,
+              "evidence_turns": [
+                11,
+                17
+              ],
+              "explanation": "同一脈絡中，查證被導向對方提供的客服處理路徑，未見鼓勵獨立查證的安排。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服轉介或要求聯繫客服本身不等於隔離查證；但本案已連到網銀驗證操作，不能僅用正常客服流程解釋。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          17
+        ],
+        "explanation": "本輪新出現的是要求開啟網路銀行並處理驗證，未見反證可解除風險。"
+      },
+      "observation": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求開啟網路銀行並處理驗證",
+        "is_new_request": true
+      },
+      "status": "warn",
+      "reason": "已出現明確的網銀與驗證引導，屬敏感操作要求；且查證路徑由對方提供客服主導。",
+      "normal_explanation": "一般客服遠端協助不必然有詐，但直接要求開啟網路銀行並處理驗證已超出單純畫面分享。",
+      "recommended_action": "先停止操作，改以獨立管道向官方客服核實，不要依對方指示進入網銀或提供驗證資訊。",
+      "stages": [
+        "S4",
+        "S5"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS",
+        "R_COERCIVE_ISOLATION"
+      ],
+      "evidence": [
+        {
+          "turn": 11,
+          "quote": "要找客服解鎖，剛剛那個網頁裡有客服，麻煩你趕快聯絡一下。"
+        },
+        {
+          "turn": 17,
+          "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+        }
+      ],
+      "prediction": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "網路銀行驗證以外的敏感資訊或控制",
+        "action": "可能接著要求輸入 OTP、密碼或進一步操作網銀",
+        "within_next_messages": 2
+      },
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "N1_二手拍立得正常交易.replay.json",
+    "session_id": "c0cfe74c31354bb5b00c48c9807f9183",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+    "completed": true,
+    "turns_analyzed": 26,
+    "total_turns": 26,
+    "first_alert_turn": null,
+    "payment_turn": 20,
+    "lead_turns": null,
+    "false_alarm": false,
+    "evaluation_status": "completed",
+    "passed": true,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 0,
+    "mean_seconds": 2.005,
+    "first_warning": null
+  }
+]

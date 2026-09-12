@@ -1,0 +1,73 @@
+{
+  "case_id": "N4_公司IT分享試算表畫面",
+  "language": "zh-TW",
+  "participants": {
+    "it": "it",
+    "user": "user"
+  },
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "work_chat",
+      "text": "你是今天處理我報修單的同事嗎？試算表列印又跑版了。",
+      "timestamp": null
+    },
+    {
+      "turn": 2,
+      "sender": "it",
+      "channel": "work_chat",
+      "text": "對，工單是 IT-2408，我在公司會議室的支援時段，現在可以看。",
+      "timestamp": null
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "work_chat",
+      "text": "我從公司通訊錄撥你的分機，剛剛有接到。",
+      "timestamp": null
+    },
+    {
+      "turn": 4,
+      "sender": "it",
+      "channel": "work_chat",
+      "text": "那用公司的視訊會議分享試算表視窗，我看一下列印範圍。",
+      "timestamp": null
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "work_chat",
+      "text": "我分享這個空白範本就好，其他視窗沒有分享。",
+      "timestamp": null
+    },
+    {
+      "turn": 6,
+      "sender": "it",
+      "channel": "work_chat",
+      "text": "看到了，你的紙張大小選成信封，改 A4，再預覽一次。",
+      "timestamp": null
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "work_chat",
+      "text": "改好了，現在一頁放得下。",
+      "timestamp": null
+    },
+    {
+      "turn": 8,
+      "sender": "it",
+      "channel": "work_chat",
+      "text": "可以停止分享了，我把處理方式寫進工單。",
+      "timestamp": null
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "work_chat",
+      "text": "印出來正常，謝謝。",
+      "timestamp": null
+    }
+  ]
+}

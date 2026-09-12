@@ -1,0 +1,118 @@
+{
+  "case": "B5_假中獎信用卡驗證盜刷.replay.json",
+  "repeat": 2,
+  "source": "reports/expanded-v1/run2/B5_假中獎信用卡驗證盜刷.results.json",
+  "source_sha256": "ea08e50edcec4db774f05145a0d5166b583912fe4ddb3e230fea5dcaa50bdec8",
+  "predictions": [],
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "notice",
+      "channel": "email",
+      "text": "一卡通發票中獎通知：您的消費發票有待領獎項，請至 https://invoice.example.com/claim 查詢。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "user",
+      "channel": "email",
+      "text": "我最近有搭車消費，先查查看是哪張發票。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "page",
+      "channel": "web_form",
+      "text": "消費發票領獎查詢。請填寫姓名及聯絡手機，以便核對資料。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "web_form",
+      "text": "我填好姓名林小安跟手機了，按下一步。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "page",
+      "channel": "web_form",
+      "text": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "web_form",
+      "text": "不是查發票嗎，這頁還要信用卡資料？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "page",
+      "channel": "web_form",
+      "text": "持卡人資料用於認證，填妥後會進入簡訊確認步驟。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "web_form",
+      "text": "卡號、效期跟安全碼都填好送出了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "sms_relay",
+      "text": "手機收到發卡銀行的認證碼簡訊了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "page",
+      "channel": "web_form",
+      "text": "請將銀行簡訊中的認證碼填入欄位，再按送出完成認證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "user",
+      "channel": "web_form",
+      "text": "我輸入 482913 並送出了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "page",
+      "channel": "web_form",
+      "text": "資料已受理。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "user",
+      "channel": "bank_app_relay",
+      "text": "幾天後銀行 App 出現一筆境外消費通知，金額三萬二千元，我沒有買這個。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "email",
+      "text": "我回頭比對，先前那個領獎頁面和我自己找到的平台網址不同。",
+      "attachment_captions": []
+    }
+  ],
+  "review": {
+    "version": "whole-conversation-v1",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+    "status": "ok",
+    "items": [],
+    "matched": 0,
+    "missed": 0,
+    "uncertain": 0,
+    "rate": null
+  }
+}

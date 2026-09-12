@@ -1,0 +1,81 @@
+{
+  "source": "reports/expanded-v1/run2/B6_點數卡驗證與私密影像勒索.results.json",
+  "source_sha256": "0d82e3ef43bcaf1866c9c613959346cb9ac367606eaee622b3e30c1b8fe89032",
+  "case": "B6_點數卡驗證與私密影像勒索.replay.json",
+  "repeat": 2,
+  "prediction": {
+    "id": "p2",
+    "created_turn": 2,
+    "expires_turn": 4,
+    "actor": "contact",
+    "action_type": "new_condition",
+    "object": "聊天條件或進一步聯絡方式",
+    "action": "可能再提出需先加LINE或依其指定方式聯絡的條件",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "matched",
+  "verdict": {
+    "version": "semantic-match-v1",
+    "prompt_hash": "91a9599add5812fbe1f40fd8211de5f393ea1c3cfd6fd061b5858923f2b5dd83",
+    "model": "gpt-5.4-mini",
+    "outcome": "matched",
+    "matched_turn": 4,
+    "semantic_correspondence": true,
+    "new_after_prediction": true,
+    "reason": "第4輪「公司規定先買指定的遊戲點數驗證身分，通過才能安排見面」屬於接續提出聯絡／互動前的條件，符合預測的進一步聯絡方式或聊天條件。",
+    "evidence": [
+      {
+        "turn": 4,
+        "quote": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。"
+      }
+    ],
+    "api_called": true,
+    "response_id": "resp_02afe280731c0d2b016aa4e7e2d94487d09fbc34120dc0b78a",
+    "usage": {
+      "input_tokens": 863,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 93,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 956
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "messenger",
+      "text": "看到你的交友貼文，可以先聊聊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "contact",
+      "channel": "messenger",
+      "text": "可以，這邊不常看，換 LINE 聊。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "line",
+      "text": "加到了，我們週末能見面嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "contact",
+      "channel": "line",
+      "text": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。",
+      "attachment_captions": []
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "case_id": "N7_朋友訂位分攤餐廳訂金",
+  "nature": "全部逐字對話為重建／合成，非真實聊天紀錄。",
+  "source_file": null,
+  "source_sha256": null,
+  "source_verification": "合成正常對照，非真實使用紀錄。",
+  "labels": {
+    "case_type": "benign",
+    "first_payment_completed_turn": 7,
+    "first_harm_completed_turn": null,
+    "first_explicit_risk_turn": null
+  },
+  "limitations": [
+    "既有朋友、可核對餐廳服務、抵用餐費，付款目的是共同餐飲支出；不把所有見面前付款視為詐騙。",
+    "日期、姓名、金額、驗證碼與帳號等未在摘要記載的細節均為合成；不得用格式辨識真假。",
+    "作者看過既有知識與模型缺點，非獨立盲測；測試前凍結資料、標註與偵測器，不以測試結果修改標籤。"
+  ],
+  "paired_scenarios": [
+    "B3"
+  ],
+  "message_annotations": [
+    {
+      "turn": 1,
+      "wording": "synthetic",
+      "event_basis": "synthetic_benign"
+    },
+    {
+      "turn": 2,
+      "wording": "synthetic",
+      "event_basis": "synthetic_benign"
+    },
+    {
+      "turn": 3,
+      "wording": "synthetic",
+      "event_basis": "synthetic_benign"
+    },
+    {
+      "turn": 4,
+      "wording": "synthetic",
+      "event_basis": "synthetic_benign"
+    },
+    {
+      "turn": 5,
+      "wording": "synthetic",
+      "event_basis": "synthetic_benign"
+    },
+    {
+      "turn": 6,
+      "wording": "synthetic",
+      "event_basis": "synthetic_benign"
+    },
+    {
+      "turn": 7,
+      "wording": "synthetic",
+      "event_basis": "synthetic_benign"
+    },
+    {
+      "turn": 8,
+      "wording": "synthetic",
+      "event_basis": "synthetic_benign"
+    },
+    {
+      "turn": 9,
+      "wording": "synthetic",
+      "event_basis": "synthetic_benign"
+    }
+  ],
+  "evaluation_usage": "只把截至當輪訊息傳入偵測器；本檔、檔名、案例分類與未來內容不傳入。",
+  "metric_definition": "跨管道每則訊息計一輪；lead=危險完成輪次－首次示警輪次；必須嚴格早於完成輪次才算預防成功。"
+}

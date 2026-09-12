@@ -1,0 +1,95 @@
+{
+  "source": "reports/expanded-v1/run3/B6_點數卡驗證與私密影像勒索.results.json",
+  "source_sha256": "0ef4f82ec34cb4688ebf8d105bfe04b185e1efb629cbaa93a3a7b4011db1a97b",
+  "case": "B6_點數卡驗證與私密影像勒索.replay.json",
+  "repeat": 3,
+  "prediction": {
+    "id": "p4",
+    "created_turn": 4,
+    "expires_turn": 6,
+    "actor": "contact",
+    "action_type": "payment_request",
+    "object": "遊戲點數",
+    "action": "進一步要求購買或提供點數序號",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "matched",
+  "verdict": {
+    "version": "semantic-match-v1",
+    "prompt_hash": "91a9599add5812fbe1f40fd8211de5f393ea1c3cfd6fd061b5858923f2b5dd83",
+    "model": "gpt-5.4-mini",
+    "outcome": "matched",
+    "matched_turn": 6,
+    "semantic_correspondence": true,
+    "new_after_prediction": true,
+    "reason": "第6輪由 contact 進一步要求『先兩張一千元的，把序號拍給我』，符合預測的購買／提供遊戲點數序號要求，且發生在預測後。",
+    "evidence": [
+      {
+        "turn": 6,
+        "quote": "先兩張一千元的，把序號拍給我，我才能幫你登記。"
+      }
+    ],
+    "api_called": true,
+    "response_id": "resp_05a3c5e58fa006d6016aa4e7e6ff4087d0a9a2fe78decaa562",
+    "usage": {
+      "input_tokens": 939,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 85,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1024
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "messenger",
+      "text": "看到你的交友貼文，可以先聊聊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "contact",
+      "channel": "messenger",
+      "text": "可以，這邊不常看，換 LINE 聊。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "line",
+      "text": "加到了，我們週末能見面嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "contact",
+      "channel": "line",
+      "text": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "line",
+      "text": "要買多少？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "contact",
+      "channel": "line",
+      "text": "先兩張一千元的，把序號拍給我，我才能幫你登記。",
+      "attachment_captions": []
+    }
+  ]
+}

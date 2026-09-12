@@ -1,0 +1,77 @@
+{
+  "source": "reports/expanded-v1/run2/B6_點數卡驗證與私密影像勒索.results.json",
+  "source_sha256": "0d82e3ef43bcaf1866c9c613959346cb9ac367606eaee622b3e30c1b8fe89032",
+  "case": "B6_點數卡驗證與私密影像勒索.replay.json",
+  "repeat": 2,
+  "prediction": {
+    "id": "p2",
+    "created_turn": 2,
+    "expires_turn": 4,
+    "actor": "contact",
+    "action_type": "new_condition",
+    "object": "聊天條件或進一步聯絡方式",
+    "action": "可能再提出需先加LINE或依其指定方式聯絡的條件",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": false,
+    "new_after_prediction": false,
+    "reason": "原預測是「再提出先加LINE或依指定方式聯絡」；第2輪已先要求換 LINE 聊，屬於既有條件，不是預測視窗內的新要求。第4輪改成先買點數驗證身分，與聯絡方式條件不符。",
+    "audit": null,
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_00517150bf32e2db016aa4e844514087d0a9b2c97f390af7ab",
+    "usage": {
+      "input_tokens": 863,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 107,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 970
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "messenger",
+      "text": "看到你的交友貼文，可以先聊聊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "contact",
+      "channel": "messenger",
+      "text": "可以，這邊不常看，換 LINE 聊。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "line",
+      "text": "加到了，我們週末能見面嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "contact",
+      "channel": "line",
+      "text": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。",
+      "attachment_captions": []
+    }
+  ]
+}

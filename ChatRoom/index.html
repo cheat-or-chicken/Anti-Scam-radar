@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>詐騙劇本雷達 · 對話重播</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Microsoft JhengHei",sans-serif;background:#101626;color:#e9eef7}*{box-sizing:border-box}body{margin:0;padding:24px}header{max-width:1300px;margin:auto auto 20px;display:flex;justify-content:space-between;gap:20px}h1{font-size:24px;margin:0 0 8px}h2{font-size:18px;margin:0 0 12px}.muted{color:#a7b5cb;font-size:13px}main{max-width:1300px;margin:auto;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(320px,1fr);gap:20px}.card{background:#192237;border:1px solid #334057;border-radius:16px;padding:20px}.chat{height:78vh;display:flex;flex-direction:column}#messages{flex:1;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:15px 0;min-height:200px}.bubble{max-width:86%;padding:12px 16px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere;background:#2b3852;line-height:1.6}.mine{align-self:flex-end;background:#373e83}.speaker{display:block;font-size:12px;color:#c6d5e8;margin-bottom:5px}.divider{text-align:center;color:#9ab9cc;font-size:12px;margin:10px}.attachment{font-size:12px;border-top:1px solid #718096;padding-top:8px;margin-top:8px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}select,input,button{font:inherit;font-size:14px;padding:10px;border-radius:8px;border:1px solid #53617a;background:#101a2d;color:#eef}button{cursor:pointer;background:#365cf2}button:disabled{opacity:.5;cursor:default}input[type=file]{max-width:100%}#messageInput{flex:1;min-width:80px}.panel{display:flex;flex-direction:column;gap:16px}.warning{border-color:#f59e66;background:#3b2726}#verdict{font-size:22px;font-weight:700;margin-bottom:12px}#reason{line-height:1.65}blockquote{margin:8px 0;padding-left:10px;border-left:2px solid #8296b8;color:#cdd9e8;font-size:14px}.prediction{padding:10px 0;border-bottom:1px solid #3c475c}#trace{max-height:220px;overflow:auto;font-size:13px}.trace-row{padding:8px 0;border-bottom:1px solid #334057}.badge{display:inline-block;background:#293a55;padding:4px 8px;border-radius:6px;margin:4px}.error{color:#ffbba7}@media(max-width:850px){body{padding:12px}main{grid-template-columns:1fr}.chat{height:72vh}header{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div><h1>詐騙劇本雷達</h1><div class="muted">逐則理解對話 · 保留判斷依據 · 預測後續要求</div></div><div id="connection" class="muted">確認分析服務…</div></header>
+<main>
+<section class="card chat">
+<h2 id="chatTitle">對話重播</h2>
+<div class="controls"><select id="sample"><option value="">選取內建案例</option></select><button id="loadSample">載入</button></div>
+<div class="controls"><input id="textFile" type="file" accept=".json,.txt"><span class="muted">匯入 JSON 完整對話或 TXT 對方訊息</span></div>
+<div id="messages" aria-live="polite"><p class="muted">選取案例後按「下一則」。角色切換不會重置輪次。</p></div>
+<div id="status" class="muted" role="status">尚未載入</div>
+<div class="controls" style="margin-top:12px"><button id="next" disabled>下一則</button><button id="retry" disabled>重試本輪分析</button><button id="auto" disabled>自動重播</button><button id="reset" disabled>重新開始</button><button id="export" disabled>匯出分析紀錄</button></div>
+<form id="sendForm" class="controls"><input id="messageInput" type="text" placeholder="TXT 模式：輸入你的回覆" disabled><button id="send" disabled>傳送</button></form>
+</section>
+<aside class="panel">
+<section id="decisionCard" class="card"><h2>防詐判斷</h2><div id="verdict">等待對話</div><div id="reason">分析只使用已播放的訊息。</div><div id="advice"></div><div id="evidence"></div><div id="stages"></div><p id="firstAlert" class="muted">尚無示警</p></section>
+<section class="card"><h2>下一步預測</h2><div id="predictions" class="muted">有足夠依據時才預測；一般交易不強行預測詐騙。</div></section>
+<section class="card"><h2>逐輪紀錄</h2><div id="trace"></div><p class="muted">未示警不代表已驗證安全。網頁與影片尚未外部查證。</p></section>
+</aside>
+</main>
+<script src="/app.js"></script>
+</body></html>

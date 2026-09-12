@@ -1,0 +1,173 @@
+{
+  "source": "reports/expanded-v1/run3/B4.results.json",
+  "source_sha256": "6845c7823ecdebc9acc9d5fe8ff64f72bb26d60d409ec24d711ed08a8a0aeb49",
+  "case": "B4.replay.json",
+  "repeat": 3,
+  "prediction": {
+    "id": "p19",
+    "created_turn": 19,
+    "expires_turn": 21,
+    "actor": "counterparty",
+    "action_type": "payment_request",
+    "object": "要求下一筆轉帳或更多款項",
+    "action": "再追加新的金額或指示繼續付款",
+    "within_next_messages": 2,
+    "status": "pending"
+  },
+  "old_status": "pending",
+  "new_status": "pending",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "reason": "原視窗內尚無指定角色的新發言。",
+    "evidence": [],
+    "api_called": false
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "你好，你在賣的演唱會門票還在嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "user",
+      "channel": "chat",
+      "text": "還在，你要買嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "想買，可以用順豐快遞寄給我嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "chat",
+      "text": "可以，寄送要怎麼弄？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "要先簽託運條款，才能辦寄送。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "chat",
+      "text": "是我這邊要簽嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "對，賣家這邊要先簽，還要完成金融認證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "chat",
+      "text": "寄票也要金融認證？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "這筆交易要先完成認證才能繼續。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "chat",
+      "text": "那現在要怎麼處理？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "這筆交易沒有及時完成，帳戶被列警示了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "user",
+      "channel": "chat",
+      "text": "那要怎麼解除？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "要照指示操作解除，先轉帳到指定帳戶。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "chat",
+      "text": "我看一下。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 16,
+      "sender": "user",
+      "channel": "chat",
+      "text": "45,046 元，已經轉好了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 17,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "接著再轉 27,979 元。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 18,
+      "sender": "user",
+      "channel": "chat",
+      "text": "這筆 27,979 元也轉好了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 19,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "再一筆 27,028 元，轉完告訴我。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 20,
+      "sender": "user",
+      "channel": "chat",
+      "text": "27,028 元轉好了，三筆都轉了。",
+      "attachment_captions": []
+    }
+  ]
+}

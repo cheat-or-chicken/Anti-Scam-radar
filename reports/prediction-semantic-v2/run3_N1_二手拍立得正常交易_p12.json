@@ -1,0 +1,149 @@
+{
+  "source": "reports/expanded-v1/run3/N1_二手拍立得正常交易.results.json",
+  "source_sha256": "d59f650fb2a26fa3caa61a46f67b5901ceee731b892e4388e609546cb5ec7d40",
+  "case": "N1_二手拍立得正常交易.replay.json",
+  "repeat": 3,
+  "prediction": {
+    "id": "p12",
+    "created_turn": 12,
+    "expires_turn": 14,
+    "actor": "seller",
+    "action_type": "payment_request",
+    "object": "要求先付款完成 860 元寄件",
+    "action": "進一步要求買家先付款以便寄出相機",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": true,
+    "new_after_prediction": false,
+    "reason": "視窗內 seller 只在第12輪提出「一共 860 元」並詢問「你想用平台下單還是直接轉帳後寄件？」，但沒有明確要求先付款完成後才寄件；第14輪只是上架平台供下單，仍未見相符的先付款寄件要求。",
+    "audit": null,
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_073660620b4f0c21016aa4e849113c87d09110f6a7765d59d5",
+    "usage": {
+      "input_tokens": 1483,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 1280
+      },
+      "output_tokens": 112,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1595
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "social_dm",
+      "text": "你好，看到你賣二手拍立得，還在嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "seller",
+      "channel": "social_dm",
+      "text": "還在，最近整理房間很少用了，所以便宜賣。機身有使用痕跡，功能正常。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "social_dm",
+      "text": "800 元是只有相機嗎？有附底片嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "seller",
+      "channel": "social_dm",
+      "text": "只有相機跟背帶，沒有底片。電池蓋旁邊有刮痕，貼文最後一張有拍。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "social_dm",
+      "text": "可以再看一下出片的影片嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "seller",
+      "channel": "social_dm",
+      "text": "可以，我今天下班後拍給你。方便加 LINE 傳嗎？我的名字是「阿哲」，連結是 https://chat.example.com/azhe-camera 。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "你好，我是剛剛問拍立得的。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "這是剛剛拍的，影片裡有開機、按快門，最後拍到相紙出來。右邊電池蓋的刮痕也有拍近一點給你看。",
+      "attachment_captions": [
+        "試機影片・00:18｜開機、按快門、出片與電池蓋刮痕特寫"
+      ]
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "看到了，外觀我可以接受。可以面交嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "可以，我週六下午能在車站面交，你可以現場試機再付款。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "我住比較遠，還是寄給我好了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "也可以。相機 800，運費算 60，一共 860 元。你想用平台下單還是直接轉帳後寄件？",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 13,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "我用平台下單好了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "好，我把這台上架到「拾物二手」了。你直接開平台 App，搜尋帳號「阿哲的二手櫃」就能找到，不用從聊天連結登入。",
+      "attachment_captions": []
+    }
+  ]
+}

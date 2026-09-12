@@ -1,0 +1,789 @@
+{
+  "summary": {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "89665d8508e74c0d85cdf051033027dc",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+    "completed": false,
+    "turns_analyzed": 11,
+    "total_turns": 38,
+    "first_alert_turn": null,
+    "payment_turn": 21,
+    "lead_turns": null,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "first_warning": null
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只是詢問商品是否還有，屬一般買賣接觸，未見付款、敏感操作或限制查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問拍立得是否還有",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "僅有商品詢問，缺乏詐騙或高風險要求證據。",
+        "normal_explanation": "一般買賣詢問可正常出現。",
+        "recommended_action": "持續觀察後續是否出現付款、驗證碼、轉LINE或限制查證等要求。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "你好，我看到你們送拍立得的貼文，請問還有嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_04bfa2f17a205f8e016aa4dcaf2ba487d08f92f4935fb72208",
+      "usage": {
+        "input_tokens": 4695,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 194,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4889
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 2.671,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2
+          ],
+          "explanation": "對方僅說仍有庫存並說明來源，未出現付款、敏感操作或限制查證要求。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "other",
+          "object": "回覆拍立得尚有並說明相館準備歇業",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是一般回覆，沒有符合警報規則的具體要求。",
+        "normal_explanation": "一般商品／贈送說明可正常出現。",
+        "recommended_action": "繼續觀察後續是否出現付款、驗證碼、轉LINE或限制查證等要求。",
+        "stages": [
+          "S0",
+          "S1"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "還有喔，相館準備歇業了，剩下的庫存想送給需要的人。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_02c579593df5f55e016aa4dcb1074887d0bfd91dd99a1649e1",
+      "usage": {
+        "input_tokens": 4988,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 202,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5190
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 1.821,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            3
+          ],
+          "explanation": "本輪僅提出改用 LINE 確認寄送資料，未見付款、密碼/OTP、網銀控制或限制獨立查證的具體要求。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "isolation_request",
+          "object": "改以 LINE 確認寄送資料",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "出現轉移聯絡管道，但尚未連到資金、權限或禁止查證要求，未達警報門檻。",
+        "normal_explanation": "一般聯絡方式轉換可見於正常贈送或寄送流程。",
+        "recommended_action": "先觀察後續是否出現付款、驗證碼、密碼、遠端操作，或要求不要自行查證。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 3,
+            "quote": "方便加 LINE 嗎？寄送資料在那邊跟你確認。我叫「光盒相館・小林」，連結是 https://chat.example.com/lightbox-lin 。"
+          }
+        ],
+        "prediction": {
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "寄送資料相關驗證或確認操作",
+          "action": "接著要求提供更敏感的聯絡／驗證資訊來完成寄送確認",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_06b5021e6fa5f7df016aa4dcb2d65887d082057123453188c2",
+      "usage": {
+        "input_tokens": 5077,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 278,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5355
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p3",
+          "created_turn": 3,
+          "expires_turn": 5,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "寄送資料相關驗證或確認操作",
+          "action": "接著要求提供更敏感的聯絡／驗證資訊來完成寄送確認",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 2.119,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            4
+          ],
+          "explanation": "本輪只是使用者打招呼，沒有新增要求或敏感操作。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "向對方打招呼並自我確認身分",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍停留在聯絡轉移階段，未見付款、密碼/OTP、網銀控制或限制查證的具體要求。",
+        "normal_explanation": "單純改到 LINE 後的寒暄可見於正常寄送確認流程。",
+        "recommended_action": "持續觀察對方是否接著提出敏感驗證、付款，或要求不要自行查證。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "你好，我是剛剛問拍立得的。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0763aa95cc2274bf016aa4dcb4eef087d08205998998d25071",
+      "usage": {
+        "input_tokens": 5315,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 202,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5517
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p3",
+          "created_turn": 3,
+          "expires_turn": 5,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "寄送資料相關驗證或確認操作",
+          "action": "接著要求提供更敏感的聯絡／驗證資訊來完成寄送確認",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 1.673,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5
+          ],
+          "explanation": "本輪新增的是運費 60 元，屬一般寄送費用；未見敏感操作或禁止查證。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "payment_request",
+          "object": "拍立得運費 60 元",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "目前僅見寄送情境下的運費要求，尚不足以命中高風險規則。",
+        "normal_explanation": "送件、寄送資料與運費分攤可見於正常贈送流程。",
+        "recommended_action": "先確認寄件資訊與運費支付方式，持續觀察是否出現密碼、OTP、網銀操作或禁止查證。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "拍立得不用錢，運費 60 元你自己出就好，可以嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0154e0a093218193016aa4dcb6a35487d09b13924007dc991d",
+      "usage": {
+        "input_tokens": 5255,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 691,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5946
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p3",
+          "created_turn": 3,
+          "expires_turn": 5,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "寄送資料相關驗證或確認操作",
+          "action": "接著要求提供更敏感的聯絡／驗證資訊來完成寄送確認",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 3.515,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            6
+          ],
+          "explanation": "本輪只是詢問寄送資料，未見新增付款、敏感操作或限制查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問寄送資料",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍停留在一般寄送與運費討論，未達具體高風險條件。",
+        "normal_explanation": "索取寄送資料可屬正常出貨流程。",
+        "recommended_action": "持續觀察是否出現密碼、OTP、網銀畫面或要求改用其他管道與保密查證。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "可以，要在哪裡填寄送資料？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0d7102057295e0cd016aa4dcba37d487d08d3d80118b615c42",
+      "usage": {
+        "input_tokens": 5229,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 191,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5420
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p3",
+          "created_turn": 3,
+          "expires_turn": 5,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "寄送資料相關驗證或確認操作",
+          "action": "接著要求提供更敏感的聯絡／驗證資訊來完成寄送確認",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 2.076,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            7
+          ],
+          "explanation": "本輪僅提供填寫寄送資料的賣貨便頁面，未見密碼、OTP、網銀操作、保密查證或新增付款要求。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "other",
+          "object": "提供賣貨便填寫寄送資料頁面",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍是寄送流程，未出現符合高風險規則的具體要求。",
+        "normal_explanation": "提供出貨表單可屬一般寄件作業。",
+        "recommended_action": "持續觀察後續是否出現敏感資訊、額外付款或阻止查證要求。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "用這個賣貨便頁面，點進去填收件姓名、手機跟取貨門市就可以了：https://parcel.example.com/order/CAM-0912-01"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0080d2b008195ac6016aa4dcbc369c87d09d06db766977be95",
+      "usage": {
+        "input_tokens": 5268,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 206,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5474
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p3",
+          "created_turn": 3,
+          "expires_turn": 5,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "寄送資料相關驗證或確認操作",
+          "action": "接著要求提供更敏感的聯絡／驗證資訊來完成寄送確認",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 2.231,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "本輪是使用者回報頁面跳出實名認證，未見對方新增密碼、OTP、網銀操控、保密查證或付款要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報賣貨便頁面跳出實名認證",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍缺少高風險必要條件，僅有使用者回報流程異常。",
+        "normal_explanation": "一般平台的實名或身分驗證提示，不能單獨視為詐騙要求。",
+        "recommended_action": "先不要自行輸入敏感資料，等待對方是否提出新增操作或付款要求。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "我填完送出，怎麼跳出「交易訂單失敗，需實名認證」？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_00fc98ee9a7b7531016aa4dcbe6ac087d0976f7fa4a503da9a",
+      "usage": {
+        "input_tokens": 5370,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 216,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5586
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p3",
+          "created_turn": 3,
+          "expires_turn": 5,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "寄送資料相關驗證或確認操作",
+          "action": "接著要求提供更敏感的聯絡／驗證資訊來完成寄送確認",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 1.721,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "本輪僅轉介客服 LINE，未見密碼、OTP、網銀操控、禁止查證或新增付款要求。"
+        },
+        "observation": {
+          "actor": "donor",
+          "action_type": "other",
+          "object": "轉介頁面上的客服 LINE 處理實名認證",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前只有客服轉介，未達敏感操作或禁止查證的具體條件。",
+        "normal_explanation": "一般平台客服處理流程可能會出現。",
+        "recommended_action": "先保留查證，不要交付密碼、OTP 或進行網銀操作；若後續出現具體敏感要求再評估。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "那要找客服處理，頁面上有客服的 LINE。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0e80bbb05c449084016aa4dcc021b887d08ed435945d14aa17",
+      "usage": {
+        "input_tokens": 5413,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 206,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5619
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p3",
+          "created_turn": 3,
+          "expires_turn": 5,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "寄送資料相關驗證或確認操作",
+          "action": "接著要求提供更敏感的聯絡／驗證資訊來完成寄送確認",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 1.589,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            10
+          ],
+          "explanation": "本輪只有使用者追問是否填成功，對方尚未新增要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問填單是否成功",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍僅是客服轉介與使用者詢問，未見密碼、OTP、網銀操控、禁止查證或新增付款要求。",
+        "normal_explanation": "一般填單流程中，使用者詢問狀態很常見。",
+        "recommended_action": "先等對方回覆；若後續出現密碼、OTP、網銀畫面、代操或禁止查證，再重新評估。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 10,
+            "quote": "所以現在沒有填成功嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_022dc601b1f64e27016aa4dcc1bb5c87d0a48400e2c3c50bf9",
+      "usage": {
+        "input_tokens": 5434,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 204,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5638
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "turn": 10,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p3",
+          "created_turn": 3,
+          "expires_turn": 5,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "寄送資料相關驗證或確認操作",
+          "action": "接著要求提供更敏感的聯絡／驗證資訊來完成寄送確認",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 1.765,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "analysis_error",
+      "decision": null,
+      "usage": null,
+      "error": "模型回覆未通過格式或引用驗證，請按重試本輪分析。",
+      "turn": 11,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p3",
+          "created_turn": 3,
+          "expires_turn": 5,
+          "actor": "donor",
+          "action_type": "sensitive_access_request",
+          "object": "寄送資料相關驗證或確認操作",
+          "action": "接著要求提供更敏感的聯絡／驗證資訊來完成寄送確認",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+      "elapsed_seconds": 6.344,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "invalid_model_output",
+          "code": "unsupported_warning"
+        },
+        {
+          "attempt": 2,
+          "status": "invalid_model_output",
+          "code": "unsupported_warning"
+        }
+      ]
+    }
+  ]
+}

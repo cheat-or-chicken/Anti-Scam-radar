@@ -1,0 +1,83 @@
+{
+  "case": "N4_公司IT分享試算表畫面.replay.json",
+  "repeat": 2,
+  "source": "reports/expanded-v1/run2/N4_公司IT分享試算表畫面.results.json",
+  "source_sha256": "4a8738f5d581d1c9ede647b546b7e70d6cfd08ae3f4aba718f811904dcd250a0",
+  "predictions": [],
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "work_chat",
+      "text": "你是今天處理我報修單的同事嗎？試算表列印又跑版了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "it",
+      "channel": "work_chat",
+      "text": "對，工單是 IT-2408，我在公司會議室的支援時段，現在可以看。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "work_chat",
+      "text": "我從公司通訊錄撥你的分機，剛剛有接到。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "it",
+      "channel": "work_chat",
+      "text": "那用公司的視訊會議分享試算表視窗，我看一下列印範圍。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "work_chat",
+      "text": "我分享這個空白範本就好，其他視窗沒有分享。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "it",
+      "channel": "work_chat",
+      "text": "看到了，你的紙張大小選成信封，改 A4，再預覽一次。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "work_chat",
+      "text": "改好了，現在一頁放得下。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "it",
+      "channel": "work_chat",
+      "text": "可以停止分享了，我把處理方式寫進工單。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "work_chat",
+      "text": "印出來正常，謝謝。",
+      "attachment_captions": []
+    }
+  ],
+  "review": {
+    "version": "whole-conversation-v2",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+    "status": "ok",
+    "items": [],
+    "matched": 0,
+    "missed": 0,
+    "uncertain": 0,
+    "rate": null
+  }
+}

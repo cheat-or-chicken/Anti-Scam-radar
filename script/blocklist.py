@@ -45,7 +45,7 @@ class Blocklist:
 
 @lru_cache
 def bundled_blocklist() -> Blocklist:
-    return Blocklist(json.loads((Path(__file__).parent / "data/blocklist.json").read_text()))
+    return Blocklist(json.loads((Path(__file__).parent / "data/blocklist.json").read_text(encoding="utf-8")))
 
 
 def verify_blocklist(ctx: PageContext):

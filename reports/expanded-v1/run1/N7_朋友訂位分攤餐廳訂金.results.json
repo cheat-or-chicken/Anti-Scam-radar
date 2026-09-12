@@ -1,0 +1,602 @@
+{
+  "summary": {
+    "file": "N7_朋友訂位分攤餐廳訂金.replay.json",
+    "repeat": 1,
+    "case_type": "benign",
+    "completed": true,
+    "turns_analyzed": 9,
+    "total_turns": 9,
+    "first_alert_turn": null,
+    "payment_turn": 7,
+    "harm_turn": 7,
+    "before_payment": null,
+    "before_harm": null,
+    "detected_by_end": null,
+    "false_alarm": false,
+    "harm_lead": null,
+    "payment_lead": null,
+    "warning_downgrade_turns": [],
+    "mean_seconds": 2.164,
+    "recovered_or_failed_turns": [],
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "detector_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207"
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只是一般聚餐確認，沒有金錢、敏感權限或隔離查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "週六聚餐人數確認",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "內容屬一般社交對話，未見詐騙或高風險操作特徵。",
+        "normal_explanation": "詢問聚餐人數屬日常安排。",
+        "recommended_action": "維持一般回覆即可。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "週六聚餐確定四個人嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0141b6d47c282586016aa4e0b0e1a487d0aeb37c8f6cd95910",
+      "usage": {
+        "input_tokens": 4754,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 170,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4924
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.781,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只是說明餐廳訂位與訂金規則，未出現詐騙式付款或敏感權限要求。"
+        },
+        "observation": {
+          "actor": "friend",
+          "action_type": "other",
+          "object": "餐廳訂位與訂金說明",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前僅見一般聚餐安排與餐廳訂金資訊，未達警報條件。",
+        "normal_explanation": "餐廳包廂訂金可見於正常訂位流程。",
+        "recommended_action": "照一般聚餐流程確認即可。",
+        "stages": [
+          "S0",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "對，我訂了青禾餐館。店家說四人包廂要先付一千元訂金，當天抵餐費。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0957e4ac911da7ed016aa4e0b28d0487d0854f272c059e8496",
+      "usage": {
+        "input_tokens": 5022,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 188,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5210
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.726,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前仍是一般聚餐分攤討論，未出現不合理付款、敏感權限或阻止查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問分攤餐廳訂金金額",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "只有餐廳訂位訂金與分攤確認，屬正常聚餐安排。",
+        "normal_explanation": "包廂訂金與分攤金額屬常見聚餐流程，無法單獨構成警報。",
+        "recommended_action": "照一般聚餐方式確認金額即可。",
+        "stages": [
+          "S0",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "對，我訂了青禾餐館。店家說四人包廂要先付一千元訂金，當天抵餐費。"
+          },
+          {
+            "turn": 3,
+            "quote": "我分攤兩百五？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0edc4641702f72d7016aa4e0b44e0487d09ebc4679950be191",
+      "usage": {
+        "input_tokens": 5102,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 203,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5305
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.873,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "仍是一般聚餐訂金分攤，未見不合理付款、敏感權限或阻止查證要求。"
+        },
+        "observation": {
+          "actor": "friend",
+          "action_type": "other",
+          "object": "同意晚點轉帳分攤餐廳訂金",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "此輪只是回覆分攤方式，屬正常聚餐付款安排。",
+        "normal_explanation": "朋友先墊付訂金、之後再分攤，屬常見聚餐流程，不能單獨視為警報。",
+        "recommended_action": "照一般聚餐方式確認分攤金額即可。",
+        "stages": [
+          "S0",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "對，我先付店家，你晚點轉我就好。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_07dac0481959406e016aa4e0b617b887d0a7c6da18625855b6",
+      "usage": {
+        "input_tokens": 5180,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 204,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5384
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.06,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5
+          ],
+          "explanation": "本輪是使用者回報已向餐廳查證訂位資訊，屬正常獨立確認，未見新風險要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已向餐廳查證訂位資訊",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "本輪只有查證結果，沒有新的付款、敏感操作或隔離要求。",
+        "normal_explanation": "自行打電話確認訂位是正常查證，不構成警報。",
+        "recommended_action": "維持一般聚餐溝通即可。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "我也打餐廳的電話問了，訂位是週六六點、你的名字。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0cdcefddf38cd970016aa4e0b83b9c87d0904ea5d183214e85",
+      "usage": {
+        "input_tokens": 5200,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 188,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5388
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.78,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            6
+          ],
+          "explanation": "本輪僅是朋友確認訂位與改時間安排，沒有新的付款、敏感操作或隔離要求。"
+        },
+        "observation": {
+          "actor": "friend",
+          "action_type": "other",
+          "object": "確認訂位與改時間安排",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前仍是正常聚餐協調，未見可套用的高風險要求。",
+        "normal_explanation": "一般餐聚確認訂位、時間與訂金分攤都屬正常溝通。",
+        "recommended_action": "可照正常聚餐流程處理，不需特別警示。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "沒錯，剛收到訂位確認，當天如果要改時間再一起決定。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f7de34f5c065536016aa4e0b9e97087d0b96102b16bd691f4",
+      "usage": {
+        "input_tokens": 5245,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 188,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5433
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.801,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            7
+          ],
+          "explanation": "本輪只是使用者表示已轉帳，沒有新的要求或風險行為。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已轉帳",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是朋友聚餐分攤情境，未出現可套用的高風險規則。",
+        "normal_explanation": "一般聚餐費用分攤與轉帳回報屬正常互動。",
+        "recommended_action": "維持一般確認即可。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "兩百五轉到以前分攤房費那個帳號了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_06775c3d9092cca4016aa4e0bbc19087d089ecde4ec40c77fb",
+      "usage": {
+        "input_tokens": 5293,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 172,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5465
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.354,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "本輪只是對方確認已收款並結束對話，沒有新的可疑要求。"
+        },
+        "observation": {
+          "actor": "friend",
+          "action_type": "other",
+          "object": "確認收款並結束對話",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是朋友聚餐分攤情境，未見高風險要求或限制查證。",
+        "normal_explanation": "一般聚餐訂金分攤、收款確認屬正常互動。",
+        "recommended_action": "維持一般溝通即可。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "收到了，週六見。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_01dc92499c02360e016aa4e0bd42d887d0964fcf8de0e85b3d",
+      "usage": {
+        "input_tokens": 5312,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 175,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5487
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 5.409,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "本輪只是使用者回報訂金已扣與現場付款，沒有新要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報帳單扣款與現場付款",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是朋友聚餐分攤情境，未見新可疑要求或限制查證。",
+        "normal_explanation": "一般聚餐訂金與現場付款屬正常交易互動。",
+        "recommended_action": "維持一般溝通即可。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "今天帳單有扣掉一千元訂金，剩下我們現場付了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0546584fb54a5433016aa4e0c2931487d0833247d7fc0dba74",
+      "usage": {
+        "input_tokens": 5357,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 173,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5530
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.692,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

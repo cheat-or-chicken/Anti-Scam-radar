@@ -1,0 +1,191 @@
+{
+  "source": "reports/expanded-v1/run3/B6_點數卡驗證與私密影像勒索.results.json",
+  "source_sha256": "0ef4f82ec34cb4688ebf8d105bfe04b185e1efb629cbaa93a3a7b4011db1a97b",
+  "case": "B6_點數卡驗證與私密影像勒索.replay.json",
+  "repeat": 3,
+  "prediction": {
+    "id": "p15",
+    "created_turn": 15,
+    "expires_turn": 17,
+    "actor": "contact",
+    "action_type": "payment_request",
+    "object": "更多點數或其他付款",
+    "action": "追加索取下一筆付款",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": true,
+    "new_after_prediction": true,
+    "reason": "第4輪與第6輪已經提出過買點數與支付金額的義務，第15輪又再次要求再買5000元點數，屬於同一付款義務的延續；第17輪只是重複催交序號，沒有出現創新的、在created_turn之後的新付款要求，因此不算命中。",
+    "audit": {
+      "outcome": "not_matched",
+      "required_action": "在第15輪後，聯絡人需要首次追加索取下一筆付款／更多點數。",
+      "observed_action": "第17輪聯絡人只是催促對方立刻傳點數序號，沒有提出新的付款金額或下一筆付款要求。",
+      "prior_equivalent_turns": [
+        4,
+        6,
+        15
+      ],
+      "reason": "第4輪與第6輪已經提出過買點數與支付金額的義務，第15輪又再次要求再買5000元點數，屬於同一付款義務的延續；第17輪只是重複催交序號，沒有出現創新的、在created_turn之後的新付款要求，因此不算命中。",
+      "response_id": "resp_06ebe0e55a6b9305016aa4e84a468c87d0bfada64d12ad1a93",
+      "usage": {
+        "input_tokens": 1301,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 173,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1474
+      }
+    },
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_052e8cc8dcf393b0016aa4e84908e487d083bd927eb13cb072",
+    "usage": {
+      "input_tokens": 1452,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 1280
+      },
+      "output_tokens": 74,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1526
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "messenger",
+      "text": "看到你的交友貼文，可以先聊聊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "contact",
+      "channel": "messenger",
+      "text": "可以，這邊不常看，換 LINE 聊。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "line",
+      "text": "加到了，我們週末能見面嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "contact",
+      "channel": "line",
+      "text": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "line",
+      "text": "要買多少？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "contact",
+      "channel": "line",
+      "text": "先兩張一千元的，把序號拍給我，我才能幫你登記。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "line",
+      "text": "我買好了，兩張序號是 DEMO-DATE-001 和 DEMO-DATE-002。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "contact",
+      "channel": "line",
+      "text": "見面前先做私密視訊，好嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "line",
+      "text": "我只想先見面，現在不想視訊。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "messenger",
+      "text": "LINE 訊息送不出去，是把我封鎖了嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "contact",
+      "channel": "messenger",
+      "text": "剛剛覺得你沒誠意，我解除封鎖了，你回 LINE。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "contact",
+      "channel": "line",
+      "text": "現在能視訊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "user",
+      "channel": "line",
+      "text": "好，我接起來了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "line",
+      "text": "剛才的私密視訊結束了，你現在可以安排見面嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "contact",
+      "channel": "line",
+      "text": "我留下剛才的畫面了。再買五千元點數給我，不然把影像傳給你的親友。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 16,
+      "sender": "user",
+      "channel": "line",
+      "text": "你沒有問過就留下畫面，我不想讓人看到。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 17,
+      "sender": "contact",
+      "channel": "line",
+      "text": "現在就把點數序號傳來。",
+      "attachment_captions": []
+    }
+  ]
+}

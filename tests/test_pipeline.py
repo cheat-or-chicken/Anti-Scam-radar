@@ -5,7 +5,7 @@ import pytest
 
 from script.config import Settings
 from script.layers import REGISTRY
-from script.models import PageContext
+from script.models import LayerResult, PageContext
 from script.pipeline import analyze
 from script.storage import Store, fingerprint
 
@@ -19,7 +19,7 @@ from script.storage import Store, fingerprint
     ],
 )
 async def test_demo_fixtures(tmp_path, file, blocked):
-    ctx = PageContext.model_validate_json((Path("fixtures") / file).read_text())
+    ctx = PageContext.model_validate_json((Path("fixtures") / file).read_text(encoding="utf-8"))
     settings = Settings(database_path=str(tmp_path / "audit.db"))
     r = await analyze(ctx, settings)
     assert r.interrupted is blocked
@@ -47,6 +47,26 @@ async def test_missing_key_does_not_disable_rules():
     r = await analyze(ctx, Settings(audit_enabled=False, llm_enabled=True, allow_content_upload=True))
     assert r.llm_calls == 0
     assert r.decision.risk_score >= 60
+
+
+async def test_pipeline_includes_configured_google_url_reputation(monkeypatch):
+    from script.google_reputation import GoogleUrlReputation
+
+    async def fake_check(self, ctx):
+        return LayerResult(layer="GOOGLE_URL_REPUTATION", verdict="clean", status="ok")
+
+    monkeypatch.setattr(GoogleUrlReputation, "check", fake_check)
+    r = await analyze(
+        PageContext(url="https://google-layer-test.example", domain_age_days=10),
+        Settings(
+            audit_enabled=False,
+            network_enabled=True,
+            google_url_reputation_provider="web_risk",
+            google_url_reputation_api_key="test-google-key",
+        ),
+    )
+
+    assert any(layer.layer == "GOOGLE_URL_REPUTATION" and layer.status == "ok" for layer in r.layers)
 
 
 def test_reports_consent_dedup_and_separate_review(tmp_path):

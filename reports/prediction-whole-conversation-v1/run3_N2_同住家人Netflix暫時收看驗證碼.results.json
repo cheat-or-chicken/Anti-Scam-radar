@@ -1,0 +1,121 @@
+{
+  "case": "N2_同住家人Netflix暫時收看驗證碼.replay.json",
+  "repeat": 3,
+  "source": "reports/expanded-v1/run3/N2_同住家人Netflix暫時收看驗證碼.results.json",
+  "source_sha256": "b9c0b48b45a6ca0c1d296d15a7b65e488f74d48df978c86c109a8813fa24903a",
+  "predictions": [
+    {
+      "id": "p4",
+      "created_turn": 4,
+      "expires_turn": 6,
+      "actor": "family",
+      "action_type": "sensitive_access_request",
+      "object": "更多驗證碼或登入驗證資訊",
+      "action": "接著再要求其他驗證資訊",
+      "within_next_messages": 2,
+      "status": "missed"
+    }
+  ],
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "你出差到了嗎？家裡晚餐剩的咖哩我放冰箱了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "到了，明晚回家。我用平常家裡那台平板開 Netflix，跳出暫時收看的驗證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "是我們一直共用的家庭帳號嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "對，剛在 App 按寄送郵件到你的信箱，幫我看一下四位數代碼。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "我先打你原本的手機確認，你等一下接。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "剛通完了，是我本人在旅館的平板申請，時間就是剛剛。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "信裡是 Netflix 的暫時存取要求，對上你的這次操作，代碼 7316。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "輸入進去了，能看了，明天回家再一起看下一集。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "好，咖哩記得吃。",
+      "attachment_captions": []
+    }
+  ],
+  "review": {
+    "version": "whole-conversation-v1",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+    "status": "ok",
+    "items": [
+      {
+        "prediction_id": "p4",
+        "outcome": "missed",
+        "matched_turn": null,
+        "reason": "第4輪家人只要求查看一次四位數代碼，之後對話中沒有再由 family 接著要求其他驗證資訊、更多驗證碼或其他登入驗證內容。第6輪是解釋申請來源，第8輪是表示已輸入成功，均不是追加索取。",
+        "evidence": []
+      }
+    ],
+    "matched": 0,
+    "missed": 1,
+    "uncertain": 0,
+    "rate": 0.0,
+    "response_id": "resp_03b65ffc9759a58f016aa4eae0569487d0835ba62775c863a9",
+    "usage": {
+      "input_tokens": 1199,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 102,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1301
+    },
+    "attempts": [
+      {
+        "status": "ok"
+      }
+    ]
+  }
+}

@@ -1,0 +1,123 @@
+[
+  {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "89665d8508e74c0d85cdf051033027dc",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+    "completed": false,
+    "turns_analyzed": 11,
+    "total_turns": 38,
+    "first_alert_turn": null,
+    "payment_turn": 21,
+    "lead_turns": null,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "first_warning": null
+  },
+  {
+    "file": "B2_假買家騙賣家.replay.json",
+    "session_id": "67fc61b148734f23997f7ab4ccf8992a",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+    "completed": false,
+    "turns_analyzed": 29,
+    "total_turns": 30,
+    "first_alert_turn": 17,
+    "payment_turn": 26,
+    "lead_turns": 9,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_SENSITIVE_ACCESS",
+          "conditions": [
+            {
+              "requirement": "對方身分及引導關係",
+              "evidence_turns": [
+                13,
+                15,
+                17
+              ],
+              "explanation": "support 以客服身分介入，並持續引導操作。"
+            },
+            {
+              "requirement": "具體敏感資訊或操作要求",
+              "evidence_turns": [
+                17
+              ],
+              "explanation": "已要求開啟網路銀行並進行驗證，屬敏感網銀操作要求。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服可協助排除問題，但不會要求直接開啟網路銀行處理驗證；此要求超出單純通話或畫面分享。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          13,
+          15,
+          17
+        ],
+        "explanation": "本輪新增了開啟網路銀行與驗證要求，未見反證可解除風險。"
+      },
+      "observation": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "開啟網路銀行並處理驗證",
+        "is_new_request": true
+      },
+      "status": "warn",
+      "reason": "已出現要求開啟網路銀行並處理驗證，屬敏感操作。",
+      "normal_explanation": "一般客服可用通話或畫面分享協助，但直接要求網銀驗證超出正常協助範圍。",
+      "recommended_action": "先停止操作，不要輸入密碼或 OTP；改以你自己另外開啟的官方管道查證。",
+      "stages": [
+        "S4",
+        "S5"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS"
+      ],
+      "evidence": [
+        {
+          "turn": 13,
+          "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+        },
+        {
+          "turn": 15,
+          "quote": "不用開鏡頭，分享手機畫面就可以。"
+        },
+        {
+          "turn": 17,
+          "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+        }
+      ],
+      "prediction": {
+        "actor": "support",
+        "action_type": "new_condition",
+        "object": "要求改由網路銀行完成驗證流程",
+        "action": "進一步要求你依其指示在網銀內完成驗證或輸入驗證資訊",
+        "within_next_messages": 2
+      },
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "N1_二手拍立得正常交易.replay.json",
+    "session_id": "95ede83ccee3413e86ee29bf2204ddd4",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+    "completed": true,
+    "turns_analyzed": 26,
+    "total_turns": 26,
+    "first_alert_turn": null,
+    "payment_turn": 20,
+    "lead_turns": null,
+    "false_alarm": false,
+    "evaluation_status": "completed",
+    "passed": true,
+    "first_warning": null
+  }
+]

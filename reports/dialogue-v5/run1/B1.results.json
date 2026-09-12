@@ -1,0 +1,40 @@
+{
+  "summary": {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "2ee4568868554c5da5a886da3b8f1190",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "6aed992e728c3e152fe2fea877f13fba1efac452fa8357724c9d1e4d18b3072d",
+    "completed": false,
+    "turns_analyzed": 1,
+    "total_turns": 38,
+    "first_alert_turn": null,
+    "payment_turn": 21,
+    "lead_turns": null,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "first_warning": null
+  },
+  "results": [
+    {
+      "status": "analysis_error",
+      "decision": null,
+      "usage": null,
+      "error": "分析連線或服務暫時失敗，請按重試本輪分析。",
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "6aed992e728c3e152fe2fea877f13fba1efac452fa8357724c9d1e4d18b3072d",
+      "elapsed_seconds": 0.285,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "APIConnectionError",
+          "code": null
+        }
+      ]
+    }
+  ]
+}

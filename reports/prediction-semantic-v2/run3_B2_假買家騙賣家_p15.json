@@ -1,0 +1,189 @@
+{
+  "source": "reports/expanded-v1/run3/B2_假買家騙賣家.results.json",
+  "source_sha256": "ecd98b98ee019e1eccfd05cf094f87cb22965202ab447c8d5e73c00825876f17",
+  "case": "B2_假買家騙賣家.replay.json",
+  "repeat": 3,
+  "prediction": {
+    "id": "p15",
+    "created_turn": 15,
+    "expires_turn": 17,
+    "actor": "support",
+    "action_type": "sensitive_access_request",
+    "object": "要求開啟手機畫面中的登入或驗證操作",
+    "action": "可能進一步請你在分享畫面狀態下操作登入或驗證流程",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": true,
+    "new_after_prediction": true,
+    "reason": "候選輪次確實有新的要求，但內容只是延續前一輪已要求的畫面分享操作後，進一步開啟網路銀行並驗證；這與預測的『可能進一步請你在分享畫面狀態下操作登入或驗證流程』實質上接近，但前文第15輪已先提出分享手機畫面這個同一義務，且第17輪沒有明確新增『登入』動作，只是要求進行驗證，因此不能視為無前置義務的全新命中。",
+    "audit": {
+      "outcome": "not_matched",
+      "required_action": "要求對方在手機畫面分享中開啟網路銀行並進行驗證操作。",
+      "observed_action": "實際要求對方開啟網路銀行，接著處理驗證。",
+      "prior_equivalent_turns": [
+        15
+      ],
+      "reason": "候選輪次確實有新的要求，但內容只是延續前一輪已要求的畫面分享操作後，進一步開啟網路銀行並驗證；這與預測的『可能進一步請你在分享畫面狀態下操作登入或驗證流程』實質上接近，但前文第15輪已先提出分享手機畫面這個同一義務，且第17輪沒有明確新增『登入』動作，只是要求進行驗證，因此不能視為無前置義務的全新命中。",
+      "response_id": "resp_0eaefbe5ddebc1f4016aa4e84835c487d095ff465b739ffc8d",
+      "usage": {
+        "input_tokens": 1351,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 202,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1553
+      }
+    },
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_06bffcd0fe8dc9f7016aa4e847112c87d0ad8d1906eca784ab",
+    "usage": {
+      "input_tokens": 1502,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 1280
+      },
+      "output_tokens": 90,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1592
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "你好，社團那篇嬰孩營養品還有嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "user",
+      "channel": "facebook_dm",
+      "text": "還有，保存期限有拍在照片裡，你可以看一下。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "有看到，我想買。可以用7-11賣貨便嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "facebook_dm",
+      "text": "可以，寄到超商比較方便。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "這個是寄件頁面，你填一下資料：https://parcel.example.com/order/BABY-0912-02",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "facebook_dm",
+      "text": "我點進去了，是填寄件人的資料對嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "對，填完送出。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "facebook_dm",
+      "text": "填好了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "我這邊帳戶被鎖住了，你剛剛操作是不是有弄錯？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "facebook_dm",
+      "text": "我就是照頁面填資料，怎麼會鎖住？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "要找客服解鎖，剛剛那個網頁裡有客服，麻煩你趕快聯絡一下。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "你好，買家說我填寄件資料後，她的帳戶被鎖住了，叫我找你們。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "您好，這邊協助您排除交易異常，我用通話帶您操作。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "好，是要開視訊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "不用開鏡頭，分享手機畫面就可以。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 16,
+      "sender": "user",
+      "channel": "support_call",
+      "text": "我開了畫面分享，現在看得到嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 17,
+      "sender": "support",
+      "channel": "support_call",
+      "text": "看得到，接著請開啟網路銀行，處理驗證。",
+      "attachment_captions": []
+    }
+  ]
+}

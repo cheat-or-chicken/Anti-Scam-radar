@@ -1,0 +1,186 @@
+{
+  "source": "reports/expanded-v1/run1/B2_假買家騙賣家.results.json",
+  "source_sha256": "8dcda3e5226aad9504e47cbab6bb7276f2674317ceca30cabe8e32dadd751190",
+  "case": "B2_假買家騙賣家.replay.json",
+  "repeat": 1,
+  "prediction": {
+    "id": "p17",
+    "created_turn": 17,
+    "expires_turn": 19,
+    "actor": "support",
+    "action_type": "sensitive_access_request",
+    "object": "密碼或OTP",
+    "action": "接著要求輸入登入密碼、驗證碼或其他網銀敏感資訊",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "matched",
+  "verdict": {
+    "version": "semantic-match-v1",
+    "prompt_hash": "91a9599add5812fbe1f40fd8211de5f393ea1c3cfd6fd061b5858923f2b5dd83",
+    "model": "gpt-5.4-mini",
+    "outcome": "matched",
+    "matched_turn": 19,
+    "semantic_correspondence": true,
+    "new_after_prediction": true,
+    "reason": "第19輪明確要求在驗證欄位填入簡訊代碼，與「要求輸入登入密碼、驗證碼或其他網銀敏感資訊」語意相符，且是預測後新增事件。",
+    "evidence": [
+      {
+        "turn": 19,
+        "quote": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。"
+      }
+    ],
+    "api_called": true,
+    "response_id": "resp_0a15bad3c84e58f6016aa4e7dc55a887d0aa60703e5a07a817",
+    "usage": {
+      "input_tokens": 1591,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 88,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1679
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "你好，社團那篇嬰孩營養品還有嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "user",
+      "channel": "facebook_dm",
+      "text": "還有，保存期限有拍在照片裡，你可以看一下。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "有看到，我想買。可以用7-11賣貨便嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "facebook_dm",
+      "text": "可以，寄到超商比較方便。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "這個是寄件頁面，你填一下資料：https://parcel.example.com/order/BABY-0912-02",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "facebook_dm",
+      "text": "我點進去了，是填寄件人的資料對嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "對，填完送出。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "facebook_dm",
+      "text": "填好了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "我這邊帳戶被鎖住了，你剛剛操作是不是有弄錯？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "facebook_dm",
+      "text": "我就是照頁面填資料，怎麼會鎖住？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "buyer",
+      "channel": "facebook_dm",
+      "text": "要找客服解鎖，剛剛那個網頁裡有客服，麻煩你趕快聯絡一下。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "你好，買家說我填寄件資料後，她的帳戶被鎖住了，叫我找你們。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "您好，這邊協助您排除交易異常，我用通話帶您操作。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "support_line",
+      "text": "好，是要開視訊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "support",
+      "channel": "support_line",
+      "text": "不用開鏡頭，分享手機畫面就可以。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 16,
+      "sender": "user",
+      "channel": "support_call",
+      "text": "我開了畫面分享，現在看得到嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 17,
+      "sender": "support",
+      "channel": "support_call",
+      "text": "看得到，接著請開啟網路銀行，處理驗證。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 18,
+      "sender": "user",
+      "channel": "support_call",
+      "text": "網銀打開了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 19,
+      "sender": "support",
+      "channel": "support_call",
+      "text": "手機收到認證簡訊了嗎？請在目前的驗證欄位填入簡訊裡的代碼。",
+      "attachment_captions": []
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "case_id": "N2_同住家人Netflix暫時收看驗證碼",
+  "language": "zh-TW",
+  "participants": {
+    "family": "family",
+    "user": "user"
+  },
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "你出差到了嗎？家裡晚餐剩的咖哩我放冰箱了。",
+      "timestamp": null
+    },
+    {
+      "turn": 2,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "到了，明晚回家。我用平常家裡那台平板開 Netflix，跳出暫時收看的驗證。",
+      "timestamp": null
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "是我們一直共用的家庭帳號嗎？",
+      "timestamp": null
+    },
+    {
+      "turn": 4,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "對，剛在 App 按寄送郵件到你的信箱，幫我看一下四位數代碼。",
+      "timestamp": null
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "我先打你原本的手機確認，你等一下接。",
+      "timestamp": null
+    },
+    {
+      "turn": 6,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "剛通完了，是我本人在旅館的平板申請，時間就是剛剛。",
+      "timestamp": null
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "信裡是 Netflix 的暫時存取要求，對上你的這次操作，代碼 7316。",
+      "timestamp": null
+    },
+    {
+      "turn": 8,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "輸入進去了，能看了，明天回家再一起看下一集。",
+      "timestamp": null
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "好，咖哩記得吃。",
+      "timestamp": null
+    }
+  ]
+}
