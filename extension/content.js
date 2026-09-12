@@ -284,6 +284,10 @@
       scan(message.force === true).then(reply);
       return true;
     }
+    if (message.type === "RADAR_CONTEXT") {
+      reply({ context: collect() });
+      return false;
+    }
     return false;
   });
   void scan(true);

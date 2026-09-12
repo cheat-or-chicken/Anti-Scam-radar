@@ -3,6 +3,7 @@
 import argparse
 import csv
 import hashlib
+import io
 import ipaddress
 import json
 from collections import defaultdict
@@ -37,12 +38,20 @@ def build(source_dir: Path) -> dict:
 
     csv_path = source_dir / "NPA_WEBURL.csv"
     json_path = source_dir / "通報TWNIC詐騙網址彙整表.json"
-    with csv_path.open(encoding="utf-8-sig", newline="") as stream:
-        for row in csv.DictReader(stream):
-            add(row.get("網址", ""), "NPA")
-            if row.get("統計結束日期"):
-                dates.append(row["統計結束日期"])
-    for row in json.loads(json_path.read_text()):
+    raw_csv = csv_path.read_bytes()
+    for encoding in ("utf-8-sig", "cp950"):
+        try:
+            csv_text = raw_csv.decode(encoding)
+            break
+        except UnicodeDecodeError:
+            continue
+    else:
+        raise ValueError("NPA CSV must be UTF-8 or CP950 encoded")
+    for row in csv.DictReader(io.StringIO(csv_text, newline="")):
+        add(row.get("網址", ""), "NPA")
+        if row.get("統計結束日期"):
+            dates.append(row["統計結束日期"])
+    for row in json.loads(json_path.read_text(encoding="utf-8")):
         add(row.get("網域名稱", ""), "TWNIC")
     skeletons = defaultdict(list)
     for name in sorted(domains):

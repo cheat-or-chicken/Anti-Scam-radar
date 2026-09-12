@@ -23,7 +23,7 @@ ASSETS = [
 
 
 def package(source: Path, output: Path):
-    manifest = json.loads((source / "manifest.json").read_text())
+    manifest = json.loads((source / "manifest.json").read_text(encoding="utf-8"))
     if manifest["manifest_version"] != 3:
         raise ValueError("Manifest V3 required")
     paths = [source / name for name in [*ASSETS, *manifest.get("icons", {}).values()]]

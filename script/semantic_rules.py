@@ -5,8 +5,8 @@ import re
 from pathlib import Path
 
 DATA = Path(__file__).parent / "data"
-MESSAGES = json.loads((DATA / "risk_messages.json").read_text())
-RULES = json.loads((DATA / "semantic_rules.json").read_text())
+MESSAGES = json.loads((DATA / "risk_messages.json").read_text(encoding="utf-8"))
+RULES = json.loads((DATA / "semantic_rules.json").read_text(encoding="utf-8"))
 
 SEMANTIC_GUIDANCE = (
     "跨語言檢查：自稱交易平台、搭配數倍成長與高可靠性數字但未附可核對證據時，可用 unsubstantiated_trading_claims 表示需查證的宣傳，不能把成長潛力說成保證收益。一般企業願景、真實引用報告或教學討論不能單憑數字判詐騙。"

@@ -1222,6 +1222,7 @@
     llmEnabled: false,
     pairingToken: ""
   };
+  var MAX_SCREENSHOT_BASE64_CHARS = Math.ceil(5e6 / 3) * 4;
   var key = (id) => `tab:${id}`;
   var ignored = (promise) => Promise.resolve(promise).catch(() => void 0);
   var ready = Promise.all([
@@ -1535,6 +1536,48 @@
       throw Error("WARNING_EXPIRED");
     return data;
   }
+  async function analyzeScreenshot() {
+    const options = await settings();
+    if (!options.enabled) throw Error("PROTECTION_DISABLED");
+    if (!options.backendEnabled || !options.pairingToken) throw Error("BACKEND_DISABLED");
+    if (!options.llmEnabled) throw Error("LLM_DISABLED");
+    const tab = await active();
+    if (!tab?.id || tab.windowId === void 0) throw Error("NO_TAB");
+    parseURL(tab.url);
+    const snapshot2 = await chrome.tabs.sendMessage(tab.id, { type: "RADAR_CONTEXT" });
+    if (!snapshot2?.context) throw Error("PAGE_NOT_READY");
+    const frame = await chrome.webNavigation.getFrame({ tabId: tab.id, frameId: 0 });
+    if (!frame || frame.url !== tab.url) throw Error("STALE_PAGE");
+    const ctx = sanitize(snapshot2.context, tab.url);
+    const prior = await read(tab.id);
+    if (prior?.documentId === frame.documentId) ctx.redirects = prior.redirects || [];
+    const local = prior?.result || analyzeLocal(ctx, await ready);
+    const dataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, { format: "jpeg", quality: 75 });
+    const match = /^data:image\/jpeg;base64,([A-Za-z0-9+/=]+)$/.exec(dataUrl);
+    if (!match || match[1].length > MAX_SCREENSHOT_BASE64_CHARS) throw Error("SCREENSHOT_TOO_LARGE");
+    const remote = await backendRequest(
+      "/v1/analyze",
+      { context: ctx, include_llm: true, screenshot: match[1] },
+      options.pairingToken
+    );
+    const latest = await read(tab.id);
+    if (!latest || latest.documentId !== frame.documentId || latest.originalUrl !== tab.url || !await currentFrame(tab.id, frame.documentId, tab.url))
+      throw Error("STALE_PAGE");
+    const result = mergeAnalysis(ctx.url, local, remote);
+    const state = { ...latest, result, jobId: crypto.randomUUID() };
+    await setState(tab.id, state);
+    await badge(tab.id, result);
+    const allowed = await bypassed(tab.id, tab.url);
+    await ignored(
+      chrome.tabs.sendMessage(
+        tab.id,
+        { type: "RADAR_RESULT", result, bypassed: allowed },
+        { documentId: frame.documentId }
+      )
+    );
+    if (result.decision.display_level === "block" && !allowed) await block(tab.id, state);
+    return { ok: true, vision: remote.layers?.find((layer) => layer.layer === "VISION")?.status };
+  }
   async function handle(message, sender) {
     if (sender.id !== chrome.runtime.id || !message || typeof message.type !== "string")
       throw Error("UNAUTHORIZED");
@@ -1596,6 +1639,7 @@
         { context: { url: "https://example.com" }, include_llm: false },
         (await settings()).pairingToken
       ).then(() => ({ ok: true }));
+    if (message.type === "ANALYZE_SCREENSHOT" && isUI) return analyzeScreenshot();
     if (message.type === "CHECK_SITE" && isUI) {
       if (message.source !== "manual") {
         const tab = await active();
@@ -1660,7 +1704,12 @@
           "PAIRING_REQUIRED",
           "USE_PAIRING_TOKEN",
           "WARNING_EXPIRED",
-          "RATE_LIMITED"
+          "RATE_LIMITED",
+          "PROTECTION_DISABLED",
+          "BACKEND_DISABLED",
+          "LLM_DISABLED",
+          "PAGE_NOT_READY",
+          "SCREENSHOT_TOO_LARGE"
         ].includes(error.message) ? error.message : "UNAVAILABLE"
       })
     );

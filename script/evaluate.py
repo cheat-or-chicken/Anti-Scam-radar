@@ -11,7 +11,7 @@ from script.pipeline import analyze
 
 
 async def evaluate_file(path: str) -> dict:
-    dataset = json.loads(Path(path).read_text())
+    dataset = json.loads(Path(path).read_text(encoding="utf-8"))
     matrix = {"tp": 0, "fp": 0, "tn": 0, "fn": 0}
     failures = []
     for case in dataset["cases"]:

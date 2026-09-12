@@ -2,6 +2,8 @@
 
 import argparse
 import asyncio
+import base64
+import binascii
 import os
 import secrets
 import time
@@ -28,6 +30,10 @@ from script.pipeline import analyze
 from script.progress import configure_logging, event, phase, request_id
 from script.site_checks import analyze_semantics, verify_brand
 from script.tools import VerificationTools
+from script.vision import MAX_SCREENSHOT_BYTES, image_mime_type
+
+MAX_REQUEST_BYTES = 7_000_000
+MAX_SCREENSHOT_BASE64_CHARS = ((MAX_SCREENSHOT_BYTES + 2) // 3) * 4
 
 
 class SiteCheckRequest(Model):
@@ -43,12 +49,26 @@ class IndicatorRequest(Model):
 class AnalyzeRequest(Model):
     context: PageContext
     include_llm: bool = False
+    screenshot: str | None = Field(default=None, max_length=MAX_SCREENSHOT_BASE64_CHARS)
 
 
 class URLRequest(Model):
     url: str = Field(max_length=8192)
     fetch_page: bool = False
     include_llm: bool = False
+
+
+def decode_screenshot(value: str | None) -> bytes | None:
+    """Accept only a bounded PNG/JPEG payload from the paired extension."""
+    if value is None:
+        return None
+    try:
+        screenshot = base64.b64decode(value, validate=True)
+    except (binascii.Error, ValueError) as exc:
+        raise ValueError("invalid screenshot encoding") from exc
+    if len(screenshot) > MAX_SCREENSHOT_BYTES or image_mime_type(screenshot) is None:
+        raise ValueError("invalid screenshot")
+    return screenshot
 
 
 def create_app(settings: Settings, token: str) -> FastAPI:
@@ -76,7 +96,7 @@ def create_app(settings: Settings, token: str) -> FastAPI:
         body = bytearray()
         async for chunk in request.stream():
             size += len(chunk)
-            if size > 1_000_000:
+            if size > MAX_REQUEST_BYTES:
                 return JSONResponse({"error": "payload_too_large"}, status_code=413)
             body.extend(chunk)
         request._body = bytes(body)
@@ -139,6 +159,10 @@ def create_app(settings: Settings, token: str) -> FastAPI:
     @app.post("/v1/analyze")
     async def analyze_snapshot(payload: AnalyzeRequest):
         async with budget():
+            try:
+                screenshot = decode_screenshot(payload.screenshot)
+            except ValueError:
+                raise HTTPException(422, "invalid_screenshot") from None
             # DOM snapshots cannot attest to observed exfiltration or backend lookup facts.
             ctx = payload.context.model_copy(
                 update={
@@ -169,8 +193,18 @@ def create_app(settings: Settings, token: str) -> FastAPI:
                     ctx = ctx.model_copy(update={"domain_age_days": registration["domain_age_days"]})
                 else:
                     registration_error = "已嘗試 RDAP 查詢，但未取得註冊日期；其他檢查不受影響。"
-            config = for_request(payload.include_llm).model_copy(update={"network_enabled": False})
-            analysis = await analyze(ctx, config)
+            # Keep the extension's normal analysis offline, except for the explicit Google URL lookup.
+            config = for_request(payload.include_llm).model_copy(
+                update={
+                    "network_enabled": settings.network_enabled
+                    and settings.google_url_reputation_provider != "none"
+                }
+            )
+            analysis = await analyze(
+                ctx,
+                config,
+                **({"screenshot": screenshot} if screenshot is not None else {}),
+            )
             if not config.llm_enabled or not config.allow_content_upload:
                 review = next(entry for entry in analysis.layers if entry.layer == "L7")
                 review.status = "skipped"
@@ -205,7 +239,13 @@ def create_app(settings: Settings, token: str) -> FastAPI:
                         fetch_status = "http_only_no_javascript"
                     except Exception:
                         fetch_status = "unavailable"
-            config = for_request(payload.include_llm).model_copy(update={"network_enabled": False})
+            # Keep the extension's normal analysis offline, except for the explicit Google URL lookup.
+            config = for_request(payload.include_llm).model_copy(
+                update={
+                    "network_enabled": settings.network_enabled
+                    and settings.google_url_reputation_provider != "none"
+                }
+            )
             analysis = await analyze(ctx, config)
             parsed = urlsplit(ctx.url)
             return {
@@ -241,13 +281,9 @@ def create_app(settings: Settings, token: str) -> FastAPI:
     return app
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Run the local extension backend")
-    parser.add_argument("--config", default="config/config.local.json")
-    parser.add_argument("--port", type=int, default=8765)
-    parser.add_argument("--log-file", default="var/backend.log")
-    args = parser.parse_args()
-    configure_logging(args.log_file)
+def serve(settings: Settings, port: int = 8765, log_file: str = "var/backend.log") -> None:
+    """Run the main extension backend for the CLI's compatibility command."""
+    configure_logging(log_file)
     event("backend", "starting")
     token_path = Path("var/extension-token.txt")
     token_path.parent.mkdir(parents=True, exist_ok=True)
@@ -257,11 +293,20 @@ def main():
     token_path.chmod(0o600)
     print(f"Pairing token file: {token_path.resolve()} (paste into extension settings; not your API key)")
     uvicorn.run(
-        create_app(Settings.load(args.config), token_path.read_text().strip()),
+        create_app(settings, token_path.read_text(encoding="utf-8").strip()),
         host="127.0.0.1",
-        port=args.port,
+        port=port,
         access_log=False,
     )
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Run the local extension backend")
+    parser.add_argument("--config", default="config/config.local.json")
+    parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--log-file", default="var/backend.log")
+    args = parser.parse_args()
+    serve(Settings.load(args.config), args.port, args.log_file)
 
 
 if __name__ == "__main__":

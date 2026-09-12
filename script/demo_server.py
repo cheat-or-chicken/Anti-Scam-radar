@@ -44,6 +44,10 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_POST(self):
+        # Drain the body so HTTP/1.1 clients receive the 405 response reliably.
+        length = int(self.headers.get("Content-Length", "0"))
+        if length > 0:
+            self.rfile.read(length)
         self.send_error(405, "Demo forms never submit")
 
     def log_message(self, format, *args):
