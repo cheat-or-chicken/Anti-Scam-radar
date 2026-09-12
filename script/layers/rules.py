@@ -2,13 +2,19 @@ import re
 from difflib import SequenceMatcher
 from urllib.parse import unquote, urlsplit
 
+from script.brand_patterns import brand_patterns
 from script.domains import brands, host, matches_domain, same_site, trusted
 from script.models import Download, LayerResult, PageContext, Signal, result
+from script.semantic_rules import MESSAGES, semantic_signals
 
 
 def sig(id, detail, weight=15, observed=False, hard=False):
     return Signal(
-        id=id, detail=detail, weight=weight, grade="observed" if observed else "inferred", hard=hard
+        id=id,
+        detail=MESSAGES.get(id, detail),
+        weight=weight,
+        grade="observed" if observed else "inferred",
+        hard=hard,
     )
 
 
@@ -40,6 +46,7 @@ def verify_l1(ctx):
         signals.append(sig("many_redirects", "導覽鏈跨越至少三個不同網站", 15, True))
     for url in dict.fromkeys(chain):
         hostname = host(url)
+        signals.extend(sig(**pattern) for pattern in brand_patterns(url))
         if "xn--" in hostname:
             signals.append(sig("idn_domain", "網址使用國際化網域，請確認字形是否符合預期", 5))
         if hostname.endswith((".top", ".xyz", ".cyou")):
@@ -62,7 +69,7 @@ def verify_l2(ctx):
                 signals.append(
                     sig(
                         "brand_domain_mismatch",
-                        f"頁面標題或宣稱提到{brand['name']}，網址不在已維護的官方名單",
+                        f"這個頁面提到{brand['name']}，但目前網址不是我們已核對的官方網域。可能是在冒用名稱；請自行前往 https://{brand['domains'][0]}/ 查詢，先別在這裡填資料或付款。",
                         40,
                     )
                 )
@@ -70,7 +77,14 @@ def verify_l2(ctx):
 
 
 def verify_l3(ctx):
+    if re.search(
+        r"^(?:404(?: not found)?|access denied|checking your browser|just a moment|verify you are human)\b",
+        ctx.text.strip(),
+        re.IGNORECASE,
+    ):
+        return result("L3", [], available=False)
     signals = []
+    signals.extend(sig(**entry) for entry in semantic_signals(ctx.text, ctx.title))
     # Restrict hard findings to actual behavior (L4); semantic requests remain inferred.
     for sentence in re.split(r"[。！？\n]", ctx.text):
         if re.search(r"不要|切勿|請勿|不會|勿將|防詐|詐騙案例", sentence):
@@ -116,7 +130,11 @@ def verify_l4(ctx):
         for e in ctx.network_trace
     ):
         signals.append(sig("canary_exfil", "採集軌跡中的金絲雀標記流向未授權站外目的地", 100, True, True))
-    return result("L4", signals, available=bool(ctx.trace_collected or ctx.form_actions or ctx.scripts))
+    return result(
+        "L4",
+        signals,
+        available=bool(ctx.dom_collected or ctx.trace_collected or ctx.form_actions or ctx.scripts),
+    )
 
 
 def verify_l5(ctx):
@@ -241,7 +259,11 @@ def verify_l15(ctx):
         signals.append(sig("prompt_injection", "隱藏文字疑似要求分析器改變判定", 20))
     if ctx.delayed_sensitive_injection:
         signals.append(sig("delayed_sensitive_injection", "頁面載入後才新增敏感欄位，需核對用途", 10, True))
-    return result("L15", signals, available=bool(ctx.hidden_text or ctx.delayed_sensitive_injection))
+    return result(
+        "L15",
+        signals,
+        available=bool(ctx.dom_collected or ctx.hidden_text or ctx.delayed_sensitive_injection),
+    )
 
 
 def verify_l16(ctx):

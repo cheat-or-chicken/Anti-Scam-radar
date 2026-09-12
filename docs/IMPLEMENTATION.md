@@ -177,3 +177,7 @@ L7 現在只呼叫 LLM 靜態審查，不需要沙箱或瀏覽器。`feedback` �
 ## 獨立 LLM API
 
 新增 `script/site_checks.py` 的 `verify_brand`、`analyze_semantics`，由 `script/server.py` 提供 `/v1/verify-brand` 與 `/v1/analyze-semantics`。詳見 [介面、技術與設定](LLM_APIS.md)。`tests/test_site_checks.py` 包含搜尋來源與摘錄驗證、設定開關、HTTP 路由及 www 官方轉址回歸測試。
+
+## 網域風險指標
+
+`script/brand_patterns.py`、`script/indicators.py` 新增品牌相鄰字母轉置與序號網域規則、RDAP／可選 Google Safe Browsing 及靜態內容指標。已同步 Chrome 本機防護，詳見 [檔案、證據與限制](DOMAIN_INDICATORS.md)。

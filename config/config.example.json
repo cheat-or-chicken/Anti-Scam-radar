@@ -11,5 +11,7 @@
   "max_output_tokens": 1600,
   "max_response_bytes": 1048576,
   "database_path": "var/radar.sqlite3",
-  "audit_enabled": true
+  "audit_enabled": true,
+  "safe_browsing_enabled": false,
+  "google_safe_browsing_api_key": ""
 }

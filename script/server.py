@@ -8,6 +8,7 @@ import time
 from collections import deque
 from contextlib import asynccontextmanager
 from pathlib import Path
+from typing import Literal
 from urllib.parse import urlsplit
 
 import uvicorn
@@ -17,16 +18,26 @@ from fastapi.responses import JSONResponse
 from pydantic import Field
 
 from script.config import Settings
+from script.domains import site
 from script.extract import extract_page
+from script.indicators import inspect_indicators
 from script.llm import LLM
 from script.models import Model, PageContext
 from script.network import SafeFetcher
 from script.pipeline import analyze
+from script.progress import configure_logging, event, phase, request_id
 from script.site_checks import analyze_semantics, verify_brand
+from script.tools import VerificationTools
 
 
 class SiteCheckRequest(Model):
     context: PageContext
+
+
+class IndicatorRequest(Model):
+    context: PageContext
+    fetch_page: bool = False
+    checks: list[Literal["safe_browsing", "registration"]] = Field(default_factory=list, max_length=2)
 
 
 class AnalyzeRequest(Model):
@@ -46,6 +57,7 @@ def create_app(settings: Settings, token: str) -> FastAPI:
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
     recent = deque()
     running = 0
+    rdap_cache = {}
 
     @app.middleware("http")
     async def guard(request: Request, call_next):
@@ -69,6 +81,30 @@ def create_app(settings: Settings, token: str) -> FastAPI:
             body.extend(chunk)
         request._body = bytes(body)
         return await call_next(request)
+
+    @app.middleware("http")
+    async def progress(request: Request, call_next):
+        if request.url.path == "/health":
+            return await call_next(request)
+        ident = secrets.token_hex(4)
+        context_token = request_id.set(ident)
+        # Only maintained route names enter logs, never user-controlled paths or queries.
+        routes = {
+            "/v1/analyze",
+            "/v1/check-url",
+            "/v1/verify-brand",
+            "/v1/analyze-semantics",
+            "/v1/indicators",
+        }
+        route = request.url.path if request.url.path in routes else "unknown_route"
+        try:
+            with phase(route):
+                response = await call_next(request)
+                event("http", str(response.status_code))
+                response.headers["X-Request-ID"] = ident
+                return response
+        finally:
+            request_id.reset(context_token)
 
     @app.exception_handler(RequestValidationError)
     async def invalid_input(request, exc):
@@ -112,8 +148,40 @@ def create_app(settings: Settings, token: str) -> FastAPI:
                     "tls_valid": None,
                 }
             )
+            registration_error = None
+            if settings.network_enabled:
+                domain = site(ctx.url)
+                cached = rdap_cache.get(domain)
+                if cached and cached[0] > time.monotonic():
+                    registration = cached[1]
+                    event("L5.rdap", "cache_hit")
+                else:
+                    lookup_settings = settings.model_copy(
+                        update={"timeout_seconds": min(8, settings.timeout_seconds)}
+                    )
+                    with phase("L5.rdap"):
+                        registration = await VerificationTools(lookup_settings).call("rdap_lookup", ctx)
+                    event("L5.rdap.result", "ok" if registration.get("status") == "ok" else "unknown")
+                    if len(rdap_cache) >= 256:
+                        rdap_cache.pop(next(iter(rdap_cache)))
+                    rdap_cache[domain] = (time.monotonic() + 300, registration)
+                if registration.get("status") == "ok":
+                    ctx = ctx.model_copy(update={"domain_age_days": registration["domain_age_days"]})
+                else:
+                    registration_error = "已嘗試 RDAP 查詢，但未取得註冊日期；其他檢查不受影響。"
             config = for_request(payload.include_llm).model_copy(update={"network_enabled": False})
-            return await analyze(ctx, config)
+            analysis = await analyze(ctx, config)
+            if not config.llm_enabled or not config.allow_content_upload:
+                review = next(entry for entry in analysis.layers if entry.layer == "L7")
+                review.status = "skipped"
+                review.user_facing_reason = (
+                    "AI 審查未啟用：需擴充功能 AI 許可及後端 llm_enabled、allow_content_upload。"
+                )
+            if registration_error:
+                layer = next(entry for entry in analysis.layers if entry.layer == "L5")
+                layer.user_facing_reason = registration_error
+                layer.status = "error"
+            return analysis
 
     @app.post("/v1/check-url")
     async def check_url(payload: URLRequest):
@@ -163,6 +231,13 @@ def create_app(settings: Settings, token: str) -> FastAPI:
     async def semantics_endpoint(payload: SiteCheckRequest):
         return await site_check(payload, analyze_semantics)
 
+    @app.post("/v1/indicators")
+    async def indicator_endpoint(payload: IndicatorRequest):
+        async with budget():
+            return await inspect_indicators(
+                payload.context, settings, fetch_page=payload.fetch_page, checks=payload.checks
+            )
+
     return app
 
 
@@ -170,7 +245,10 @@ def main():
     parser = argparse.ArgumentParser(description="Run the local extension backend")
     parser.add_argument("--config", default="config/config.local.json")
     parser.add_argument("--port", type=int, default=8765)
+    parser.add_argument("--log-file", default="var/backend.log")
     args = parser.parse_args()
+    configure_logging(args.log_file)
+    event("backend", "starting")
     token_path = Path("var/extension-token.txt")
     token_path.parent.mkdir(parents=True, exist_ok=True)
     if not token_path.exists():

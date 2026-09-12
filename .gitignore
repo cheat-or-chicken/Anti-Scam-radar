@@ -11,5 +11,3 @@ build/
 dist/
 
 .DS_Store
-# Independently versioned extension repository
-/extension/

@@ -13,6 +13,8 @@ class Settings(BaseModel):
     llm_enabled: bool = False
     allow_content_upload: bool = False
     network_enabled: bool = False
+    safe_browsing_enabled: bool = False
+    google_safe_browsing_api_key: SecretStr = SecretStr("")
     timeout_seconds: float = Field(default=12, ge=1, le=60)
     max_llm_calls: int = Field(default=6, ge=0, le=20)
     max_tool_calls: int = Field(default=8, ge=0, le=20)

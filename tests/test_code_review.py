@@ -37,7 +37,7 @@ async def test_code_review_feedback_is_inferred_and_never_executes():
     assert result.verdict == "suspicious"
     assert "scripts[0]" in result.feedback[0]
     assert all(s.grade == "inferred" and not s.hard for s in result.signals)
-    assert adjudicate(ctx, [result]).display_level == "icon"
+    assert adjudicate(ctx, [result]).display_level == "banner"
     assert "tools" not in llm.client.responses.create.call_args.kwargs
 
 

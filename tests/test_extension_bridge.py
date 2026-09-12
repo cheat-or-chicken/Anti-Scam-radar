@@ -126,3 +126,29 @@ def test_importer_preserves_public_ip_and_rejects_shared_suffix(tmp_path):
     (tmp_path / "通報TWNIC詐騙網址彙整表.json").write_text(json.dumps([]))
     data = build(tmp_path)
     assert set(data["domains"]) == {"8.8.8.8", "bad.pages.dev"}
+
+
+async def test_snapshot_populates_rdap_and_reuses_cache(monkeypatch):
+    from unittest.mock import AsyncMock
+
+    from script.tools import VerificationTools
+
+    lookup = AsyncMock(return_value={"status": "ok", "domain_age_days": 200})
+    monkeypatch.setattr(VerificationTools, "call", lookup)
+    app = create_app(Settings(network_enabled=True, audit_enabled=False), "a" * 32)
+    async with httpx.AsyncClient(
+        transport=httpx.ASGITransport(app=app),
+        base_url="http://testserver",
+        headers={"Authorization": "Bearer " + "a" * 32},
+    ) as client:
+        for _ in range(2):
+            r = await client.post(
+                "/v1/analyze", json={"context": {"url": "https://example.com", "dom_collected": True}}
+            )
+            assert r.status_code == 200
+            layers = {layer["layer"]: layer for layer in r.json()["layers"]}
+            assert layers["L5"]["status"] == "ok"
+            assert layers["L15"]["status"] == "ok"
+            assert layers["L4"]["status"] == "ok"
+            assert layers["L7"]["status"] == "skipped"
+    assert lookup.await_count == 1
