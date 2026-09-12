@@ -1,0 +1,189 @@
+[
+  {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "61f97635135c454d87697b45b138ed75",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "completed": false,
+    "turns_analyzed": 38,
+    "total_turns": 38,
+    "first_alert_turn": 18,
+    "payment_turn": 21,
+    "lead_turns": 3,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 6,
+    "mean_seconds": 3.031,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_SENSITIVE_ACCESS",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "support": "explicit",
+              "evidence_turns": [
+                18
+              ],
+              "explanation": "turn18 明確出現網路銀行相關操作要求，且由 bank 提出。"
+            },
+            {
+              "requirement_index": 2,
+              "support": "explicit",
+              "evidence_turns": [
+                18
+              ],
+              "explanation": "turn18 明確要求先開啟網路銀行，並稱需要轉帳完成驗證，屬敏感網銀操作/驗證引導。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服不會要求先開啟網銀並以轉帳作為驗證步驟。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          18
+        ],
+        "explanation": "本輪新增了明確的網銀與轉帳驗證要求，未見反證可解除風險。"
+      },
+      "observation": {
+        "actor": "bank",
+        "action_type": "sensitive_access_request",
+        "object": "請先開啟網路銀行並轉帳完成驗證",
+        "is_new_request": true
+      },
+      "status": "warn",
+      "reason": "bank 於 turn18 明確要求開啟網路銀行並以轉帳完成驗證，已符合敏感存取與高風險金融操作要求。",
+      "normal_explanation": "一般驗證不會要求先開啟網銀再轉帳完成。",
+      "recommended_action": "先不要照做；停止操作，改用官方公開管道自行核對是否真有此驗證流程。",
+      "stages": [
+        "S5"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS"
+      ],
+      "evidence": [
+        {
+          "turn": 18,
+          "quote": "請先開啟網路銀行，這一步需要轉帳完成驗證。"
+        }
+      ],
+      "prediction": {
+        "actor": "bank",
+        "action_type": "payment_request",
+        "object": "轉帳驗證",
+        "action": "要求使用者進行轉帳以完成驗證",
+        "within_next_messages": 2
+      },
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "B2_假買家騙賣家.replay.json",
+    "session_id": "ab2ea4123ffa45b38e26aabceeff23b3",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "completed": true,
+    "turns_analyzed": 30,
+    "total_turns": 30,
+    "first_alert_turn": 17,
+    "payment_turn": 26,
+    "lead_turns": 9,
+    "false_alarm": null,
+    "evaluation_status": "completed",
+    "passed": true,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 2,
+    "mean_seconds": 2.623,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_SENSITIVE_ACCESS",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "support": "explicit",
+              "evidence_turns": [
+                17
+              ],
+              "explanation": "support 明確要求開啟網路銀行並進行驗證。"
+            },
+            {
+              "requirement_index": 2,
+              "support": "explicit",
+              "evidence_turns": [
+                13,
+                17
+              ],
+              "explanation": "對方自稱客服並以通話帶操作，屬未經獨立核實的引導關係。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服通話或畫面分享，不能解釋直接要求開啟網銀進行驗證的敏感操作。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          17
+        ],
+        "explanation": "本輪新增了要求開啟網路銀行並處理驗證，屬敏感操作要求；但尚未見密碼或OTP交付。"
+      },
+      "observation": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求開啟網路銀行並處理驗證",
+        "is_new_request": true
+      },
+      "status": "warn",
+      "reason": "已明確要求進入網路銀行並處理驗證，屬敏感權限/操作引導。",
+      "normal_explanation": "一般客服協助不一定有問題，但要求開啟網銀驗證已超出單純通話帶操作。",
+      "recommended_action": "先停止照做，不要提供密碼、OTP或讓對方遠端控制；改由你自行離線查證官方客服與帳戶狀態。",
+      "stages": [
+        "S4",
+        "S5"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS"
+      ],
+      "evidence": [
+        {
+          "turn": 17,
+          "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+        },
+        {
+          "turn": 13,
+          "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+        }
+      ],
+      "prediction": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求輸入或提供驗證碼/OTP以完成網銀驗證",
+        "action": "接著可能進一步要求輸入驗證碼或提供OTP",
+        "within_next_messages": 2
+      },
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "N1_二手拍立得正常交易.replay.json",
+    "session_id": "1394a093b2ab498f8b87a77da483c546",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "completed": true,
+    "turns_analyzed": 26,
+    "total_turns": 26,
+    "first_alert_turn": null,
+    "payment_turn": 20,
+    "lead_turns": null,
+    "false_alarm": false,
+    "evaluation_status": "completed",
+    "passed": true,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 1,
+    "mean_seconds": 1.875,
+    "first_warning": null
+  }
+]

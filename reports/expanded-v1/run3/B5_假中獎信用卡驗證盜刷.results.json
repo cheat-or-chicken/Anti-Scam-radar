@@ -1,0 +1,1361 @@
+{
+  "summary": {
+    "file": "B5_假中獎信用卡驗證盜刷.replay.json",
+    "repeat": 3,
+    "case_type": "scam",
+    "completed": true,
+    "turns_analyzed": 14,
+    "total_turns": 14,
+    "first_alert_turn": 6,
+    "payment_turn": null,
+    "harm_turn": 8,
+    "before_payment": null,
+    "before_harm": true,
+    "detected_by_end": true,
+    "false_alarm": null,
+    "harm_lead": 2,
+    "payment_lead": null,
+    "warning_downgrade_turns": [],
+    "mean_seconds": 2.736,
+    "recovered_or_failed_turns": [],
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "detector_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207"
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "僅為中獎通知與查詢連結，未見付款、敏感操作或隔離查證要求。"
+        },
+        "observation": {
+          "actor": "notice",
+          "action_type": "other",
+          "object": "發票中獎通知與查詢連結",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "目前只有通知訊息，缺少可判定的高風險要求。",
+        "normal_explanation": "中獎通知或提供查詢網址本身可屬正常情境。",
+        "recommended_action": "先以官方既有管道自行查證，不要依訊息內容操作。",
+        "stages": [
+          "S0",
+          "S1"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "一卡通發票中獎通知：您的消費發票有待領獎項，請至 https://invoice.example.com/claim 查詢。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0a41648645963f61016aa4e104324c87d09764da2c3ba08db1",
+      "usage": {
+        "input_tokens": 4775,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 191,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4966
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.949,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只有使用者表示要自行查詢，未出現新要求或高風險操作。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "表示將自行查詢發票",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "沒有新增可判定風險的要求。",
+        "normal_explanation": "使用者自行查看通知內容屬一般查詢行為。",
+        "recommended_action": "維持一般查證即可，無需警報。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "我最近有搭車消費，先查查看是哪張發票。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_08e302533053048f016aa4e105c15c87d0810d7311008ef029",
+      "usage": {
+        "input_tokens": 5070,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 163,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5233
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.377,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            3
+          ],
+          "explanation": "本輪只是要求填姓名與聯絡手機做核對，未見密碼、OTP、網銀控制、限制查證或付款要求。"
+        },
+        "observation": {
+          "actor": "page",
+          "action_type": "other",
+          "object": "要求填寫姓名及聯絡手機核對資料",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "只有一般資料核對，未達警報門檻。",
+        "normal_explanation": "填姓名與手機屬常見查詢或聯絡資料蒐集，不能單獨視為詐騙。",
+        "recommended_action": "若要繼續，可先確認頁面來源與網址是否為你預期的官方查詢流程。",
+        "stages": [
+          "S0",
+          "S1"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 3,
+            "quote": "消費發票領獎查詢。請填寫姓名及聯絡手機，以便核對資料。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_025f59c2d043aa20016aa4e107279887d09bd87b6a12ab6feb",
+      "usage": {
+        "input_tokens": 5080,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 210,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5290
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.897,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            4
+          ],
+          "explanation": "本輪只有使用者填入姓名與手機並按下一步，沒有新增付款、密碼/OTP、網銀控制、限制查證或其他高風險要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "填寫姓名與手機並按下一步",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "本輪是使用者回覆表單，未出現新的可疑要求。",
+        "normal_explanation": "填寫基本聯絡資料是常見查詢流程的一部分，單獨不足以判定風險。",
+        "recommended_action": "可先留意下一步是否出現付款、驗證碼、密碼或要求轉移到其他管道。",
+        "stages": [
+          "S0",
+          "S1"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "我填好姓名林小安跟手機了，按下一步。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0eefc4420892cf3a016aa4e109173487d09c5c9c4d1d80592a",
+      "usage": {
+        "input_tokens": 5184,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 218,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5402
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.619,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5
+          ],
+          "explanation": "本輪出現新的高風險要求，非先前誤讀；沒有反證可解除風險。"
+        },
+        "observation": {
+          "actor": "page",
+          "action_type": "sensitive_access_request",
+          "object": "信用卡卡號、有效期限與卡背安全碼",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "規則必要條件尚未全部得到原文支持，持續觀察。",
+        "normal_explanation": "一般領獎查詢只需基本資料或查詢編號，不需要完整卡號與安全碼。",
+        "recommended_action": "可透過獨立管道查證相關要求。",
+        "stages": [
+          "S0",
+          "S1",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。"
+          }
+        ],
+        "prediction": {
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_09d3c95b25f432cc016aa4e10aa0a487d0bfb1c49ebc5b4c58",
+      "usage": {
+        "input_tokens": 5245,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 649,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5894
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [
+        "R_SENSITIVE_ACCESS",
+        "R_PAYMENT_PURPOSE"
+      ],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p5",
+          "created_turn": 5,
+          "expires_turn": 6,
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.459,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "頁面明確要求提供信用卡卡號、有效期限與卡背安全碼，屬敏感金融資料要求。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "同一頁面將此要求包裝為完成持卡人認證、以便確認領獎資格，顯示由對方引導進行敏感操作。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般發票領獎或查詢不需要卡號與安全碼，無法用正常領獎流程解釋。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5,
+            6
+          ],
+          "explanation": "第5輪已出現明確敏感金融資料要求；第6輪只是使用者質疑，沒有解除風險的新反證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "質疑頁面要求信用卡資料",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "頁面要求卡號、有效期限與安全碼，屬敏感金融資料要求，與一般發票查詢不符。",
+        "normal_explanation": "一般領獎查詢只需基本核對資訊，不會要完整卡號與卡背安全碼。",
+        "recommended_action": "停止填寫並改用官方獨立管道查證。",
+        "stages": [
+          "S0",
+          "S1",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。"
+          },
+          {
+            "turn": 6,
+            "quote": "不是查發票嗎，這頁還要信用卡資料？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_041d2690c30e1514016aa4e10ed24c87d0a2fda7cd4bb9ebcd",
+      "usage": {
+        "input_tokens": 5421,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 390,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5811
+      },
+      "rejected_prediction_matches": [
+        {
+          "prediction_id": "p5",
+          "evidence": [
+            {
+              "turn": 6,
+              "quote": "不是查發票嗎，這頁還要信用卡資料？"
+            }
+          ]
+        }
+      ],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": 6,
+      "predictions": [
+        {
+          "id": "p5",
+          "created_turn": 5,
+          "expires_turn": 6,
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.857,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  5,
+                  7
+                ],
+                "explanation": "第5輪已明確要求信用卡卡號、有效期限與卡背安全碼；第7輪仍以持卡人資料認證為由延續同一流程。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  5,
+                  7
+                ],
+                "explanation": "對方把這些資料包裝成認證與簡訊確認步驟，屬引導進行敏感金融操作。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般發票領獎或查詢不需要卡號、安全碼，也不需進入持卡人認證與後續簡訊流程。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            7
+          ],
+          "explanation": "第7輪只是延續先前要求，沒有出現解除風險的新反證。"
+        },
+        "observation": {
+          "actor": "page",
+          "action_type": "sensitive_access_request",
+          "object": "持卡人資料認證與簡訊確認流程",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "延續要求以持卡人資料進行認證並進入簡訊確認，與發票查詢目的不符，屬敏感金融操作引導。",
+        "normal_explanation": "正常查詢發票不會要求卡片資料來做持卡人認證。",
+        "recommended_action": "不要輸入卡片資料或簡訊驗證碼，改走官方獨立管道查詢。",
+        "stages": [
+          "S0",
+          "S1",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。"
+          },
+          {
+            "turn": 7,
+            "quote": "持卡人資料用於認證，填妥後會進入簡訊確認步驟。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_01942c1af4c7c33e016aa4e111f4fc87d09ec0bc247df7eaa4",
+      "usage": {
+        "input_tokens": 6038,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 397,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6435
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": 6,
+      "predictions": [
+        {
+          "id": "p5",
+          "created_turn": 5,
+          "expires_turn": 6,
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.49,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "第5輪明確要求信用卡卡號、有效期限與卡背安全碼。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "第5輪將這些資料包裝成持卡人認證後才可領獎的流程，屬敏感金融操作引導。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常發票查詢或領獎不需要填信用卡卡號、安全碼，也不需要做持卡人認證。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "第8輪只是回報已送出，沒有出現解除風險的新反證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已填寫並送出信用卡資料",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "先前已出現要求信用卡卡號、有效期限與安全碼作為認證流程，且尚未被反證解除。",
+        "normal_explanation": "一般發票查詢不會要求卡片敏感資料作為領獎認證。",
+        "recommended_action": "停止繼續提供卡片資料，改用官方獨立管道確認發票與領獎方式。",
+        "stages": [
+          "S0",
+          "S1",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。"
+          },
+          {
+            "turn": 8,
+            "quote": "卡號、效期跟安全碼都填好送出了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0c1730bae5ff8fe9016aa4e11486d487d086242d7a475a1e8f",
+      "usage": {
+        "input_tokens": 6134,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 360,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6494
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 8,
+      "first_alert_turn": 6,
+      "predictions": [
+        {
+          "id": "p5",
+          "created_turn": 5,
+          "expires_turn": 6,
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.651,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "第5輪明確要求信用卡卡號、有效期限與卡背安全碼。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "第5輪將其包裝為持卡人認證後才能確認領獎資格。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常發票查詢或領獎不需要提供信用卡卡號、安全碼作為認證。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "第9輪只是回報收到認證碼，沒有出現可解除風險的新反證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報收到發卡銀行認證碼簡訊",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "先前已出現要求卡片敏感資料作為認證流程，風險尚未被反證解除。",
+        "normal_explanation": "一般發票查詢不會要求卡片敏感資料作為領獎認證。",
+        "recommended_action": "停止繼續填寫或回傳任何驗證資訊，改用官方獨立管道確認。",
+        "stages": [
+          "S0",
+          "S1",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。"
+          },
+          {
+            "turn": 9,
+            "quote": "手機收到發卡銀行的認證碼簡訊了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_068202251d2049b6016aa4e11816bc87d0a0cc7be9441a5efa",
+      "usage": {
+        "input_tokens": 6096,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 340,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6436
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 9,
+      "first_alert_turn": 6,
+      "predictions": [
+        {
+          "id": "p5",
+          "created_turn": 5,
+          "expires_turn": 6,
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.936,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "第5輪明確要求信用卡卡號、有效期限與卡背安全碼。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "第5輪明確表示這些資料是用於持卡人認證後才能確認領獎資格。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般發票查詢或領獎不需要提供信用卡卡號、安全碼作為認證。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            10
+          ],
+          "explanation": "第10輪只是要求再填入簡訊認證碼，沒有解除前述敏感資料要求的反證。"
+        },
+        "observation": {
+          "actor": "page",
+          "action_type": "sensitive_access_request",
+          "object": "要求輸入銀行簡訊認證碼完成認證",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "已出現要求卡片敏感資料與銀行認證碼的敏感操作，風險仍在。",
+        "normal_explanation": "一般發票查詢不會要求輸入卡號、安全碼與銀行簡訊碼。",
+        "recommended_action": "停止輸入任何驗證資料，改用官方獨立管道查證。",
+        "stages": [
+          "S0",
+          "S1",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。"
+          },
+          {
+            "turn": 10,
+            "quote": "請將銀行簡訊中的認證碼填入欄位，再按送出完成認證。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f6c9311c74775ff016aa4e11a25e487d0aae0b45edfcad47f",
+      "usage": {
+        "input_tokens": 6108,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 349,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6457
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 10,
+      "first_alert_turn": 6,
+      "predictions": [
+        {
+          "id": "p5",
+          "created_turn": 5,
+          "expires_turn": 6,
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.583,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "第5輪明確要求信用卡卡號、有效期限與卡背安全碼。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  10
+                ],
+                "explanation": "第10輪明確要求將銀行簡訊認證碼填入欄位。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般發票查詢或領獎不需要輸入信用卡敏感資料與銀行簡訊驗證碼。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            11
+          ],
+          "explanation": "第11輪只是使用者完成輸入，沒有出現可推翻前述敏感要求的新反證。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "輸入銀行認證碼並送出",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "仍存在要求卡片資料與銀行簡訊碼的敏感操作。",
+        "normal_explanation": "正常發票查詢不會要求卡號、安全碼與OTP。",
+        "recommended_action": "停止再輸入任何驗證資料，改走官方獨立管道確認。",
+        "stages": [
+          "S0",
+          "S1",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。"
+          },
+          {
+            "turn": 10,
+            "quote": "請將銀行簡訊中的認證碼填入欄位，再按送出完成認證。"
+          },
+          {
+            "turn": 11,
+            "quote": "我輸入 482913 並送出了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0c5d96f089f45503016aa4e11cb73487d08c4ce94842a260e9",
+      "usage": {
+        "input_tokens": 6175,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 321,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6496
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 11,
+      "first_alert_turn": 6,
+      "predictions": [
+        {
+          "id": "p5",
+          "created_turn": 5,
+          "expires_turn": 6,
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.281,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "第5輪明確要求信用卡卡號、有效期限與卡背安全碼。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  10
+                ],
+                "explanation": "第10輪明確要求將銀行簡訊中的認證碼填入欄位。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般發票查詢或領獎不需要信用卡卡號、安全碼與銀行簡訊驗證碼。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            12
+          ],
+          "explanation": "第12輪只是回覆資料已受理，沒有新的反證可解除前述敏感要求。"
+        },
+        "observation": {
+          "actor": "page",
+          "action_type": "other",
+          "object": "回覆資料已受理",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "仍保留卡片資料與銀行驗證碼的敏感要求脈絡。",
+        "normal_explanation": "正常發票領獎流程不會要求卡號、安全碼與OTP。",
+        "recommended_action": "停止再提供任何卡片或驗證碼資訊，改以官方獨立管道查證。",
+        "stages": [
+          "S0",
+          "S1",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。"
+          },
+          {
+            "turn": 10,
+            "quote": "請將銀行簡訊中的認證碼填入欄位，再按送出完成認證。"
+          },
+          {
+            "turn": 12,
+            "quote": "資料已受理。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_072c9072e52fce67016aa4e11ef43487d09d2b4546a94a5353",
+      "usage": {
+        "input_tokens": 6208,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 331,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6539
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 12,
+      "first_alert_turn": 6,
+      "predictions": [
+        {
+          "id": "p5",
+          "created_turn": 5,
+          "expires_turn": 6,
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.978,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "第5輪明確要求信用卡卡號、有效期限與卡背安全碼。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  10
+                ],
+                "explanation": "第10輪明確要求將銀行簡訊中的認證碼填入欄位。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般發票查詢或領獎不需要信用卡資料與銀行認證碼。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13
+          ],
+          "explanation": "第13輪只是回報銀行App出現異常消費，沒有反證先前的敏感資料要求已被解除。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報銀行App出現境外消費通知",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "前段已出現卡號、安全碼與銀行認證碼要求，且尚未被具體反證解除。",
+        "normal_explanation": "正常發票流程不會要求這些敏感資料與OTP。",
+        "recommended_action": "停止再提供任何卡片或驗證碼資訊，改用官方獨立管道查證帳戶與交易。",
+        "stages": [
+          "S0",
+          "S1",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。"
+          },
+          {
+            "turn": 10,
+            "quote": "請將銀行簡訊中的認證碼填入欄位，再按送出完成認證。"
+          },
+          {
+            "turn": 13,
+            "quote": "幾天後銀行 App 出現一筆境外消費通知，金額三萬二千元，我沒有買這個。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0e102b87e39d2137016aa4e121554487d0ab00d5c9ed804ec2",
+      "usage": {
+        "input_tokens": 6267,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 340,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6607
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 13,
+      "first_alert_turn": 6,
+      "predictions": [
+        {
+          "id": "p5",
+          "created_turn": 5,
+          "expires_turn": 6,
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 7.093,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  5
+                ],
+                "explanation": "第5輪明確要求信用卡卡號、有效期限與卡背安全碼。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  10
+                ],
+                "explanation": "第10輪明確要求將銀行簡訊中的認證碼填入欄位。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般發票查詢或領獎不需要信用卡資料與銀行認證碼。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            14
+          ],
+          "explanation": "第14輪只是比對網址不同，沒有反證前述敏感資料與OTP要求已解除。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報比對到領獎頁面網址不同",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "仍有卡號、安全碼與銀行認證碼交付要求，且尚未被具體反證推翻。",
+        "normal_explanation": "正常發票流程不會要求這些敏感資料與OTP。",
+        "recommended_action": "停止再提供任何卡片或驗證碼資訊，改用官方獨立管道查證。",
+        "stages": [
+          "S0",
+          "S1",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。"
+          },
+          {
+            "turn": 10,
+            "quote": "請將銀行簡訊中的認證碼填入欄位，再按送出完成認證。"
+          },
+          {
+            "turn": 14,
+            "quote": "我回頭比對，先前那個領獎頁面和我自己找到的平台網址不同。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0b3277d948b59be7016aa4e12803b087d0b53b0dc0a10f49e5",
+      "usage": {
+        "input_tokens": 6399,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 337,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6736
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 14,
+      "first_alert_turn": 6,
+      "predictions": [
+        {
+          "id": "p5",
+          "created_turn": 5,
+          "expires_turn": 6,
+          "actor": "page",
+          "action_type": "new_condition",
+          "object": "要求先完成信用卡驗證才能繼續領獎",
+          "action": "進一步追加驗證門檻",
+          "within_next_messages": 1,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.133,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

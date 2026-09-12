@@ -1,0 +1,269 @@
+{
+  "case": "B4.replay.json",
+  "repeat": 3,
+  "source": "reports/expanded-v1/run3/B4.results.json",
+  "source_sha256": "6845c7823ecdebc9acc9d5fe8ff64f72bb26d60d409ec24d711ed08a8a0aeb49",
+  "predictions": [
+    {
+      "id": "p7",
+      "created_turn": 7,
+      "expires_turn": 9,
+      "actor": "counterparty",
+      "action_type": "sensitive_access_request",
+      "object": "密碼、OTP或網銀畫面/操作認證",
+      "action": "進一步要求提供金融認證所需的敏感資訊或操作",
+      "within_next_messages": 2,
+      "status": "missed"
+    },
+    {
+      "id": "p11",
+      "created_turn": 11,
+      "expires_turn": 13,
+      "actor": "counterparty",
+      "action_type": "sensitive_access_request",
+      "object": "要求提供金融認證相關的敏感資訊或操作",
+      "action": "接著可能要求進一步的驗證資料或畫面操作",
+      "within_next_messages": 2,
+      "status": "missed"
+    },
+    {
+      "id": "p15",
+      "created_turn": 15,
+      "expires_turn": 17,
+      "actor": "counterparty",
+      "action_type": "sensitive_access_request",
+      "object": "要求你提供或操作驗證/認證資訊",
+      "action": "接著可能要求進一步驗證或操作以完成所謂解除流程",
+      "within_next_messages": 2,
+      "status": "missed"
+    },
+    {
+      "id": "p19",
+      "created_turn": 19,
+      "expires_turn": 21,
+      "actor": "counterparty",
+      "action_type": "payment_request",
+      "object": "要求下一筆轉帳或更多款項",
+      "action": "再追加新的金額或指示繼續付款",
+      "within_next_messages": 2,
+      "status": "pending"
+    }
+  ],
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "你好，你在賣的演唱會門票還在嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "user",
+      "channel": "chat",
+      "text": "還在，你要買嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "想買，可以用順豐快遞寄給我嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "chat",
+      "text": "可以，寄送要怎麼弄？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "要先簽託運條款，才能辦寄送。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "chat",
+      "text": "是我這邊要簽嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "對，賣家這邊要先簽，還要完成金融認證。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "channel": "chat",
+      "text": "寄票也要金融認證？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "這筆交易要先完成認證才能繼續。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "chat",
+      "text": "那現在要怎麼處理？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "這筆交易沒有及時完成，帳戶被列警示了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "user",
+      "channel": "chat",
+      "text": "那要怎麼解除？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "要照指示操作解除，先轉帳到指定帳戶。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "chat",
+      "text": "我看一下。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 16,
+      "sender": "user",
+      "channel": "chat",
+      "text": "45,046 元，已經轉好了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 17,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "接著再轉 27,979 元。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 18,
+      "sender": "user",
+      "channel": "chat",
+      "text": "這筆 27,979 元也轉好了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 19,
+      "sender": "counterparty",
+      "channel": "chat",
+      "text": "再一筆 27,028 元，轉完告訴我。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 20,
+      "sender": "user",
+      "channel": "chat",
+      "text": "27,028 元轉好了，三筆都轉了。",
+      "attachment_captions": []
+    }
+  ],
+  "review": {
+    "version": "whole-conversation-v2",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+    "status": "ok",
+    "items": [
+      {
+        "prediction_id": "p7",
+        "outcome": "missed",
+        "matched_turn": null,
+        "reason": "第7則只是說要完成金融認證，沒有在之後再要求提供密碼、OTP、網銀畫面或其他敏感操作；後續第9則也只是重申要先完成認證才能繼續，未見更進一步的敏感資訊索取。",
+        "evidence": [],
+        "validation_error": null
+      },
+      {
+        "prediction_id": "p11",
+        "outcome": "missed",
+        "matched_turn": null,
+        "reason": "第11則內容是帳戶被列警示，之後第13則改為要求先轉帳到指定帳戶，屬於付款要求，不是繼續索取驗證資料或畫面操作。",
+        "evidence": [],
+        "validation_error": null
+      },
+      {
+        "prediction_id": "p15",
+        "outcome": "matched",
+        "matched_turn": 17,
+        "reason": "第15則提出先轉45,046元以解除流程；其後第17則又要求再轉27,979元，屬於繼續催促/追加同一筆付款義務，符合後續再索取更多款項。",
+        "evidence": [
+          {
+            "turn": 17,
+            "quote": "接著再轉 27,979 元。"
+          }
+        ],
+        "validation_error": null
+      },
+      {
+        "prediction_id": "p19",
+        "outcome": "missed",
+        "matched_turn": null,
+        "reason": "第19則本身已是再次要求再一筆27,028元，但依規則不能用當輪或之前的內容當作命中；在第19則之後沒有再出現新的追加付款要求。",
+        "evidence": [],
+        "validation_error": null
+      }
+    ],
+    "matched": 1,
+    "missed": 3,
+    "uncertain": 0,
+    "rate": 0.25,
+    "response_id": "resp_0c9cf69c7b86a9b5016aa4edd4ba0887d0973a86547d7f439d",
+    "usage": {
+      "input_tokens": 1905,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 1280
+      },
+      "output_tokens": 307,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 2212
+    },
+    "attempts": [
+      {
+        "status": "validation_retry",
+        "issues": [
+          "p7在第7則產生；引用7不在未來。請找之後的事件，沒有就missed。",
+          "p15在第15則產生；引用13不在未來。請找之後的事件，沒有就missed。",
+          "p19在第19則產生；引用17不在未來。請找之後的事件，沒有就missed。"
+        ]
+      },
+      {
+        "status": "ok"
+      }
+    ]
+  }
+}

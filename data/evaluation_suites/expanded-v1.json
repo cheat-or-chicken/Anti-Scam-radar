@@ -1,0 +1,39 @@
+{
+  "name": "expanded-v1",
+  "cases": [
+    "B1_免費拍立得詐騙.replay.json",
+    "B2_假買家騙賣家.replay.json",
+    "B4.replay.json",
+    "N1_二手拍立得正常交易.replay.json",
+    "B3_假交友見面費.replay.json",
+    "B5_假中獎信用卡驗證盜刷.replay.json",
+    "B6_點數卡驗證與私密影像勒索.replay.json",
+    "N2_同住家人Netflix暫時收看驗證碼.replay.json",
+    "N3_本人刷卡結帳自行輸入OTP.replay.json",
+    "N4_公司IT分享試算表畫面.replay.json",
+    "N5_家人生日遊戲點數禮物.replay.json",
+    "N6_商家原路退款等待入帳.replay.json",
+    "N7_朋友訂位分攤餐廳訂金.replay.json",
+    "N8_家人代領包裹取件碼.replay.json"
+  ],
+  "repeats": 3,
+  "detector_frozen_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207",
+  "notes": "既有四案＋新重建三案＋正常七案。每案各三次；偵測器不讀此清單。",
+  "file_hashes": {
+    "B1_免費拍立得詐騙.replay.json": "751489d6bda41c59af0cad8c0616351d838c3f201c175ccfce098c0c92855db8",
+    "B2_假買家騙賣家.replay.json": "42da913520b9a81792843864bc4e5ae5815d84ae19c6a0b7a289625809801664",
+    "B4.replay.json": "7192a9c4a8132b24d890ceb9e7fa4d39f004cbe9d488abc20eb43c345ea83ded",
+    "N1_二手拍立得正常交易.replay.json": "5421f928d25c9d7d1e33ef74f4c2fcc1c201bd9e446b95c5823f98f1b1771d67",
+    "B3_假交友見面費.replay.json": "901bcce7e3cc65b566e3ff5076419bc7d408b4fe2b661e309410d88918eee017",
+    "B5_假中獎信用卡驗證盜刷.replay.json": "2c6299b65ba31eea39435b398bb243a0c249b96484ef6691f481911531f1b0fd",
+    "B6_點數卡驗證與私密影像勒索.replay.json": "6177b845bdcb7244d9f8f441ec37f7fd15643663b96d5e3b34f45bb3badaa94a",
+    "N2_同住家人Netflix暫時收看驗證碼.replay.json": "fab751143055224bbee2dd8f595aefa0deb83de3906cf6a6409d6704a200c0b7",
+    "N3_本人刷卡結帳自行輸入OTP.replay.json": "34e81b509087b4d5d1683d55b5f7aaedf5833eb594983bd0afb1008b81543cc5",
+    "N4_公司IT分享試算表畫面.replay.json": "343bd9f30208de499ea1db39feb2ad4e4617776cd424f6f6c31a4cc2031d08d6",
+    "N5_家人生日遊戲點數禮物.replay.json": "d67f9c21245eefb83686cca2791fed0feb2d20e61fc947aabaa5cbf2d76f25b8",
+    "N6_商家原路退款等待入帳.replay.json": "1426cb700be148a1e7ba613faa039264933b894dd43352c0d339a9aa9384223d",
+    "N7_朋友訂位分攤餐廳訂金.replay.json": "3d2327c9d70450ebbb7c8381f19242ed85c985846631d9c73a5f95a8ce4b11b7",
+    "N8_家人代領包裹取件碼.replay.json": "448c4c48b0afe22af57bc4c4ed0bc4b5b853311d06dbb6193091ee08d5c7e9df"
+  },
+  "source_snapshots": "data/evaluation_suites/expanded-v1-sources"
+}

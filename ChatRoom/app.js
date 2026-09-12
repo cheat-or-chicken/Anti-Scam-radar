@@ -75,7 +75,7 @@ function render(result) {
   if(!(result.predictions||[]).length)$('predictions').textContent='目前沒有足夠依據提出下一步預測。';
   for(const p of result.predictions||[]) {
     const row=document.createElement('div');row.className='prediction';
-    const labels={matched:`已命中（第${p.matched_turn}則）`,missed:'視窗內未命中',pending:index===queue.length&&mode==='json'?'對話已結束，尚未確認':'待觀察'};
+    const labels={matched:`已命中（第${p.matched_turn}則）`,missed:'視窗內未命中',unverified:'語意核對未確認',pending:index===queue.length&&mode==='json'?'對話已結束，尚未確認':'待觀察'};
     row.textContent=`第${p.created_turn}則預測：${p.action} · ${labels[p.status]}`;$('predictions').append(row);
   }
   const row=document.createElement('div');row.className='trace-row';

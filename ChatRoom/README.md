@@ -31,7 +31,7 @@ Invoke-RestMethod http://localhost:8000/api/chat
 `DIALOGUE_MODEL` 可指定模型，預設沿用網站偵測專案的 `gpt-5.4-mini`。
 可用 `PORT=8001 python3 ChatRoom/server.py` 避開已使用的連接埠。
 
-- 內建三例，或匯入 `*.replay.json`，以 `sender`、`channel` 呈現角色與分隔線。
+- 內建14例，或匯入 `*.replay.json`，以 `sender`、`channel` 呈現角色與分隔線。
 - TXT 模式仍可輸入自己的回覆，雙方訊息共同累計輪次。
 - 下一則／自動重播會先等待本輪API完成。暫停不取消已送出的API請求。
 - 右側呈現示警、原文引用、七幕標籤、先前預測的核對與首次示警輪次。
@@ -62,3 +62,12 @@ API：`POST /api/sessions`建立工作階段；`POST /api/analyze`接收
 ### 引用與失敗重試（dialogue-v4）
 
 模型只輸出evidence_turns，程式從已播放原文擷取引用，不要求LLM逐字重抄。輪次越界仍拒絕。最新失敗輪次可按「重試本輪分析」，重試成功覆寫該輪結果，不增加輪數；成功輪次重送仍回快取。分析失敗時暫停後續重播。錯誤訊息區分API額度、憑證與模型驗證問題。
+
+
+### Demo v1 交接
+
+使用14案例清單：`data/evaluation_suites/expanded-v1.json`。其中偵測器雜湊鎖定當時測試版本，後續程式修改後不可把同一清單冒充全新同版本測試；要重跑請另建版本清單。
+
+`python -m ChatRoom.rescore_conversation_predictions` 只對既有 `reports/expanded-v1` 的預測做整篇離線語意重評，不重新分析風險。原始自動評分及助理逐筆複核分開保存於 `reports/prediction-whole-conversation-v2/`，後者不是獨立人工真值。
+
+舊版交付ZIP已移除。共用領域知識保留在 `knowledge/detector/sources/`，B堆摘要在 `data/evaluation_suites/expanded-v1-sources/`，可重播資料在 `data/reconstructed/`。歷次評測報告為判斷變更的依據，保留供夥伴追溯。

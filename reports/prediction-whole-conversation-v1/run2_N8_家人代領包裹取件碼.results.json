@@ -1,0 +1,69 @@
+{
+  "case": "N8_家人代領包裹取件碼.replay.json",
+  "repeat": 2,
+  "source": "reports/expanded-v1/run2/N8_家人代領包裹取件碼.results.json",
+  "source_sha256": "a4ab0e462735cdf4b341da57e2ac39c5ad25dc3ddaaa2164ac74090e29c7cef0",
+  "predictions": [],
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "我晚點才下班，可以幫我拿管理室的包裹嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "可以，我在大樓樓下了，要給管理員取件碼。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "是我昨天買的濾水壺，尾號 4128。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "管理員說包裹姓名跟你一樣，要你收到的六位數取件碼。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "我剛打家裡電話跟你確認過，通知是這件包裹的取件碼 593204。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "family",
+      "channel": "family_chat",
+      "text": "拿到了，是一箱濾水壺，放餐桌上。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "family_chat",
+      "text": "好，晚上回去拆。",
+      "attachment_captions": []
+    }
+  ],
+  "review": {
+    "version": "whole-conversation-v1",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+    "status": "ok",
+    "items": [],
+    "matched": 0,
+    "missed": 0,
+    "uncertain": 0,
+    "rate": null
+  }
+}

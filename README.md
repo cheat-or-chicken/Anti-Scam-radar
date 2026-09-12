@@ -1,5 +1,27 @@
 # Anti-Scam Radar
 
+## 對話防詐 Demo v1
+
+目前對話功能位於 `ChatRoom/`，包含14個可重播案例（6詐騙、8正常）、逐則示警、原文證據與後續預測。
+
+```bash
+uv sync --locked --python 3.12 --extra dev
+cp .env.example .env.local
+# 編輯 .env.local 填入自己的 OPENAI_API_KEY，不要提交此檔
+PORT=8010 uv run python ChatRoom/server.py
+```
+
+開啟 http://localhost:8010/，選案例後按「載入」。PowerShell 可先執行 `$env:PORT="8010"` 再執行啟動命令。
+
+- [聊天室操作與設定](ChatRoom/README.md)
+- [14案例索引](docs/擴充對話案例索引.md)
+- [三次重播測試](docs/擴充案例三次測試報告.md)
+- [整篇預測重評](docs/完整對話預測命中重評.md)
+
+42次重播共690則分析完成；預測整篇複核為24命中、19未命中、8不明確，可判定部分55.8%。這是合成開發資料結果，不代表真實世界準確率。整篇評分目前僅離線使用，網頁仍保留先前逐輪核對；UI優化留待下一階段。
+
+## 網站分析核心
+
 台灣防詐驗證腳本。提供 L0–L17 的 function 入口、CLI、政府機關冒用偵測、受控行為證據判讀、L7 LLM 靜態程式碼審查、查證工具、SQLite 稽核與合成評估集。這一版是可執行的分析核心，尚未包含 Chrome 擴充功能或公開 HTTP 服務。
 
 ## 執行

@@ -1,0 +1,130 @@
+{
+  "case_id": "B4_reconstructed_v2",
+  "language": "zh-TW",
+  "participants": {
+    "counterparty": "買家（化名）",
+    "user": "賣家（化名）"
+  },
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "counterparty",
+      "text": "你好，你在賣的演唱會門票還在嗎？",
+      "timestamp": "2025-06-06T11:01:00+08:00"
+    },
+    {
+      "turn": 2,
+      "sender": "user",
+      "text": "還在，你要買嗎？",
+      "timestamp": null
+    },
+    {
+      "turn": 3,
+      "sender": "counterparty",
+      "text": "想買，可以用順豐快遞寄給我嗎？",
+      "timestamp": null
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "text": "可以，寄送要怎麼弄？",
+      "timestamp": null
+    },
+    {
+      "turn": 5,
+      "sender": "counterparty",
+      "text": "要先簽託運條款，才能辦寄送。",
+      "timestamp": null
+    },
+    {
+      "turn": 6,
+      "sender": "user",
+      "text": "是我這邊要簽嗎？",
+      "timestamp": null
+    },
+    {
+      "turn": 7,
+      "sender": "counterparty",
+      "text": "對，賣家這邊要先簽，還要完成金融認證。",
+      "timestamp": null
+    },
+    {
+      "turn": 8,
+      "sender": "user",
+      "text": "寄票也要金融認證？",
+      "timestamp": null
+    },
+    {
+      "turn": 9,
+      "sender": "counterparty",
+      "text": "這筆交易要先完成認證才能繼續。",
+      "timestamp": null
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "text": "那現在要怎麼處理？",
+      "timestamp": null
+    },
+    {
+      "turn": 11,
+      "sender": "counterparty",
+      "text": "這筆交易沒有及時完成，帳戶被列警示了。",
+      "timestamp": null
+    },
+    {
+      "turn": 12,
+      "sender": "user",
+      "text": "那要怎麼解除？",
+      "timestamp": null
+    },
+    {
+      "turn": 13,
+      "sender": "counterparty",
+      "text": "要照指示操作解除，先轉帳到指定帳戶。",
+      "timestamp": null
+    },
+    {
+      "turn": 14,
+      "sender": "user",
+      "text": "我看一下。",
+      "timestamp": null
+    },
+    {
+      "turn": 15,
+      "sender": "counterparty",
+      "text": "先轉 45,046 元，帳戶資料是這組：[模擬收款帳戶]。",
+      "timestamp": null
+    },
+    {
+      "turn": 16,
+      "sender": "user",
+      "text": "45,046 元，已經轉好了。",
+      "timestamp": "2025-06-06T17:41:00+08:00"
+    },
+    {
+      "turn": 17,
+      "sender": "counterparty",
+      "text": "接著再轉 27,979 元。",
+      "timestamp": null
+    },
+    {
+      "turn": 18,
+      "sender": "user",
+      "text": "這筆 27,979 元也轉好了。",
+      "timestamp": "2025-06-06T17:42:00+08:00"
+    },
+    {
+      "turn": 19,
+      "sender": "counterparty",
+      "text": "再一筆 27,028 元，轉完告訴我。",
+      "timestamp": null
+    },
+    {
+      "turn": 20,
+      "sender": "user",
+      "text": "27,028 元轉好了，三筆都轉了。",
+      "timestamp": "2025-06-06T17:46:00+08:00"
+    }
+  ]
+}

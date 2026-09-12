@@ -1,0 +1,192 @@
+[
+  {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "fd46c2f6a8e944d5bf4e1883d8329714",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+    "completed": false,
+    "turns_analyzed": 24,
+    "total_turns": 38,
+    "first_alert_turn": 12,
+    "payment_turn": 21,
+    "lead_turns": 9,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 3,
+    "mean_seconds": 2.966,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_COERCIVE_ISOLATION",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "evidence_turns": [
+                11
+              ],
+              "explanation": "提到不趕快聯絡就會帳號凍結，屬於施加處理壓力。"
+            },
+            {
+              "requirement_index": 2,
+              "evidence_turns": [
+                9
+              ],
+              "explanation": "要求改找頁面上的客服LINE處理，屬於把查證與處理導向對方指定管道。"
+            },
+            {
+              "requirement_index": 3,
+              "evidence_turns": [
+                9,
+                11
+              ],
+              "explanation": "同一事件中，催促聯絡與指定客服管道是連在一起的處置流程。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服轉介或催促聯絡，可以有正常用途，但本輪已出現與帳號風險連結的指定處理管道。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          11,
+          9
+        ],
+        "explanation": "本輪延續前述異常處理脈絡，並把處理導向對方提供的客服LINE；尚未出現反證可解除風險。"
+      },
+      "observation": {
+        "actor": "user",
+        "action_type": "other",
+        "object": "向support_line說明填單失敗與實名認證問題",
+        "is_new_request": false
+      },
+      "status": "warn",
+      "reason": "對方已把異常處理連到其提供的客服LINE，並以帳號凍結施壓，符合限制查證與導向指定管道的風險特徵。",
+      "normal_explanation": "一般客服聯繫或帳號異常通知，單獨看不必然是詐騙。",
+      "recommended_action": "先不要依對方指示繼續在未核實管道操作；改以獨立方式查證平台規則與客服真偽。",
+      "stages": [
+        "S2",
+        "S4"
+      ],
+      "rule_ids": [
+        "R_COERCIVE_ISOLATION"
+      ],
+      "evidence": [
+        {
+          "turn": 9,
+          "quote": "那要找客服處理，頁面上有客服的 LINE。"
+        },
+        {
+          "turn": 11,
+          "quote": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。"
+        }
+      ],
+      "prediction": null,
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "B2_假買家騙賣家.replay.json",
+    "session_id": "e3d9716d07244dcda18c641780d7aef0",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+    "completed": true,
+    "turns_analyzed": 30,
+    "total_turns": 30,
+    "first_alert_turn": 17,
+    "payment_turn": 26,
+    "lead_turns": 9,
+    "false_alarm": null,
+    "evaluation_status": "completed",
+    "passed": true,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 5,
+    "mean_seconds": 2.785,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_SENSITIVE_ACCESS",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "evidence_turns": [
+                17
+              ],
+              "explanation": "支援方明確表示要開啟網路銀行並進行驗證，屬於要求接觸敏感網銀操作的情境。"
+            },
+            {
+              "requirement_index": 2,
+              "evidence_turns": [
+                13,
+                17
+              ],
+              "explanation": "同一對話中先以協助排除交易異常、通話帶操作建立引導關係，接著要求進入網銀驗證。"
+            }
+          ],
+          "normal_explanation_insufficient": "單純通話協助或一般畫面分享可屬正常客服流程，但本輪已明確進到網銀驗證要求，超出僅看畫面。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          17
+        ],
+        "explanation": "本輪新增的是要求開啟網路銀行處理驗證，沒有其他反證足以解除風險。"
+      },
+      "observation": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "開啟網路銀行並處理驗證",
+        "is_new_request": true
+      },
+      "status": "warn",
+      "reason": "支援方在通話帶操作後，進一步要求開啟網路銀行處理驗證，已屬敏感網銀操作要求。",
+      "normal_explanation": "一般客服協助或畫面分享不必然有問題，但要求進入網銀驗證已超出普通協助範圍。",
+      "recommended_action": "先停止後續操作，不要輸入密碼、OTP或授權控制；改用官方公開管道自行登入確認。",
+      "stages": [
+        "S4"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS"
+      ],
+      "evidence": [
+        {
+          "turn": 13,
+          "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+        },
+        {
+          "turn": 17,
+          "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+        }
+      ],
+      "prediction": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "要求提供或操作網銀驗證資訊",
+        "action": "接著可能要求輸入驗證碼、密碼或進一步網銀操作",
+        "within_next_messages": 2
+      },
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "N1_二手拍立得正常交易.replay.json",
+    "session_id": "38db48bf56f0408d8884ce647f43fc26",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "57516f8304cf7ea28c8e54d360c2040c8eab24ffac224e70d1a5c99f02c36007",
+    "completed": true,
+    "turns_analyzed": 26,
+    "total_turns": 26,
+    "first_alert_turn": null,
+    "payment_turn": 20,
+    "lead_turns": null,
+    "false_alarm": false,
+    "evaluation_status": "completed",
+    "passed": true,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 0,
+    "mean_seconds": 2.091,
+    "first_warning": null
+  }
+]

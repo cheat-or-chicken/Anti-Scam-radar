@@ -1,0 +1,213 @@
+[
+  {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "5c2d0df5cf3146a999fa98456c7674aa",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "completed": false,
+    "turns_analyzed": 36,
+    "total_turns": 38,
+    "first_alert_turn": 19,
+    "payment_turn": 21,
+    "lead_turns": 2,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 2,
+    "mean_seconds": 3.423,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_SENSITIVE_ACCESS",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "support": "explicit",
+              "evidence_turns": [
+                18
+              ],
+              "explanation": "對方以銀行身分引導處理驗證程序，且要求先開啟網路銀行。"
+            },
+            {
+              "requirement_index": 2,
+              "support": "explicit",
+              "evidence_turns": [
+                18
+              ],
+              "explanation": "具體要求是進入網路銀行並配合轉帳完成驗證，屬敏感網銀操作要求。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服協助不會要求使用者開啟網路銀行並以轉帳方式完成驗證。"
+        },
+        {
+          "rule_id": "R_COMPOUND_INCONSISTENCY",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "support": "explicit",
+              "evidence_turns": [
+                11,
+                15,
+                18
+              ],
+              "explanation": "出現訂單異常、轉介專員、再轉到銀行驗證與網銀轉帳的連續程序。"
+            },
+            {
+              "requirement_index": 2,
+              "support": "explicit",
+              "evidence_turns": [
+                18
+              ],
+              "explanation": "已出現具體且不尋常的轉帳驗證要求，牽涉金融操作風險。"
+            }
+          ],
+          "normal_explanation_insufficient": "這不是單純催促或一般客服轉介，而是已連到網銀轉帳驗證的具體程序矛盾，足以停止操作並獨立查證。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [],
+        "explanation": "本輪沒有新的反證；只是使用者回應已打開網銀，未解除先前要求。"
+      },
+      "observation": {
+        "actor": "user",
+        "action_type": "other",
+        "object": "表示已打開網路銀行並詢問要轉到哪裡",
+        "is_new_request": false
+      },
+      "status": "warn",
+      "reason": "銀行要求開啟網銀並以轉帳完成驗證，屬敏感操作且帶有不尋常的金流驗證要求。",
+      "normal_explanation": "正常驗證流程不會要求先開啟網路銀行再用轉帳完成驗證。",
+      "recommended_action": "先不要依指示轉帳，改用官方客服或銀行主動公開管道獨立查證。",
+      "stages": [
+        "S4",
+        "S5"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS",
+        "R_COMPOUND_INCONSISTENCY"
+      ],
+      "evidence": [
+        {
+          "turn": 18,
+          "quote": "請先開啟網路銀行，這一步需要轉帳完成驗證。"
+        },
+        {
+          "turn": 11,
+          "quote": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。"
+        },
+        {
+          "turn": 15,
+          "quote": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen"
+        }
+      ],
+      "prediction": null,
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "B2_假買家騙賣家.replay.json",
+    "session_id": "76608c532e594c1c8cdc24879ebe1bf2",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "completed": true,
+    "turns_analyzed": 30,
+    "total_turns": 30,
+    "first_alert_turn": 17,
+    "payment_turn": 26,
+    "lead_turns": 9,
+    "false_alarm": null,
+    "evaluation_status": "completed",
+    "passed": true,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 2,
+    "mean_seconds": 2.404,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_SENSITIVE_ACCESS",
+          "conditions": [
+            {
+              "requirement_index": 1,
+              "support": "explicit",
+              "evidence_turns": [
+                17
+              ],
+              "explanation": "support已明確以「處理驗證」為由，要求開啟網路銀行，屬敏感網銀操作要求。"
+            },
+            {
+              "requirement_index": 2,
+              "support": "explicit",
+              "evidence_turns": [
+                13,
+                17
+              ],
+              "explanation": "同一未核實支援角色先前以通話帶操作、畫面分享協助排除異常，接著要求開網銀；符合未經獨立核實對方引導敏感操作。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服可協助排除交易異常，但不能合理解釋要求開啟網路銀行進行驗證。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          17
+        ],
+        "explanation": "本輪是新增的網銀驗證要求，並非先前危險的反證或澄清。"
+      },
+      "observation": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "開啟網路銀行處理驗證",
+        "is_new_request": true
+      },
+      "status": "warn",
+      "reason": "support在通話帶操作與畫面分享之後，進一步要求開啟網路銀行處理驗證，已構成敏感網銀操作要求。",
+      "normal_explanation": "一般客服可口頭協助排除問題，但不需要直接要求開啟網銀驗證。",
+      "recommended_action": "先停止操作，不要在通話中開網銀或提供任何驗證資訊，改用官方可獨立查證的聯絡管道確認。",
+      "stages": [
+        "S4",
+        "S5"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS"
+      ],
+      "evidence": [
+        {
+          "turn": 13,
+          "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+        },
+        {
+          "turn": 15,
+          "quote": "不用開鏡頭，分享手機畫面就可以。"
+        },
+        {
+          "turn": 17,
+          "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+        }
+      ],
+      "prediction": null,
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "N1_二手拍立得正常交易.replay.json",
+    "session_id": "1e84b04f6eba482dbc1d832ffea26456",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "completed": true,
+    "turns_analyzed": 26,
+    "total_turns": 26,
+    "first_alert_turn": null,
+    "payment_turn": 20,
+    "lead_turns": null,
+    "false_alarm": false,
+    "evaluation_status": "completed",
+    "passed": true,
+    "warning_downgrade_turns": [],
+    "rejected_prediction_matches": 0,
+    "mean_seconds": 1.989,
+    "first_warning": null
+  }
+]

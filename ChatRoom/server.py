@@ -19,7 +19,6 @@ DETECTOR = Detector()
 SAMPLES = {
     p.name: p
     for p in (ROOT.parent / "data/reconstructed").glob("*.replay.json")
-    if p.name.startswith(("B1_", "B2_", "N1_"))
 }
 HISTORY_FILE = ROOT / "chat_history.json"
 

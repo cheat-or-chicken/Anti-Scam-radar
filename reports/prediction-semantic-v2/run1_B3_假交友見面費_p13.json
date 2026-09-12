@@ -1,0 +1,154 @@
+{
+  "source": "reports/expanded-v1/run1/B3_假交友見面費.results.json",
+  "source_sha256": "276e7c831f862c21ef0a2c3323df849a720430f0f54e45d4d82fb7ea47443614",
+  "case": "B3_假交友見面費.replay.json",
+  "repeat": 1,
+  "prediction": {
+    "id": "p13",
+    "created_turn": 13,
+    "expires_turn": 15,
+    "actor": "manager",
+    "action_type": "new_condition",
+    "object": "要求先提供更多能證明身分的資料或改用另一個確認流程",
+    "action": "可能接著追加新的確認條件或改走其他驗證程序",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v2",
+    "prompt_hash": "61a0c5f18f46a0cfdf4fd4faa2ffdf9c88c85645abe69f744728e0309ac69b75",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "semantic_correspondence": false,
+    "new_after_prediction": false,
+    "reason": "第13輪雖有追加驗證條件，但內容是「去 ATM 提領一筆現金、拍交易明細」來看職業代碼，並非要求先提供更多身分資料或改用另一個確認流程；且未見符合原預測的替代驗證程序。",
+    "audit": null,
+    "evidence": [],
+    "api_called": true,
+    "response_id": "resp_0726a64841e64890016aa4e83f950087d0a94dcf3d81260214",
+    "usage": {
+      "input_tokens": 1426,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 1280
+      },
+      "output_tokens": 105,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1531
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "social_dm",
+      "text": "剛剛看到你調酒的影片，那杯藍色的是什麼？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "friend",
+      "channel": "social_dm",
+      "text": "是店裡最近的新飲料。這裡訊息常漏掉，換 LINE 聊好嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "line",
+      "text": "加到了。我剛下班，你今天也晚班？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "friend",
+      "channel": "line",
+      "text": "對，最近幾乎都晚班，客人很多，下班反而沒人能說話。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "line",
+      "text": "我今天也忙到午餐變晚餐。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "friend",
+      "channel": "line",
+      "text": "那你記得吃東西。跟你聊這些比在店裡應酬舒服多了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "line",
+      "text": "週日我放假，你有空嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "friend",
+      "channel": "line",
+      "text": "下午可以，我們三點在青禾咖啡門口碰面？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "line",
+      "text": "好，我到了，穿灰色外套坐門口。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "friend",
+      "channel": "line",
+      "text": "對不起，公司臨時卡住，說不能私下跟陌生網友見面，要先請經理確認身分才能出去。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "user",
+      "channel": "line",
+      "text": "那我需要做什麼？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "friend",
+      "channel": "line",
+      "text": "我把經理阿凱加進來，請他幫忙確認。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "manager",
+      "channel": "line",
+      "text": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "line",
+      "text": "提款的明細也看得出職業？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "manager",
+      "channel": "line",
+      "text": "這是公司的核對方式，確認後才能讓他出去。",
+      "attachment_captions": []
+    }
+  ]
+}

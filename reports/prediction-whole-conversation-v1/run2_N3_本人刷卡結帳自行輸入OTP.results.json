@@ -1,0 +1,90 @@
+{
+  "case": "N3_本人刷卡結帳自行輸入OTP.replay.json",
+  "repeat": 2,
+  "source": "reports/expanded-v1/run2/N3_本人刷卡結帳自行輸入OTP.results.json",
+  "source_sha256": "755d32c18ae95fbe791d61c5c844a4207abc3556de13d97a0c53bb0df21a898a",
+  "predictions": [],
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "shop_chat",
+      "text": "我要的書架白色還有現貨嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "seller",
+      "channel": "shop_chat",
+      "text": "有，含運一千二，今天下單週五出貨。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "shop_chat",
+      "text": "我已經在平常買東西的購物 App 找到你的賣場，準備結帳。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "seller",
+      "channel": "shop_chat",
+      "text": "選白色款就好，庫存還有兩個。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "shop_chat",
+      "text": "刷卡結帳跳出銀行驗證頁，手機也收到代碼。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "seller",
+      "channel": "shop_chat",
+      "text": "你在自己的結帳頁完成就好，我這邊等訂單通知。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "shop_chat",
+      "text": "簡訊的商店跟一千二元都對，我自己輸入了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "seller",
+      "channel": "shop_chat",
+      "text": "看到付款訂單了，收件地址沿用訂單上的嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "shop_chat",
+      "text": "對，地址沒變。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "seller",
+      "channel": "shop_chat",
+      "text": "已經寄出，物流單號在 App 訂單內。",
+      "attachment_captions": []
+    }
+  ],
+  "review": {
+    "version": "whole-conversation-v1",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+    "status": "ok",
+    "items": [],
+    "matched": 0,
+    "missed": 0,
+    "uncertain": 0,
+    "rate": null
+  }
+}

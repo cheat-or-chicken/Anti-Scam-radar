@@ -1,0 +1,73 @@
+{
+  "case_id": "N6_商家原路退款等待入帳",
+  "language": "zh-TW",
+  "participants": {
+    "seller": "seller",
+    "user": "user"
+  },
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "shop_chat",
+      "text": "昨天收到的杯子有裂痕，訂單 240912-17，想辦退貨。",
+      "timestamp": null
+    },
+    {
+      "turn": 2,
+      "sender": "seller",
+      "channel": "shop_chat",
+      "text": "看到了照片，我替你開退貨單，物流明天下午收件。",
+      "timestamp": null
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "shop_chat",
+      "text": "我這次是刷卡，退款也是回卡裡嗎？",
+      "timestamp": null
+    },
+    {
+      "turn": 4,
+      "sender": "seller",
+      "channel": "shop_chat",
+      "text": "對，退回原付款卡，收件後處理。",
+      "timestamp": null
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "shop_chat",
+      "text": "物流收走了。",
+      "timestamp": null
+    },
+    {
+      "turn": 6,
+      "sender": "seller",
+      "channel": "shop_chat",
+      "text": "倉庫收到，今天已申請退款六百八十元，入帳要等銀行處理。",
+      "timestamp": null
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "shop_chat",
+      "text": "今天看 App 還沒有。",
+      "timestamp": null
+    },
+    {
+      "turn": 8,
+      "sender": "seller",
+      "channel": "shop_chat",
+      "text": "退款紀錄已在原訂單裡，之後再看卡片明細。",
+      "timestamp": null
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "shop_chat",
+      "text": "隔幾天查到退刷六百八十元了，謝謝。",
+      "timestamp": null
+    }
+  ]
+}

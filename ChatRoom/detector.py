@@ -16,7 +16,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 ROOT = Path(__file__).resolve().parents[1]
 KNOWLEDGE = ROOT / "knowledge/detector/judgment_knowledge.v1.json"
-PROMPT_VERSION = "dialogue-v4"
+PROMPT_VERSION = "dialogue-v5"
 
 
 def load_local_env(path=None):
@@ -48,8 +48,40 @@ class Evidence(StrictModel):
 
 
 class Prediction(StrictModel):
+    actor: str
+    action_type: Literal["payment_request", "sensitive_access_request", "isolation_request", "new_condition"]
+    object: str
     action: str
     within_next_messages: int = Field(ge=1, le=10)
+
+
+class Observation(StrictModel):
+    actor: str
+    action_type: Literal[
+        "payment_request", "sensitive_access_request", "isolation_request", "new_condition", "other"
+    ]
+    object: str
+    is_new_request: bool
+
+
+class RuleCheck(StrictModel):
+    rule_id: str
+    # One source-backed entry for every required_evidence item in the knowledge file.
+    conditions: list["Condition"]
+    normal_explanation_insufficient: str
+
+
+class Condition(StrictModel):
+    requirement_index: int = Field(ge=1)
+    support: Literal["explicit", "unknown", "contradicted"]
+    evidence_turns: list[int]
+    explanation: str
+
+
+class Resolution(StrictModel):
+    kind: Literal["none", "corrected_interpretation", "independent_counterevidence"]
+    evidence_turns: list[int]
+    explanation: str
 
 
 class Match(StrictModel):
@@ -58,6 +90,9 @@ class Match(StrictModel):
 
 
 class Decision(StrictModel):
+    rule_checks: list[RuleCheck] = Field(default_factory=list)
+    resolution: Resolution | None = None
+    observation: Observation | None = None
     status: Literal["insufficient", "monitor", "warn"]
     reason: str
     normal_explanation: str
@@ -75,6 +110,9 @@ class ModelMatch(StrictModel):
 
 
 class ModelDecision(StrictModel):
+    rule_checks: list[RuleCheck]
+    resolution: Resolution
+    observation: Observation
     status: Literal["insufficient", "monitor", "warn"]
     reason: str
     normal_explanation: str
@@ -136,7 +174,7 @@ class Detector:
         self.model = model or os.getenv("DIALOGUE_MODEL", "gpt-5.4-mini")
         self.client = client
         knowledge = json.loads(KNOWLEDGE.read_text())
-        self.rules = {r["id"] for r in knowledge["decision_rules"]}
+        self.rules = {r["id"]: r for r in knowledge["decision_rules"]}
         # Source snapshots remain inspectable locally, but don't inflate each prompt.
         compact = {k: v for k, v in knowledge.items() if k not in {"sources", "audience"}}
         self.instructions = (
@@ -162,6 +200,23 @@ class Detector:
             "reason與normal_explanation保持簡短，解釋證據，不輸出冗長推理。\n"
             + json.dumps(compact, ensure_ascii=False)
         )
+        self.instructions += (
+            "\n補充通用決策契約：status代表整段尚未解除的風險，並非本則是否有新危險。"
+            "僅warn填入成立的rule_ids與rule_checks；monitor與insufficient兩欄皆空陣列。每個rule_ids必須提供rule_checks，以requirement_index（從1開始）逐項對應知識required_evidence，"
+            "各自給support（explicit/unknown/contradicted）、evidence_turns與簡短explanation；只有原文已呈現的必要條件才算explicit，可能發生、前段鋪陳或未知皆是unknown。任何必要條件未知即不可引用該規則。"
+            "normal_explanation_insufficient說明正常用途為何無法解釋具體要求。"
+            "沒有合格規則只能monitor或insufficient，不能靠疑點數量示警。"
+            "降級必須提供resolution：若先前誤讀原文，使用corrected_interpretation並指出原證據"
+            "不滿足哪個必要條件；若有獨立反證，用independent_counterevidence並引用新證據。"
+            "對方自稱退款、使用者配合或拒絕、沒有新增要求，都不是反證；此時kind=none。"
+            "預測僅限非user角色尚未提出的新要求，不預測使用者配合、一般寒暄或交貨。"
+            "actor必須是已出現的sender精確值，action_type與object界定可驗證的動作與對象。"
+            "若未來角色未知或沒有具體新動作，prediction=null。"
+            "observation只描述current_turn實際發言者的新行為；對既有要求的重複、答應、"
+            "回報完成或追問，is_new_request=false。未見新要求時action_type=other。"
+            "prediction_matches只有actor、action_type、object皆吻合且為新要求才能列入；"
+            "object須語意吻合，匹配時填原預測的object值，不能為了匹配改寫實際動作。"
+        )
         self.prompt_hash = hashlib.sha256(self.instructions.encode()).hexdigest()
         self.log_dir = Path(log_dir or ROOT / "var/dialogue")
         self.log_dir.mkdir(parents=True, exist_ok=True)
@@ -183,6 +238,7 @@ class Detector:
                 "results": [],
                 "predictions": [],
                 "first_alert_turn": None,
+                "active_warning": None,
                 "updated": now,
                 "lock": threading.Lock(),
             }
@@ -205,7 +261,7 @@ class Detector:
         response = self.client.responses.create(
             model=self.model,
             store=False,
-            max_output_tokens=2400,
+            max_output_tokens=4000,
             instructions=self.instructions,
             input=json.dumps(payload, ensure_ascii=False),
             text={
@@ -224,6 +280,13 @@ class Detector:
             response.id,
             (response.usage.model_dump() if response.usage else None),
         )
+
+    def match_prediction(self, prediction, messages):
+        from ChatRoom.prediction_matcher import PredictionMatcher
+
+        if not hasattr(self, "prediction_matcher"):
+            self.prediction_matcher = PredictionMatcher(self.model, self.client)
+        return self.prediction_matcher.check(prediction, messages)
 
     def analyze(self, sid, raw):
         if sid not in self.sessions:
@@ -245,12 +308,17 @@ class Detector:
             if turn != len(state["messages"]) + 1 or turn > 300:
                 raise ValueError("輪次必須連續，最多300則")
             messages = [*state["messages"], message]
-            pending = [p for p in state["predictions"] if p["status"] == "pending"]
+            pending = [
+                p
+                for p in state["predictions"]
+                if p["status"] in {"pending", "unverified"} and p["expires_turn"] >= turn
+            ]
             payload = {
                 "current_turn": turn,
                 "messages": messages,
                 "previous_decision": state["results"][-1]["decision"] if state["results"] else None,
-                "pending_predictions": pending,
+                "pending_predictions": json.loads(json.dumps(pending)),
+                "active_warning": state["active_warning"],
             }
             attempts = []
             result = None
@@ -260,25 +328,83 @@ class Detector:
                 try:
                     decision, response_id, usage = self.call(payload)
                     self.validate_quotes(decision.evidence, messages)
-                    if not set(decision.rule_ids) <= self.rules:
+                    if not set(decision.rule_ids) <= set(self.rules):
                         raise ValueError("invalid_rule")
                     if decision.status == "warn" and (not decision.evidence or not decision.rule_ids):
                         raise ValueError("unsupported_warning")
-                    accepted_matches = []
-                    rejected_matches = []
-                    for match in decision.prediction_matches:
-                        target = next((p for p in pending if p["id"] == match.prediction_id), None)
-                        try:
-                            if not target or not match.evidence or turn > target["expires_turn"]:
-                                raise ValueError("invalid_prediction_match")
-                            self.validate_quotes(match.evidence, messages)
-                            if any(e.turn != turn for e in match.evidence):
-                                raise ValueError("prediction_requires_new_evidence")
-                            accepted_matches.append(match)
-                        except ValueError:
-                            rejected_matches.append(match.model_dump())
-                    # Invalid auxiliary predictions must not erase an otherwise valid safety decision.
-                    decision.prediction_matches = accepted_matches
+                    if decision.status != "warn":
+                        decision.rule_ids = []
+                        decision.rule_checks = []
+                    # Check completeness structurally; semantic entailment remains the model's responsibility.
+                    rejected_rules = []
+                    for rule_id in list(decision.rule_ids):
+                        check = next((c for c in decision.rule_checks if c.rule_id == rule_id), None)
+                        required = self.rules[rule_id]["required_evidence"]
+                        if (
+                            not check
+                            or not check.normal_explanation_insufficient.strip()
+                            or sorted(c.requirement_index for c in check.conditions)
+                            != list(range(1, len(required) + 1))
+                        ):
+                            if state["active_warning"]:
+                                rejected_rules.append(rule_id)
+                                decision.rule_ids.remove(rule_id)
+                                continue
+                            raise ValueError("unsupported_warning")
+                        if any(c.support != "explicit" for c in check.conditions):
+                            rejected_rules.append(rule_id)
+                            decision.rule_ids.remove(rule_id)
+                            continue
+                        for condition in check.conditions:
+                            if (
+                                not condition.explanation.strip()
+                                or not condition.evidence_turns
+                                or any(t < 1 or t > turn for t in condition.evidence_turns)
+                            ):
+                                raise ValueError("unsupported_warning")
+                            for cited_turn in condition.evidence_turns:
+                                if cited_turn not in {e.turn for e in decision.evidence}:
+                                    decision.evidence.append(
+                                        Evidence(turn=cited_turn, quote=messages[cited_turn - 1]["text"])
+                                    )
+                    decision.rule_checks = [c for c in decision.rule_checks if c.rule_id in decision.rule_ids]
+                    if decision.status == "warn" and not decision.rule_ids:
+                        decision.status = "monitor"
+                        decision.reason = "規則必要條件尚未全部得到原文支持，持續觀察。"
+                        decision.recommended_action = "可透過獨立管道查證相關要求。"
+                    risk_retained = False
+                    previous = state["active_warning"]
+                    resolution = decision.resolution
+                    resolved = bool(
+                        resolution
+                        and resolution.kind != "none"
+                        and resolution.explanation.strip()
+                        and resolution.evidence_turns
+                        and all(1 <= t <= turn for t in resolution.evidence_turns)
+                        and (
+                            resolution.kind != "independent_counterevidence"
+                            or turn in resolution.evidence_turns
+                        )
+                    )
+                    if previous and decision.status != "warn" and not resolved:
+                        decision.status = "warn"
+                        decision.rule_ids = previous["rule_ids"]
+                        decision.rule_checks = [RuleCheck.model_validate(c) for c in previous["rule_checks"]]
+                        decision.evidence = [Evidence.model_validate(e) for e in previous["evidence"]]
+                        decision.reason = "先前的高風險要求尚未被反證解除。" + previous[
+                            "reason"
+                        ].removeprefix("先前的高風險要求尚未被反證解除。")
+                        decision.recommended_action = previous["recommended_action"]
+                        risk_retained = True
+                    # Risk-model match suggestions are not used as the semantic verdict.
+                    raw_model_matches = [m.model_dump() for m in decision.prediction_matches]
+                    decision.prediction_matches = []
+                    if decision.prediction and (
+                        decision.prediction.actor == "user"
+                        or decision.prediction.actor not in {m["sender"] for m in messages}
+                        or decision.status == "insufficient"
+                    ):
+                        decision.prediction = None
                     if pending:
                         decision.prediction = None
                     result = {
@@ -286,7 +412,10 @@ class Detector:
                         "decision": decision.model_dump(),
                         "response_id": response_id,
                         "usage": usage,
-                        "rejected_prediction_matches": rejected_matches,
+                        "rejected_prediction_matches": [],
+                        "risk_model_match_suggestions": raw_model_matches,
+                        "risk_retained": risk_retained,
+                        "rejected_rules": rejected_rules,
                     }
                     attempts.append({"attempt": attempt + 1, "status": "ok"})
                     break
@@ -335,20 +464,31 @@ class Detector:
                     "error": error_message,
                 }
             else:
+                from ChatRoom.prediction_matcher import final_status
+
+                semantic_checks = []
+                for target in pending:
+                    verdict = self.match_prediction(target, messages)
+                    target["status"] = final_status(verdict, target, turn)
+                    target["verification"] = verdict
+                    semantic_checks.append({"prediction_id": target["id"], **verdict})
+                    if verdict["outcome"] == "matched":
+                        target.update(matched_turn=verdict["matched_turn"], evidence=verdict["evidence"])
+                        decision.prediction_matches.append(
+                            Match(prediction_id=target["id"], evidence=verdict["evidence"])
+                        )
+                result["prediction_verifications"] = semantic_checks
+                result["decision"] = decision.model_dump()
+                state["active_warning"] = decision.model_dump() if decision.status == "warn" else None
                 if decision.status == "warn" and state["first_alert_turn"] is None:
                     state["first_alert_turn"] = turn
-                for match in decision.prediction_matches:
-                    target = next(p for p in state["predictions"] if p["id"] == match.prediction_id)
-                    target.update(
-                        status="matched", matched_turn=turn, evidence=[e.model_dump() for e in match.evidence]
-                    )
                 if decision.prediction:
                     state["predictions"].append(
                         {
                             "id": f"p{turn}",
                             "created_turn": turn,
                             "expires_turn": turn + decision.prediction.within_next_messages,
-                            "action": decision.prediction.action,
+                            **decision.prediction.model_dump(),
                             "status": "pending",
                         }
                     )

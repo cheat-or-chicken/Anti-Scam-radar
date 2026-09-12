@@ -42,6 +42,16 @@ def evaluate(path, output, model=None):
         "false_alarm": first is not None if normal and complete else None,
         "evaluation_status": "completed" if complete else "blocked",
         "passed": complete and (first is None if normal else first is not None and first < payment),
+        "warning_downgrade_turns": [
+            r["turn"]
+            for previous, r in zip(results, results[1:])
+            if previous["decision"]
+            and previous["decision"]["status"] == "warn"
+            and r["decision"]
+            and r["decision"]["status"] != "warn"
+        ],
+        "rejected_prediction_matches": sum(len(r.get("rejected_prediction_matches", [])) for r in results),
+        "mean_seconds": round(sum(r["elapsed_seconds"] for r in results) / len(results), 3),
         "first_warning": next(
             (r["decision"] for r in results if r["decision"] and r["decision"]["status"] == "warn"), None
         ),

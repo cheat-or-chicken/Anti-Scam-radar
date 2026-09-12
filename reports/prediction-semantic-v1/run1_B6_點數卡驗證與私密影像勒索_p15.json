@@ -1,0 +1,172 @@
+{
+  "source": "reports/expanded-v1/run1/B6_點數卡驗證與私密影像勒索.results.json",
+  "source_sha256": "f87814d8851295a1682d0f9563b36bb068f7962a436ca55d2a4a924d51da3777",
+  "case": "B6_點數卡驗證與私密影像勒索.replay.json",
+  "repeat": 1,
+  "prediction": {
+    "id": "p15",
+    "created_turn": 15,
+    "expires_turn": 17,
+    "actor": "contact",
+    "action_type": "sensitive_access_request",
+    "object": "要求更多私密影像或進一步視訊",
+    "action": "可能繼續以影像為由要求更多私密內容或操作",
+    "within_next_messages": 2,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "matched",
+  "verdict": {
+    "version": "semantic-match-v1",
+    "prompt_hash": "91a9599add5812fbe1f40fd8211de5f393ea1c3cfd6fd061b5858923f2b5dd83",
+    "model": "gpt-5.4-mini",
+    "outcome": "matched",
+    "matched_turn": 17,
+    "semantic_correspondence": true,
+    "new_after_prediction": true,
+    "reason": "第17輪由 contact 明確要求「現在就把點數序號傳來」，屬於延續以影像脅迫索取更多私密/敏感內容，與預測的後續索取更多私密內容相符，且發生在預測視窗內。",
+    "evidence": [
+      {
+        "turn": 17,
+        "quote": "現在就把點數序號傳來。"
+      }
+    ],
+    "api_called": true,
+    "response_id": "resp_0edb5381112be555016aa4e7de3e2c87d0b5643be657a4cb42",
+    "usage": {
+      "input_tokens": 1469,
+      "input_tokens_details": {
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "output_tokens": 101,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1570
+    }
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "messenger",
+      "text": "看到你的交友貼文，可以先聊聊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "contact",
+      "channel": "messenger",
+      "text": "可以，這邊不常看，換 LINE 聊。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "line",
+      "text": "加到了，我們週末能見面嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "contact",
+      "channel": "line",
+      "text": "公司規定先買指定的遊戲點數驗證身分，通過才能安排見面。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "line",
+      "text": "要買多少？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "contact",
+      "channel": "line",
+      "text": "先兩張一千元的，把序號拍給我，我才能幫你登記。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "line",
+      "text": "我買好了，兩張序號是 DEMO-DATE-001 和 DEMO-DATE-002。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "contact",
+      "channel": "line",
+      "text": "見面前先做私密視訊，好嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "line",
+      "text": "我只想先見面，現在不想視訊。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "user",
+      "channel": "messenger",
+      "text": "LINE 訊息送不出去，是把我封鎖了嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "contact",
+      "channel": "messenger",
+      "text": "剛剛覺得你沒誠意，我解除封鎖了，你回 LINE。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "contact",
+      "channel": "line",
+      "text": "現在能視訊嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "user",
+      "channel": "line",
+      "text": "好，我接起來了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "user",
+      "channel": "line",
+      "text": "剛才的私密視訊結束了，你現在可以安排見面嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "contact",
+      "channel": "line",
+      "text": "我留下剛才的畫面了。再買五千元點數給我，不然把影像傳給你的親友。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 16,
+      "sender": "user",
+      "channel": "line",
+      "text": "你沒有問過就留下畫面，我不想讓人看到。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 17,
+      "sender": "contact",
+      "channel": "line",
+      "text": "現在就把點數序號傳來。",
+      "attachment_captions": []
+    }
+  ]
+}

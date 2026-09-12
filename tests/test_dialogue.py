@@ -18,6 +18,31 @@ def answer(**kwargs):
         prediction_matches=[],
     )
     values.update(kwargs)
+    values.setdefault("resolution", dict(kind="none", evidence_turns=[], explanation=""))
+    values.setdefault(
+        "observation",
+        dict(actor="counterparty", action_type="payment_request", object="驗證款", is_new_request=True),
+    )
+    if values["rule_ids"] and "rule_checks" not in kwargs:
+        from ChatRoom.detector import KNOWLEDGE
+
+        rules = {r["id"]: r for r in json.loads(KNOWLEDGE.read_text())["decision_rules"]}
+        values["rule_checks"] = [
+            dict(
+                rule_id=r,
+                normal_explanation_insufficient="用途與要求不符",
+                conditions=[
+                    dict(
+                        requirement_index=i,
+                        support="explicit",
+                        evidence_turns=[e.turn for e in values["evidence"]],
+                        explanation="測試證據",
+                    )
+                    for i, c in enumerate(rules[r]["required_evidence"], 1)
+                ],
+            )
+            for r in values["rule_ids"]
+        ]
     return Decision(**values)
 
 
@@ -32,7 +57,30 @@ class StubDetector(Detector):
         response = next(self.responses)
         if isinstance(response, Exception):
             raise response
+        self.last_response = response.model_copy(deep=True)
         return response, "test-response", None
+
+    def match_prediction(self, prediction, messages):
+        current = messages[-1]
+        decision = self.last_response
+        observation = decision.observation
+        match = next((m for m in decision.prediction_matches if m.prediction_id == prediction["id"]), None)
+        valid = (
+            match
+            and match.evidence
+            and all(e.turn == current["turn"] for e in match.evidence)
+            and observation
+            and observation.actor == current["sender"] != "user"
+            and observation.actor == prediction["actor"]
+            and observation.action_type == prediction["action_type"]
+            and observation.is_new_request
+        )
+        return dict(
+            outcome="matched" if valid else "not_matched",
+            matched_turn=current["turn"] if valid else None,
+            evidence=[e.model_dump() for e in match.evidence] if valid else [],
+            reason="stub",
+        )
 
 
 def test_allowlist_drops_case_and_outcome():
@@ -84,7 +132,15 @@ def test_prediction_only_matches_later_message_and_first_alert_persists(tmp_path
     detector = StubDetector(
         tmp_path,
         [
-            answer(prediction=Prediction(action="要求付款", within_next_messages=2)),
+            answer(
+                prediction=Prediction(
+                    actor="counterparty",
+                    action_type="payment_request",
+                    object="驗證款",
+                    action="要求付款",
+                    within_next_messages=2,
+                )
+            ),
             answer(
                 status="warn",
                 rule_ids=["R_PAYMENT_PURPOSE"],
@@ -105,7 +161,15 @@ def test_prediction_only_matches_later_message_and_first_alert_persists(tmp_path
 
 
 def test_prediction_cannot_use_old_quote(tmp_path):
-    initial = answer(prediction=Prediction(action="要求付款", within_next_messages=2))
+    initial = answer(
+        prediction=Prediction(
+            actor="counterparty",
+            action_type="payment_request",
+            object="驗證款",
+            action="要求付款",
+            within_next_messages=2,
+        )
+    )
     invalid = answer(
         prediction_matches=[Match(prediction_id="p1", evidence=[Evidence(turn=1, quote="你好")])]
     )
@@ -114,7 +178,7 @@ def test_prediction_cannot_use_old_quote(tmp_path):
     detector.analyze(sid, {"turn": 1, "text": "你好"})
     result = detector.analyze(sid, {"turn": 2, "text": "第二則"})
     assert result["status"] == "ok"
-    assert result["rejected_prediction_matches"]
+    assert result["prediction_verifications"][0]["outcome"] == "not_matched"
     assert result["decision"]["prediction_matches"] == []
     assert result["predictions"][0]["status"] == "pending"
 
@@ -164,3 +228,110 @@ def test_latest_failed_turn_can_retry_without_incrementing(tmp_path):
     assert len(detector.sessions[sid]["messages"]) == 1
     assert detector.analyze(sid, raw) == retried
     assert len(detector.payloads) == 2
+
+
+def test_unresolved_warning_survives_reassurance_and_can_be_corrected(tmp_path):
+    warning = answer(
+        status="warn", rule_ids=["R_PAYMENT_PURPOSE"], evidence=[Evidence(turn=1, quote="驗證要轉帳")]
+    )
+    correction = answer(
+        resolution=dict(
+            kind="corrected_interpretation", evidence_turns=[1], explanation="原文被誤讀；撤回付款目的判斷"
+        )
+    )
+    detector = StubDetector(tmp_path, [warning, answer(), correction])
+    sid = detector.create_session()
+    detector.analyze(sid, {"turn": 1, "text": "驗證要轉帳"})
+    retained = detector.analyze(sid, {"turn": 2, "text": "放心，正在處理"})
+    assert retained["decision"]["status"] == "warn" and retained["risk_retained"]
+    corrected = detector.analyze(sid, {"turn": 3, "text": "重新檢視原文"})
+    assert corrected["decision"]["status"] == "monitor"
+    assert corrected["first_alert_turn"] == 1
+
+
+@pytest.mark.parametrize(
+    "sender,action_type,new_request",
+    [
+        ("user", "payment_request", True),
+        ("counterparty", "other", True),
+        ("counterparty", "payment_request", False),
+    ],
+)
+def test_prediction_rejects_wrong_actor_action_or_old_request(tmp_path, sender, action_type, new_request):
+    initial = answer(
+        prediction=Prediction(
+            actor="counterparty",
+            action_type="payment_request",
+            object="驗證款",
+            action="要求驗證款",
+            within_next_messages=2,
+        )
+    )
+    match = answer(
+        observation=dict(actor=sender, action_type=action_type, object="驗證款", is_new_request=new_request),
+        prediction_matches=[Match(prediction_id="p1", evidence=[Evidence(turn=2, quote="已付款")])],
+    )
+    detector = StubDetector(tmp_path, [initial, match])
+    sid = detector.create_session()
+    detector.analyze(sid, {"turn": 1, "text": "需要處理帳戶"})
+    result = detector.analyze(sid, {"turn": 2, "sender": sender, "text": "已付款"})
+    assert result["predictions"][0]["status"] == "pending"
+    assert result["prediction_verifications"][0]["outcome"] == "not_matched"
+
+
+def test_rule_missing_required_conditions_is_not_a_valid_warning(tmp_path):
+    invalid = answer(
+        status="warn",
+        rule_ids=["R_SENSITIVE_ACCESS"],
+        evidence=[Evidence(turn=1, quote="分享一般畫面")],
+        rule_checks=[],
+    )
+    detector = StubDetector(tmp_path, [invalid, invalid])
+    result = detector.analyze(detector.create_session(), {"turn": 1, "text": "分享一般畫面"})
+    assert result["status"] == "analysis_error"
+
+
+def test_unknown_required_condition_cannot_support_warning(tmp_path):
+    candidate = answer(
+        status="warn", rule_ids=["R_SENSITIVE_ACCESS"], evidence=[Evidence(turn=1, quote="請分享畫面")]
+    )
+    candidate.rule_checks[0].conditions[1].support = "unknown"
+    detector = StubDetector(tmp_path, [candidate])
+    result = detector.analyze(detector.create_session(), {"turn": 1, "text": "請分享畫面"})
+    assert result["status"] == "ok"
+    assert result["decision"]["status"] == "monitor"
+    assert result["rejected_rules"] == ["R_SENSITIVE_ACCESS"]
+    assert result["first_alert_turn"] is None
+
+
+def test_condition_sources_are_resolved_even_if_top_level_omits_them(tmp_path):
+    candidate = answer(
+        status="warn", rule_ids=["R_PAYMENT_PURPOSE"], evidence=[Evidence(turn=2, quote="請轉帳")]
+    )
+    candidate.rule_checks[0].conditions[0].evidence_turns = [1]
+    detector = StubDetector(tmp_path, [answer(), candidate])
+    sid = detector.create_session()
+    detector.analyze(sid, {"turn": 1, "text": "解除異常需要驗證"})
+    result = detector.analyze(sid, {"turn": 2, "text": "請轉帳"})
+    assert result["decision"]["status"] == "warn"
+    assert {e["turn"] for e in result["decision"]["evidence"]} == {1, 2}
+
+
+def test_incomplete_new_rule_does_not_erase_existing_supported_warning(tmp_path):
+    first = answer(
+        status="warn", rule_ids=["R_PAYMENT_PURPOSE"], evidence=[Evidence(turn=1, quote="驗證要轉帳")]
+    )
+    malformed = answer(
+        status="warn",
+        rule_ids=["R_SENSITIVE_ACCESS"],
+        evidence=[Evidence(turn=2, quote="下一步")],
+        rule_checks=[],
+    )
+    detector = StubDetector(tmp_path, [first, malformed])
+    sid = detector.create_session()
+    detector.analyze(sid, {"turn": 1, "text": "驗證要轉帳"})
+    result = detector.analyze(sid, {"turn": 2, "text": "下一步"})
+    assert result["status"] == "ok"
+    assert result["decision"]["rule_ids"] == ["R_PAYMENT_PURPOSE"]
+    assert result["risk_retained"]
+    assert result["rejected_rules"] == ["R_SENSITIVE_ACCESS"]

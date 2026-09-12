@@ -1,0 +1,204 @@
+{
+  "case": "N1_二手拍立得正常交易.replay.json",
+  "repeat": 1,
+  "source": "reports/expanded-v1/run1/N1_二手拍立得正常交易.results.json",
+  "source_sha256": "8f1f10e3024ead5cfafc35393fd6d8c481e8379fb1a37b3b16b0758a58b4dffb",
+  "predictions": [],
+  "messages": [
+    {
+      "turn": 1,
+      "sender": "user",
+      "channel": "social_dm",
+      "text": "你好，看到你賣二手拍立得，還在嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "seller",
+      "channel": "social_dm",
+      "text": "還在，最近整理房間很少用了，所以便宜賣。機身有使用痕跡，功能正常。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "user",
+      "channel": "social_dm",
+      "text": "800 元是只有相機嗎？有附底片嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "seller",
+      "channel": "social_dm",
+      "text": "只有相機跟背帶，沒有底片。電池蓋旁邊有刮痕，貼文最後一張有拍。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "user",
+      "channel": "social_dm",
+      "text": "可以再看一下出片的影片嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 6,
+      "sender": "seller",
+      "channel": "social_dm",
+      "text": "可以，我今天下班後拍給你。方便加 LINE 傳嗎？我的名字是「阿哲」，連結是 https://chat.example.com/azhe-camera 。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 7,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "你好，我是剛剛問拍立得的。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 8,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "這是剛剛拍的，影片裡有開機、按快門，最後拍到相紙出來。右邊電池蓋的刮痕也有拍近一點給你看。",
+      "attachment_captions": [
+        "試機影片・00:18｜開機、按快門、出片與電池蓋刮痕特寫"
+      ]
+    },
+    {
+      "turn": 9,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "看到了，外觀我可以接受。可以面交嗎？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 10,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "可以，我週六下午能在車站面交，你可以現場試機再付款。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 11,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "我住比較遠，還是寄給我好了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 12,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "也可以。相機 800，運費算 60，一共 860 元。你想用平台下單還是直接轉帳後寄件？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 13,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "我用平台下單好了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 14,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "好，我把這台上架到「拾物二手」了。你直接開平台 App，搜尋帳號「阿哲的二手櫃」就能找到，不用從聊天連結登入。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 15,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "找到了，商品寫二手拍立得，右側跟電池蓋有刮痕，就是這台對吧？",
+      "attachment_captions": []
+    },
+    {
+      "turn": 16,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "對，就是這台。你確認照片和描述都沒問題再下單。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 17,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "下單了，訂單編號 SHIWU-CAM-0912-01，我選平台的銀行轉帳付款。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 18,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "好，付款資訊看 App 裡這筆訂單的說明就可以，不用把銀行資料傳給我。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 19,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "訂單裡顯示 860 元，收款方是拾物二手，星河測試銀行、帳號 TEST-ORDER-860，跟剛剛說的金額一樣。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 20,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "我已經照訂單的付款資訊轉帳 860 元，App 也顯示付款完成了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 21,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "我這邊也看到訂單已付款，明天幫你寄出，會把相機包好。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 22,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "好，謝謝。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 23,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "已經寄出了，物流單號 SHIP-CAM-0913-01，我也更新在訂單裡了。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 24,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "有看到出貨紀錄，我再留意包裹。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 25,
+      "sender": "user",
+      "channel": "seller_line",
+      "text": "收到相機了，刮痕跟照片一樣。我裝底片試拍，也能正常出片。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 26,
+      "sender": "seller",
+      "channel": "seller_line",
+      "text": "收到就好，謝謝你。",
+      "attachment_captions": []
+    }
+  ],
+  "review": {
+    "version": "whole-conversation-v1",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "e91b5f7e2421b66e2bfb11c3a0696666de4ceb2ceeae163d195915c64c7be49e",
+    "status": "ok",
+    "items": [],
+    "matched": 0,
+    "missed": 0,
+    "uncertain": 0,
+    "rate": null
+  }
+}

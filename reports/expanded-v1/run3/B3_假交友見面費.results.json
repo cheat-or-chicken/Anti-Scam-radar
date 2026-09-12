@@ -1,0 +1,2234 @@
+{
+  "summary": {
+    "file": "B3_假交友見面費.replay.json",
+    "repeat": 3,
+    "case_type": "scam",
+    "completed": true,
+    "turns_analyzed": 22,
+    "total_turns": 22,
+    "first_alert_turn": 14,
+    "payment_turn": 20,
+    "harm_turn": 16,
+    "before_payment": true,
+    "before_harm": true,
+    "detected_by_end": true,
+    "false_alarm": null,
+    "harm_lead": 2,
+    "payment_lead": 6,
+    "warning_downgrade_turns": [],
+    "mean_seconds": 2.606,
+    "recovered_or_failed_turns": [],
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "detector_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207"
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只有一般詢問調酒內容，沒有金流、敏感操作或隔離查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問影片中的藍色調酒",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "單純詢問影片內容，屬一般社交互動。",
+        "normal_explanation": "正常的看影片提問。",
+        "recommended_action": "可正常回覆飲品名稱或配方。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "剛剛看到你調酒的影片，那杯藍色的是什麼？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_09a7e8289a330a84016aa4e10385e887d0b95f0ecc67229cd1",
+      "usage": {
+        "input_tokens": 4762,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 161,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4923
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.24,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2
+          ],
+          "explanation": "僅有換LINE的管道轉移，未見禁止查證、資金或權限要求。"
+        },
+        "observation": {
+          "actor": "friend",
+          "action_type": "other",
+          "object": "建議換LINE繼續聊天",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "對方只是提議換通訊管道，尚不足以構成警報。",
+        "normal_explanation": "社交對話中改用LINE聯絡很常見。",
+        "recommended_action": "可先確認是否要繼續在此對話或換到LINE，但先別提供敏感資訊。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "是店裡最近的新飲料。這裡訊息常漏掉，換 LINE 聊好嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_02b43bf511cea843016aa4e105aff087d092a3e18e93f8c3c0",
+      "usage": {
+        "input_tokens": 5022,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 185,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5207
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.568,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            3
+          ],
+          "explanation": "第3輪只是一般寒暄，未見新要求或高風險操作。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "打招呼並詢問對方班次",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍只有換通訊管道與一般聊天，未出現資金、敏感權限或禁止查證的具體要求。",
+        "normal_explanation": "朋友改到LINE聊天、互相寒暄屬常見社交互動。",
+        "recommended_action": "可正常聊天，但若後續出現轉帳、驗證碼、密碼或要求不要查證，再提高警覺。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 3,
+            "quote": "加到了。我剛下班，你今天也晚班？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0a65e2cc8b808b61016aa4e1072ba087d0b94ff0d0c6f67c1f",
+      "usage": {
+        "input_tokens": 5097,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 206,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5303
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.851,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            4
+          ],
+          "explanation": "第4輪仍是一般寒暄，未見新要求。"
+        },
+        "observation": {
+          "actor": "friend",
+          "action_type": "other",
+          "object": "回覆晚班與工作忙碌",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前只有改到LINE後的日常聊天，尚未出現資金、密碼/驗證碼、遠端控制或禁止查證等具體要求。",
+        "normal_explanation": "朋友聊天、抱怨忙碌或晚班屬常見社交互動。",
+        "recommended_action": "先正常對話；若後續出現轉帳、索取驗證碼/密碼、共享敏感畫面，或要求不要告知他人再提高警覺。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "對，最近幾乎都晚班，客人很多，下班反而沒人能說話。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_012b5b909e064541016aa4e109285c87d09ef939cab6136e3a",
+      "usage": {
+        "input_tokens": 5160,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 219,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5379
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.881,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            5
+          ],
+          "explanation": "第5輪只是一般寒暄，沒有新要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回覆自己也很忙",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍是一般聊天，未見資金、密碼/驗證碼、遠端控制或限制查證等具體要求。",
+        "normal_explanation": "日常閒聊與互相回覆生活狀況屬常見社交互動。",
+        "recommended_action": "繼續觀察；若後續出現轉帳、索取驗證碼/密碼、共享敏感畫面，或要求不要告知他人，再提高警覺。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "我今天也忙到午餐變晚餐。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_03e7caade3b61b45016aa4e10c47b487d096a7e9acc4f3f9dc",
+      "usage": {
+        "input_tokens": 5225,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 210,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5435
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 5.765,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            6
+          ],
+          "explanation": "第6輪只是一般關心與聊天，沒有新要求。"
+        },
+        "observation": {
+          "actor": "friend",
+          "action_type": "other",
+          "object": "關心對方吃東西並延續閒聊",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍是一般社交互動，未見資金、密碼/驗證碼、遠端控制或限制查證等具體要求。",
+        "normal_explanation": "朋友間互相關心、延續話題屬常見對話。",
+        "recommended_action": "持續觀察；若後續出現轉帳、索取驗證碼/密碼、共享敏感畫面，或要求不要告知他人，再提高警覺。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "那你記得吃東西。跟你聊這些比在店裡應酬舒服多了。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_00a50787d18220b8016aa4e111bba487d0b97d1d8d2644c117",
+      "usage": {
+        "input_tokens": 5260,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 214,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5474
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.431,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            7
+          ],
+          "explanation": "第7輪只是使用者邀約見面，未出現新要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問週日是否有空",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍是一般社交互動，未見資金、密碼/驗證碼、遠端控制或限制查證等具體要求。",
+        "normal_explanation": "朋友間約時間見面屬常見對話。",
+        "recommended_action": "持續觀察；若後續出現轉帳、索取驗證碼/密碼、共享敏感畫面，或要求不要告知他人，再提高警覺。",
+        "stages": [
+          "S0",
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "週日我放假，你有空嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0662a45645f7fcf6016aa4e1143d2c87d0a1ba762bbdd407a4",
+      "usage": {
+        "input_tokens": 5319,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 210,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5529
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.141,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            8
+          ],
+          "explanation": "第8輪是對方回應見面時間與地點，未出現資金、密碼/驗證碼、遠端控制或限制查證等新要求。"
+        },
+        "observation": {
+          "actor": "friend",
+          "action_type": "other",
+          "object": "提出見面時間與地點",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "仍屬一般約見，沒有觸發具體高風險要求。",
+        "normal_explanation": "朋友相約碰面是常見社交互動。",
+        "recommended_action": "持續觀察後續是否出現付款、敏感資訊、或要求切斷外部查證。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 8,
+            "quote": "下午可以，我們三點在青禾咖啡門口碰面？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f8ccdbb898ea1b5016aa4e1164dd087d08ee3eceb7193b636",
+      "usage": {
+        "input_tokens": 5349,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 199,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5548
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 8,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.673,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            9
+          ],
+          "explanation": "第9輪只是使用者確認已到達約見地點，沒有出現付款、密碼/OTP、遠端控制或阻止查證等新要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已到達碰面地點",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "仍是一般見面對話，未見可成立的高風險要求。",
+        "normal_explanation": "到場與報平安屬於正常社交互動。",
+        "recommended_action": "繼續觀察對方是否提出資金、敏感操作或隔離查證的要求。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 9,
+            "quote": "好，我到了，穿灰色外套坐門口。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_061466878cf27d78016aa4e117e81487d089e2aa95237ecd48",
+      "usage": {
+        "input_tokens": 5388,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 199,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5587
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 9,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.668,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            10
+          ],
+          "explanation": "第10輪只有臨時不能私下見面、需經理確認身分，未具體阻止親友查證，也未伴隨資金或權限要求。"
+        },
+        "observation": {
+          "actor": "friend",
+          "action_type": "new_condition",
+          "object": "要求先請經理確認身分才能出去",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "出現新增條件，但仍屬見面安排與身分確認，未達明確禁止查證或資金／權限引導。",
+        "normal_explanation": "臨時工作限制、改期或先確認身分，在一般社交與職場情境都可能發生。",
+        "recommended_action": "持續觀察是否轉向付款、提供驗證碼、遠端操作或要求不要自行查證。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 10,
+            "quote": "對不起，公司臨時卡住，說不能私下跟陌生網友見面，要先請經理確認身分才能出去。"
+          }
+        ],
+        "prediction": {
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_0c13c3f73002d711016aa4e119d29887d09871d812e41fa422",
+      "usage": {
+        "input_tokens": 5446,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 481,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5927
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 10,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.234,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            11
+          ],
+          "explanation": "第11輪只是詢問下一步要做什麼，沒有出現新要求或新限制。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問下一步要做什麼",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前只有使用者追問，未見對方新增付款、敏感操作或禁止查證要求。",
+        "normal_explanation": "一般對話中，對方暫時未回應也常見。",
+        "recommended_action": "等待對方下一則訊息；若出現要求提供驗證碼、個資、轉帳或限制查證，再重新判斷。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 11,
+            "quote": "那我需要做什麼？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0bb31c73ab6c6868016aa4e11cf28c87d096f547a3bd7746b2",
+      "usage": {
+        "input_tokens": 5688,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 204,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5892
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 11,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.777,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            12
+          ],
+          "explanation": "第12輪只是把經理加入協助確認，尚未出現密碼、OTP、網銀畫面、轉帳或禁止查證的具體要求。"
+        },
+        "observation": {
+          "actor": "friend",
+          "action_type": "other",
+          "object": "把經理加入協助確認",
+          "is_new_request": false
+        },
+        "status": "monitor",
+        "reason": "目前仍只有轉介確認流程，未達敏感操作、付款或明確隔離查證的門檻。",
+        "normal_explanation": "一般遇到需要轉介同事或主管確認的情況也可能發生。",
+        "recommended_action": "先觀察對方後續是否提出驗證碼、帳密、轉帳或要求不要自行查證。",
+        "stages": [
+          "S4"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 12,
+            "quote": "我把經理阿凱加進來，請他幫忙確認。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0853eab979a7d760016aa4e11eb1f487d0a25d86fd1263969d",
+      "usage": {
+        "input_tokens": 5617,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 211,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5828
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 12,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.46,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13
+          ],
+          "explanation": "第13輪已出現明確的提款與拍交易明細要求，但尚未看到禁止查證的明示語句。"
+        },
+        "observation": {
+          "actor": "manager",
+          "action_type": "sensitive_access_request",
+          "object": "去 ATM 提領現金並把交易明細拍給我",
+          "is_new_request": true
+        },
+        "status": "monitor",
+        "reason": "規則必要條件尚未全部得到原文支持，持續觀察。",
+        "normal_explanation": "一般身分確認不會要求以 ATM 提款明細來驗證是否為警察。",
+        "recommended_action": "可透過獨立管道查證相關要求。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。"
+          }
+        ],
+        "prediction": {
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_066db38d5a0232f1016aa4e12146e487d09a617ee075f57076",
+      "usage": {
+        "input_tokens": 5619,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 585,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6204
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [
+        "R_SENSITIVE_ACCESS",
+        "R_COERCIVE_ISOLATION"
+      ],
+      "turn": 13,
+      "first_alert_turn": null,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p13",
+          "created_turn": 13,
+          "expires_turn": 15,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.539,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "manager 明確要求去 ATM 提領現金並拍交易明細。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "同時明確表示可用明細上的職業代碼來確認身分。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般身分確認不需要要求提款後再拍交易明細作為驗證。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13
+          ],
+          "explanation": "第13輪已直接要求提款與拍明細，屬敏感操作；第14輪只是追問，未改變風險。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "追問提款明細是否能看出職業",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "manager 已要求以 ATM 提款與交易明細作為身分驗證，屬敏感操作要求。",
+        "normal_explanation": "正常身分確認不會要求先提款並提供交易明細來驗證。",
+        "recommended_action": "不要依此要求操作；改用獨立管道查證對方身分與目的。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0c398413b0e0f803016aa4e124af5c87d0bb7661734e800c12",
+      "usage": {
+        "input_tokens": 5811,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 328,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6139
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 14,
+      "first_alert_turn": 14,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p13",
+          "created_turn": 13,
+          "expires_turn": 15,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.416,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "manager 明確要求去 ATM 提領現金並拍交易明細。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "同時明確表示可用明細上的職業代碼來確認身分。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般身分確認不需要要求提款後再拍交易明細作為驗證。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13
+          ],
+          "explanation": "第13輪已直接要求提款與拍明細，屬敏感操作；第15輪只是確認說法，未消除風險。"
+        },
+        "observation": {
+          "actor": "manager",
+          "action_type": "other",
+          "object": "重申以公司核對方式確認後才可見面",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "manager 仍以 ATM 提款與交易明細作為身分驗證，屬敏感操作要求。",
+        "normal_explanation": "正常身分確認不會要求先提款並提供交易明細來驗證。",
+        "recommended_action": "不要依此要求操作；改用獨立管道查證對方身分與目的。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_07520159f657f799016aa4e1270cd087d0a1b4cdc96088e8f1",
+      "usage": {
+        "input_tokens": 6359,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 331,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6690
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 15,
+      "first_alert_turn": 14,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p13",
+          "created_turn": 13,
+          "expires_turn": 15,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.91,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "manager 明確要求去 ATM 提領現金並拍交易明細。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "同時明確表示可用明細上的職業代碼來確認身分。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般身分確認不需要要求提款後再拍交易明細作為驗證。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            13
+          ],
+          "explanation": "第13輪已直接要求提款與拍明細，屬敏感操作；第16輪只是回報已執行，未消除風險。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已領款並傳送明細照片",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "manager 先前要求 ATM 提款並拍交易明細，屬敏感操作要求，風險未解除。",
+        "normal_explanation": "正常身分確認不會要求先提款並提供交易明細來驗證。",
+        "recommended_action": "不要再配合進一步敏感要求；改用獨立管道查證對方身分與目的。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_01294a2e6f98cdf9016aa4e128fd6087d09db2679c3110641e",
+      "usage": {
+        "input_tokens": 6324,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 338,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 6662
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 16,
+      "first_alert_turn": 14,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p13",
+          "created_turn": 13,
+          "expires_turn": 15,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.011,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "manager 明確要求去 ATM 提領現金並拍交易明細。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "同時明確表示可用明細上的職業代碼來確認身分。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般身分確認不需要要求提款後再拍交易明細作為驗證。"
+          },
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "manager 要求另付兩千元見面保證費，且指定用遊戲點數卡序號交付。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "此付款是作為第一次見面前的附加門檻，與原本見面確認身分的目的不相符。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17
+                ],
+                "explanation": "同一脈絡中先要求提款拍明細驗證，後又追加點數卡費用，已形成與原交易/見面目的不一致的金流要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常見面不需要先提款驗證後再改收點數卡作為見面保證費，且點數序號交付也不是一般身分確認程序。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            17
+          ],
+          "explanation": "第17輪新增了見面保證費與點數卡序號要求，屬新的金流要求，未見反證解除先前風險。"
+        },
+        "observation": {
+          "actor": "manager",
+          "action_type": "payment_request",
+          "object": "兩千元見面保證費，要求用遊戲點數卡並提供序號",
+          "is_new_request": true
+        },
+        "status": "warn",
+        "reason": "manager 先前已要求敏感提款驗證，第17輪又新增點數卡付款要求，屬不相符的金流要求，風險持續。",
+        "normal_explanation": "正常見面或身分確認不會先要求提款明細，再另外收取點數卡保證費。",
+        "recommended_action": "先停止付款與提供序號，改用獨立管道核實對方身分與見面安排。",
+        "stages": [
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS",
+          "R_PAYMENT_PURPOSE"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。"
+          },
+          {
+            "turn": 17,
+            "quote": "第一次見面另要兩千元見面保證費，用遊戲點數卡，買好把序號給我。"
+          }
+        ],
+        "prediction": {
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "可能再加碼要求其他付款或驗證步驟",
+          "action": "在點數卡之外再提出新的費用或額外驗證條件",
+          "within_next_messages": 2
+        },
+        "prediction_matches": []
+      },
+      "response_id": "resp_05718247d9b85e6e016aa4e12b06b087d08f2d1c3fee10f4c6",
+      "usage": {
+        "input_tokens": 6397,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 652,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7049
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 17,
+      "first_alert_turn": 14,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p13",
+          "created_turn": 13,
+          "expires_turn": 15,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p17",
+          "created_turn": 17,
+          "expires_turn": 19,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "可能再加碼要求其他付款或驗證步驟",
+          "action": "在點數卡之外再提出新的費用或額外驗證條件",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 4.498,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "manager 明確要求去 ATM 提領現金並拍交易明細。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "同時明確表示可用明細上的職業代碼來確認身分。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般身分確認不需要要求提款後再拍交易明細作為驗證。"
+          },
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "manager 要求另付兩千元見面保證費，且指定用遊戲點數卡序號交付。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "此付款是作為第一次見面前的附加門檻，與原本見面確認身分的目的不相符。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17
+                ],
+                "explanation": "同一脈絡中先要求提款拍明細驗證，後又追加點數卡費用，形成與見面目的不一致的金流要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常見面或身分確認不會先要求提款明細，再另外收取點數卡保證費。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只有使用者追問，沒有新的反證或新的要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問是否能到咖啡店見面再付",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "先前已存在提款明細驗證與點數卡付款要求，且未被反證解除；本輪只是追問，風險仍在。",
+        "normal_explanation": "一般見面討論本身不構成警報。",
+        "recommended_action": "先不要付款或提供序號，改用獨立方式核實對方身分與見面安排。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS",
+          "R_PAYMENT_PURPOSE"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。"
+          },
+          {
+            "turn": 17,
+            "quote": "第一次見面另要兩千元見面保證費，用遊戲點數卡，買好把序號給我。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_061e170046205355016aa4e12f8de487d08a5e2df9770716fd",
+      "usage": {
+        "input_tokens": 7301,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 543,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7844
+      },
+      "rejected_prediction_matches": [
+        {
+          "prediction_id": "p17",
+          "evidence": []
+        }
+      ],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 18,
+      "first_alert_turn": 14,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p13",
+          "created_turn": 13,
+          "expires_turn": 15,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p17",
+          "created_turn": 17,
+          "expires_turn": 19,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "可能再加碼要求其他付款或驗證步驟",
+          "action": "在點數卡之外再提出新的費用或額外驗證條件",
+          "within_next_messages": 2,
+          "status": "pending"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.83,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "manager 明確要求提領現金並拍交易明細。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "同時要求用明細上的職業代碼來確認身分。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般身分確認不需要提款後再提供交易明細作為驗證。"
+          },
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "manager 要求另付兩千元見面保證費，且指定用遊戲點數卡序號交付。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "此付款是作為見面前門檻，與原本見面確認身分的目的不符。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17
+                ],
+                "explanation": "先要求提款明細驗證，後又追加點數卡費用，形成同一脈絡下不相符的金流要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常見面或身分確認不會先要提款明細，再另外收取點數卡保證費。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只是使用者追問，沒有新的反證或新的要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問是否能到咖啡店見面再付",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "先前的提款明細驗證與點數卡付款要求仍在，且本輪沒有解除。",
+        "normal_explanation": "一般見面討論本身不構成警報。",
+        "recommended_action": "先不要付款或提供序號，改用獨立方式核實對方身分與見面安排。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS",
+          "R_PAYMENT_PURPOSE"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。"
+          },
+          {
+            "turn": 17,
+            "quote": "第一次見面另要兩千元見面保證費，用遊戲點數卡，買好把序號給我。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_099475a7e55f2a38016aa4e1324bb087d0bd29f760cc8b548c",
+      "usage": {
+        "input_tokens": 7100,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 503,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7603
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 19,
+      "first_alert_turn": 14,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p13",
+          "created_turn": 13,
+          "expires_turn": 15,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p17",
+          "created_turn": 17,
+          "expires_turn": 19,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "可能再加碼要求其他付款或驗證步驟",
+          "action": "在點數卡之外再提出新的費用或額外驗證條件",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.398,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "manager 明確要求提領現金並拍交易明細。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "同時要求用明細上的職業代碼來確認身分。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般身分確認不需要提款後再提供交易明細作為驗證。"
+          },
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "manager 要求另付兩千元見面保證費，且指定用遊戲點數卡序號交付。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "此付款是作為見面前門檻，與原本見面確認身分的目的不符。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17
+                ],
+                "explanation": "先要求提款明細驗證，後又追加點數卡費用，形成同一脈絡下不相符的金流要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常見面或身分確認不會先要提款明細，再另外收取點數卡保證費。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只是使用者追問，沒有新的反證或新的要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問是否能到咖啡店見面再付",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "先前的提款明細驗證與點數卡付款要求仍在，且本輪沒有解除。",
+        "normal_explanation": "一般見面討論本身不構成警報。",
+        "recommended_action": "先不要付款或提供序號，改用獨立方式核實對方身分與見面安排。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS",
+          "R_PAYMENT_PURPOSE"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。"
+          },
+          {
+            "turn": 17,
+            "quote": "第一次見面另要兩千元見面保證費，用遊戲點數卡，買好把序號給我。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_04b0d3a38f569519016aa4e134d45c87d0952798ce4f6e1157",
+      "usage": {
+        "input_tokens": 7009,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 503,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7512
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 20,
+      "first_alert_turn": 14,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p13",
+          "created_turn": 13,
+          "expires_turn": 15,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p17",
+          "created_turn": 17,
+          "expires_turn": 19,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "可能再加碼要求其他付款或驗證步驟",
+          "action": "在點數卡之外再提出新的費用或額外驗證條件",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.422,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "manager 明確要求提領現金並拍交易明細。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "同時要求用明細上的職業代碼來確認身分。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般身分確認不需要提款後再提供交易明細作為驗證。"
+          },
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "manager 要求另付兩千元見面保證費，且指定用遊戲點數卡序號交付。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "此付款是作為見面前門檻，與原本見面確認身分的目的不符。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17
+                ],
+                "explanation": "先要求提款明細驗證，後又追加點數卡費用，形成同一脈絡下不相符的金流要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常見面或身分確認不會先要提款明細，再另外收取點數卡保證費。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只是使用者追問，沒有新的反證或新的要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "詢問是否能到咖啡店見面再付",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "先前的提款明細驗證與點數卡付款要求仍在，且本輪沒有解除。",
+        "normal_explanation": "一般見面討論本身不構成警報。",
+        "recommended_action": "先不要付款或提供序號，改用獨立方式核實對方身分與見面安排。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS",
+          "R_PAYMENT_PURPOSE"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。"
+          },
+          {
+            "turn": 17,
+            "quote": "第一次見面另要兩千元見面保證費，用遊戲點數卡，買好把序號給我。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0e11f649a0f4b79f016aa4e137521c87d08baa4199cd4c262b",
+      "usage": {
+        "input_tokens": 7059,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 503,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7562
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 21,
+      "first_alert_turn": 14,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p13",
+          "created_turn": 13,
+          "expires_turn": 15,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p17",
+          "created_turn": 17,
+          "expires_turn": 19,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "可能再加碼要求其他付款或驗證步驟",
+          "action": "在點數卡之外再提出新的費用或額外驗證條件",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 3.235,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [
+          {
+            "rule_id": "R_SENSITIVE_ACCESS",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "manager 明確要求提領現金並拍交易明細。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  13
+                ],
+                "explanation": "同時要求用明細上的職業代碼來確認身分。"
+              }
+            ],
+            "normal_explanation_insufficient": "一般身分確認不需要提款後再提供交易明細作為驗證。"
+          },
+          {
+            "rule_id": "R_PAYMENT_PURPOSE",
+            "conditions": [
+              {
+                "requirement_index": 1,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "manager 要求另付兩千元見面保證費，且指定用遊戲點數卡序號交付。"
+              },
+              {
+                "requirement_index": 2,
+                "support": "explicit",
+                "evidence_turns": [
+                  17
+                ],
+                "explanation": "此付款是作為見面前門檻，與原本見面確認身分的目的不符。"
+              },
+              {
+                "requirement_index": 3,
+                "support": "explicit",
+                "evidence_turns": [
+                  13,
+                  17
+                ],
+                "explanation": "先要求提款明細驗證，後又追加點數卡費用，形成同一脈絡下不相符的金流要求。"
+              }
+            ],
+            "normal_explanation_insufficient": "正常見面或身分確認不會先要提款明細，再另外收取點數卡保證費。"
+          }
+        ],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只是使用者表示不再購買，沒有新的反證或新要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "表示不再購買點數",
+          "is_new_request": false
+        },
+        "status": "warn",
+        "reason": "先前的提款明細驗證與點數卡付款要求仍有效，本輪未解除。",
+        "normal_explanation": "一般拒絕繼續購買本身不構成新警報。",
+        "recommended_action": "先不要付款或提供任何序號，改用獨立方式核實對方身分與見面安排。",
+        "stages": [
+          "S4",
+          "S5"
+        ],
+        "rule_ids": [
+          "R_SENSITIVE_ACCESS",
+          "R_PAYMENT_PURPOSE"
+        ],
+        "evidence": [
+          {
+            "turn": 13,
+            "quote": "公司怕遇到警方臥底。你去 ATM 提領一筆現金，把交易明細拍給我，上面的職業代碼可以確認你不是警察。"
+          },
+          {
+            "turn": 17,
+            "quote": "第一次見面另要兩千元見面保證費，用遊戲點數卡，買好把序號給我。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0761e12821adc2e3016aa4e13a599087d0b4e4f4fd303a1dbd",
+      "usage": {
+        "input_tokens": 7115,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 504,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 7619
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 22,
+      "first_alert_turn": 14,
+      "predictions": [
+        {
+          "id": "p10",
+          "created_turn": 10,
+          "expires_turn": 12,
+          "actor": "friend",
+          "action_type": "sensitive_access_request",
+          "object": "要求先交付身分驗證資訊或配合確認流程",
+          "action": "接著要求提供可核對的身分資料或進一步驗證",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p13",
+          "created_turn": 13,
+          "expires_turn": 15,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "要求先提供更多身分驗證材料或進一步配合",
+          "action": "可能再追加驗證條件後才允許見面",
+          "within_next_messages": 2,
+          "status": "missed"
+        },
+        {
+          "id": "p17",
+          "created_turn": 17,
+          "expires_turn": 19,
+          "actor": "manager",
+          "action_type": "new_condition",
+          "object": "可能再加碼要求其他付款或驗證步驟",
+          "action": "在點數卡之外再提出新的費用或額外驗證條件",
+          "within_next_messages": 2,
+          "status": "missed"
+        }
+      ],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.382,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

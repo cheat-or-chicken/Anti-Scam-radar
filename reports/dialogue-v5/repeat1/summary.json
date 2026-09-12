@@ -1,0 +1,231 @@
+[
+  {
+    "file": "B1_免費拍立得詐騙.replay.json",
+    "session_id": "dd971173e7b446fa9d378a34b3e86bcf",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+    "completed": false,
+    "turns_analyzed": 38,
+    "total_turns": 38,
+    "first_alert_turn": 18,
+    "payment_turn": 21,
+    "lead_turns": 3,
+    "false_alarm": null,
+    "evaluation_status": "blocked",
+    "passed": false,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_SENSITIVE_ACCESS",
+          "conditions": [
+            {
+              "requirement": "對方身分及引導關係",
+              "evidence_turns": [
+                15,
+                17,
+                18
+              ],
+              "explanation": "turn15 由 support 轉介銀行專員，turn17-18 由 bank 接續處理驗證程序，角色與引導關係已明確。"
+            },
+            {
+              "requirement": "具體敏感資訊或操作要求",
+              "evidence_turns": [
+                18
+              ],
+              "explanation": "turn18 明確要求先開啟網路銀行，並稱需要轉帳完成驗證，屬於具體敏感網銀操作要求。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般驗證協助或開啟一般畫面不足以解釋直接要求啟動網路銀行並配合驗證。"
+        },
+        {
+          "rule_id": "R_PAYMENT_PURPOSE",
+          "conditions": [
+            {
+              "requirement": "聲稱目的",
+              "evidence_turns": [
+                11,
+                15,
+                17,
+                18
+              ],
+              "explanation": "turn11 稱不聯絡會凍結帳號，turn15-17 以帳戶異常／驗證程序作為處理理由。"
+            },
+            {
+              "requirement": "所要求的金融行為",
+              "evidence_turns": [
+                18
+              ],
+              "explanation": "turn18 要求先開啟網路銀行，並以轉帳完成驗證。"
+            },
+            {
+              "requirement": "兩者的關聯；可跨訊息引用",
+              "evidence_turns": [
+                11,
+                15,
+                17,
+                18
+              ],
+              "explanation": "帳戶異常／驗證被連結到需透過網銀與轉帳完成處理，符合以驗證為由引導金融操作。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般訂單驗證或付款流程不會要求用網路銀行配合完成驗證。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          18
+        ],
+        "explanation": "本輪新增明確要求開啟網路銀行並以轉帳完成驗證，先前未具體化的敏感要求已成立，無需改判為反證。"
+      },
+      "observation": {
+        "actor": "bank",
+        "action_type": "sensitive_access_request",
+        "object": "開啟網路銀行並以轉帳完成驗證",
+        "is_new_request": true
+      },
+      "status": "warn",
+      "reason": "銀行明確要求開啟網路銀行，並以轉帳完成驗證，已符合敏感網銀操作與付款目的連結。",
+      "normal_explanation": "正常驗證流程不應要求把網銀開啟後再用轉帳作為驗證方式。",
+      "recommended_action": "停止操作，先向原平台或銀行官方獨立管道查證，不要依對方指示繼續網銀或轉帳。",
+      "stages": [
+        "S2",
+        "S4",
+        "S5"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS",
+        "R_PAYMENT_PURPOSE"
+      ],
+      "evidence": [
+        {
+          "turn": 11,
+          "quote": "現在訂單沒過，要趕快聯絡，不然帳號會被凍結。"
+        },
+        {
+          "turn": 15,
+          "quote": "這邊需要處理實名認證，我轉銀行專員協助您，請加入「交易驗證・陳專員」：https://chat.example.com/verify-chen"
+        },
+        {
+          "turn": 17,
+          "quote": "您好，接下來協助您處理帳戶異常及驗證程序。"
+        },
+        {
+          "turn": 18,
+          "quote": "請先開啟網路銀行，這一步需要轉帳完成驗證。"
+        }
+      ],
+      "prediction": {
+        "actor": "bank",
+        "action_type": "new_condition",
+        "object": "在網路銀行操作前再追加驗證步驟或條件",
+        "action": "可能再要求額外的驗證步驟或條件以完成處理",
+        "within_next_messages": 2
+      },
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "B2_假買家騙賣家.replay.json",
+    "session_id": "890fc70fc7b14dba8913ddf36fa14e77",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+    "completed": true,
+    "turns_analyzed": 30,
+    "total_turns": 30,
+    "first_alert_turn": 17,
+    "payment_turn": 26,
+    "lead_turns": 9,
+    "false_alarm": null,
+    "evaluation_status": "completed",
+    "passed": true,
+    "first_warning": {
+      "rule_checks": [
+        {
+          "rule_id": "R_SENSITIVE_ACCESS",
+          "conditions": [
+            {
+              "requirement": "對方身分及引導關係",
+              "evidence_turns": [
+                13,
+                15,
+                17
+              ],
+              "explanation": "support 以客服身分協助排除異常，並持續引導操作。"
+            },
+            {
+              "requirement": "具體敏感資訊或操作要求",
+              "evidence_turns": [
+                17
+              ],
+              "explanation": "明確要求開啟網路銀行並處理驗證，屬敏感網銀操作要求。"
+            }
+          ],
+          "normal_explanation_insufficient": "一般客服帶看畫面可正常，但此處已進一步要求開網銀與驗證，超出單純畫面協助。"
+        }
+      ],
+      "resolution": {
+        "kind": "none",
+        "evidence_turns": [
+          17
+        ],
+        "explanation": "本輪新增敏感網銀操作要求，非先前誤讀或獨立反證。"
+      },
+      "observation": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "開啟網路銀行並處理驗證",
+        "is_new_request": true
+      },
+      "status": "warn",
+      "reason": "對方以客服協助名義，要求開啟網路銀行並處理驗證，已符合敏感存取要求。",
+      "normal_explanation": "一般通話或畫面分享本身不一定有問題，但要求進入網銀驗證屬高風險。",
+      "recommended_action": "不要提供網銀登入、密碼、OTP或讓對方代操作；停止分享後改用官方客服或自行登入的獨立流程查證。",
+      "stages": [
+        "S4",
+        "S5"
+      ],
+      "rule_ids": [
+        "R_SENSITIVE_ACCESS"
+      ],
+      "evidence": [
+        {
+          "turn": 13,
+          "quote": "您好，這邊協助您排除交易異常，我用通話帶您操作。"
+        },
+        {
+          "turn": 15,
+          "quote": "不用開鏡頭，分享手機畫面就可以。"
+        },
+        {
+          "turn": 17,
+          "quote": "看得到，接著請開啟網路銀行，處理驗證。"
+        }
+      ],
+      "prediction": {
+        "actor": "support",
+        "action_type": "sensitive_access_request",
+        "object": "OTP或網銀登入資訊",
+        "action": "接著可能進一步要求輸入或交付驗證碼／登入資訊",
+        "within_next_messages": 2
+      },
+      "prediction_matches": []
+    }
+  },
+  {
+    "file": "N1_二手拍立得正常交易.replay.json",
+    "session_id": "668b3834274c41869351f125899da9a9",
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "53d893f21de1b2e7206f34ee187d49de58fa9843cb184ba45247b54746204c86",
+    "completed": true,
+    "turns_analyzed": 26,
+    "total_turns": 26,
+    "first_alert_turn": null,
+    "payment_turn": 20,
+    "lead_turns": null,
+    "false_alarm": false,
+    "evaluation_status": "completed",
+    "passed": true,
+    "first_warning": null
+  }
+]

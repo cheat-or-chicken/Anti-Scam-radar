@@ -1,0 +1,75 @@
+{
+  "source": "reports/expanded-v1/run3/B5_假中獎信用卡驗證盜刷.results.json",
+  "source_sha256": "3c13c4eae48817f3c613053a76f25ff117a4afafa6f159527235375264c4351a",
+  "case": "B5_假中獎信用卡驗證盜刷.replay.json",
+  "repeat": 3,
+  "prediction": {
+    "id": "p5",
+    "created_turn": 5,
+    "expires_turn": 6,
+    "actor": "page",
+    "action_type": "new_condition",
+    "object": "要求先完成信用卡驗證才能繼續領獎",
+    "action": "進一步追加驗證門檻",
+    "within_next_messages": 1,
+    "status": "missed"
+  },
+  "old_status": "missed",
+  "new_status": "missed",
+  "verdict": {
+    "version": "semantic-match-v1",
+    "prompt_hash": "91a9599add5812fbe1f40fd8211de5f393ea1c3cfd6fd061b5858923f2b5dd83",
+    "model": "gpt-5.4-mini",
+    "outcome": "not_matched",
+    "matched_turn": null,
+    "reason": "原視窗內尚無指定角色的新發言。",
+    "evidence": [],
+    "api_called": false
+  },
+  "original_context": [
+    {
+      "turn": 1,
+      "sender": "notice",
+      "channel": "email",
+      "text": "一卡通發票中獎通知：您的消費發票有待領獎項，請至 https://invoice.example.com/claim 查詢。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 2,
+      "sender": "user",
+      "channel": "email",
+      "text": "我最近有搭車消費，先查查看是哪張發票。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 3,
+      "sender": "page",
+      "channel": "web_form",
+      "text": "消費發票領獎查詢。請填寫姓名及聯絡手機，以便核對資料。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 4,
+      "sender": "user",
+      "channel": "web_form",
+      "text": "我填好姓名林小安跟手機了，按下一步。",
+      "attachment_captions": []
+    },
+    {
+      "turn": 5,
+      "sender": "page",
+      "channel": "web_form",
+      "text": "請填信用卡卡號、有效期限與卡背安全碼，完成持卡人認證後才可確認領獎資格。",
+      "attachment_captions": []
+    }
+  ],
+  "observation_window": [
+    {
+      "turn": 6,
+      "sender": "user",
+      "channel": "web_form",
+      "text": "不是查發票嗎，這頁還要信用卡資料？",
+      "attachment_captions": []
+    }
+  ]
+}

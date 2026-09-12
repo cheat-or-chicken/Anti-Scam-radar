@@ -1,0 +1,471 @@
+{
+  "summary": {
+    "file": "N8_家人代領包裹取件碼.replay.json",
+    "repeat": 2,
+    "case_type": "benign",
+    "completed": true,
+    "turns_analyzed": 7,
+    "total_turns": 7,
+    "first_alert_turn": null,
+    "payment_turn": null,
+    "harm_turn": null,
+    "before_payment": null,
+    "before_harm": null,
+    "detected_by_end": null,
+    "false_alarm": false,
+    "harm_lead": null,
+    "payment_lead": null,
+    "warning_downgrade_turns": [],
+    "mean_seconds": 2.038,
+    "recovered_or_failed_turns": [],
+    "model": "gpt-5.4-mini",
+    "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+    "detector_sha256": "307206679905000fb4a185eeedda88ac0414353fb6057fc5c9b9f5d15a89a207"
+  },
+  "results": [
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "目前只是家人代收包裹的正常請求，沒有金錢、敏感權限或隔離查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "請對方代拿管理室包裹",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "內容屬一般生活協助，不符合任何警報規則必要條件。",
+        "normal_explanation": "家人請求代收包裹很常見。",
+        "recommended_action": "可直接協助，或確認包裹收件資訊即可。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 1,
+            "quote": "我晚點才下班，可以幫我拿管理室的包裹嗎？"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_01ad152ca9e0427a016aa4e0f5ede087d09a3da34200cf88fd",
+      "usage": {
+        "input_tokens": 4762,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 182,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 4944
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 1,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.181,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            2
+          ],
+          "explanation": "本輪只是家人回覆可代取包裹，未出現金錢、敏感權限或阻止查證的要求。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "other",
+          "object": "回覆可代取包裹並提到管理員取件碼",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍屬一般家務協助，沒有符合警報規則的必要條件。",
+        "normal_explanation": "代收包裹時詢問取件碼屬常見流程。",
+        "recommended_action": "可協助提供取件碼或完成代收。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 2,
+            "quote": "可以，我在大樓樓下了，要給管理員取件碼。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_086cade40b0b10e2016aa4e0f7ad5887d0b52cf0621718af19",
+      "usage": {
+        "input_tokens": 5034,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 195,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5229
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 2,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.405,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            3
+          ],
+          "explanation": "本輪只是補充包裹資訊，沒有金錢、敏感權限或阻止查證的要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "補充包裹品項與尾號",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是一般家務協助，未出現任何符合警報規則的必要條件。",
+        "normal_explanation": "提供包裹品項或尾號可用於代收流程。",
+        "recommended_action": "可依一般代收流程處理。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 3,
+            "quote": "是我昨天買的濾水壺，尾號 4128。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_06c304c93da43d69016aa4e0f9200887d087d9050cc9fd5848",
+      "usage": {
+        "input_tokens": 5094,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 181,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5275
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 3,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.042,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            4
+          ],
+          "explanation": "本輪只是索取取件碼，仍屬一般代收流程，未見金錢、敏感權限或阻止查證的要求。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "other",
+          "object": "索取六位數取件碼",
+          "is_new_request": true
+        },
+        "status": "insufficient",
+        "reason": "僅是管理室代收包裹的流程，不符合任何警報規則必要條件。",
+        "normal_explanation": "代收包裹時要求取件碼屬常見驗證，不等於敏感操作或詐騙。",
+        "recommended_action": "可先以一般代收方式處理，確認後再交付取件碼。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 4,
+            "quote": "管理員說包裹姓名跟你一樣，要你收到的六位數取件碼。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_089b1e74bfa59ac1016aa4e0fb2d1087d091594d2bca629255",
+      "usage": {
+        "input_tokens": 5135,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 210,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5345
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 4,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.975,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [],
+          "explanation": "本輪只是回報已用家裡電話確認取件碼，仍屬一般代收流程，未見金錢、敏感權限或阻止查證的要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "回報已確認包裹取件碼",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "只有一般包裹取件碼確認，未達任何警報規則必要條件。",
+        "normal_explanation": "代收包裹時以電話確認取件碼屬常見流程，不等於敏感操作或詐騙。",
+        "recommended_action": "可依正常代收流程處理，不需升級警報。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 5,
+            "quote": "我剛打家裡電話跟你確認過，通知是這件包裹的取件碼 593204。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0c7278a12f033a9e016aa4e0fe361487d0abe14f3e5feaf4aa",
+      "usage": {
+        "input_tokens": 5229,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 213,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5442
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 5,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.663,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            6
+          ],
+          "explanation": "本輪只是家人回報已拿到包裹，未新增付款、敏感權限或阻止查證要求。"
+        },
+        "observation": {
+          "actor": "family",
+          "action_type": "other",
+          "object": "回報已取到濾水壺包裹",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是一般代收流程，沒有新風險條件。",
+        "normal_explanation": "收取家人代拿的包裹並回報結果，屬日常溝通。",
+        "recommended_action": "維持一般處理即可。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 6,
+            "quote": "拿到了，是一箱濾水壺，放餐桌上。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0f7edef2d5f61c46016aa4e0ffd56487d08ea4f09de6f5e5b9",
+      "usage": {
+        "input_tokens": 5285,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 184,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5469
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 6,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 1.64,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "status": "ok",
+      "decision": {
+        "rule_checks": [],
+        "resolution": {
+          "kind": "none",
+          "evidence_turns": [
+            7
+          ],
+          "explanation": "本輪只是使用者回覆晚上再拆包裹，沒有新增付款、敏感權限或阻止查證要求。"
+        },
+        "observation": {
+          "actor": "user",
+          "action_type": "other",
+          "object": "表示晚上回去拆包裹",
+          "is_new_request": false
+        },
+        "status": "insufficient",
+        "reason": "仍是一般家人代收包裹流程，未出現可疑新條件。",
+        "normal_explanation": "家人已代收包裹後，回覆晚點再拆屬常見日常對話。",
+        "recommended_action": "維持一般處理即可。",
+        "stages": [
+          "S0"
+        ],
+        "rule_ids": [],
+        "evidence": [
+          {
+            "turn": 7,
+            "quote": "好，晚上回去拆。"
+          }
+        ],
+        "prediction": null,
+        "prediction_matches": []
+      },
+      "response_id": "resp_0ff955574c79e726016aa4e101a8d487d0a18358424eff71bc",
+      "usage": {
+        "input_tokens": 5284,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4352
+        },
+        "output_tokens": 187,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5471
+      },
+      "rejected_prediction_matches": [],
+      "risk_retained": false,
+      "rejected_rules": [],
+      "turn": 7,
+      "first_alert_turn": null,
+      "predictions": [],
+      "model": "gpt-5.4-mini",
+      "prompt_version": "dialogue-v5",
+      "prompt_hash": "19ba1cd7b4bfb5a8c719740fbc616de2ea70e0c38a03f0a9e347835524da21c1",
+      "elapsed_seconds": 2.357,
+      "attempts": [
+        {
+          "attempt": 1,
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}
