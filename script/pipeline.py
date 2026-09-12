@@ -86,6 +86,9 @@ async def analyze(
             )
             for name, replacement in zip(selected, replacements):
                 layers[int(name[1:])] = replacement
+        from script.blocklist import verify_blocklist
+
+        layers.append(verify_blocklist(ctx))
         if detectors:
             from script.adaptive import detect
 

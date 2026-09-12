@@ -15,6 +15,7 @@ def adjudicate(ctx: PageContext, layers: list[LayerResult]) -> Decision:
     hard = any(
         layer == "L4" and s.id in HARD_SIGNALS and s.hard and s.grade == "observed" for layer, s in items
     )
+    hard = hard or any(layer == "BLOCKLIST" and s.id == "listed_domain" and s.hard for layer, s in items)
     evidence_layers = {
         layer for layer, s in items if s.weight >= 15 and layer not in {"L10", "L16", "ADAPTIVE"}
     }

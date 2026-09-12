@@ -9,3 +9,7 @@ config/config.local.json
 var/
 build/
 dist/
+
+.DS_Store
+# Independently versioned extension repository
+/extension/
