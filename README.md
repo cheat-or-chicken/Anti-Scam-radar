@@ -20,9 +20,26 @@ PORT=8010 uv run python ChatRoom/server.py
 
 42次重播共690則分析完成；預測整篇複核為24命中、19未命中、8不明確，可判定部分55.8%。這是合成開發資料結果，不代表真實世界準確率。整篇評分目前僅離線使用，網頁仍保留先前逐輪核對；UI優化留待下一階段。
 
-## 網站分析核心
 
-台灣防詐驗證腳本。提供 L0–L17 的 function 入口、CLI、政府機關冒用偵測、受控行為證據判讀、L7 LLM 靜態程式碼審查、查證工具、SQLite 稽核與合成評估集。這一版是可執行的分析核心，尚未包含 Chrome 擴充功能或公開 HTTP 服務。
+台灣防詐驗證腳本。提供 L0–L17 的 function 入口、CLI、政府機關冒用偵測、受控行為證據判讀、L7 LLM 靜態程式碼審查、查證工具、SQLite 稽核與合成評估集。目前已整合 Chrome 擴充功能，提供主動頁面偵測、美化風險面板與可選用的本機 HTTP 後端。
+
+
+## Chrome 擴充功能
+
+擴充功能已整合至本專案的 `extension/`，clone 本專案即可取得後端與擴充功能，不需要另外 clone 或初始化 submodule。
+
+直接在 Chrome 的 `chrome://extensions` 開啟開發人員模式，載入專案的 `extension` 資料夾，再重新整理欲檢查的頁面。基本防護不需後端與 API key。
+
+進階分析先執行：
+
+```bash
+uv sync --locked --python 3.12 --extra dev
+uv run python -m script.server
+```
+
+擴充功能設定中貼入 `var/extension-token.txt` 的**配對碼**並測試連線。OpenAI key 仍留在 `config/config.local.json`。詳見 [擴充功能使用說明](extension/README.md) 與 [移植／整合文件](docs/EXTENSION.md)。
+
+可攜安裝包由 `uv run python -m script.package_extension` 產生於 `var/anti-scam-radar-extension.zip`，解壓縮即可載入，不含 key 與原始資料集。
 
 ## 執行
 
@@ -106,7 +123,12 @@ CLI 全域的 `--config` 必須放在子命令前面。完整逐檔說明、每�
 
 只做 LLM 程式碼審查時，`network_enabled` 可以保持 false。
 
-## 對話防詐 Demo
+新增的品牌官方網址搜尋與網站語意分析 API，請見 [LLM API 使用文件](docs/LLM_APIS.md)。
 
-[聊天室與防詐agent執行說明](ChatRoom/README.md)提供三例JSON載入、逐輪LLM判斷、證據與預測。
-[本次驗收狀態](docs/DIALOGUE_VALIDATION.md)：89項程式測試通過；真實模型三例完成，兩例匯款前示警，正常交易無示警。
+品牌近似網域、資料不足提示與查證指標 API，請見 [指標補強文件](docs/DOMAIN_INDICATORS.md)。
+
+各層資料取得、重掃保留及等待狀態，請見 [層級覆蓋修正](docs/LAYER_COVERAGE.md)。
+
+五個可互動、經真實擴充功能驗證的本機展示頁：[RADAR LAB 操作與講稿](demo/README.md)。啟動 `uv run python -m script.demo_server` 後在 Chrome 開啟 `http://127.0.0.1:8088/`。
+
+警示漏顯示修正、白話說明與多語言話術分類：[警示與語意補強](docs/WARNINGS_AND_SEMANTICS.md)。

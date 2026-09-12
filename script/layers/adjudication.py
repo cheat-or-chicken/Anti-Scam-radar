@@ -15,6 +15,7 @@ def adjudicate(ctx: PageContext, layers: list[LayerResult]) -> Decision:
     hard = any(
         layer == "L4" and s.id in HARD_SIGNALS and s.hard and s.grade == "observed" for layer, s in items
     )
+    hard = hard or any(layer == "BLOCKLIST" and s.id == "listed_domain" and s.hard for layer, s in items)
     evidence_layers = {
         layer for layer, s in items if s.weight >= 15 and layer not in {"L10", "L16", "ADAPTIVE"}
     }
@@ -24,14 +25,16 @@ def adjudicate(ctx: PageContext, layers: list[LayerResult]) -> Decision:
     if hard:
         score = 100
     is_trusted = trusted(ctx.url)
-    display = "block" if hard or score >= 80 else "banner" if score >= 35 else "icon"
+    display = "block" if hard or score >= 80 else "banner" if score > 0 else "icon"
     if ctx.behavior == "social_link" and score > 0 and display == "icon":
         display = "banner"
     if is_trusted:
-        display = "icon"  # Maintained trust policy preserves every signal in popup/audit.
+        display = "banner" if score > 0 else "icon"  # Trusted sites still show warnings.
     triggers = TRIGGERS.copy() if score >= 15 and not is_trusted else []
     ordered = sorted(items, key=lambda pair: pair[1].weight, reverse=True)
-    category = "政府機關冒用疑慮" if any(s.id == "brand_domain_mismatch" for _, s in items) else "未分類"
+    category = "品牌或機構冒用疑慮" if any(s.id == "brand_domain_mismatch" for _, s in items) else "未分類"
+    if any(layer == "L3" for layer, _ in items):
+        category = "話術詐騙疑慮"
     return Decision(
         risk_score=score,
         category=category,

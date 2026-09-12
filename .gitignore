@@ -10,12 +10,12 @@ var/
 build/
 dist/
 
+.DS_Store
+
+# Dialogue demo local files
 .env.local
 .env.*
 !.env.example
-
-# Local demo history and obsolete bundles
 ChatRoom/chat_history.json
 deliverables/
 scam_agent_handoff_*.zip
-.DS_Store

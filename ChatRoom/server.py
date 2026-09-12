@@ -16,10 +16,7 @@ sys.path.insert(0, str(ROOT.parent))
 from ChatRoom.detector import Detector  # noqa: E402
 
 DETECTOR = Detector()
-SAMPLES = {
-    p.name: p
-    for p in (ROOT.parent / "data/reconstructed").glob("*.replay.json")
-}
+SAMPLES = {p.name: p for p in (ROOT.parent / "data/reconstructed").glob("*.replay.json")}
 HISTORY_FILE = ROOT / "chat_history.json"
 
 

@@ -1,6 +1,6 @@
 # 防詐腳本實作與技術說明
 
-本版依原始架構討論完成可執行的 Python 驗證核心；原設計筆記已依要求刪除，實作以本文件為準。分支為 `codex/anti-scam-verification`。本次依使用者更新：L7 改為 LLM 靜態程式碼合理性審查，不需要執行 JavaScript；以下的「已實作」指腳本能力，不表示已完成 Chrome 擴充功能、雲端共享系統或隔離瀏覽器。
+本版依原始架構討論完成可執行的 Python 驗證核心；原設計筆記已依要求刪除，實作以本文件為準。分支為 `codex/anti-scam-verification`。本次依使用者更新：L7 改為 LLM 靜態程式碼合理性審查，不需要執行 JavaScript；以下主要描述腳本核心；Chrome 擴充功能與本機 HTTP 橋接現已完成，請配合 [整合文件](EXTENSION.md) 閱讀。雲端共享系統仍未提供。
 
 ## 架構與判定
 
@@ -93,7 +93,7 @@ L7 的 async 實作位於 `script.layers.code_review`，CLI layer L7 與完整 p
 | L11 `verify_l11` | 採集器回傳 missing_business_pages 時給弱訊號 | 公司登記／金融許可查證、全站爬取 |
 | L12 `verify_l12` | 執行檔、雙副檔名、RTL、PDF magic bytes、站外／自動下載 | 解壓縮、完整 MIME 嗅探、防毒引擎、Chrome 下載攔截 |
 | L13 `verify_l13` | 解碼後 URL 重跑 L1、站外 QR、付款／通訊 scheme；獨立本機圖片 decoder | 圖片來源採集、canvas 讀取、完整 QR 網頁深度分析 |
-| L14 `verify_l14` / `should_interrupt` | deterministic 行為閾值、三種 display level 的資料契約 | 實際 icon/banner/block 前端與狀態儲存 |
+| L14 `verify_l14` / `should_interrupt` | deterministic 行為閾值、三種 display level 的資料契約 | 前端整合已另見 EXTENSION 文件 |
 | L15 `verify_l15` | 隱藏指令文字、已提供的延遲敏感欄位旗標；LLM 可補充 | MutationObserver、shadow DOM、視覺隱藏完整判斷 |
 | L16 `verify_l16` | 本機 opt-in 回報、去重計數、每次完整結果存檔 | 共享 API、登入驗證、跨裝置率限、背景重播佇列 |
 | L17 `verify_l17(ctx, layers)` | 結構化、確定性裁決與理由，不允許模型改硬規則 | LLM 自由跨訊號裁決刻意不採用 |
@@ -150,7 +150,7 @@ store.add_reviewed_fingerprint("template text", "review-ticket-001")
 
 黑客松先用單機後端 worker／CLI 即可：Linux 或 macOS、Python 3.12、`uv sync --locked`；只執行本機資料示範時，不需要外部服務。設定檔、資料库放在只有執行帳號可讀寫的位置，使用專案根目錄作為工作目錄。套件可打 wheel，品牌資料已包含在封裝內，CLI 的範例與設定路徑則相對於工作目錄。
 
-本版沒有開任何 HTTP port，沒有冒充已完成的部署網址。接擴充功能時，應由認證 API 驗證請求大小與來源、按使用者／目的站率限，再排入固定大小的工作佇列；快路徑先顯示、慢路徑完成後更新。前端使用 `display_level`、`interrupt_triggers`、`interrupted`，popup 顯示全部 layers/signals。L0 session cache 應以導覽／採集版本失效，不能永久以整個網域快取安全結果。
+選用 `script.server` 可啟動綁定 127.0.0.1:8765 的認證 HTTP API，具有配對碼、請求大小與來源檢查，以及並行／速率限制；擴充功能先顯示本機結果，再更新後端補充。公開多使用者部署仍需另建隔離工作佇列。前端使用 `display_level`、`interrupt_triggers`、`interrupted`，popup 顯示全部 layers/signals。L0 session cache 應以導覽／採集版本失效，不能永久以整個網域快取安全結果。
 
 查證 HTTP 僅允許 http/https 的 80/443 port，拒絕 URL credentials、控制字元和反斜線；DNS 全部解析結果都需公網，直接連接已驗證 IP，TLS 保留正確 hostname 驗證。每跳 redirect 重新檢查，不帶 cookies／授權 headers；最多五次轉址、限制回應大小、拒絕壓縮。只有 GET，沒有表單送出或下載檔案執行。GET 仍可能帶來站方流量或 query 副作用，正式環境應另用固定 egress 與工作佇列的全域預算。
 
@@ -173,3 +173,11 @@ L7 現在只呼叫 LLM 靜態審查，不需要沙箱或瀏覽器。`feedback` �
 政府品牌參照 [監理服務網](https://www.mvdis.gov.tw/?force=web) 與 [交通部公路局](https://www.thb.gov.tw/)。名單中的防詐公告來源保留於 JSON，方便人工維護；本版只維護這兩個相關機構，不宣稱涵蓋所有台灣政府服務。
 
 本次本機驗證紀錄（2026-09-12）：81 項 pytest 通過，Ruff lint／format 檢查通過，三個 demo 情境通過，wheel 封裝成功且包含品牌資料。這些檢查均未使用真實 API key。
+
+## 獨立 LLM API
+
+新增 `script/site_checks.py` 的 `verify_brand`、`analyze_semantics`，由 `script/server.py` 提供 `/v1/verify-brand` 與 `/v1/analyze-semantics`。詳見 [介面、技術與設定](LLM_APIS.md)。`tests/test_site_checks.py` 包含搜尋來源與摘錄驗證、設定開關、HTTP 路由及 www 官方轉址回歸測試。
+
+## 網域風險指標
+
+`script/brand_patterns.py`、`script/indicators.py` 新增品牌相鄰字母轉置與序號網域規則、RDAP／可選 Google Safe Browsing 及靜態內容指標。已同步 Chrome 本機防護，詳見 [檔案、證據與限制](DOMAIN_INDICATORS.md)。
