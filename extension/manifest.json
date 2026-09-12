@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Anti-Scam Radar",
+  "version": "0.1.0",
+  "description": "Analyze the current website with the local Anti-Scam Radar service.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["http://127.0.0.1:8765/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Analyze this website",
+    "default_popup": "popup.html"
+  }
+}

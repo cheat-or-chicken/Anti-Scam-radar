@@ -46,7 +46,7 @@ def same_site(a: str, b: str) -> bool:
 
 @lru_cache
 def brands() -> list[dict]:
-    return json.loads((Path(__file__).resolve().parent / "data/brands.json").read_text())
+    return json.loads((Path(__file__).resolve().parent / "data/brands.json").read_text(encoding="utf-8"))
 
 
 def matches_domain(hostname: str, domain: str) -> bool:

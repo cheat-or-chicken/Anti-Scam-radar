@@ -82,4 +82,34 @@ CLI 全域的 `--config` 必須放在子命令前面。完整逐檔說明、每�
 }
 ```
 
+## Website screenshot vision (optional)
+
+The normal `analyze` command does not render a target URL or upload an image. To render a user-supplied URL in an ephemeral headless Chromium instance, capture its current viewport, and send that JPEG to the LLM for a weak visual risk signal, install the optional browser dependency and its browser binary:
+
+```bash
+uv sync --locked --extra browser
+uv run playwright install chromium
+uv run scam-radar scan https://example.com --screenshot
+```
+
+`--screenshot` is required before a capture is uploaded to the LLM. The capture stays in memory, is capped at 5 MB, uses low image detail, and is not written to the audit database. It requires both `llm_enabled` and `allow_content_upload`; configure `vision_model` separately if the normal model is not vision-capable. The visual result is always inferred evidence worth at most 10 points, so it cannot create a hard block by itself.
+
+To analyze a PNG or JPEG you have already captured without opening the URL, use:
+
+```bash
+uv run scam-radar analyze snapshot.json --screenshot page.jpg
+```
+
+Do not use this on pages that contain private data, passwords, or form values: the screenshot may contain them and is sent to OpenAI when the flag is supplied.
+
+## Chrome extension (unpacked)
+
+The extension at `extension/` never contains an API key. It uses Chrome's temporary `activeTab` permission only after you press its button, captures the visible viewport, and sends a bounded page snapshot plus the screenshot to the loopback-only Python service. Start the service first:
+
+```bash
+uv run scam-radar serve
+```
+
+Then open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the repository's `extension` folder. Open an HTTP(S) website, click the Anti-Scam Radar icon, then choose **分析目前網站**. The service binds only to `127.0.0.1:8765`; stop it with `Ctrl+C` when finished.
+
 只做 LLM 程式碼審查時，`network_enabled` 可以保持 false。

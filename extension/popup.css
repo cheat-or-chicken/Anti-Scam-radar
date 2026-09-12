@@ -1,0 +1,51 @@
+:root {
+  color: #172033;
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+main {
+  padding: 16px;
+}
+
+h1 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+p {
+  margin: 8px 0;
+}
+
+button {
+  background: #0f62fe;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  padding: 9px 12px;
+  width: 100%;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+#status,
+#meta,
+#hint {
+  color: #536079;
+  font-size: 12px;
+}
+
+ul {
+  margin: 6px 0;
+  padding-left: 20px;
+}

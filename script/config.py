@@ -10,10 +10,12 @@ class Settings(BaseModel):
     api_key: SecretStr = SecretStr("")
     model: str = "gpt-5.4-mini"
     code_model: str = "gpt-5.4-mini"
+    vision_model: str = "gpt-5.4-mini"
     llm_enabled: bool = False
     allow_content_upload: bool = False
     network_enabled: bool = False
     timeout_seconds: float = Field(default=12, ge=1, le=60)
+    screenshot_timeout_seconds: float = Field(default=15, ge=1, le=60)
     max_llm_calls: int = Field(default=6, ge=0, le=20)
     max_tool_calls: int = Field(default=8, ge=0, le=20)
     max_output_tokens: int = Field(default=1600, ge=128, le=8192)
@@ -23,7 +25,7 @@ class Settings(BaseModel):
 
     @classmethod
     def load(cls, path: str = "config/config.local.json") -> "Settings":
-        data = json.loads(Path(path).read_text()) if Path(path).exists() else {}
+        data = json.loads(Path(path).read_text(encoding="utf-8")) if Path(path).exists() else {}
         if os.getenv("OPENAI_API_KEY"):
             data["api_key"] = os.environ["OPENAI_API_KEY"]
         return cls.model_validate(data)

@@ -19,7 +19,7 @@ from script.storage import Store, fingerprint
     ],
 )
 async def test_demo_fixtures(tmp_path, file, blocked):
-    ctx = PageContext.model_validate_json((Path("fixtures") / file).read_text())
+    ctx = PageContext.model_validate_json((Path("fixtures") / file).read_text(encoding="utf-8"))
     settings = Settings(database_path=str(tmp_path / "audit.db"))
     r = await analyze(ctx, settings)
     assert r.interrupted is blocked

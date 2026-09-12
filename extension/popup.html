@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anti-Scam Radar</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Anti-Scam Radar</h1>
+      <p id="hint">截圖和頁面快照會送到本機分析服務。</p>
+      <button id="analyze" type="button">分析目前網站</button>
+      <p id="status" role="status"></p>
+      <section id="result" hidden>
+        <p><strong id="score"></strong></p>
+        <p id="summary"></p>
+        <ul id="reasons"></ul>
+        <p id="meta"></p>
+      </section>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
