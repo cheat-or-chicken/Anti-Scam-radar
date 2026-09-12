@@ -15,6 +15,7 @@ function state() {
   $('auto').disabled=busy && !playing || failed || !session || index>=queue.length;
   $('reset').disabled=busy || !original;
   $('loadSample').disabled=busy; $('textFile').disabled=busy; $('sample').disabled=busy;
+  $('sendForm').hidden=mode!=='txt'||!session;
   $('messageInput').disabled=mode!=='txt'||!session||busy;
   $('send').disabled=$('messageInput').disabled;
   $('export').disabled=!results.length;
@@ -32,7 +33,8 @@ async function load(data, name, type='json') {
     queue=incoming; participants=type==='json'?(data.participants||{}):{counterparty:name,user:'我'};
     session=created.session_id; index=0; turn=0; channel=null; results=[]; mode=type; title=name;
     original={data,name,type}; $('chatTitle').textContent=name; $('messages').replaceChildren();
-    $('trace').replaceChildren(); $('evidence').replaceChildren(); $('stages').replaceChildren();
+    $('decisionCard').hidden=true; $('predictionCard').hidden=true;
+    $('evidence').replaceChildren(); $('stages').replaceChildren();
     $('predictions').textContent='等待有依據的預測'; $('verdict').textContent='等待對話';
     $('reason').textContent='已建立新的分析工作階段'; $('advice').textContent='';
     $('firstAlert').textContent='尚無示警'; $('decisionCard').classList.remove('warning');
@@ -57,6 +59,8 @@ function append(message) {
 }
 function render(result) {
   const decision=result.decision;
+  $('decisionCard').hidden=!decision;
+  $('predictionCard').hidden=!(result.predictions||[]).length;
   $('decisionCard').classList.toggle('warning',decision?.status==='warn');
   $('evidence').replaceChildren();$('stages').replaceChildren();$('advice').textContent='';
   const label={insufficient:'尚無具體風險依據',monitor:'持續觀察，未示警',warn:'請暫停操作，出現可疑要求'};
@@ -75,14 +79,10 @@ function render(result) {
   if(!(result.predictions||[]).length)$('predictions').textContent='目前沒有足夠依據提出下一步預測。';
   for(const p of result.predictions||[]) {
     const row=document.createElement('div');row.className='prediction';
-    const labels={matched:`已命中（第${p.matched_turn}則）`,missed:'視窗內未命中',unverified:'語意核對未確認',pending:index===queue.length&&mode==='json'?'對話已結束，尚未確認':'待觀察'};
-    row.textContent=`第${p.created_turn}則預測：${p.action} · ${labels[p.status]}`;$('predictions').append(row);
+    const labels={matched:`已命中（第${p.matched_turn}則）`,missed:'',unverified:'語意核對未確認',pending:index===queue.length&&mode==='json'?'對話已結束，尚未確認':'待觀察'};
+    row.textContent=`第${p.created_turn}則預測：${p.action}${labels[p.status] ? ' · '+labels[p.status] : ''}`;$('predictions').append(row);
   }
-  const row=document.createElement('div');row.className='trace-row';
-  row.dataset.turn=String(result.turn);
-  $('trace').querySelector(`[data-turn="${result.turn}"]`)?.remove();
-  row.textContent=`#${result.turn} · ${decision?label[decision.status]:'分析失敗'} · ${result.elapsed_seconds}s`;
-  $('trace').prepend(row);
+
 }
 async function advance(raw) {
   busy=true;state();$('status').textContent='正在分析本輪…';
