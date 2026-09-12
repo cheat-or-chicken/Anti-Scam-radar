@@ -31,6 +31,10 @@ class Settings(BaseModel):
     @classmethod
     def load(cls, path: str = "config/config.local.json") -> "Settings":
         data = json.loads(Path(path).read_text(encoding="utf-8")) if Path(path).exists() else {}
+        data = {"llm_enabled": True, "allow_content_upload": True, "network_enabled": True,
+                "safe_browsing_enabled": True, "google_url_reputation_provider": "safe_browsing", **data}
+        if not data.get("google_url_reputation_api_key") and data.get("google_safe_browsing_api_key"):
+            data["google_url_reputation_api_key"] = data["google_safe_browsing_api_key"]
         if os.getenv("OPENAI_API_KEY"):
             data["api_key"] = os.environ["OPENAI_API_KEY"]
         if os.getenv("GOOGLE_URL_REPUTATION_API_KEY"):

@@ -1,15 +1,46 @@
 (() => {
   // src/warning_state.js
   function warningKey(url, result2) {
-    const signals = (result2?.layers || []).flatMap((layer) => (layer.signals || []).filter((s) => s.weight > 0).map((s) => [s.id, s.weight]));
+    const signals = (result2?.layers || []).flatMap((layer) => (layer.signals || []).filter((s) => s.weight > 0).map((s) => [s.id, s.weight, s.detail]));
     signals.sort((a, b) => a[0].localeCompare(b[0]));
-    return JSON.stringify([url, signals, result2?.decision?.risk_score || 0]);
+    return JSON.stringify([url, signals, result2?.decision?.risk_score || 0, result2?.decision?.display_level, result2?.decision?.interrupt_triggers || []]);
   }
   function hasWarning(result2) {
     return (result2?.decision?.risk_score || 0) > 0 || ["banner", "block"].includes(result2?.decision?.display_level);
   }
+  function warningReasons(result2) {
+    return [...new Set([
+      ...result2?.decision?.reasons || [],
+      ...(result2?.layers || []).flatMap((layer) => (layer.signals || []).filter((signal) => signal.weight > 0).map((signal) => signal.detail))
+    ].filter((text) => typeof text === "string" && text.trim()))];
+  }
+  var WarningCards = class {
+    url = null;
+    entries = /* @__PURE__ */ new Map();
+    update(url, result2) {
+      if (this.url !== url) {
+        this.url = url;
+        this.entries.clear();
+      }
+      for (const text of warningReasons(result2)) {
+        if (!this.entries.has(text)) this.entries.set(text, { text, dismissed: false });
+      }
+    }
+    dismiss(text) {
+      const entry = this.entries.get(text);
+      if (entry) entry.dismissed = true;
+    }
+    dismissAll() {
+      for (const entry of this.entries.values()) entry.dismissed = true;
+    }
+    visible(blocking = false) {
+      return [...this.entries.values()].filter((entry) => blocking || !entry.dismissed);
+    }
+  };
 
   // src/content.js
+  var warningCards = new WarningCards();
+  var overlayReasons = null;
   var currentWarningKey = "";
   var restoreTimer;
   var lastRestore = 0;
@@ -22,6 +53,7 @@
   var initialFields = null;
   var dismissed = false;
   var overlayHost = null;
+  var overlayBlocking = false;
   var pending = null;
   var sensitive = (node) => node instanceof HTMLInputElement && /password|one-time-code|otp|cc-|credit|身分證|身份證|cardnumber/i.test(
     [node.type, node.name, node.autocomplete, node.placeholder].join(" ")
@@ -72,16 +104,63 @@
   function clearOverlay() {
     overlayHost?.remove();
     overlayHost = null;
+    overlayBlocking = false;
+    overlayReasons = null;
+  }
+  function renderReasonCards(blocking) {
+    const entries = warningCards.visible(blocking);
+    const visible = new Set(entries.map((entry) => entry.text));
+    for (const item of [...overlayReasons.children]) {
+      if (!visible.has(item.dataset.reason)) item.remove();
+    }
+    for (const { text } of entries) {
+      if ([...overlayReasons.children].some((item2) => item2.dataset.reason === text)) continue;
+      const item = document.createElement("li");
+      item.className = "issue-card";
+      item.dataset.reason = text;
+      const label = document.createElement("strong");
+      label.textContent = "\u9700\u8981\u7559\u610F\u7684\u554F\u984C";
+      const detail = document.createElement("p");
+      detail.textContent = text;
+      item.append(label, detail);
+      if (!blocking) {
+        const close = document.createElement("button");
+        close.className = "dismiss-issue";
+        close.textContent = "\u9019\u9805\u5DF2\u4E86\u89E3";
+        close.setAttribute("aria-label", `\u5DF2\u4E86\u89E3\uFF1A${text}`);
+        close.onclick = () => {
+          warningCards.dismiss(text);
+          item.remove();
+          if (!warningCards.visible().length) {
+            dismissed = true;
+            clearOverlay();
+          }
+        };
+        item.append(close);
+      }
+      overlayReasons.append(item);
+    }
   }
   function showOverlay(blocking) {
     if (!enabled || bypassed || !result || dismissed && !blocking) return;
+    warningCards.update(location.href, result);
+    if (!blocking && !warningCards.visible().length) {
+      clearOverlay();
+      return;
+    }
+    if (overlayHost?.isConnected && overlayBlocking === blocking) {
+      renderReasonCards(blocking);
+      return;
+    }
     clearOverlay();
+    overlayBlocking = blocking;
+    if (blocking) dismissed = false;
     overlayHost = document.createElement("div");
     overlayHost.id = "anti-scam-radar-overlay";
     overlayHost.style.cssText = "all:initial!important;position:fixed!important;z-index:2147483647!important;inset:0!important;pointer-events:none!important;";
     const root = overlayHost.attachShadow({ mode: "closed" });
     const style = document.createElement("style");
-    style.textContent = `:host{font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif;color:#183b39}*{box-sizing:border-box}.backdrop{position:fixed;inset:0;background:#102f35a6;display:grid;place-items:center;pointer-events:auto;padding:24px}.card{font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif;color:#183b39;background:#fcfcf8;border:1px solid #dce6dd;border-radius:22px;box-shadow:0 20px 80px #19372f25;width:min(460px,95vw);padding:28px}.banner{position:fixed;right:22px;bottom:22px;pointer-events:auto;padding:20px;width:350px}.eyebrow{font-size:11px;letter-spacing:2px;color:#557f71;font-weight:700}h2{font-size:22px;line-height:1.45;margin:14px 0}p{font-size:14px;line-height:1.7;margin:10px 0;color:#506761}button{border:0;border-radius:10px;padding:12px 16px;font:600 14px system-ui;cursor:pointer}button:focus-visible{outline:3px solid #a9c6f6;outline-offset:3px}.primary{background:#164e45;color:white}.secondary{background:#e9eeea;color:#38584e;margin-left:8px}.actions{margin-top:22px}.note{font-size:11px;color:#697d74}`;
+    style.textContent = `:host{font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif;color:#183b39}*{box-sizing:border-box}.backdrop{position:fixed;inset:0;background:#102f35a6;display:grid;place-items:center;pointer-events:auto;padding:24px}.card{font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif;color:#183b39;background:#fcfcf8;border:1px solid #dce6dd;border-radius:22px;box-shadow:0 20px 80px #19372f25;width:min(460px,95vw);padding:28px}.banner{position:fixed;right:22px;bottom:22px;pointer-events:auto;padding:20px;width:min(420px,calc(100vw - 44px))}.eyebrow{font-size:11px;letter-spacing:2px;color:#557f71;font-weight:700}h2{font-size:22px;line-height:1.45;margin:14px 0}p{font-size:14px;line-height:1.7;margin:10px 0;color:#506761}button{border:0;border-radius:10px;padding:12px 16px;font:600 14px system-ui;cursor:pointer}button:focus-visible{outline:3px solid #a9c6f6;outline-offset:3px}.primary{background:#164e45;color:white}.secondary{background:#e9eeea;color:#38584e;margin-left:8px}.actions{margin-top:22px}.note{font-size:11px;color:#697d74}.card{max-height:calc(100dvh - 48px);overflow:auto}.reasons{list-style:none;padding:0;display:grid;gap:12px;font-size:14px;line-height:1.7}.issue-card{background:#fff;border:1px solid #dddfce;border-left:4px solid #b47a16;border-radius:12px;padding:14px;overflow-wrap:anywhere}.issue-card strong{font-size:12px;color:#87601d}.issue-card p{margin:8px 0}.dismiss-issue{background:#edf1ea;color:#38584e;padding:7px 10px;font-size:12px}`;
     const wrap = document.createElement("div");
     wrap.className = blocking ? "backdrop" : "";
     const card = document.createElement("section");
@@ -94,17 +173,20 @@
     eye.textContent = "ANTI-SCAM RADAR \xB7 \u9632\u8A50\u96F7\u9054";
     const title = document.createElement("h2");
     title.textContent = blocking ? "\u5148\u505C\u4E00\u4E0B\uFF0C\u78BA\u8A8D\u518D\u7E7C\u7E8C" : result.decision.category === "\u8A71\u8853\u8A50\u9A19\u7591\u616E" ? "\u9019\u4E9B\u8AAA\u6CD5\uFF0C\u8ACB\u5148\u67E5\u8B49" : "\u5148\u5225\u6025\uFF0C\u9019\u88E1\u6709\u53EF\u7591\u7684\u5730\u65B9";
-    const reason = document.createElement("p");
-    reason.textContent = result.decision.reasons[0] || "\u8ACB\u5148\u78BA\u8A8D\u7DB2\u7AD9\u4F86\u6E90\u3002";
+    const reason = document.createElement("ul");
+    reason.className = "reasons";
+    overlayReasons = reason;
+    renderReasonCards(blocking);
     const note = document.createElement("p");
     note.className = "note";
-    note.textContent = "\u9019\u662F\u98A8\u96AA\u63D0\u9192\uFF0C\u4E26\u975E\u5C0D\u7DB2\u7AD9\u7684\u6700\u7D42\u8A8D\u5B9A\u3002\u53EF\u5F9E\u5DE5\u5177\u5217\u67E5\u770B\u6240\u6709\u8A0A\u865F\u3002";
+    note.textContent = "\u4EE5\u4E0B\u662F\u9019\u6B21\u700F\u89BD\u66FE\u5075\u6E2C\u5230\u7684\u554F\u984C\uFF0C\u5404\u9805\u63D0\u9192\u53EF\u5206\u5225\u78BA\u8A8D\u3002\u9019\u4E0D\u662F\u5C0D\u7DB2\u7AD9\u7684\u6700\u7D42\u8A8D\u5B9A\u3002";
     const actions = document.createElement("div");
     actions.className = "actions";
     const stop = document.createElement("button");
     stop.className = "primary";
-    stop.textContent = blocking ? "\u53D6\u6D88\u9019\u6B21\u64CD\u4F5C" : "\u77E5\u9053\u4E86";
+    stop.textContent = blocking ? "\u53D6\u6D88\u9019\u6B21\u64CD\u4F5C" : "\u5168\u90E8\u5DF2\u4E86\u89E3";
     stop.onclick = () => {
+      warningCards.dismissAll();
       dismissed = true;
       pending = null;
       document.activeElement?.blur();
@@ -146,23 +228,31 @@
     }
     enabled = true;
     if (response.result?.checkedAt && result?.checkedAt && response.result.checkedAt < result.checkedAt) return;
+    if (warningCards.url !== null && warningCards.url !== location.href) clearOverlay();
     result = response.result || result;
+    warningCards.update(location.href, result);
     const nextKey = warningKey(location.href, result);
+    const wasBlocking = overlayBlocking;
     if (nextKey !== currentWarningKey) {
       dismissed = false;
       bypassed = false;
-      pending = null;
+      if (!wasBlocking) pending = null;
       currentWarningKey = nextKey;
     }
     bypassed = response.bypassed ?? bypassed;
-    if (!result || bypassed) return;
-    if (sensitive(document.activeElement) && result.decision.interrupt_triggers.length)
+    if (!result || bypassed) {
+      clearOverlay();
+      return;
+    }
+    if (wasBlocking || result.decision.display_level === "block" || sensitive(document.activeElement) && result.decision.interrupt_triggers.length)
       showOverlay(true);
-    else if (hasWarning(result))
+    else if (warningCards.visible().length || hasWarning(result))
       showOverlay(false);
+    else clearOverlay();
   }
   async function scan(force = false) {
     if (!enabled) return { enabled: false };
+    const scanURL = location.href;
     const context = collect();
     const signature = JSON.stringify(context);
     if (!force && signature === lastSignature) return;
@@ -180,6 +270,7 @@
         type: "SNAPSHOT",
         context
       });
+      if (location.href !== scanURL) return { stale: true };
       accept(response);
       return response;
     } catch {
@@ -241,12 +332,12 @@
     true
   );
   new MutationObserver((records) => {
-    if (enabled && !dismissed && !bypassed && hasWarning(result) && overlayHost && !overlayHost.isConnected && !restoreTimer) {
+    if (enabled && !dismissed && !bypassed && (overlayBlocking || warningCards.visible().length || hasWarning(result)) && overlayHost && !overlayHost.isConnected && !restoreTimer) {
       restoreTimer = setTimeout(() => {
         restoreTimer = null;
-        if (enabled && !dismissed && !bypassed && hasWarning(result) && !overlayHost?.isConnected) {
+        if (enabled && !dismissed && !bypassed && (overlayBlocking || warningCards.visible().length || hasWarning(result)) && !overlayHost?.isConnected) {
           lastRestore = Date.now();
-          showOverlay(!!pending);
+          showOverlay(overlayBlocking || result?.decision?.display_level === "block");
         }
       }, Math.max(500, 2e3 - (Date.now() - lastRestore)));
     }
@@ -264,6 +355,7 @@
       );
   }).observe(document.documentElement, {
     childList: true,
+    characterData: true,
     subtree: true,
     attributes: true,
     attributeFilter: ["type", "name", "action", "autocomplete", "hidden"]
@@ -284,6 +376,17 @@
       scan(message.force === true).then(reply);
       return true;
     }
+    if (message.type === "RADAR_CAPTURE_VISIBILITY") {
+      if (overlayHost) {
+        overlayHost.style.setProperty("visibility", message.hidden ? "hidden" : "visible", "important");
+        if (message.hidden) {
+          const host = overlayHost;
+          setTimeout(() => host.style.setProperty("visibility", "visible", "important"), 2e3);
+        }
+      }
+      reply({ ok: true });
+      return false;
+    }
     if (message.type === "RADAR_CONTEXT") {
       reply({ context: collect() });
       return false;
@@ -291,4 +394,7 @@
     return false;
   });
   void scan(true);
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) void scan(true);
+  });
 })();

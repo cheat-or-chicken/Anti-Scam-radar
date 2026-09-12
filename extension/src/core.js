@@ -329,7 +329,6 @@ export function adjudicate(url, layers) {
     coverage: "partial",
     reasons: signals
       .sort((a, b) => b.weight - a.weight)
-      .slice(0, 3)
       .map((s) => s.detail),
   };
 }
@@ -346,6 +345,9 @@ export function mergeAnalysis(url, local, remote) {
       status: signals.size ? "ok" : r.status,
     };
   });
+  for (const layer of remote.layers || []) {
+    if (!layers.some(existing => existing.layer === layer.layer)) layers.push(layer);
+  }
   return {
     ...local,
     layers,

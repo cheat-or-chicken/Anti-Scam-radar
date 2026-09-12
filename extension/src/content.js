@@ -1,4 +1,6 @@
-import { warningKey, hasWarning } from "./warning_state.js";
+import { warningKey, hasWarning, WarningCards } from "./warning_state.js";
+const warningCards = new WarningCards();
+let overlayReasons = null;
 let currentWarningKey = "", restoreTimer, lastRestore = 0;
 // ISOLATED world. Reads document structure; never input values, cookies, network bodies or JS execution.
 let enabled = true,
@@ -10,6 +12,7 @@ let enabled = true,
 let initialFields = null,
   dismissed = false,
   overlayHost = null,
+  overlayBlocking = false,
   pending = null;
 const sensitive = (node) =>
   node instanceof HTMLInputElement &&
@@ -85,17 +88,58 @@ function collect() {
 function clearOverlay() {
   overlayHost?.remove();
   overlayHost = null;
+  overlayBlocking = false;
+  overlayReasons = null;
+}
+function renderReasonCards(blocking) {
+  const entries = warningCards.visible(blocking);
+  const visible = new Set(entries.map(entry => entry.text));
+  for (const item of [...overlayReasons.children]) {
+    if (!visible.has(item.dataset.reason)) item.remove();
+  }
+  for (const {text} of entries) {
+    if ([...overlayReasons.children].some(item => item.dataset.reason === text)) continue;
+    const item = document.createElement("li");
+    item.className = "issue-card";
+    item.dataset.reason = text;
+    const label = document.createElement("strong");
+    label.textContent = "需要留意的問題";
+    const detail = document.createElement("p");
+    detail.textContent = text;
+    item.append(label, detail);
+    if (!blocking) {
+      const close = document.createElement("button");
+      close.className = "dismiss-issue";
+      close.textContent = "這項已了解";
+      close.setAttribute("aria-label", `已了解：${text}`);
+      close.onclick = () => {
+        warningCards.dismiss(text);
+        item.remove();
+        if (!warningCards.visible().length) { dismissed = true; clearOverlay(); }
+      };
+      item.append(close);
+    }
+    overlayReasons.append(item);
+  }
 }
 function showOverlay(blocking) {
   if (!enabled || bypassed || !result || (dismissed && !blocking)) return;
+  warningCards.update(location.href, result);
+  if (!blocking && !warningCards.visible().length) { clearOverlay(); return; }
+  if (overlayHost?.isConnected && overlayBlocking === blocking) {
+    renderReasonCards(blocking);
+    return;
+  }
   clearOverlay();
+  overlayBlocking = blocking;
+  if (blocking) dismissed = false;
   overlayHost = document.createElement("div");
   overlayHost.id = "anti-scam-radar-overlay";
   overlayHost.style.cssText =
     "all:initial!important;position:fixed!important;z-index:2147483647!important;inset:0!important;pointer-events:none!important;";
   const root = overlayHost.attachShadow({ mode: "closed" });
   const style = document.createElement("style");
-  style.textContent = `:host{font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif;color:#183b39}*{box-sizing:border-box}.backdrop{position:fixed;inset:0;background:#102f35a6;display:grid;place-items:center;pointer-events:auto;padding:24px}.card{font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif;color:#183b39;background:#fcfcf8;border:1px solid #dce6dd;border-radius:22px;box-shadow:0 20px 80px #19372f25;width:min(460px,95vw);padding:28px}.banner{position:fixed;right:22px;bottom:22px;pointer-events:auto;padding:20px;width:350px}.eyebrow{font-size:11px;letter-spacing:2px;color:#557f71;font-weight:700}h2{font-size:22px;line-height:1.45;margin:14px 0}p{font-size:14px;line-height:1.7;margin:10px 0;color:#506761}button{border:0;border-radius:10px;padding:12px 16px;font:600 14px system-ui;cursor:pointer}button:focus-visible{outline:3px solid #a9c6f6;outline-offset:3px}.primary{background:#164e45;color:white}.secondary{background:#e9eeea;color:#38584e;margin-left:8px}.actions{margin-top:22px}.note{font-size:11px;color:#697d74}`;
+  style.textContent = `:host{font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif;color:#183b39}*{box-sizing:border-box}.backdrop{position:fixed;inset:0;background:#102f35a6;display:grid;place-items:center;pointer-events:auto;padding:24px}.card{font-family:system-ui,-apple-system,"Microsoft JhengHei",sans-serif;color:#183b39;background:#fcfcf8;border:1px solid #dce6dd;border-radius:22px;box-shadow:0 20px 80px #19372f25;width:min(460px,95vw);padding:28px}.banner{position:fixed;right:22px;bottom:22px;pointer-events:auto;padding:20px;width:min(420px,calc(100vw - 44px))}.eyebrow{font-size:11px;letter-spacing:2px;color:#557f71;font-weight:700}h2{font-size:22px;line-height:1.45;margin:14px 0}p{font-size:14px;line-height:1.7;margin:10px 0;color:#506761}button{border:0;border-radius:10px;padding:12px 16px;font:600 14px system-ui;cursor:pointer}button:focus-visible{outline:3px solid #a9c6f6;outline-offset:3px}.primary{background:#164e45;color:white}.secondary{background:#e9eeea;color:#38584e;margin-left:8px}.actions{margin-top:22px}.note{font-size:11px;color:#697d74}.card{max-height:calc(100dvh - 48px);overflow:auto}.reasons{list-style:none;padding:0;display:grid;gap:12px;font-size:14px;line-height:1.7}.issue-card{background:#fff;border:1px solid #dddfce;border-left:4px solid #b47a16;border-radius:12px;padding:14px;overflow-wrap:anywhere}.issue-card strong{font-size:12px;color:#87601d}.issue-card p{margin:8px 0}.dismiss-issue{background:#edf1ea;color:#38584e;padding:7px 10px;font-size:12px}`;
   const wrap = document.createElement("div");
   wrap.className = blocking ? "backdrop" : "";
   const card = document.createElement("section");
@@ -110,18 +154,21 @@ function showOverlay(blocking) {
   title.textContent = blocking
     ? "先停一下，確認再繼續"
     : result.decision.category === "話術詐騙疑慮" ? "這些說法，請先查證" : "先別急，這裡有可疑的地方";
-  const reason = document.createElement("p");
-  reason.textContent = result.decision.reasons[0] || "請先確認網站來源。";
+  const reason = document.createElement("ul");
+  reason.className = "reasons";
+  overlayReasons = reason;
+  renderReasonCards(blocking);
   const note = document.createElement("p");
   note.className = "note";
   note.textContent =
-    "這是風險提醒，並非對網站的最終認定。可從工具列查看所有訊號。";
+    "以下是這次瀏覽曾偵測到的問題，各項提醒可分別確認。這不是對網站的最終認定。";
   const actions = document.createElement("div");
   actions.className = "actions";
   const stop = document.createElement("button");
   stop.className = "primary";
-  stop.textContent = blocking ? "取消這次操作" : "知道了";
+  stop.textContent = blocking ? "取消這次操作" : "全部已了解";
   stop.onclick = () => {
+    warningCards.dismissAll();
     dismissed = true;
     pending = null;
     document.activeElement?.blur();
@@ -163,26 +210,31 @@ function accept(response) {
   }
   enabled = true;
   if (response.result?.checkedAt && result?.checkedAt && response.result.checkedAt < result.checkedAt) return;
+  if (warningCards.url !== null && warningCards.url !== location.href) clearOverlay();
   result = response.result || result;
+  warningCards.update(location.href, result);
   const nextKey = warningKey(location.href, result);
+  const wasBlocking = overlayBlocking;
   if (nextKey !== currentWarningKey) {
     dismissed = false;
     bypassed = false;
-    pending = null;
+    if (!wasBlocking) pending = null;
     currentWarningKey = nextKey;
   }
   bypassed = response.bypassed ?? bypassed;
-  if (!result || bypassed) return;
+  if (!result || bypassed) { clearOverlay(); return; }
   if (
-    sensitive(document.activeElement) &&
-    result.decision.interrupt_triggers.length
+    wasBlocking || result.decision.display_level === "block" ||
+    (sensitive(document.activeElement) && result.decision.interrupt_triggers.length)
   )
     showOverlay(true);
-  else if (hasWarning(result))
+  else if (warningCards.visible().length || hasWarning(result))
     showOverlay(false);
+  else clearOverlay();
 }
 async function scan(force = false) {
   if (!enabled) return { enabled: false };
+  const scanURL = location.href;
   const context = collect();
   const signature = JSON.stringify(context);
   if (!force && signature === lastSignature) return;
@@ -197,6 +249,7 @@ async function scan(force = false) {
       type: "SNAPSHOT",
       context,
     });
+    if (location.href !== scanURL) return { stale: true };
     accept(response);
     return response;
   } catch {
@@ -264,12 +317,12 @@ document.addEventListener(
   true,
 );
 new MutationObserver((records) => {
-  if (enabled && !dismissed && !bypassed && hasWarning(result) && overlayHost && !overlayHost.isConnected && !restoreTimer) {
+  if (enabled && !dismissed && !bypassed && (overlayBlocking || warningCards.visible().length || hasWarning(result)) && overlayHost && !overlayHost.isConnected && !restoreTimer) {
     restoreTimer = setTimeout(() => {
       restoreTimer = null;
-      if (enabled && !dismissed && !bypassed && hasWarning(result) && !overlayHost?.isConnected) {
+      if (enabled && !dismissed && !bypassed && (overlayBlocking || warningCards.visible().length || hasWarning(result)) && !overlayHost?.isConnected) {
         lastRestore = Date.now();
-        showOverlay(!!pending);
+        showOverlay(overlayBlocking || result?.decision?.display_level === "block");
       }
     }, Math.max(500, 2000 - (Date.now() - lastRestore)));
   }
@@ -292,6 +345,7 @@ new MutationObserver((records) => {
     );
 }).observe(document.documentElement, {
   childList: true,
+  characterData: true,
   subtree: true,
   attributes: true,
   attributeFilter: ["type", "name", "action", "autocomplete", "hidden"],
@@ -312,6 +366,17 @@ chrome.runtime.onMessage.addListener((message, sender, reply) => {
     scan(message.force === true).then(reply);
     return true;
   }
+  if (message.type === "RADAR_CAPTURE_VISIBILITY") {
+    if (overlayHost) {
+      overlayHost.style.setProperty("visibility", message.hidden ? "hidden" : "visible", "important");
+      if (message.hidden) {
+        const host = overlayHost;
+        setTimeout(() => host.style.setProperty("visibility", "visible", "important"), 2000);
+      }
+    }
+    reply({ok:true});
+    return false;
+  }
   if (message.type === "RADAR_CONTEXT") {
     reply({ context: collect() });
     return false;
@@ -319,3 +384,5 @@ chrome.runtime.onMessage.addListener((message, sender, reply) => {
   return false;
 });
 void scan(true);
+
+window.addEventListener("pageshow", event => { if (event.persisted) void scan(true); });

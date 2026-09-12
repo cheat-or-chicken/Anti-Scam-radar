@@ -18,7 +18,9 @@
     L14: "\u654F\u611F\u64CD\u4F5C\u63D0\u9192",
     L15: "\u96B1\u85CF\u6307\u4EE4\u8207\u5EF6\u9072\u6B04\u4F4D",
     L16: "\u672C\u6A5F\u56DE\u5831\u8CC7\u6599",
-    BLOCKLIST: "\u901A\u5831\u540D\u55AE"
+    BLOCKLIST: "\u901A\u5831\u540D\u55AE",
+    VISION: "\u622A\u5716 AI \u5206\u6790",
+    GOOGLE_URL_REPUTATION: "Google \u7DB2\u5740\u4FE1\u8B7D"
   };
   function coverageState(layer, options = {}) {
     if (layer.status === "ok") return { label: "\u5DF2\u6AA2\u67E5", detail: layer.layer === "L4" ? "\u6DB5\u84CB\u975C\u614B\u8868\u55AE\uFF0F\u7A0B\u5F0F\u7DDA\u7D22\uFF0C\u4E0D\u4EE3\u8868\u5DF2\u76E3\u6E2C\u5BE6\u969B\u8CC7\u6599\u5916\u50B3\u3002" : "" };

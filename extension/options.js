@@ -6,6 +6,7 @@
     return {
       enabled: $("enabled").checked,
       backendEnabled: $("backendEnabled").checked,
+      screenshotEnabled: $("screenshotEnabled").checked,
       llmEnabled: $("llmEnabled").checked,
       pairingToken: $("pairingToken").value.trim()
     };
@@ -38,7 +39,7 @@
     }
   };
   send({ type: "GET_SETTINGS" }).then((options) => {
-    for (const field of ["enabled", "backendEnabled", "llmEnabled"])
+    for (const field of ["enabled", "backendEnabled", "llmEnabled", "screenshotEnabled"])
       $(field).checked = options[field] === true;
     $("pairingToken").value = options.pairingToken || "";
   }).catch(() => {

@@ -193,16 +193,11 @@ def create_app(settings: Settings, token: str) -> FastAPI:
                     ctx = ctx.model_copy(update={"domain_age_days": registration["domain_age_days"]})
                 else:
                     registration_error = "已嘗試 RDAP 查詢，但未取得註冊日期；其他檢查不受影響。"
-            # Keep the extension's normal analysis offline, except for the explicit Google URL lookup.
-            config = for_request(payload.include_llm).model_copy(
-                update={
-                    "network_enabled": settings.network_enabled
-                    and settings.google_url_reputation_provider != "none"
-                }
-            )
+            config = for_request(payload.include_llm).model_copy(update={"network_enabled": False})
             analysis = await analyze(
                 ctx,
                 config,
+                **({"google_settings": settings} if settings.google_url_reputation_provider != "none" else {}),
                 **({"screenshot": screenshot} if screenshot is not None else {}),
             )
             if not config.llm_enabled or not config.allow_content_upload:

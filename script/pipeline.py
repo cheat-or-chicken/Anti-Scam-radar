@@ -19,6 +19,7 @@ async def analyze(
     deep: bool = False,
     detectors: list | None = None,
     screenshot: bytes | None = None,
+    google_settings: Settings | None = None,
 ) -> Analysis:
     settings = settings or Settings()
     store = None
@@ -82,10 +83,11 @@ async def analyze(
             if data.get("status") == "ok":
                 ctx = ctx.model_copy(update={"domain_age_days": data["domain_age_days"]})
                 layers[5] = await run("L5", REGISTRY["L5"])
-        if settings.google_url_reputation_provider != "none":
+        reputation_settings = google_settings or settings
+        if reputation_settings.google_url_reputation_provider != "none":
             from script.google_reputation import GoogleUrlReputation
 
-            layers.append(await GoogleUrlReputation(settings, tools.fetcher).check(ctx))
+            layers.append(await GoogleUrlReputation(reputation_settings).check(ctx))
         if screenshot is not None:
             from script.vision import analyze_screenshot, unavailable
 

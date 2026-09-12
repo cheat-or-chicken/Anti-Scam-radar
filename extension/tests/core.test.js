@@ -99,3 +99,16 @@ test("demo port permits only fixed loopback, never arbitrary remote ports", () =
   for (const url of ["http://example.com:8088/", "http://127.0.0.1:8089/", "https://127.0.0.1:8088/"])
     assert.throws(() => parseURL(url));
 });
+
+test('new Google and screenshot layers survive merge and affect the verdict', () => {
+  const local = analyzeLocal({url:'https://example.com'}, null);
+  const remote = {layers:[
+    {layer:'VISION',status:'ok',signals:[{id:'visual',detail:'画面冒用品牌',weight:10}]},
+    {layer:'GOOGLE_URL_REPUTATION',status:'ok',signals:[{id:'google_match',detail:'Google 回報威脅',weight:35}]}
+  ]};
+  const merged = mergeAnalysis('https://example.com', local, remote);
+  assert.ok(merged.layers.some(l => l.layer === 'VISION'));
+  assert.ok(merged.layers.some(l => l.layer === 'GOOGLE_URL_REPUTATION'));
+  assert.equal(merged.decision.risk_score,45);
+  assert.equal(merged.decision.reasons.length,2);
+});
