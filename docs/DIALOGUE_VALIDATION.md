@@ -2,7 +2,7 @@
 
 基於遠端main 429a517，在codex/dialogue-detector分支整合。保留網站偵測script模組，新增對話Detector與JSON重播介面。
 
-## 最終版本實測
+## dialogue-v3實測（歷史版本）
 
 OpenAI Responses API，模型gpt-5.4-mini，prompt版本dialogue-v3。使用本機.env.local設定的key，未提交任何憑證。
 94則訊息全部完成有效分析（B1 38＋B2 30＋N1 26）。只提供截至當輪訊息及前一輪判斷，不提供案例名稱、標註或未來結局。
@@ -35,3 +35,13 @@ B1在第16、17、21則曾降為monitor，即使歷史首次警報仍保存。UI
 
 設定.env.local後：`python3 -m ChatRoom.evaluate_dialogue --output var/dialogue-rerun`。
 exit 0代表完整且通過；1代表完整但未達標；2代表未完成。私有逐輪輸入log在var下，報告僅含這三個合成案例的結果。
+
+## dialogue-v4：修正使用者實跑的引用失敗
+
+使用者B1第13則連續兩次invalid_evidence，原因是模型重抄引文無法精確對回原文。v4改成模型只回evidence_turns，由程式擷取完整原文，越界引用仍拒絕。增加最新失敗輪次重試，成功後不增加輪數；API、額度與模型驗證錯誤分開顯示。
+
+再次真實API重跑94則全部完成，沒有analysis_error。B1首次示警第8則（付款21，提前13）；B2第15則（付款26，提前11）；N1全26則無示警。
+
+[本次摘要](../reports/dialogue-v4/summary.json)。91項程式測試通過，新增來源引用與失敗重試回歸測試。
+
+這次驗收確認引用穩定性與三例結果，不證明判斷完全穩定：B1示警比v3更早，且理由對正常實名認證流程有過度概括，仍需更多正常客服／認證流程測試。不可把更早輪次直接當成準確率提升。v3結果保留供比較。

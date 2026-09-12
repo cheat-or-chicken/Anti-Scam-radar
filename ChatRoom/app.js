@@ -9,8 +9,10 @@ async function api(path, body) {
   return value;
 }
 function state() {
-  $('next').disabled=busy || !session || index>=queue.length;
-  $('auto').disabled=busy && !playing || !session || index>=queue.length;
+  const failed=results.at(-1)?.result.status==='analysis_error';
+  $('retry').disabled=busy || !failed;
+  $('next').disabled=busy || failed || !session || index>=queue.length;
+  $('auto').disabled=busy && !playing || failed || !session || index>=queue.length;
   $('reset').disabled=busy || !original;
   $('loadSample').disabled=busy; $('textFile').disabled=busy; $('sample').disabled=busy;
   $('messageInput').disabled=mode!=='txt'||!session||busy;
@@ -77,6 +79,8 @@ function render(result) {
     row.textContent=`第${p.created_turn}則預測：${p.action} · ${labels[p.status]}`;$('predictions').append(row);
   }
   const row=document.createElement('div');row.className='trace-row';
+  row.dataset.turn=String(result.turn);
+  $('trace').querySelector(`[data-turn="${result.turn}"]`)?.remove();
   row.textContent=`#${result.turn} · ${decision?label[decision.status]:'分析失敗'} · ${result.elapsed_seconds}s`;
   $('trace').prepend(row);
 }
@@ -92,6 +96,17 @@ async function advance(raw) {
   } catch(error) {playing=false;$('status').textContent=error.message;}
   finally {busy=false;state();}
 }
+$('retry').onclick=async()=>{
+  if(busy||results.at(-1)?.result.status!=='analysis_error')return;
+  busy=true;state();$('status').textContent='重新分析本輪…';
+  try {
+    const entry=results.at(-1);
+    const result=await api('/api/analyze',{session_id:session,message:entry.message});
+    entry.result=result;render(result);
+    $('status').textContent=result.status==='ok'?`第${result.turn}則重試完成` : result.error;
+  }catch(error){$('status').textContent=error.message;}
+  finally{busy=false;state();}
+};
 $('next').onclick=()=>{if(!busy&&index<queue.length)advance(queue[index]);};
 $('auto').onclick=async()=>{
   if(playing){playing=false;state();return;}

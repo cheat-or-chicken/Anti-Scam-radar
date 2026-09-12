@@ -138,3 +138,29 @@ def test_local_key_overrides_inherited_without_loading_unrelated_vars(tmp_path, 
 
     assert os.environ["OPENAI_API_KEY"] == "new-test-value"
     assert "UNRELATED_SETTING" not in os.environ
+
+
+def test_citations_resolved_from_source_not_generated_text():
+    from ChatRoom.detector import ModelDecision, resolve_citations
+
+    raw = answer().model_dump(exclude={"evidence", "prediction_matches"})
+    raw.update(evidence_turns=[1, 1], prediction_matches=[])
+    model = ModelDecision.model_validate(raw)
+    source = normalize_message({"text": "您好，您目前停在哪個畫面？"}, 1)
+    decision = resolve_citations(model, [source])
+    assert decision.evidence == [Evidence(turn=1, quote=source["text"])]
+    model.evidence_turns = [2]
+    with pytest.raises(ValueError):
+        resolve_citations(model, [source])
+
+
+def test_latest_failed_turn_can_retry_without_incrementing(tmp_path):
+    detector = StubDetector(tmp_path, [RuntimeError("temporary"), answer()])
+    sid = detector.create_session()
+    raw = {"turn": 1, "text": "你好"}
+    assert detector.analyze(sid, raw)["status"] == "analysis_error"
+    retried = detector.analyze(sid, raw)
+    assert retried["status"] == "ok" and retried["turn"] == 1
+    assert len(detector.sessions[sid]["messages"]) == 1
+    assert detector.analyze(sid, raw) == retried
+    assert len(detector.payloads) == 2

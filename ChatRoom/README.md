@@ -58,3 +58,7 @@ API：`POST /api/sessions`建立工作階段；`POST /api/analyze`接收
 結構化輸出參考：[OpenAI Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)。
 
 可在儲存庫根目錄建立 `.env.local`，寫入 `OPENAI_API_KEY=你的key`。非空值優先於繼承的環境變數；檔案已加入Git忽略。修改後重啟伺服器，以建立使用新憑證的API client。支援DIALOGUE_MODEL；其餘變數不從檔案載入。
+
+### 引用與失敗重試（dialogue-v4）
+
+模型只輸出evidence_turns，程式從已播放原文擷取引用，不要求LLM逐字重抄。輪次越界仍拒絕。最新失敗輪次可按「重試本輪分析」，重試成功覆寫該輪結果，不增加輪數；成功輪次重送仍回快取。分析失敗時暫停後續重播。錯誤訊息區分API額度、憑證與模型驗證問題。
