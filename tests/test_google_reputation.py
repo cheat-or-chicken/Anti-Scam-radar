@@ -69,9 +69,15 @@ async def test_reputation_lookup_is_skipped_without_network_or_key():
 
 async def test_invalid_threat_response_never_claims_clean():
     GoogleUrlReputation._cache.clear()
-    settings = Settings(network_enabled=True, google_url_reputation_provider="safe_browsing", google_url_reputation_api_key="test")
-    for body in ['{"threats":[{"threatType":"MALWARE"}],"cacheDuration":"300s"}', '{}']:
-        result = await GoogleUrlReputation(settings, FakeFetcher(body)).check(PageContext(url="https://invalid.example"))
+    settings = Settings(
+        network_enabled=True,
+        google_url_reputation_provider="safe_browsing",
+        google_url_reputation_api_key="test",
+    )
+    for body in ['{"threats":[{"threatType":"MALWARE"}],"cacheDuration":"300s"}', "{}"]:
+        result = await GoogleUrlReputation(settings, FakeFetcher(body)).check(
+            PageContext(url="https://invalid.example")
+        )
         assert result.status == "error"
 
 

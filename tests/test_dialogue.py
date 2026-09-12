@@ -335,3 +335,50 @@ def test_incomplete_new_rule_does_not_erase_existing_supported_warning(tmp_path)
     assert result["decision"]["rule_ids"] == ["R_PAYMENT_PURPOSE"]
     assert result["risk_retained"]
     assert result["rejected_rules"] == ["R_SENSITIVE_ACCESS"]
+
+
+def test_prize_card_request_warns_before_submission_even_if_model_misses(tmp_path):
+    from ChatRoom.detector import ROOT
+
+    messages = json.loads((ROOT / "data/reconstructed/B5_假中獎信用卡驗證盜刷.replay.json").read_text())[
+        "messages"
+    ]
+    detector = StubDetector(tmp_path, [answer() for _ in messages[:8]])
+    sid = detector.create_session()
+    for message in messages[:8]:
+        result = detector.analyze(sid, message)
+        if message["turn"] < 5:
+            assert result["first_alert_turn"] is None
+        else:
+            assert result["first_alert_turn"] == 5
+            assert result["decision"]["status"] == "warn"
+        if message["turn"] == 5:
+            assert result["request_guard"]
+            assert "先不要" in result["decision"]["recommended_action"]
+            assert max(e["turn"] for e in result["decision"]["evidence"]) == 5
+    assert result["intervention"] == {"phase": "reported_submitted", "reported_turn": 8}
+    assert "你表示已送出" in result["decision"]["recommended_action"]
+    assert len(detector.payloads[4]["messages"]) == 5
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "請填信用卡卡號、有效期限與安全碼以支付本次購物款項。",
+        "領獎不需要信用卡卡號與安全碼，請勿提供。",
+        "請填寫姓名即可領獎，不需卡號與安全碼。",
+        "詐騙範例：「請填卡號與安全碼以領獎」。",
+    ],
+)
+def test_request_guard_does_not_flag_checkout_or_education(tmp_path, text):
+    detector = StubDetector(tmp_path, [answer()])
+    result = detector.analyze(detector.create_session(), {"turn": 1, "sender": "page", "text": text})
+    assert result["decision"]["status"] == "monitor"
+    assert not result["request_guard"]
+
+
+@pytest.mark.parametrize("text", ["卡號還沒有送出", "如果信用卡已送出怎麼辦？", "卡號填好了，但還沒送出。"])
+def test_submission_wording_requires_actual_user_report(text):
+    from ChatRoom.intervention import reported_card_submission
+
+    assert reported_card_submission([{"sender": "user", "turn": 1, "text": text}]) is None

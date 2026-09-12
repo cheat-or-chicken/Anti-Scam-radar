@@ -83,7 +83,11 @@ class GoogleUrlReputation:
                 raise ValueError("invalid Safe Browsing response")
             values = []
             for item in threats:
-                if not isinstance(item, dict) or not isinstance(item.get("threatTypes"), list) or not item["threatTypes"]:
+                if (
+                    not isinstance(item, dict)
+                    or not isinstance(item.get("threatTypes"), list)
+                    or not item["threatTypes"]
+                ):
                     raise ValueError("invalid threat entry")
                 values.extend(item["threatTypes"])
         else:

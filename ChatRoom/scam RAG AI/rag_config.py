@@ -1,4 +1,5 @@
 """RAG 的所有可調整設定都集中在此檔案。"""
+
 from __future__ import annotations
 
 import os

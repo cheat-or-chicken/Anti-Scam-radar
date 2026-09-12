@@ -14,7 +14,15 @@ from urllib.parse import parse_qs, urlparse
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parent))
 from ChatRoom.detector import Detector  # noqa: E402
+from ChatRoom.link_checks import check_link  # noqa: E402
 
+# Share the existing local API configuration; never expose the key to browser code.
+from script.config import Settings  # noqa: E402
+
+if not os.getenv("OPENAI_API_KEY"):
+    configured_key = Settings.load().api_key.get_secret_value()
+    if configured_key:
+        os.environ["OPENAI_API_KEY"] = configured_key
 DETECTOR = Detector()
 SAMPLES = {p.name: p for p in (ROOT.parent / "data/reconstructed").glob("*.replay.json")}
 HISTORY_FILE = ROOT / "chat_history.json"
@@ -94,6 +102,29 @@ class ChatHandler(SimpleHTTPRequestHandler):
         super().do_GET()
 
     def do_POST(self) -> None:
+        if self.path == "/api/check-link":
+            parsed_host = urlparse("http://" + self.headers.get("Host", "")).hostname
+            origin = self.headers.get("Origin")
+            if parsed_host not in {"localhost", "127.0.0.1"} or (
+                origin and urlparse(origin).netloc != self.headers.get("Host")
+            ):
+                self.send_json({"error": "Origin not allowed"}, HTTPStatus.FORBIDDEN)
+                return
+            try:
+                length = int(self.headers.get("Content-Length", "0"))
+                if length < 1 or length > 12000:
+                    raise ValueError("Invalid payload size")
+                data = json.loads(self.rfile.read(length))
+                if not isinstance(data, dict) or not isinstance(data.get("url"), str):
+                    raise ValueError("Expected URL")
+                self.send_json(check_link(data["url"]))
+            except BlockingIOError:
+                self.send_json({"error": "網址檢查忙碌中，請稍後重試"}, HTTPStatus.TOO_MANY_REQUESTS)
+            except (ValueError, TypeError):
+                self.send_json({"error": "網址格式不支援"}, HTTPStatus.BAD_REQUEST)
+            except Exception:
+                self.send_json({"error": "網址檢查未完成，不代表安全"}, HTTPStatus.BAD_GATEWAY)
+            return
         if self.path in {"/api/sessions", "/api/analyze"}:
             origin = self.headers.get("Origin")
             if origin and urlparse(origin).netloc != self.headers.get("Host"):

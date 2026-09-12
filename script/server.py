@@ -204,7 +204,9 @@ def create_app(settings: Settings, token: str) -> FastAPI:
             analysis = await analyze(
                 ctx,
                 config,
-                **({"google_settings": settings} if settings.google_url_reputation_provider != "none" else {}),
+                **(
+                    {"google_settings": settings} if settings.google_url_reputation_provider != "none" else {}
+                ),
                 **({"screenshot": screenshot} if screenshot is not None else {}),
             )
             if not config.llm_enabled or not config.allow_content_upload:

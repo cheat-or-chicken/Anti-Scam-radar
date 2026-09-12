@@ -1,5 +1,7 @@
+import {createLinkChecks} from "./link_checks.mjs";
 const $ = id => document.getElementById(id);
 const stageNames={S0:'接觸',S1:'建立理由',S2:'施加壓力',S3:'可信表象',S4:'管道／權限轉移',S5:'付款／敏感權限',S6:'拖延／追加要求'};
+const linkChecks=createLinkChecks($("linkChecks"));
 let queue=[], index=0, participants={}, session=null, turn=0, channel=null, busy=false, playing=false;
 let mode='json', title='', original=null, results=[];
 async function api(path, body) {
@@ -31,6 +33,7 @@ async function load(data, name, type='json') {
   try {
     const created=await api('/api/sessions',{});
     queue=incoming; participants=type==='json'?(data.participants||{}):{counterparty:name,user:'我'};
+    linkChecks.reset();
     session=created.session_id; index=0; turn=0; channel=null; results=[]; mode=type; title=name;
     original={data,name,type}; $('chatTitle').textContent=name; $('messages').replaceChildren();
     $('decisionCard').hidden=true; $('predictionCard').hidden=true;
@@ -66,7 +69,7 @@ function render(result) {
   const label={insufficient:'尚無具體風險依據',monitor:'持續觀察，未示警',warn:'請暫停操作，出現可疑要求'};
   if(!decision) { $('verdict').textContent='分析失敗';$('reason').textContent=result.error; }
   else {
-    $('verdict').textContent=label[decision.status];$('reason').textContent=decision.reason;
+    $('verdict').textContent=decision.status==='warn'&&result.intervention?.phase==='reported_submitted'?'你表示已送出資料，請停止後續操作':label[decision.status];$('reason').textContent=decision.reason;
     if(decision.status==='warn')$('advice').textContent=decision.recommended_action;
     for(const e of decision.evidence) {
       const q=document.createElement('blockquote');q.textContent=`第 ${e.turn} 則：「${e.quote}」`;$('evidence').append(q);
@@ -88,10 +91,12 @@ async function advance(raw) {
   busy=true;state();$('status').textContent='正在分析本輪…';
   try {
     const message={...raw,turn:turn+1};
+    linkChecks.scan([message.text,...(message.attachments||[]).map(a=>a.caption||'')].join("\n"),message.turn);
     const result=await api('/api/analyze',{session_id:session,message});
     turn++; if(raw===queue[index])index++;
     append(message);results.push({message,result});render(result);
     $('status').textContent=`已播放 ${turn} 則 · ${result.model}`;
+    if(result.decision?.status==='warn'){playing=false;$('status').textContent=`第 ${turn} 則出現警告，已暫停重播；確認提醒後可按下一則繼續。`;}
     if(result.status==='analysis_error'){playing=false;$('status').textContent=result.error;}
   } catch(error) {playing=false;$('status').textContent=error.message;}
   finally {busy=false;state();}
