@@ -1,4 +1,5 @@
 """僅負責與本機 Ollama REST API 通訊。"""
+
 from __future__ import annotations
 
 import json
@@ -43,14 +44,17 @@ def embed(model: str, texts: list[str]) -> list[list[float]]:
 
 def chat(model: str, system_prompt: str, user_prompt: str) -> str:
     """以本機 Ollama 對話 API 產生一次非串流回應。"""
-    body = _post("/api/chat", {
-        "model": model,
-        "stream": False,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ],
-    })
+    body = _post(
+        "/api/chat",
+        {
+            "model": model,
+            "stream": False,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+        },
+    )
 
     content = body.get("message", {}).get("content")
     if not isinstance(content, str):

@@ -11,9 +11,15 @@ from script.workflow import apply_assessment, assess, diagnose
 
 
 def answer(action="pause_sensitive_action", ref="E0_0"):
-    return {"intent":"取得付款資料", "hypotheses":[{"kind":"scam", "explanation":"要求先付款", "supporting":[ref], "opposing":[]}],
-        "unresolved":["需確認授權"], "change_conditions":["官方提供授權證明"],
-        "recommended_action":action, "action_evidence":[ref], "explanation":"請先確認來源"}
+    return {
+        "intent": "取得付款資料",
+        "hypotheses": [{"kind": "scam", "explanation": "要求先付款", "supporting": [ref], "opposing": []}],
+        "unresolved": ["需確認授權"],
+        "change_conditions": ["官方提供授權證明"],
+        "recommended_action": action,
+        "action_evidence": [ref],
+        "explanation": "請先確認來源",
+    }
 
 
 class FakeLLM:
@@ -60,7 +66,7 @@ async def test_history_or_page_claim_cannot_alone_block_or_pause():
 
 async def test_model_cannot_remove_existing_block():
     ctx = PageContext(url="https://example.com")
-    baseline = adjudicate(ctx, layers()).model_copy(update={"display_level":"block", "risk_score":100})
+    baseline = adjudicate(ctx, layers()).model_copy(update={"display_level": "block", "risk_score": 100})
     report = await assess(ctx, layers(), FakeLLM(answer("observe")))
     final = apply_assessment(baseline, report)
     assert final.display_level == "block" and final.risk_score == 100
@@ -74,8 +80,14 @@ async def test_offline_never_calls_llm():
 
 
 async def test_diagnosis_is_candidate_and_cannot_invent_evidence():
-    output = {"category":"interpretation", "evidence_ids":["E0"], "explanation":"誤解用途", "proposed_change":"加入正常例子", "counterexample":"正常登入"}
-    data = {"workflow":{"evidence":{"E0":{"source":"L3"}}}}
+    output = {
+        "category": "interpretation",
+        "evidence_ids": ["E0"],
+        "explanation": "誤解用途",
+        "proposed_change": "加入正常例子",
+        "counterexample": "正常登入",
+    }
+    data = {"workflow": {"evidence": {"E0": {"source": "L3"}}}}
     diagnostic = await diagnose(data, "legitimate", FakeLLM(output))
     assert diagnostic["auto_applied"] is False
     with pytest.raises(ValueError):
@@ -86,9 +98,14 @@ async def test_diagnosis_api_requires_confirmation_and_existing_audit(tmp_path):
     from httpx import ASGITransport, AsyncClient
 
     from script.server import create_app
+
     settings = Settings(llm_enabled=True, allow_content_upload=True, database_path=str(tmp_path / "audit.db"))
     token = "t" * 32
-    async with AsyncClient(transport=ASGITransport(app=create_app(settings, token)), base_url="http://testserver", headers={"Authorization":"Bearer " + token}) as client:
-        body = {"audit_id":"a"*32, "confirmed_label":"scam"}
-        assert (await client.post('/v1/diagnose', json=body)).status_code == 422
-        assert (await client.post('/v1/diagnose', json={**body,"reviewed":True})).status_code == 404
+    async with AsyncClient(
+        transport=ASGITransport(app=create_app(settings, token)),
+        base_url="http://testserver",
+        headers={"Authorization": "Bearer " + token},
+    ) as client:
+        body = {"audit_id": "a" * 32, "confirmed_label": "scam"}
+        assert (await client.post("/v1/diagnose", json=body)).status_code == 422
+        assert (await client.post("/v1/diagnose", json={**body, "reviewed": True})).status_code == 404

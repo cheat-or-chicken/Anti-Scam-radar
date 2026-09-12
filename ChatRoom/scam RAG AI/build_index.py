@@ -1,11 +1,11 @@
 """RAG 向量資料庫建置程式。執行：python build_index.py"""
+
 from __future__ import annotations
 
 import json
 
-from pypdf import PdfReader
-
 from ollama_api import embed
+from pypdf import PdfReader
 from rag_config import CHUNK_SIZE, EMBEDDING_BATCH_SIZE, EMBEDDING_MODEL, INDEX_PATH, ROOT_DIR, SOURCE_DIRS
 
 
@@ -23,11 +23,13 @@ def extract_chunks() -> list[dict]:
             for page_number, page in enumerate(reader.pages, start=1):
                 for text in split_text(page.extract_text() or ""):
                     if len(text) >= 30:
-                        chunks.append({
-                            "source": str(pdf_path.relative_to(ROOT_DIR)).replace("\\", "/"),
-                            "page": page_number,
-                            "text": text,
-                        })
+                        chunks.append(
+                            {
+                                "source": str(pdf_path.relative_to(ROOT_DIR)).replace("\\", "/"),
+                                "page": page_number,
+                                "text": text,
+                            }
+                        )
     return chunks
 
 

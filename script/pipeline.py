@@ -98,7 +98,14 @@ async def analyze(
         if settings.llm_enabled and gate_value != "skip":
             # Reserve budget deterministically; fan out only the selected semantic tasks.
             priorities = ["L7", "L2", "L3", "L1", "L15", "L9"]
-            selected = priorities[: max(0, settings.max_llm_calls - llm.calls - int(settings.workflow_enabled and settings.max_llm_calls - llm.calls > 1))]
+            selected = priorities[
+                : max(
+                    0,
+                    settings.max_llm_calls
+                    - llm.calls
+                    - int(settings.workflow_enabled and settings.max_llm_calls - llm.calls > 1),
+                )
+            ]
             from script.layers.code_review import verify_l7 as review_code
 
             async def review(name):

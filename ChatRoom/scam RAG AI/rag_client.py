@@ -1,4 +1,5 @@
 """給其他 Python 程式使用的簡單 RAG 呼叫函式。"""
+
 from __future__ import annotations
 
 import json
@@ -14,13 +15,12 @@ from rag_config import (
     TOP_K,
 )
 
-
 # 此護欄優先於 rag_config.py 的可調整 prompt，避免測試工具被用於實際詐騙。
 RUNTIME_SAFETY_GUARDRAIL = """
 
 """.strip()
 
-ROLEPLAY_STYLE ="""
+ROLEPLAY_STYLE = """
 只輸出 1 到 3 句自然、簡短的角色台詞，不輸出分析、教學、標題、來源或行動清單。
 
 劇情必須採取「漸進式發展」，不要在開場或前幾輪直接表現出明顯的詐騙特徵。
@@ -67,7 +67,9 @@ def retrieve(question: str, top_k: int = TOP_K) -> list[dict]:
     """取得最相關的來源片段；可供需自行組 prompt 的程式使用。"""
     index = _load_index()
     query_embedding = create_embeddings([question])[0]
-    candidates = [(_cosine_similarity(query_embedding, chunk["embedding"]), chunk) for chunk in index["chunks"]]
+    candidates = [
+        (_cosine_similarity(query_embedding, chunk["embedding"]), chunk) for chunk in index["chunks"]
+    ]
     return [
         {"source": chunk["source"], "page": chunk["page"], "text": chunk["text"], "score": round(score, 4)}
         for score, chunk in sorted(candidates, key=lambda item: item[0], reverse=True)[:top_k]
@@ -79,7 +81,9 @@ def _ask(question: str, history: list[dict] | None, top_k: int, instructions: st
     if not question:
         raise ValueError("question 不可為空白")
     sources = retrieve(question, top_k)
-    context = "\n\n".join(f"[來源：{item['source']}，第 {item['page']} 頁]\n{item['text']}" for item in sources)
+    context = "\n\n".join(
+        f"[來源：{item['source']}，第 {item['page']} 頁]\n{item['text']}" for item in sources
+    )
     previous = "\n".join(
         f"{item.get('role', 'user')}: {str(item.get('content', ''))[:500]}"
         for item in (history or [])[-MAX_HISTORY_MESSAGES:]

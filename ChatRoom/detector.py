@@ -16,7 +16,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 ROOT = Path(__file__).resolve().parents[1]
 KNOWLEDGE = ROOT / "knowledge/detector/judgment_knowledge.v1.json"
-PROMPT_VERSION = "dialogue-v5"
+PROMPT_VERSION = "dialogue-v6"
 
 
 def load_local_env(path=None):
@@ -183,7 +183,11 @@ class Detector:
             "非線性七幕是行為分類，不按幕數加分。只在evidence_turns填入依據輪次，原文quote由程式擷取，不要自行重抄引文。"
             "warn須有具體規則及證據；缺少身分驗證、低價、換LINE、一般轉帳本身不構成警報。"
             "嚴格檢查每個rule的必要條件，不可腦補缺失條件："
-            "R_SENSITIVE_ACCESS必須明確要求密碼、OTP交付、網銀畫面或控制等敏感操作；"
+            "R_SENSITIVE_ACCESS涵蓋密碼、OTP交付、網銀控制，以及以領獎／收款驗證為由要求信用卡卡號與安全碼。"
+            "在對方提出具體危險要求的當輪就warn，不必等使用者配合、送出或發生損失。"
+            "例如領獎頁要求卡號、效期、CVV，領獎用途與授權刷卡資料矛盾，當輪已有敏感要求證據。"
+            "正常購物付款、自行開啟的銀行OTP流程、防詐宣導或否定要求不可僅因敏感字詞示警。"
+            "recommended_action依已知進度撰寫：尚未交付時勸阻交付；使用者表示已交付則說明其回報並提供後續處理，勿聲稱已攔截。"
             "單說通話帶操作、視訊或一般畫面分享不算敏感網銀操作。"
             "R_COERCIVE_ISOLATION必須明確限制告知親友或獨立查證，且與資金/權限引導連結；"
             "提供客服LINE或催促本身不等於禁止查證。"
@@ -320,6 +324,9 @@ class Detector:
                 "pending_predictions": json.loads(json.dumps(pending)),
                 "active_warning": state["active_warning"],
             }
+            from ChatRoom.intervention import prize_card_request, reported_card_submission
+
+            request_guard = prize_card_request(message)
             attempts = []
             result = None
             started = time.time()
@@ -327,6 +334,43 @@ class Detector:
             for attempt in range(2):
                 try:
                     decision, response_id, usage = self.call(payload)
+                    if request_guard:
+                        # Direct prize + card security request: do not wait for a later loss report.
+                        rule_id = "R_SENSITIVE_ACCESS"
+                        decision.status = "warn"
+                        if rule_id not in decision.rule_ids:
+                            decision.rule_ids.append(rule_id)
+                        decision.rule_checks = [c for c in decision.rule_checks if c.rule_id != rule_id]
+                        decision.rule_checks.append(
+                            RuleCheck(
+                                rule_id=rule_id,
+                                conditions=[
+                                    Condition(
+                                        requirement_index=i,
+                                        support="explicit",
+                                        evidence_turns=[turn],
+                                        explanation=explanation,
+                                    )
+                                    for i, explanation in enumerate(
+                                        [
+                                            "頁面／對方直接以領獎為由引導填寫。",
+                                            "本則明確索取卡號與卡片安全碼。",
+                                        ],
+                                        1,
+                                    )
+                                ],
+                                normal_explanation_insufficient="領獎查詢不能解釋索取可用於刷卡授權的卡號與安全碼。",
+                            )
+                        )
+                        decision.evidence.append(Evidence(turn=turn, quote=message["text"]))
+                        decision.reason = (
+                            "對方以領獎為由要求卡號與安全碼，這些資料可被用來刷卡，與領獎查詢用途不符。"
+                        )
+                        decision.recommended_action = (
+                            "先不要填寫或送出卡號、安全碼及銀行簡訊驗證碼，請自行開啟官方網站查證領獎通知。"
+                        )
+                        if "S5" not in decision.stages:
+                            decision.stages.append("S5")
                     self.validate_quotes(decision.evidence, messages)
                     if not set(decision.rule_ids) <= set(self.rules):
                         raise ValueError("invalid_rule")
@@ -396,6 +440,13 @@ class Detector:
                         ].removeprefix("先前的高風險要求尚未被反證解除。")
                         decision.recommended_action = previous["recommended_action"]
                         risk_retained = True
+                    submission_turn = reported_card_submission(messages)
+                    if (
+                        decision.status == "warn"
+                        and "R_SENSITIVE_ACCESS" in decision.rule_ids
+                        and submission_turn
+                    ):
+                        decision.recommended_action = "你表示已送出卡片資料。請停止後續操作，不要再提供銀行簡訊驗證碼，並透過卡片背面的官方電話聯絡發卡銀行，說明疑似外洩情況。"
                     # Risk-model match suggestions are not used as the semantic verdict.
                     raw_model_matches = [m.model_dump() for m in decision.prediction_matches]
                     decision.prediction_matches = []
@@ -415,6 +466,11 @@ class Detector:
                         "rejected_prediction_matches": [],
                         "risk_model_match_suggestions": raw_model_matches,
                         "risk_retained": risk_retained,
+                        "request_guard": request_guard,
+                        "intervention": {
+                            "phase": "reported_submitted" if submission_turn else "request_or_risk",
+                            "reported_turn": submission_turn,
+                        },
                         "rejected_rules": rejected_rules,
                     }
                     attempts.append({"attempt": attempt + 1, "status": "ok"})

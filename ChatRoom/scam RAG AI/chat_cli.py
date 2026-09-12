@@ -3,6 +3,7 @@
 使用前請先執行一次：python build_index.py
 執行：python chat_cli.py
 """
+
 from __future__ import annotations
 
 from ollama_api import OllamaAPIError
@@ -52,10 +53,12 @@ def main() -> None:
         if result is None:
             continue
         show_turn(result)
-        history.extend([
-            {"role": "user", "content": question},
-            {"role": "assistant", "content": result["answer"]},
-        ])
+        history.extend(
+            [
+                {"role": "user", "content": question},
+                {"role": "assistant", "content": result["answer"]},
+            ]
+        )
 
 
 if __name__ == "__main__":

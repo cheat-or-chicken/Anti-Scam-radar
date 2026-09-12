@@ -11,5 +11,32 @@ jobs:
       - run: uv sync --locked --python 3.12 --extra dev
       - run: uv run ruff check script tests ChatRoom
       - run: uv run ruff format --check script tests ChatRoom
-      - run: uv run pytest -q
+      - run: uv run python -m pytest -q
       - run: uv run python -m script.evaluate
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: extension/package-lock.json
+      - run: npm ci --prefix extension
+      - run: npm test --prefix extension
+      - run: npm run build --prefix extension
+      - name: Verify committed extension bundles
+        run: git diff --exit-code -- extension
+      - name: Install browser for chat UI regression
+        working-directory: extension
+        run: npx playwright install --with-deps chromium
+      - name: Test chat UI with mocked external APIs
+        shell: bash
+        run: |
+          uv run python -m ChatRoom.server > /tmp/chat-ci.log 2>&1 &
+          chat_pid=$!
+          trap 'kill "$chat_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:8000/api/detector > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:8000/api/detector > /dev/null
+          npm run test:chat --prefix extension
