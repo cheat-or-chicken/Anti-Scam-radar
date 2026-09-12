@@ -1,3 +1,4 @@
+import { warningReasons } from "./warning_state.js";
 const send = (type) => chrome.runtime.sendMessage({ type });
 const $ = (id) => document.getElementById(id);
 send("GET_WARNING")
@@ -5,7 +6,7 @@ send("GET_WARNING")
     if (data.error) throw Error();
     const url = new URL(data.originalUrl);
     $("originalUrl").textContent = url.origin + url.pathname;
-    for (const reason of data.result.decision.reasons) {
+    for (const reason of warningReasons(data.result)) {
       const li = document.createElement("li");
       li.textContent = reason;
       $("reasons").append(li);

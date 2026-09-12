@@ -1,4 +1,12 @@
 (() => {
+  // src/warning_state.js
+  function warningReasons(result) {
+    return [...new Set([
+      ...result?.decision?.reasons || [],
+      ...(result?.layers || []).flatMap((layer) => (layer.signals || []).filter((signal) => signal.weight > 0).map((signal) => signal.detail))
+    ].filter((text) => typeof text === "string" && text.trim()))];
+  }
+
   // src/warning.js
   var send = (type) => chrome.runtime.sendMessage({ type });
   var $ = (id) => document.getElementById(id);
@@ -6,7 +14,7 @@
     if (data.error) throw Error();
     const url = new URL(data.originalUrl);
     $("originalUrl").textContent = url.origin + url.pathname;
-    for (const reason of data.result.decision.reasons) {
+    for (const reason of warningReasons(data.result)) {
       const li = document.createElement("li");
       li.textContent = reason;
       $("reasons").append(li);

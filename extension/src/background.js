@@ -102,8 +102,18 @@ async function badge(tabId, result, enabled = true) {
     }),
   );
 }
+// Serialize redirects so concurrent navigation/snapshot results cannot delete
+// each other's warning records or leave a tab on an expired warning page.
+const blockJobs = new Map();
 async function block(tabId, state) {
+  const job = (blockJobs.get(tabId) || Promise.resolve()).catch(() => {}).then(() => redirectToWarning(tabId, state));
+  blockJobs.set(tabId, job);
+  try { await job; }
+  finally { if (blockJobs.get(tabId) === job) blockJobs.delete(tabId); }
+}
+async function redirectToWarning(tabId, state) {
   if (
+    !(await settings()).enabled ||
     (await bypassed(tabId, state.originalUrl)) ||
     !(await currentFrame(tabId, state.documentId, state.originalUrl))
   )

@@ -329,7 +329,6 @@ export function adjudicate(url, layers) {
     coverage: "partial",
     reasons: signals
       .sort((a, b) => b.weight - a.weight)
-      .slice(0, 3)
       .map((s) => s.detail),
   };
 }

@@ -84,3 +84,13 @@ async def test_audit_failure_still_returns_verdict(monkeypatch, tmp_path):
     assert r.audit_status == "error"
     assert r.audit_id is None
     assert r.decision.risk_score == 40
+
+
+def test_adjudication_lists_all_problems():
+    from script.layers.adjudication import adjudicate
+    from script.models import Signal, result
+
+    signals = [Signal(id=f"risk_{i}", detail=f"Problem {i}", weight=5) for i in range(6)]
+    decision = adjudicate(PageContext(url="https://example.com"), [result("L3", signals)])
+    assert len(decision.reasons) == 6
+    assert set(decision.reasons) == {s.detail for s in signals}

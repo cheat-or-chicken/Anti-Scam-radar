@@ -1167,7 +1167,7 @@
       trusted_domain: isTrusted,
       interrupt_triggers: score >= 15 && !isTrusted ? [...TRIGGERS] : [],
       coverage: "partial",
-      reasons: signals.sort((a, b) => b.weight - a.weight).slice(0, 3).map((s) => s.detail)
+      reasons: signals.sort((a, b) => b.weight - a.weight).map((s) => s.detail)
     };
   }
   function mergeAnalysis(url, local, remote) {
@@ -1301,8 +1301,19 @@
       })
     );
   }
+  var blockJobs = /* @__PURE__ */ new Map();
   async function block(tabId, state) {
-    if (await bypassed(tabId, state.originalUrl) || !await currentFrame(tabId, state.documentId, state.originalUrl))
+    const job = (blockJobs.get(tabId) || Promise.resolve()).catch(() => {
+    }).then(() => redirectToWarning(tabId, state));
+    blockJobs.set(tabId, job);
+    try {
+      await job;
+    } finally {
+      if (blockJobs.get(tabId) === job) blockJobs.delete(tabId);
+    }
+  }
+  async function redirectToWarning(tabId, state) {
+    if (!(await settings()).enabled || await bypassed(tabId, state.originalUrl) || !await currentFrame(tabId, state.documentId, state.originalUrl))
       return;
     const existing = await chrome.storage.session.get(null);
     await chrome.storage.session.remove(

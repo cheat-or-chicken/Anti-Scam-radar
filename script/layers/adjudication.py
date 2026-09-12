@@ -40,7 +40,7 @@ def adjudicate(ctx: PageContext, layers: list[LayerResult]) -> Decision:
         category=category,
         display_level=display,
         interrupt_triggers=triggers,
-        reasons=[s.detail for _, s in ordered[:3]],
+        reasons=[s.detail for _, s in ordered],
         trusted_domain=is_trusted,
     )
 
