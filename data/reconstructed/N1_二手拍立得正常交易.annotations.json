@@ -1,0 +1,203 @@
+{
+  "case_id": "N1_secondhand_camera_v2",
+  "version": 2,
+  "nature": "全新合成的正常交易對照案例，非真實交易紀錄。",
+  "scenario_assumptions": [
+    "虛構二手交易平台提供App內下單、銀行轉帳付款資訊、付款與物流狀態；不代表任何指定平台的現行功能。",
+    "此案例設定為賣家如實描述、依約寄件，買家收到且確認商品符合描述。",
+    "860元由商品800元與運費60元組成，均為情境設定，非市場行情或實際費率。"
+  ],
+  "labels": {
+    "case_type": "benign",
+    "first_payment_request_turn": 12,
+    "first_payment_completed_turn": 20,
+    "delivery_confirmed_turn": 25,
+    "first_loss_chat_turn": null,
+    "first_L3_turn": null,
+    "total_scam_loss_twd": 0,
+    "payment_amount_twd": 860
+  },
+  "shared_features_with_B1": [
+    "社群接觸",
+    "低價利益",
+    "轉移至LINE",
+    "寄件",
+    "銀行轉帳",
+    "跨管道對話"
+  ],
+  "distinguishing_context": [
+    "揭露二手瑕疵並提供試機資訊。",
+    "可選面交試機後付款或平台下單。",
+    "付款金額對應商品與運費，沒有解除異常、認證或解凍金流的要求。",
+    "自行開啟平台App查找商品，付款資訊取自訂單。",
+    "交易後有出貨與收貨、試機完成。"
+  ],
+  "message_annotations": [
+    {
+      "turn": 1,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 2,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 3,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 4,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 5,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 6,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 7,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 8,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 9,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 10,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 11,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 12,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 13,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 14,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 15,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 16,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 17,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 18,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 19,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 20,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 21,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 22,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 23,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 24,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 25,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    },
+    {
+      "turn": 26,
+      "wording": "synthetic",
+      "event_basis": "synthetic_scenario"
+    }
+  ],
+  "evaluation": {
+    "turn_unit": "每則使用者或賣家訊息算一輪，跨管道連續計數；切換分隔線、工具結果與防詐提醒不計。",
+    "primary_measure": "依事先固定的示警門檻，記錄本正常案例是否出現詐騙警報，以及首次警報輪次。",
+    "payment_comparison_anchor": 20,
+    "payment_note": "第20則是正常付款完成，不能標為詐騙損失或L3；如比較付款前提醒，另用first_payment_completed_turn。",
+    "allowed_behavior": "可提供一般查證建議或保留未知；不將所有提醒自動算成詐騙誤報。",
+    "prefix_rule": "每輪只提供截至當輪的訊息，不能預先提供已收到商品的結局。",
+    "caution": "前半段資訊有限，不能要求偵測器預知賣家確實履約；評分需區分不確定性提示與高風險詐騙警報。"
+  },
+  "limitations": [
+    "完整收貨結果支持本情境標籤，不代表只看前段就能確定安全。",
+    "正常訊號較完整，可作第一個對照但不是困難負樣本，也不能單靠此例推估誤報率。",
+    "交易平台、帳號、訂單、物流與影片內容均為合成設定，並非已驗證真實交易。"
+  ],
+  "evaluation_usage": "重播只讀messages；annotations不提供給偵測器。",
+  "synthetic_details": {
+    "scope": "本次補充全部為Demo合成細節，不是來源查得的資料。",
+    "updated_turns": [
+      6,
+      8,
+      14,
+      17,
+      19,
+      23
+    ],
+    "urls": "example.com下的示例URL不是真實LINE、物流或已驗證網站；不可據此宣稱查證出詐騙。",
+    "financial_data": "星河測試銀行為虛構；TEST開頭帳號與DEMO序號不可用於真實交易。",
+    "attachments": "simulated_video與simulated_qr僅為附件卡片資料，沒有產生實際影片或付款碼圖片。前端需顯示caption；不可假稱可播放或可付款。",
+    "metadata_visibility": "simulation_only只供渲染與測試端；模型可見文字和附件caption，但不得以模擬標籤當詐騙訊號。兩類案例採相同模擬格式。"
+  }
+}

@@ -83,3 +83,8 @@ CLI 全域的 `--config` 必須放在子命令前面。完整逐檔說明、每�
 ```
 
 只做 LLM 程式碼審查時，`network_enabled` 可以保持 false。
+
+## 對話防詐 Demo
+
+[聊天室與防詐agent執行說明](ChatRoom/README.md)提供三例JSON載入、逐輪LLM判斷、證據與預測。
+[本次驗收狀態](docs/DIALOGUE_VALIDATION.md)：89項程式測試通過；真實模型三例完成，兩例匯款前示警，正常交易無示警。

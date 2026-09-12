@@ -9,3 +9,7 @@ config/config.local.json
 var/
 build/
 dist/
+
+.env.local
+.env.*
+!.env.example

@@ -1,14 +1,26 @@
 """本機聊天室與 JSON API 伺服器。執行：python server.py"""
+
 from __future__ import annotations
 
 import json
+import os
+import sys
 from datetime import datetime, timezone
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT.parent))
+from ChatRoom.detector import Detector  # noqa: E402
+
+DETECTOR = Detector()
+SAMPLES = {
+    p.name: p
+    for p in (ROOT.parent / "data/reconstructed").glob("*.replay.json")
+    if p.name.startswith(("B1_", "B2_", "N1_"))
+}
 HISTORY_FILE = ROOT / "chat_history.json"
 
 
@@ -29,12 +41,13 @@ def load_messages() -> list[dict]:
 
 
 def save_messages(messages: list[dict]) -> None:
-    HISTORY_FILE.write_text(
-        json.dumps(messages, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
+    HISTORY_FILE.write_text(json.dumps(messages, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 class ChatHandler(SimpleHTTPRequestHandler):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=str(ROOT), **kwargs)
+
     def send_json(self, payload: object, status: HTTPStatus = HTTPStatus.OK) -> None:
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         self.send_response(status)
@@ -53,23 +66,58 @@ class ChatHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self) -> None:
         request = urlparse(self.path)
+        if request.path == "/api/detector":
+            self.send_json({"configured": bool(os.getenv("OPENAI_API_KEY")), "model": DETECTOR.model})
+            return
+        if request.path == "/api/samples":
+            self.send_json({"samples": sorted(SAMPLES)})
+            return
+        if request.path == "/api/sample":
+            name = parse_qs(request.query).get("name", [""])[0]
+            if name not in SAMPLES:
+                self.send_json({"error": "Unknown sample"}, HTTPStatus.NOT_FOUND)
+                return
+            data = json.loads(SAMPLES[name].read_text())
+            self.send_json(data)
+            return
         if request.path == "/api/chat":
             messages = load_messages()
             requested_counterpart = parse_qs(request.query).get("counterpart", [""])[0]
             if requested_counterpart:
                 messages = [
-                    message for message in messages
-                    if message.get("counterpart") == requested_counterpart
+                    message for message in messages if message.get("counterpart") == requested_counterpart
                 ]
-            self.send_json({
-                "counterpart": requested_counterpart or None,
-                "messages": messages,
-                "count": len(messages),
-            })
+            self.send_json(
+                {
+                    "counterpart": requested_counterpart or None,
+                    "messages": messages,
+                    "count": len(messages),
+                }
+            )
             return
         super().do_GET()
 
     def do_POST(self) -> None:
+        if self.path in {"/api/sessions", "/api/analyze"}:
+            origin = self.headers.get("Origin")
+            if origin and urlparse(origin).netloc != self.headers.get("Host"):
+                self.send_json({"error": "Origin not allowed"}, HTTPStatus.FORBIDDEN)
+                return
+            try:
+                length = int(self.headers.get("Content-Length", "0"))
+                if length < 0 or length > 20000:
+                    raise ValueError("Request too large")
+                data = json.loads(self.rfile.read(length) or b"{}")
+                if self.path == "/api/sessions":
+                    result = {"session_id": DETECTOR.create_session()}
+                else:
+                    result = DETECTOR.analyze(data["session_id"], data["message"])
+                self.send_json(result)
+            except (ValueError, KeyError, TypeError) as exc:
+                self.send_json({"error": str(exc)}, HTTPStatus.BAD_REQUEST)
+            except Exception:
+                self.send_json({"error": "分析服務失敗；不能視為安全"}, HTTPStatus.INTERNAL_SERVER_ERROR)
+            return
         if self.path != "/api/messages":
             self.send_json({"error": "Not found"}, HTTPStatus.NOT_FOUND)
             return
@@ -109,6 +157,7 @@ class ChatHandler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print("聊天室已啟動：http://localhost:8000")
-    print("完整對話 API：http://localhost:8000/api/chat")
-    ThreadingHTTPServer(("127.0.0.1", 8000), ChatHandler).serve_forever()
+    port = int(os.getenv("PORT", "8000"))
+    print(f"聊天室已啟動：http://localhost:{port}", flush=True)
+    print(f"完整對話 API：http://localhost:{port}/api/chat")
+    ThreadingHTTPServer(("127.0.0.1", port), ChatHandler).serve_forever()

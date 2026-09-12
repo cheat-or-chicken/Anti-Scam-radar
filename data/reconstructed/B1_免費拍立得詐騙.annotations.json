@@ -1,0 +1,322 @@
+{
+  "case_id": "B1_reconstructed_v2",
+  "version": 2,
+  "source_file": "/Users/yeqinrong/Desktop/黑客松/corpus/B_測試與詐騙agent共用/B1_免費拍立得.md",
+  "source_verification": "依使用者提供的165案例整理，未獨立核對原網頁。",
+  "nature": "全部聊天措辭為補寫，僅警示文字沿用來源引述；非真實聊天逐字稿。",
+  "source_anchors": {
+    "contact": "看到相館歇業、贈送庫存拍立得貼文後主動聯繫。",
+    "line": "加入贈送者提供的 LINE。",
+    "shipping": "拍立得免費、運費自付，透過提供的賣貨便連結填資料。",
+    "error": "填資料後顯示「交易訂單失敗，需實名認證」。",
+    "support": "贈送者要求趕快找客服，否則帳戶被凍結；領取者加入頁面客服 LINE。",
+    "bank": "客服轉介銀行專員 LINE 協助異常與認證。",
+    "transfer": "以系統驗證為由要求網路轉帳。",
+    "transfer_done": "敘事記載領取者依指示網路轉帳。",
+    "other_payments": "敘事亦記載操作無卡提款與掃 QR Code 付款；確切筆數及細節未知。",
+    "doubt": "操作之後領取者質疑為何填寄件資料卻要多種金融操作。",
+    "pressure": "客服與專員稱未完成會鎖帳戶，且牽連賣家。",
+    "refund_claim": "聲稱操作款項將如數退回。",
+    "voucher": "要求信用卡購買數位禮券與遊戲點數卡，再提供序號查驗。",
+    "voucher_done": "敘事的操作流程重建為交付序號；實際逐字回覆未知。",
+    "delay": "告知驗證完成，之後以退款需要流程拖延。",
+    "silence": "多次追問未獲回應。"
+  },
+  "message_annotations": [
+    {
+      "turn": 1,
+      "source_anchor": "contact",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 2,
+      "source_anchor": "contact",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 3,
+      "source_anchor": "line",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 4,
+      "source_anchor": "line",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 5,
+      "source_anchor": "shipping",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 6,
+      "source_anchor": "shipping",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 7,
+      "source_anchor": "shipping",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 8,
+      "source_anchor": "error",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 9,
+      "source_anchor": "support",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 10,
+      "source_anchor": "support",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 11,
+      "source_anchor": "support",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 12,
+      "source_anchor": "support",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 13,
+      "source_anchor": "support",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 14,
+      "source_anchor": "support",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 15,
+      "source_anchor": "bank",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 16,
+      "source_anchor": "bank",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 17,
+      "source_anchor": "bank",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 18,
+      "source_anchor": "transfer",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 19,
+      "source_anchor": "transfer",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 20,
+      "source_anchor": "transfer",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 21,
+      "source_anchor": "transfer_done",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 22,
+      "source_anchor": "other_payments",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 23,
+      "source_anchor": "other_payments",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 24,
+      "source_anchor": "other_payments",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 25,
+      "source_anchor": "other_payments",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 26,
+      "source_anchor": "doubt",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 27,
+      "source_anchor": "pressure",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 28,
+      "source_anchor": "pressure",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 29,
+      "source_anchor": "refund_claim",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 30,
+      "source_anchor": "voucher",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 31,
+      "source_anchor": "voucher",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 32,
+      "source_anchor": "voucher",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 33,
+      "source_anchor": "voucher_done",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。",
+      "v2_note": "加入合成Demo細節；見synthetic_details。"
+    },
+    {
+      "turn": 34,
+      "source_anchor": "delay",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 35,
+      "source_anchor": "delay",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 36,
+      "source_anchor": "delay",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 37,
+      "source_anchor": "silence",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    },
+    {
+      "turn": 38,
+      "source_anchor": "silence",
+      "wording": "synthetic",
+      "note": "來源支持情節；具體問答、訊息分割與通訊位置是重建選擇。"
+    }
+  ],
+  "labels": {
+    "case_type": "scam",
+    "first_explicit_transfer_request_turn": 18,
+    "first_L1_turn": 4,
+    "first_L3_turn": 21,
+    "first_loss_chat_turn": 21,
+    "first_control_handover_turn": 21,
+    "first_L2_turn": null,
+    "scope": "重建版標籤。第4則表示已加LINE；第8則表示已開頁填資料；第21則為首次轉帳完成。更早是否發生L2未知。",
+    "synthetic_scenario_loss_twd": 10000,
+    "total_loss_twd": null
+  },
+  "metric_definition": {
+    "turn_unit": "合併所有對話管道，每則訊息算一輪。",
+    "formula": "21 - first_alert_turn",
+    "before_payment_condition": "first_alert_turn < 21",
+    "alert_timing": "讀完當輪後產生示警；第21則才示警已不算付款前。",
+    "example": {
+      "first_alert_turn": 18,
+      "lead_turns": 3
+    },
+    "no_alert": "first_alert_turn 與 lead_turns 為 null，記未示警。"
+  },
+  "limitations": [
+    "網路轉帳、无卡提款、掃碼操作的精確次數與先後未完整揭露，此版本依敘事列舉順序各呈現一次。",
+    "真實使用者是否在每次操作後回覆未知，完成回覆為重播與評測補寫。",
+    "多個LINE對話被合成時間線；假設偵測器可取得這些對話，单一聊天室可見範圍不足時不能直接沿用評測。",
+    "未加入每筆金融操作的詳細步驟；所有帳號與付款碼都是不可操作的佔位。",
+    "已讀過防詐規劃，同一作者重建與標註；不是独立盲重建。",
+    "38則是重建選擇，提前輪數不能視為真實案件提前量。",
+    "原始來源金額、帳戶、網址與精確筆數未知；v2新增的是合成數值，不構成真實證據。原案未給的时间仍為null。"
+  ],
+  "evaluation_usage": "只逐則提供 messages 給偵測器；不得提前提供未來訊息與標註。所有金額與實際損失總額未知。",
+  "synthetic_details": {
+    "scope": "本次補充全部為Demo合成細節，不是來源查得的資料。",
+    "updated_turns": [
+      3,
+      5,
+      7,
+      15,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      30,
+      33
+    ],
+    "urls": "example.com下的示例URL不是真實LINE、物流或已驗證網站；不可據此宣稱查證出詐騙。",
+    "financial_data": "星河測試銀行為虛構；TEST開頭帳號與DEMO序號不可用於真實交易。",
+    "attachments": "simulated_video與simulated_qr僅為附件卡片資料，沒有產生實際影片或付款碼圖片。前端需顯示caption；不可假稱可播放或可付款。",
+    "metadata_visibility": "simulation_only只供渲染與測試端；模型可見文字和附件caption，但不得以模擬標籤當詐騙訊號。兩類案例採相同模擬格式。",
+    "amounts": "B1：3,000轉帳＋3,000無卡提款＋2,000掃碼＋兩張1,000禮券／點數；B2：5,000轉帳＋3,000轉帳＋2,000無卡提款。金額均為補寫。"
+  }
+}
